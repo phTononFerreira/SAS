@@ -2,7 +2,7 @@
 
    <h1>
       <a href="">
-         <img width="600" src="https://logodownload.org/wp-content/uploads/2017/02/sus-logo.png">
+         <img width="350" src="https://cdn.discordapp.com/attachments/445732137623224331/1037461996494397440/logoSAS.png">
       </a>
    </h1>
    O Sistema de Atendimento da Saúde (SAS) tem como objetivo principal simplificar o processo de atendimento a pacientes em um posto de saúde.
