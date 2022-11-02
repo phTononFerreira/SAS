@@ -29,7 +29,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panTop" pref="956" max="32767" attributes="0"/>
+          <Component id="panTop" pref="958" max="32767" attributes="0"/>
           <Component id="panCards" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
