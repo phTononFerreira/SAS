@@ -1,0 +1,66 @@
+package com.sas.model;
+
+public class Paciente {
+
+	private int id;
+	private String nome;
+	private Date data_nascimento;
+	private String telefone;
+	private String cpf;
+	private String endereco;
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Date getData_nascimento() {
+		return data_nascimento;
+	}
+	public void setData_nascimento(Date data_nascimento) {
+		this.data_nascimento = data_nascimento;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	public Paciente() {
+	}
+
+	public Paciente(int id, String nome, Date data_nascimento, String telefone, String cpf, String endereco) {
+		this.id = id;
+		this.nome = nome;
+		this.data_nascimento = data_nascimento;
+		this.telefone = telefone;
+		this.cpf = cpf;
+		this.endereco = endereco;
+	}
+
+}
