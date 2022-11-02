@@ -1,5 +1,7 @@
 package com.sas.model;
 
+import java.util.Date;
+
 public abstract class Funcionario {
 
 	private int id;
@@ -18,7 +20,7 @@ public abstract class Funcionario {
 		this.id = id;
 	}
 
-	public int getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {
