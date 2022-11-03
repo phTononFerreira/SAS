@@ -1,5 +1,5 @@
 package com.sas.model;
-//ab
+
 public class Administrador extends Funcionario {
 
 	public Administrador() {
