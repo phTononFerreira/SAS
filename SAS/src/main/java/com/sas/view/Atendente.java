@@ -7,7 +7,7 @@ package com.sas.view;
 import java.awt.CardLayout;
 
 /**
- *
+ *qq
  * @author Tchuco
  */
 public class Atendente extends javax.swing.JFrame {
