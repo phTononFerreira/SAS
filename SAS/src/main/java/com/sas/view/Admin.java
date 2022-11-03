@@ -7,6 +7,7 @@ package com.sas.view;
 import java.awt.CardLayout;
 
 /**
+ * 
  * @author Tchuco
  */
 public class Admin extends javax.swing.JFrame {
