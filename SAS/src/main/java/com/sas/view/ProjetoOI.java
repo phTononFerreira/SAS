@@ -6,7 +6,7 @@
 package com.sas.view;
 /**
  *
- * @author Tchuco
+ * @author Tchuco 2.0
  */
 public class ProjetoOI {
 
