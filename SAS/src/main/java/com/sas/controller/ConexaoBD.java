@@ -1,8 +1,3 @@
-/**
- *
- * @author ViniciusGR797 <loritoamarelo@outlook.com>
- */
-
 package com.sas.controller;
 
 import java.sql.Connection;
@@ -12,19 +7,16 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 
 
-public class Conexao {
+public class ConexaoBD {
     
     private static Connection conn;
     
-    private static Conexao conexao;
+    private static ConexaoBD conexao;
     
-    private Conexao(){
-        
-    }
-    
-    public static Conexao getConexao(){
+    // SINGLETON (ConexaoBD)
+    public static ConexaoBD getConexao(){
         if(conexao == null)
-            conexao = new Conexao();
+            conexao = new ConexaoBD();
         return conexao;
     }
     
@@ -32,11 +24,11 @@ public class Conexao {
         return conn;
     }
     
-    public ResultSet pesquisaBD(String cunsulta){
+    public ResultSet executarQueryBD(String query){
         ResultSet resultSet = null;
         try {
             Statement statement = conn.createStatement();
-            resultSet = statement.executeQuery(cunsulta);
+            resultSet = statement.executeQuery(query);
         } catch (Exception e) {
             System.out.println("ERRO NA PESQUISA");
         }

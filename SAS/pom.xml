@@ -10,4 +10,5 @@
         <maven.compiler.target>18</maven.compiler.target>
         <exec.mainClass>com.utfpr.projetooi.ProjetoOI</exec.mainClass>
     </properties>
+    <name>SAS</name>
 </project>
