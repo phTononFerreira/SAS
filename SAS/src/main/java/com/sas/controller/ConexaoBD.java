@@ -13,6 +13,10 @@ public class ConexaoBD {
     
     private static ConexaoBD conexao;
     
+    public ConexaoBD(){
+        conectaBD();
+    }
+    
     // SINGLETON (ConexaoBD)
     public static ConexaoBD getConexao(){
         if(conexao == null)
@@ -37,12 +41,12 @@ public class ConexaoBD {
 
     public static void conectaBD() {
         try {
-            String url = "jdbc:mysql://localhost:3306/wikifilms?user=admin&password=admin";
+            String url = "jdbc:mysql://localhost:3306/sasdb?user=root&password=7412369";
             conn = DriverManager.getConnection(url);
             System.out.println("CONECTADO COM SUCESSO!");
 
         } catch (SQLException e) {
-            System.out.println("ERRO DE CONEXAO");
+            System.out.println("ERRO DE CONEXAO "+e);
         }
 
     }
