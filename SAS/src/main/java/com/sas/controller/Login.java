@@ -15,7 +15,7 @@ public class Login {
             if (usuarioEncontrado.getString(1).equals(senha)){ //VERIFICAR SE A SENHA CONFERE
                 cargo = "Administrador";
             }
-        }catch(SQLException e){
+        }catch(Exception e){
             System.out.println("FUNCIONARIO NAO ENCONTRADO(Administrador)!");
         }
         
@@ -26,7 +26,7 @@ public class Login {
             if (usuarioEncontrado.getString(1).equals(senha)){ //VERIFICAR SE A SENHA CONFERE
                 cargo = "Atendente";
             }
-        }catch(SQLException e){
+        }catch(Exception e){
             System.out.println("FUNCIONARIO NAO ENCONTRADO(Atendente)!");
         }
         
@@ -37,7 +37,7 @@ public class Login {
             if (usuarioEncontrado.getString(1).equals(senha)){ //VERIFICAR SE A SENHA CONFERE
                 cargo = "Enfermeira";
             }
-        }catch(SQLException e){
+        }catch(Exception e){
             System.out.println("FUNCIONARIO NAO ENCONTRADO(Enfermeira)!");
         }
         
@@ -48,7 +48,7 @@ public class Login {
             if (usuarioEncontrado.getString(1).equals(senha)){ //VERIFICAR SE A SENHA CONFERE
                 cargo = "Medico";
             } 
-        }catch(SQLException e){
+        }catch(Exception e){
             System.out.println("FUNCIONARIO NAO ENCONTRADO(Medico)!");
         }
                     
