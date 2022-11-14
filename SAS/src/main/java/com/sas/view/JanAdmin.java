@@ -5,6 +5,7 @@
 package com.sas.view;
 
 import java.awt.CardLayout;
+import com.sas.model.Administrador;
 
 /**
  * 
@@ -12,12 +13,23 @@ import java.awt.CardLayout;
  */
 public class JanAdmin extends javax.swing.JFrame {
 
+    private static JanAdmin unicoJanAdmin;
+    private static Administrador ge;
     
     CardLayout   cardLayout;
     
     public JanAdmin() {
         initComponents();
         cardLayout = (CardLayout)(panCards.getLayout());
+    }
+    
+    public static JanAdmin getJanAdmin(Administrador ge1) {
+        ge = ge1;
+
+        if (unicoJanAdmin == null) {
+            unicoJanAdmin = new JanAdmin();
+        }
+        return unicoJanAdmin;
     }
 
     /**
@@ -164,6 +176,7 @@ public class JanAdmin extends javax.swing.JFrame {
         panCards.setLayout(new java.awt.CardLayout());
 
         cardCadFuncionario.setBackground(new java.awt.Color(231, 231, 231));
+        cardCadFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         panInfo.setBackground(new java.awt.Color(255, 255, 255));
         panInfo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(249, 100, 100), 1, true));

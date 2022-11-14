@@ -1,9 +1,12 @@
 package com.sas.view;
 
 import com.sas.controller.Login;
+import com.sas.model.Administrador;
 
 public class JanLogin extends javax.swing.JFrame {
 
+    private Administrador ge = new Administrador();
+    
     /**
      * Creates new form Login
      */
@@ -168,6 +171,7 @@ public class JanLogin extends javax.swing.JFrame {
             if(cargo.equals("Administrador")){
                 // JanAdministrador(ID)
                 System.out.println("JanAdministrador"+ID);
+                abreJanAdmin();
             }
             if(cargo.equals("Atendente")){
                 // JanAtendente(ID)
@@ -187,6 +191,18 @@ public class JanLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void abreJanAdmin() {
+        JanAdmin.getJanAdmin(ge).setVisible(true);
+    }
+
+    /*public void abreCadEmpEH() {
+        CadEH.getCadEH(ge).setVisible(true);
+    }
+
+    public void abreCadEmpEP() {
+        CadEP.getCadEP(ge).setVisible(true);
+    }*/
+    
     /**
      * @param args the command line arguments
      */
