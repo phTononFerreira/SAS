@@ -14,7 +14,7 @@ import com.sas.model.Administrador;
 public class JanAdmin extends javax.swing.JFrame {
 
     private static JanAdmin unicoJanAdmin;
-    private static Administrador ge;
+    private static Administrador gad;
     
     CardLayout   cardLayout;
     
@@ -23,8 +23,8 @@ public class JanAdmin extends javax.swing.JFrame {
         cardLayout = (CardLayout)(panCards.getLayout());
     }
     
-    public static JanAdmin getJanAdmin(Administrador ge1) {
-        ge = ge1;
+    public static JanAdmin getJanAdmin(Administrador gad1) {
+        gad = gad1;
 
         if (unicoJanAdmin == null) {
             unicoJanAdmin = new JanAdmin();
@@ -85,7 +85,7 @@ public class JanAdmin extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jRadioButton7 = new javax.swing.JRadioButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
         panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(249, 100, 100)));

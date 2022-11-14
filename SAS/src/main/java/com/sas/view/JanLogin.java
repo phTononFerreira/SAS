@@ -2,10 +2,16 @@ package com.sas.view;
 
 import com.sas.controller.Login;
 import com.sas.model.Administrador;
+import com.sas.model.Atendente;
+import com.sas.model.Medico;
+import com.sas.model.Enfermeira;
 
 public class JanLogin extends javax.swing.JFrame {
 
-    private Administrador ge = new Administrador();
+    private Administrador gad = new Administrador();
+    private Atendente gat = new Atendente();
+    private Medico gme = new Medico();
+    private Enfermeira gen = new Enfermeira();
     
     /**
      * Creates new form Login
@@ -176,6 +182,7 @@ public class JanLogin extends javax.swing.JFrame {
             if(cargo.equals("Atendente")){
                 // JanAtendente(ID)
                 System.out.println("JanAtendente"+ID);
+                abreJanAtendente();
             }
             if(cargo.equals("Enfermeira")){
                 // JanEnfermeira(ID)
@@ -192,15 +199,19 @@ public class JanLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void abreJanAdmin() {
-        JanAdmin.getJanAdmin(ge).setVisible(true);
+        JanAdmin.getJanAdmin(gad).setVisible(true);
     }
 
-    /*public void abreCadEmpEH() {
-        CadEH.getCadEH(ge).setVisible(true);
+    public void abreJanAtendente() {
+        JanAtendente.getJanAtendente(gat).setVisible(true);
     }
-
-    public void abreCadEmpEP() {
-        CadEP.getCadEP(ge).setVisible(true);
+    
+    /*public void abreJanEnfermeira() {
+        JanEnfermeira.getJanEnfermeira(gen).setVisible(true);
+    }
+    
+    public void abreJanMedico() {
+        JanMedico.getJanMedico(gme).setVisible(true);
     }*/
     
     /**

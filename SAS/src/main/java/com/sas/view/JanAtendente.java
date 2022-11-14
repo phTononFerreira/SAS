@@ -5,6 +5,7 @@
 package com.sas.view;
 
 import java.awt.CardLayout;
+import com.sas.model.Atendente;
 
 /**
  *qq
@@ -12,15 +13,23 @@ import java.awt.CardLayout;
  */
 public class JanAtendente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Atendente
-     */
-   CardLayout   cardLayout;
+    private static JanAtendente unicoJanAtendente;
+    private static Atendente gat;
+    
+    CardLayout   cardLayout;
     
     public JanAtendente() {
         initComponents();
-        
         cardLayout = (CardLayout)(panCardsAtendente.getLayout());
+    }
+    
+    public static JanAtendente getJanAtendente(Atendente gat1) {
+        gat = gat1;
+
+        if (unicoJanAtendente == null) {
+            unicoJanAtendente = new JanAtendente();
+        }
+        return unicoJanAtendente;
     }
 
     /**
@@ -61,7 +70,7 @@ public class JanAtendente extends javax.swing.JFrame {
         lbTelefone = new javax.swing.JLabel();
         jSeparator = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 600));
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
