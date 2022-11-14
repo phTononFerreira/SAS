@@ -4,6 +4,8 @@
  */
 package com.sas.view;
 
+import com.sas.model.Medico;
+
 /**
  *
  * @author Tchuco
@@ -13,8 +15,20 @@ public class JanMedico extends javax.swing.JFrame {
     /**
      * Creates new form ConsultaMed
      */
+    private static JanMedico unicoJanMedico;
+    private static Medico gme;
+    
     public JanMedico() {
         initComponents();
+    }
+    
+    public static JanMedico getJanMedico(Medico gme1) {
+        gme = gme1;
+
+        if (unicoJanMedico == null) {
+            unicoJanMedico = new JanMedico();
+        }
+        return unicoJanMedico;
     }
 
     /**

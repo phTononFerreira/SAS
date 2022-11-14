@@ -187,10 +187,12 @@ public class JanLogin extends javax.swing.JFrame {
             if(cargo.equals("Enfermeira")){
                 // JanEnfermeira(ID)
                 System.out.println("JanEnfermeira"+ID);
+                abreJanEnfermeira();
             }
             if(cargo.equals("Medico")){
                 // JanMedico(ID)
                 System.out.println("JanMedico"+ID);
+                abreJanMedico();
             }
             
         }else{
@@ -206,13 +208,13 @@ public class JanLogin extends javax.swing.JFrame {
         JanAtendente.getJanAtendente(gat).setVisible(true);
     }
     
-    /*public void abreJanEnfermeira() {
+    public void abreJanEnfermeira() {
         JanEnfermeira.getJanEnfermeira(gen).setVisible(true);
     }
     
     public void abreJanMedico() {
         JanMedico.getJanMedico(gme).setVisible(true);
-    }*/
+    }
     
     /**
      * @param args the command line arguments

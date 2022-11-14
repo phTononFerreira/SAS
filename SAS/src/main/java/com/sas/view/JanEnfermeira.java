@@ -5,7 +5,7 @@
 package com.sas.view;
 
 import java.awt.CardLayout;
-
+import com.sas.model.Enfermeira;
 /**
  *
  * @author Tchuco
@@ -16,8 +16,10 @@ public class JanEnfermeira extends javax.swing.JFrame {
      * Creates new form Enfermeira
      */
     
-    CardLayout   cardLayout;
+    private static JanEnfermeira unicoJanEnfermeira;
+    private static Enfermeira gen;
     
+    CardLayout   cardLayout;
     
     public JanEnfermeira() {
         initComponents();
@@ -25,7 +27,14 @@ public class JanEnfermeira extends javax.swing.JFrame {
         
     }
     
-    
+    public static JanEnfermeira getJanEnfermeira(Enfermeira gen1) {
+        gen = gen1;
+
+        if (unicoJanEnfermeira == null) {
+            unicoJanEnfermeira = new JanEnfermeira();
+        }
+        return unicoJanEnfermeira;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
