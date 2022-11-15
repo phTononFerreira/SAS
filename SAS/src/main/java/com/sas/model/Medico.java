@@ -4,7 +4,7 @@ public class Medico extends Funcionario {
 
 	private int crm;
 	private String especialidade;
-	private int adm_id;
+	private int med_id;
 
 	public int getCrm() {
 		return crm;
@@ -20,20 +20,20 @@ public class Medico extends Funcionario {
 		this.especialidade = especialidade;
 	}
 
-	public int getAdm_id() {
-		return adm_id;
+	public int getMed_id() {
+		return med_id;
 	}
-	public void setAdm_id(int adm_id) {
-		this.adm_id = adm_id;
+	public void setMed_id(int med_id) {
+		this.med_id = med_id;
 	}
 
 	public Medico() {
 	}
 	
-	public Medico(int crm, String especialidade, int adm_id) {
+	public Medico(int crm, String especialidade, int med_id) {
 		this.crm = crm;
 		this.especialidade = especialidade;
-		this.adm_id = adm_id;
+		this.med_id = med_id;
 	}
 
 	public void finalizarCon(Consulta con) {

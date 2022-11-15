@@ -2,20 +2,20 @@ package com.sas.model;
 
 public class Atendente extends Funcionario {
 
-	private int adm_id;
+	private int ate_id;
 
-	public int getAdm_id() {
-		return adm_id;
+	public int getAte_id() {
+		return ate_id;
 	}
-	public void setAdm_id(int adm_id) {
-		this.adm_id = adm_id;
+	public void setAte_id(int ate_id) {
+		this.ate_id = ate_id;
 	}
 
 	public Atendente() {
 	}
 
-	public Atendente(int adm_id) {
-		this.adm_id = adm_id;
+	public Atendente(int ate_id) {
+		this.ate_id = ate_id;
 	}
 
 	public Paciente cadastrarPac() {
