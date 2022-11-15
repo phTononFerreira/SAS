@@ -57,7 +57,7 @@ public class Atendente extends Funcionario {
                 ate.setTelefone(pesquisa.getString("ate_telefone"));
                 ate.setEndereco(pesquisa.getString("ate_endereco"));
                 ate.setSalario(Double.parseDouble(pesquisa.getString("ate_salario")));
-                ate.setAdm_id(pesquisa.getString("adm_id")));
+                ate.setAdm_id(pesquisa.getString("adm_id"));
                 //System.out.println(adm.toString());
             }else{
                 ate = null;

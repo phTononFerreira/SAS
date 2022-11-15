@@ -41,7 +41,7 @@ public class ConexaoBD {
 
     public static void conectaBD() {
         try {
-            String url = "jdbc:mysql://localhost:3306/sasdb?user=default&password=$@193Ed67";
+            String url = "jdbc:mysql://localhost:3306/sasdb?user=default&password=$@1E93Ed67";
             conn = DriverManager.getConnection(url);
             System.out.println("CONECTADO COM SUCESSO!");
 

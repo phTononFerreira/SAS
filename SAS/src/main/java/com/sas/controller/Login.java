@@ -1,5 +1,6 @@
 package com.sas.controller;
 
+import com.mycompany.sas.Atendente;
 import com.sas.model.Administrador;
 import com.sas.model.Funcionario;
 import java.sql.ResultSet;
