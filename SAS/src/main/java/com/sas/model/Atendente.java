@@ -6,20 +6,20 @@ import java.text.SimpleDateFormat;
 
 public class Atendente extends Funcionario {
 
-        private int ate_id;
+        private String adm_id;
 
-	public int getAte_id() {
-		return ate_id;
+	public String getAdm_id() {
+		return adm_id;
 	}
-	public void setAte_id(int ate_id) {
-		this.ate_id = ate_id;
+	public void setAdm_id(String ate_id) {
+		this.adm_id = ate_id;
 	}
 
 	public Atendente() {
 	}
 
-	public Atendente(int ate_id) {
-		this.ate_id = ate_id;
+	public Atendente(String adm_id) {
+		this.adm_id = adm_id;
 	}
 
 	public Paciente cadastrarPac() {
@@ -51,7 +51,7 @@ public class Atendente extends Funcionario {
                 pesquisa.next();
                 ate.setId(pesquisa.getString("ate_id"));
                 ate.setSenha(pesquisa.getString("ate_senha"));
-                ate.setNome(pesquisa.getString("qte_nome"));
+                ate.setNome(pesquisa.getString("ate_nome"));
                 ate.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("ate_dataNasc")));
                 ate.setCpf(pesquisa.getString("ate_cpf"));
                 ate.setTelefone(pesquisa.getString("ate_telefone"));
