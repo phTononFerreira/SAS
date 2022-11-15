@@ -4,7 +4,7 @@ import java.util.Date;
 
 public abstract class Funcionario {
 
-	private int id;
+	private String id;
 	private String senha;
 	private String nome;
 	private Date data_nascimento;
@@ -13,10 +13,10 @@ public abstract class Funcionario {
 	private String endereco;
 	private double salario;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -72,7 +72,7 @@ public abstract class Funcionario {
 	public Funcionario() {
 	}
 	
-	public Funcionario(int id, String senha, String nome, Date data_nascimento, String cpf, String telefone, String endereco,
+	public Funcionario(String id, String senha, String nome, Date data_nascimento, String cpf, String telefone, String endereco,
 			double salario) {
 		this.id = id;
 		this.senha = senha;

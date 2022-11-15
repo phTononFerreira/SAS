@@ -28,7 +28,7 @@ public class Administrador extends Funcionario {
             if (pesquisa.isBeforeFirst()) {
                 adm = new Administrador();
                 pesquisa.next();
-                adm.setId(Integer.parseInt(pesquisa.getString("adm_id")));
+                adm.setId(pesquisa.getString("adm_id"));
                 adm.setSenha(pesquisa.getString("adm_senha"));
                 adm.setNome(pesquisa.getString("adm_nome"));
                 adm.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("adm_dataNasc")));

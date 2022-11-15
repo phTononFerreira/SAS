@@ -20,41 +20,36 @@ public class Login {
             System.out.println("[ADM] USUARIO NAO ENCONTRADO!");
         }
             
-
-        /*
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Atendente
-        if(cargo == null)
-            usuarioEncontrado = ConexaoBD.getConexao().executarQueryBD("SELECT ate_id, ate_senha FROM atendente WHERE ate_id = '"+ID+"'");
-        try{
-            if (usuarioEncontrado.next() && usuarioEncontrado.getString("ate_senha").equals(senha)){ //VERIFICAR SE A SENHA CONFERE
+        usuarioEncontrado = (Atendente) Atendente.pesquisarAtendenteID(ID);
+        if (usuarioEncontrado != null) {
+            if (usuarioEncontrado.getSenha().equals(senha)) {
                 cargo = "Atendente";
             }
-        }catch(Exception e){
-            System.out.println("FUNCIONARIO NAO ENCONTRADO(Atendente)!\n"+e);
+        }else{
+            System.out.println("[ATE] USUARIO NAO ENCONTRADO!");
         }
         
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Enfermeira
-        if(cargo == null)
-            usuarioEncontrado = ConexaoBD.getConexao().executarQueryBD("SELECT enf_id, enf_senha FROM enfermeira WHERE enf_id = '"+ID+"'");
-        try{
-            if (usuarioEncontrado.next() && usuarioEncontrado.getString("enf_senha").equals(senha)){ //VERIFICAR SE A SENHA CONFERE
+        usuarioEncontrado = (Enfermeira) Enfermeira.pesquisarEnfermeiraID(ID);
+        if (usuarioEncontrado != null) {
+            if (usuarioEncontrado.getSenha().equals(senha)) {
                 cargo = "Enfermeira";
             }
-        }catch(Exception e){
-            System.out.println("FUNCIONARIO NAO ENCONTRADO(Enfermeira)!\n"+e);
+        }else{
+            System.out.println("[ENF] USUARIO NAO ENCONTRADO!");
         }
         
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Medico
-        if(cargo == null)
-            usuarioEncontrado = ConexaoBD.getConexao().executarQueryBD("SELECT med_id, med_senha FROM medico WHERE med_id ='"+ID+"'");
-        try{
-            if (usuarioEncontrado.next() && usuarioEncontrado.getString("med_senha").equals(senha)){ //VERIFICAR SE A SENHA CONFERE
+        usuarioEncontrado = (Medico) Medico.pesquisarMedicoID(ID);
+        if (usuarioEncontrado != null) {
+            if (usuarioEncontrado.getSenha().equals(senha)) {
                 cargo = "Medico";
-            } 
-        }catch(Exception e){
-            System.out.println("FUNCIONARIO NAO ENCONTRADO(Medico)!\n"+e);
+            }
+        }else{
+            System.out.println("[MED] USUARIO NAO ENCONTRADO!");
         }
-         */
+        
         if (cargo == null || usuarioEncontrado == null) {
             return null;
         }
