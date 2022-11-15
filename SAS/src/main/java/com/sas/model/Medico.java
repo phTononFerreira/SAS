@@ -1,5 +1,9 @@
 package com.sas.model;
 
+import com.sas.controller.ConexaoBD;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+
 public class Medico extends Funcionario {
 
 	private int crm;
@@ -51,5 +55,32 @@ public class Medico extends Funcionario {
 	public void visualizarPro(Prontuario pro) {
 
 	}
+        
+        public static Medico pesquisarMedicoID(String ID) {
+        ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_id = '" + ID + "'");
+        Medico med = null;
+        try {
+            if (pesquisa.isBeforeFirst()) {
+                med = new Medico();
+                pesquisa.next();
+                med.setId(pesquisa.getString("adm_id"));
+                med.setSenha(pesquisa.getString("adm_senha"));
+                med.setNome(pesquisa.getString("adm_nome"));
+                med.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("adm_dataNasc")));
+                med.setCpf(pesquisa.getString("adm_cpf"));
+                med.setTelefone(pesquisa.getString("adm_telefone"));
+                med.setEndereco(pesquisa.getString("adm_endereco"));
+                med.setSalario(Double.parseDouble(pesquisa.getString("adm_salario")));
+                //System.out.println(adm.toString());
+            }else{
+                med = null;
+            }
+
+        } catch (Exception e) {
+            System.out.println("ERRO NA FORMATAÇÃO => "+e);
+        }
+
+        return med;
+    }
 
 }
