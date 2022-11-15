@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class Enfermeira extends Funcionario {
 
 	private String cr;
-	private int adm_id;
+	private String adm_id;
 
 	public String getCr() {
 		return cr;
@@ -16,17 +16,17 @@ public class Enfermeira extends Funcionario {
 		this.cr = cr;
 	}
 
-	public int getAdm_id() {
+	public String getAdm_id() {
 		return adm_id;
 	}
-	public void setAdm_id(int enf_id) {
-		this.adm_id = enf_id;
+	public void setAdm_id(String adm_id) {
+		this.adm_id = adm_id;
 	}
 
 	public Enfermeira() {
 	}
 
-	public Enfermeira(String cr, int adm_id) {
+	public Enfermeira(String cr, String adm_id) {
 		this.cr = cr;
 		this.adm_id = adm_id;
 	}
@@ -62,7 +62,7 @@ public class Enfermeira extends Funcionario {
                 enf.setEndereco(pesquisa.getString("enf_endereco"));
                 enf.setSalario(Double.parseDouble(pesquisa.getString("enf_salario")));
                 enf.setCr(pesquisa.getString("enf_salario"));
-                enf.setAdm_id(pesquisa.getString("adm_id")));
+                enf.setAdm_id(pesquisa.getString("adm_id"));
                 //System.out.println(adm.toString());
             }else{
                 enf = null;
