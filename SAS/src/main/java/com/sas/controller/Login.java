@@ -1,24 +1,27 @@
 package com.sas.controller;
 
+import com.sas.model.Administrador;
+import com.sas.model.Funcionario;
 import java.sql.ResultSet;
 
 public class Login {
-    public static String verificarLogin(String ID, String senha){
-        ResultSet usuarioEncontrado = null;
-        String cargo = null; 
-        
+
+    public static String verificarLogin(String ID, String senha) {
+        Funcionario usuarioEncontrado = null;
+        String cargo = null;
+
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Administrador
-        if(cargo == null)
-            usuarioEncontrado = ConexaoBD.getConexao().executarQueryBD("SELECT adm_id, adm_senha FROM administrador WHERE adm_id = '"+ID+"'");
-        try{
-            if (usuarioEncontrado.next() && usuarioEncontrado.getString("adm_senha").equals(senha)){ //VERIFICAR SE A SENHA CONFERE
+        usuarioEncontrado = (Administrador) Administrador.pesquisarAdministradorID(ID);
+        if (usuarioEncontrado != null) {
+            if (usuarioEncontrado.getSenha().equals(senha)) {
                 cargo = "Administrador";
             }
-        }catch(Exception e){
-            System.out.println("FUNCIONARIO NAO ENCONTRADO(Administrador)!\n"+e);
+        }else{
+            System.out.println("[ADM] USUARIO NAO ENCONTRADO!");
         }
-       
-        
+            
+
+        /*
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Atendente
         if(cargo == null)
             usuarioEncontrado = ConexaoBD.getConexao().executarQueryBD("SELECT ate_id, ate_senha FROM atendente WHERE ate_id = '"+ID+"'");
@@ -51,11 +54,11 @@ public class Login {
         }catch(Exception e){
             System.out.println("FUNCIONARIO NAO ENCONTRADO(Medico)!\n"+e);
         }
-                    
-        if (cargo == null || usuarioEncontrado == null){
+         */
+        if (cargo == null || usuarioEncontrado == null) {
             return null;
         }
-        
+
         return ID + "-" + cargo;
     }
 }
