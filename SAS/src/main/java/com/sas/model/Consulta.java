@@ -81,6 +81,6 @@ public class Consulta {
 		this.med_id = med_id;
 		this.pro_id = pro_id;
 		this.ate_id = ate_id;
-	}
+	} 
 
 }
