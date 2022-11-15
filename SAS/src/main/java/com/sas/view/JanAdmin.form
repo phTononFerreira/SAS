@@ -199,7 +199,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="panInfo" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="158" max="-2" attributes="0"/>
+                      <Component id="jButtonCadastrar" min="-2" pref="158" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -213,7 +213,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="jButtonCadastrar" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -471,6 +471,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton4">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bgEquipe"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="ATENDIMENTO"/>
                   </Properties>
                   <Events>
@@ -479,6 +482,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton5">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bgEquipe"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="ENFERMAGEM"/>
                   </Properties>
                   <Events>
@@ -495,6 +501,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton6">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="bgEquipe"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="M&#xc9;DICA"/>
                   </Properties>
                   <Events>
@@ -524,7 +533,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="jButtonCadastrar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="64" green="64" red="f9" type="rgb"/>
@@ -581,9 +590,9 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextField1" min="-2" pref="265" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldNomeFunc" min="-2" pref="265" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" pref="119" max="-2" attributes="0"/>
+                                      <Component id="jButtonPesquisar" min="-2" pref="119" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -602,8 +611,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="jButtonPesquisar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNomeFunc" alignment="3" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -713,9 +722,6 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton1">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="bgEquipe"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="ENFERMAGEM"/>
               </Properties>
               <Events>
@@ -724,9 +730,6 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton2">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="bgEquipe"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="ATENDIMENTO"/>
               </Properties>
               <Events>
@@ -735,21 +738,18 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton3">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="bgEquipe"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="M&#xc9;DICA"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton3ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="jTextFieldNomeFunc">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomeFuncActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jButtonPesquisar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="64" green="64" red="f9" type="rgb"/>
@@ -763,7 +763,7 @@
                 <Property name="text" type="java.lang.String" value="PESQUISAR"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPesquisarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
@@ -790,9 +790,6 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButton7">
               <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="bgEquipe"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="ADMINISTRA&#xc7;&#xc3;O"/>
               </Properties>
               <Events>

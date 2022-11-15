@@ -71,7 +71,7 @@ public class JanAdmin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         tfTemperatura6 = new javax.swing.JTextField();
         labTemperatura6 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        jButtonCadastrar = new javax.swing.JButton();
         cardFuncionarios = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabEstoque = new javax.swing.JTable();
@@ -79,8 +79,8 @@ public class JanAdmin extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jTextFieldNomeFunc = new javax.swing.JTextField();
+        jButtonPesquisar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jRadioButton7 = new javax.swing.JRadioButton();
@@ -211,6 +211,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
         labTemperatura5.setText("CRM");
 
+        bgEquipe.add(jRadioButton4);
         jRadioButton4.setText("ATENDIMENTO");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +219,7 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
+        bgEquipe.add(jRadioButton5);
         jRadioButton5.setText("ENFERMAGEM");
         jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,6 +230,7 @@ public class JanAdmin extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel5.setText("Selecionar Equipe");
 
+        bgEquipe.add(jRadioButton6);
         jRadioButton6.setText("MÉDICA");
         jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,10 +337,10 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(68, 68, 68))
         );
 
-        jButton3.setBackground(new java.awt.Color(249, 100, 100));
-        jButton3.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("CADASTRAR");
+        jButtonCadastrar.setBackground(new java.awt.Color(249, 100, 100));
+        jButtonCadastrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jButtonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCadastrar.setText("CADASTRAR");
 
         javax.swing.GroupLayout cardCadFuncionarioLayout = new javax.swing.GroupLayout(cardCadFuncionario);
         cardCadFuncionario.setLayout(cardCadFuncionarioLayout);
@@ -347,7 +350,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
         cardCadFuncionarioLayout.setVerticalGroup(
@@ -358,7 +361,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
             .addGroup(cardCadFuncionarioLayout.createSequentialGroup()
                 .addGap(185, 185, 185)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -403,7 +406,6 @@ public class JanAdmin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel2.setText("Filtrar Equipe");
 
-        bgEquipe.add(jRadioButton1);
         jRadioButton1.setText("ENFERMAGEM");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -411,7 +413,6 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
-        bgEquipe.add(jRadioButton2);
         jRadioButton2.setText("ATENDIMENTO");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -419,7 +420,6 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
-        bgEquipe.add(jRadioButton3);
         jRadioButton3.setText("MÉDICA");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -427,19 +427,19 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNomeFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldNomeFuncActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(249, 100, 100));
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("PESQUISAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonPesquisar.setBackground(new java.awt.Color(249, 100, 100));
+        jButtonPesquisar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jButtonPesquisar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonPesquisar.setText("PESQUISAR");
+        jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonPesquisarActionPerformed(evt);
             }
         });
 
@@ -455,7 +455,6 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
-        bgEquipe.add(jRadioButton7);
         jRadioButton7.setText("ADMINISTRAÇÃO");
         jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,9 +487,9 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldNomeFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButtonPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3))))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -503,8 +502,8 @@ public class JanAdmin extends javax.swing.JFrame {
                     .addGroup(cardFuncionariosLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1)))
+                            .addComponent(jButtonPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNomeFunc)))
                     .addGroup(cardFuncionariosLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2)
@@ -574,13 +573,13 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldNomeFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeFuncActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldNomeFuncActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -649,9 +648,9 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bgFiltro;
     private javax.swing.JPanel cardCadFuncionario;
     private javax.swing.JPanel cardFuncionarios;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonCadastrar;
+    private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -664,7 +663,7 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldNomeFunc;
     private javax.swing.JLabel labCadFuncionario;
     private javax.swing.JLabel labFuncionario;
     private javax.swing.JLabel labLogo;
