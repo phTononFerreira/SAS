@@ -33,6 +33,7 @@ public class Administrador extends Funcionario {
                 adm.setNome(pesquisa.getString("adm_nome"));
                 adm.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("adm_dataNasc")));
                 adm.setCpf(pesquisa.getString("adm_cpf"));
+                adm.setTelefone(pesquisa.getString("adm_telefone"));
                 adm.setEndereco(pesquisa.getString("adm_endereco"));
                 adm.setSalario(Double.parseDouble(pesquisa.getString("adm_salario")));
                 //System.out.println(adm.toString());
