@@ -65,4 +65,16 @@ public class Login {
 
         return ID + "-" + cargo;
     }
+    
+    public static String retornaNomeFuncionario(String ID) {
+        String nome = switch (ID.substring(0,3)) {
+            case "adm" -> Administrador.pesquisarAdministradorID(ID).getNome();
+            case "ate" -> Atendente.pesquisarAtendenteID(ID).getNome();
+            case "enf" -> Enfermeira.pesquisarEnfermeiraID(ID).getNome();
+            case "med" -> Medico.pesquisarMedicoID(ID).getNome();
+            default -> "Usuário não encontrado.";
+        };
+        nome = nome.split(" ")[0];
+        return nome;
+    }
 }

@@ -13,10 +13,18 @@ import java.awt.CardLayout;
 public class JanAdmin extends javax.swing.JFrame {
 
     private static JanAdmin unicoJanAdmin;
-    private static String ID;
+    private String ID;
 
     CardLayout cardLayout;
-
+    
+    public String getId(){
+        return ID;
+    }
+    
+    public void setId(String ID){
+        this.ID = ID;
+    }
+        
     public JanAdmin() {
         initComponents();
         cardLayout = (CardLayout) (panCards.getLayout());

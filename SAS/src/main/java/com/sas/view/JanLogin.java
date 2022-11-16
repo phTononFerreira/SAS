@@ -204,33 +204,25 @@ public class JanLogin extends javax.swing.JFrame {
     public void abreJanAdmin(String ID) {
         statusLabel.setText("");
         JanAdmin.getJanAdmin().setVisible(true);
-        String nome = Administrador.pesquisarAdministradorID(ID).getNome();
-        nome = nome.split(" ")[0];
-        JanAdmin.getJanAdmin().setNomePerfil(nome);
+        JanAdmin.getJanAdmin().setNomePerfil(Login.retornaNomeFuncionario(ID));
     }
 
     public void abreJanAtendente(String ID) {
         statusLabel.setText("");
         JanAtendente.getJanAtendente().setVisible(true);
-        String nome = Atendente.pesquisarAtendenteID(ID).getNome();
-        nome = nome.split(" ")[0];
-        JanAtendente.getJanAtendente().setNomePerfil(nome);
+        JanAtendente.getJanAtendente().setNomePerfil(Login.retornaNomeFuncionario(ID));
     }
 
     public void abreJanEnfermeira(String ID) {
         statusLabel.setText("");
         JanEnfermeira.getJanEnfermeira().setVisible(true);
-        String nome = Enfermeira.pesquisarEnfermeiraID(ID).getNome();
-        nome = nome.split(" ")[0];
-        JanEnfermeira.getJanEnfermeira().setNomePerfil(nome);
+        JanEnfermeira.getJanEnfermeira().setNomePerfil(Login.retornaNomeFuncionario(ID));
     }
 
     public void abreJanMedico(String ID) {
         statusLabel.setText("");
         JanMedico.getJanMedico().setVisible(true);
-        String nome = Medico.pesquisarMedicoID(ID).getNome();
-        nome = nome.split(" ")[0];
-        JanMedico.getJanMedico().setNomePerfil(nome);
+        JanMedico.getJanMedico().setNomePerfil(Login.retornaNomeFuncionario(ID));
     }
 
     /**
