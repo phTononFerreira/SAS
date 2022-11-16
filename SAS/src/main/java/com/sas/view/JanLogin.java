@@ -32,6 +32,7 @@ public class JanLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPasswordFieldSenha = new javax.swing.JPasswordField();
+        statusLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -94,6 +95,10 @@ public class JanLogin extends javax.swing.JFrame {
             }
         });
 
+        statusLabel.setBackground(new java.awt.Color(0, 0, 0));
+        statusLabel.setForeground(new java.awt.Color(204, 0, 0));
+        statusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -105,6 +110,7 @@ public class JanLogin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -125,9 +131,11 @@ public class JanLogin extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -196,23 +204,27 @@ public class JanLogin extends javax.swing.JFrame {
             }
             
         }else{
-            System.out.println("USUARIO/SENHA INCORRETOS!");
+            statusLabel.setText("USUARIO/SENHA INCORRETOS!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void abreJanAdmin() {
+        statusLabel.setText("");
         JanAdmin.getJanAdmin(gad).setVisible(true);
     }
 
     public void abreJanAtendente() {
+        statusLabel.setText("");
         JanAtendente.getJanAtendente(gat).setVisible(true);
     }
     
     public void abreJanEnfermeira() {
+        statusLabel.setText("");
         JanEnfermeira.getJanEnfermeira(gen).setVisible(true);
     }
     
     public void abreJanMedico() {
+        statusLabel.setText("");
         JanMedico.getJanMedico(gme).setVisible(true);
     }
     
@@ -261,5 +273,6 @@ public class JanLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordFieldSenha;
     private javax.swing.JTextField jTextFieldUsuario;
+    private javax.swing.JLabel statusLabel;
     // End of variables declaration//GEN-END:variables
 }
