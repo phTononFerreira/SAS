@@ -13,9 +13,7 @@ public class JanLogin extends javax.swing.JFrame {
     private Medico gme = new Medico();
     private Enfermeira gen = new Enfermeira();
     
-    /**
-     * Creates new form Login
-     */
+  
     public JanLogin() {
         initComponents();
     }
