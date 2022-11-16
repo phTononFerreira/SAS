@@ -176,22 +176,22 @@ public class JanLogin extends javax.swing.JFrame {
             
             if(cargo.equals("Administrador")){
                 // JanAdministrador(ID)
-                System.out.println("JanAdministrador"+ID);
+                System.out.println("JanAdministrador - "+ID);
                 abreJanAdmin();
             }
             if(cargo.equals("Atendente")){
                 // JanAtendente(ID)
-                System.out.println("JanAtendente"+ID);
+                System.out.println("JanAtendente - "+ID);
                 abreJanAtendente();
             }
             if(cargo.equals("Enfermeira")){
                 // JanEnfermeira(ID)
-                System.out.println("JanEnfermeira"+ID);
+                System.out.println("JanEnfermeira - "+ID);
                 abreJanEnfermeira();
             }
             if(cargo.equals("Medico")){
                 // JanMedico(ID)
-                System.out.println("JanMedico"+ID);
+                System.out.println("JanMedico - "+ID);
                 abreJanMedico();
             }
             

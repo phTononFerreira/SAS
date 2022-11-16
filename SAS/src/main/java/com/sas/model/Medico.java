@@ -6,14 +6,14 @@ import java.text.SimpleDateFormat;
 
 public class Medico extends Funcionario {
 
-	private int crm;
+	private String crm;
 	private String especialidade;
-	private int med_id;
+	private String adm_id;
 
-	public int getCrm() {
+	public String getCrm() {
 		return crm;
 	}
-	public void setCrm(int crm) {
+	public void setCrm(String crm) {
 		this.crm = crm;
 	}
 
@@ -24,20 +24,20 @@ public class Medico extends Funcionario {
 		this.especialidade = especialidade;
 	}
 
-	public int getMed_id() {
-		return med_id;
+	public String getAdm_id() {
+		return adm_id;
 	}
-	public void setMed_id(int med_id) {
-		this.med_id = med_id;
+	public void setAdm_id(String adm_id) {
+		this.adm_id = adm_id;
 	}
 
 	public Medico() {
 	}
 	
-	public Medico(int crm, String especialidade, int med_id) {
+	public Medico(String crm, String especialidade, String adm_id) {
 		this.crm = crm;
 		this.especialidade = especialidade;
-		this.med_id = med_id;
+		this.adm_id = adm_id;
 	}
 
 	public void finalizarCon(Consulta con) {
@@ -57,20 +57,23 @@ public class Medico extends Funcionario {
 	}
         
         public static Medico pesquisarMedicoID(String ID) {
-        ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_id = '" + ID + "'");
+        ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_id = '" + ID + "'");
         Medico med = null;
         try {
             if (pesquisa.isBeforeFirst()) {
                 med = new Medico();
                 pesquisa.next();
-                med.setId(pesquisa.getString("adm_id"));
-                med.setSenha(pesquisa.getString("adm_senha"));
-                med.setNome(pesquisa.getString("adm_nome"));
-                med.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("adm_dataNasc")));
-                med.setCpf(pesquisa.getString("adm_cpf"));
-                med.setTelefone(pesquisa.getString("adm_telefone"));
-                med.setEndereco(pesquisa.getString("adm_endereco"));
-                med.setSalario(Double.parseDouble(pesquisa.getString("adm_salario")));
+                med.setId(pesquisa.getString("med_id"));
+                med.setSenha(pesquisa.getString("med_senha"));
+                med.setNome(pesquisa.getString("med_nome"));
+                med.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("med_dataNasc")));
+                med.setCpf(pesquisa.getString("med_cpf"));
+                med.setTelefone(pesquisa.getString("med_telefone"));
+                med.setEndereco(pesquisa.getString("med_endereco"));
+                med.setSalario(Double.parseDouble(pesquisa.getString("med_salario")));
+                med.setCrm(pesquisa.getString("med_crm"));
+                med.setEspecialidade(pesquisa.getString("med_especialidade"));
+                med.setAdm_id(pesquisa.getString("adm_id"));
                 //System.out.println(adm.toString());
             }else{
                 med = null;
