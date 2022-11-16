@@ -6,48 +6,50 @@ import java.text.SimpleDateFormat;
 
 public class Enfermeira extends Funcionario {
 
-	private String cr;
-	private String adm_id;
+    private String cr;
+    private String adm_id;
 
-	public String getCr() {
-		return cr;
-	}
-	public void setCr(String cr) {
-		this.cr = cr;
-	}
+    public String getCr() {
+        return cr;
+    }
 
-	public String getAdm_id() {
-		return adm_id;
-	}
-	public void setAdm_id(String adm_id) {
-		this.adm_id = adm_id;
-	}
+    public void setCr(String cr) {
+        this.cr = cr;
+    }
 
-	public Enfermeira() {
-	}
+    public String getAdm_id() {
+        return adm_id;
+    }
 
-	public Enfermeira(String cr, String adm_id) {
-		this.cr = cr;
-		this.adm_id = adm_id;
-	}
-	
-	public Prontuario gerarPro() {
-		return null;
-	}
+    public void setAdm_id(String adm_id) {
+        this.adm_id = adm_id;
+    }
 
-	public InsumoMedico cadastrarInsumo() {
-		return null;
-	}
+    public Enfermeira() {
+    }
 
-	public void controlarEstoque(InsumoMedico ins) {
+    public Enfermeira(String cr, String adm_id) {
+        this.cr = cr;
+        this.adm_id = adm_id;
+    }
 
-	}
+    public Prontuario gerarPro() {
+        return null;
+    }
 
-	public int contarEstoque(InsumoMedico ins) {
-		return 0;
-	}
-        
-        public static Enfermeira pesquisarEnfermeiraID(String ID) {
+    public InsumoMedico cadastrarInsumo() {
+        return null;
+    }
+
+    public void controlarEstoque(InsumoMedico ins) {
+
+    }
+
+    public int contarEstoque(InsumoMedico ins) {
+        return 0;
+    }
+
+    public static Enfermeira pesquisarEnfermeiraID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira WHERE enf_id = '" + ID + "'");
         Enfermeira enf = null;
         try {
@@ -64,12 +66,12 @@ public class Enfermeira extends Funcionario {
                 enf.setCr(pesquisa.getString("enf_salario"));
                 enf.setAdm_id(pesquisa.getString("adm_id"));
                 //System.out.println(adm.toString());
-            }else{
+            } else {
                 enf = null;
             }
 
         } catch (Exception e) {
-            System.out.println("ERRO NA FORMATAÇÃO => "+e);
+            System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 
         return enf;

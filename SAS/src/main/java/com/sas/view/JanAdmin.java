@@ -8,22 +8,22 @@ import java.awt.CardLayout;
 import com.sas.model.Administrador;
 
 /**
- * 
+ *
  * @author Tchuco
  */
 public class JanAdmin extends javax.swing.JFrame {
 
     private static JanAdmin unicoJanAdmin;
     private static String ID;
-    
-    CardLayout   cardLayout;
-    
+
+    CardLayout cardLayout;
+
     public JanAdmin() {
         initComponents();
-        cardLayout = (CardLayout)(panCards.getLayout());
-        this.setExtendedState(MAXIMIZED_BOTH);   
+        cardLayout = (CardLayout) (panCards.getLayout());
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
-    
+
     public static JanAdmin getJanAdmin() {
         if (unicoJanAdmin == null) {
             unicoJanAdmin = new JanAdmin();
@@ -546,7 +546,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labFuncionarioMouseClicked
-        cardLayout.show(panCards,"cardFuncionarios");
+        cardLayout.show(panCards, "cardFuncionarios");
         labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         labFuncionario.setFont(new java.awt.Font("Verdana", 0, 18));
@@ -554,7 +554,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_labFuncionarioMouseClicked
 
     private void labCadFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadFuncionarioMouseClicked
-        cardLayout.show(panCards,"cardCadFuncionario");
+        cardLayout.show(panCards, "cardCadFuncionario");
         labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         labCadFuncionario.setFont(new java.awt.Font("Verdana", 0, 18));
@@ -601,9 +601,10 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton7ActionPerformed
 
-    public void setNomePerfil(String nome){
+    public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
+
     /**
      * @param args the command line arguments
      */

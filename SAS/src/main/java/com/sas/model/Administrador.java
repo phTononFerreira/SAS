@@ -17,10 +17,7 @@ public class Administrador extends Funcionario {
     public void editarFunc(Funcionario func) {
 
     }
-    
-    
 
-     
     public static Administrador pesquisarAdministradorID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_id = '" + ID + "'");
         Administrador adm = null;
@@ -37,12 +34,12 @@ public class Administrador extends Funcionario {
                 adm.setEndereco(pesquisa.getString("adm_endereco"));
                 adm.setSalario(Double.parseDouble(pesquisa.getString("adm_salario")));
                 //System.out.println(adm.toString());
-            }else{
+            } else {
                 adm = null;
             }
 
         } catch (Exception e) {
-            System.out.println("ERRO NA FORMATAÇÃO => "+e);
+            System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 
         return adm;

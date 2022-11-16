@@ -8,21 +8,22 @@ import java.awt.CardLayout;
 import com.sas.model.Atendente;
 
 /**
- *qq
+ * qq
+ *
  * @author Tchuco
  */
 public class JanAtendente extends javax.swing.JFrame {
 
     private static JanAtendente unicoJanAtendente;
-    
-    CardLayout   cardLayout;
-    
+
+    CardLayout cardLayout;
+
     public JanAtendente() {
         initComponents();
-        cardLayout = (CardLayout)(panCardsAtendente.getLayout());
-        this.setExtendedState(MAXIMIZED_BOTH);   
+        cardLayout = (CardLayout) (panCardsAtendente.getLayout());
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
-    
+
     public static JanAtendente getJanAtendente() {
         if (unicoJanAtendente == null) {
             unicoJanAtendente = new JanAtendente();
@@ -433,7 +434,7 @@ public class JanAtendente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labCadPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadPacienteMouseClicked
-        cardLayout.show(panCardsAtendente,"cardCadastro");
+        cardLayout.show(panCardsAtendente, "cardCadastro");
         labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 18));
@@ -441,7 +442,7 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_labCadPacienteMouseClicked
 
     private void labConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labConsultaMouseClicked
-        cardLayout.show(panCardsAtendente,"cardConsulta");
+        cardLayout.show(panCardsAtendente, "cardConsulta");
         labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labConsulta.setFont(new java.awt.Font("Verdana", 0, 18));
@@ -463,10 +464,11 @@ public class JanAtendente extends javax.swing.JFrame {
     private void btExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluir1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btExcluir1ActionPerformed
-    
-    public void setNomePerfil(String nome){
+
+    public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
+
     /**
      * @param args the command line arguments
      */

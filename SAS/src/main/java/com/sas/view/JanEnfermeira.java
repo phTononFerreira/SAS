@@ -6,6 +6,7 @@ package com.sas.view;
 
 import java.awt.CardLayout;
 import com.sas.model.Enfermeira;
+
 /**
  *
  * @author Tchuco
@@ -15,18 +16,17 @@ public class JanEnfermeira extends javax.swing.JFrame {
     /**
      * Creates new form Enfermeira
      */
-    
     private static JanEnfermeira unicoJanEnfermeira;
-    
-    CardLayout   cardLayout;
-    
+
+    CardLayout cardLayout;
+
     public JanEnfermeira() {
         initComponents();
-        cardLayout = (CardLayout)(panCards.getLayout());
-        this.setExtendedState(MAXIMIZED_BOTH);   
-        
+        cardLayout = (CardLayout) (panCards.getLayout());
+        this.setExtendedState(MAXIMIZED_BOTH);
+
     }
-    
+
     public static JanEnfermeira getJanEnfermeira() {
 
         if (unicoJanEnfermeira == null) {
@@ -420,7 +420,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labTriagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labTriagemMouseClicked
-        cardLayout.show(panCards,"cardTriagem");
+        cardLayout.show(panCards, "cardTriagem");
         labTriagem.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         labEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labTriagem.setFont(new java.awt.Font("Verdana", 0, 18));
@@ -428,7 +428,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_labTriagemMouseClicked
 
     private void labEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labEstoqueMouseClicked
-        cardLayout.show(panCards,"cardEstoque");
+        cardLayout.show(panCards, "cardEstoque");
         labTriagem.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         labEstoque.setFont(new java.awt.Font("Verdana", 0, 18));
@@ -446,10 +446,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void btAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btAlterar1ActionPerformed
-    
-    public void setNomePerfil(String nome){
+
+    public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
+
     /**
      * @param args the command line arguments
      */

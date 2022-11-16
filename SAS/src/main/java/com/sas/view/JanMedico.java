@@ -16,12 +16,12 @@ public class JanMedico extends javax.swing.JFrame {
      * Creates new form ConsultaMed
      */
     private static JanMedico unicoJanMedico;
-    
+
     public JanMedico() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);   
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
-    
+
     public static JanMedico getJanMedico() {
 
         if (unicoJanMedico == null) {
@@ -239,9 +239,10 @@ public class JanMedico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btSalvar2ActionPerformed
 
-    public void setNomePerfil(String nome){
+    public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
+
     /**
      * @param args the command line arguments
      */

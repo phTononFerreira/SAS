@@ -7,7 +7,7 @@ import com.sas.model.Enfermeira;
 import com.sas.model.Medico;
 
 public class JanLogin extends javax.swing.JFrame {
-    
+
     public JanLogin() {
         initComponents();
     }
@@ -167,36 +167,36 @@ public class JanLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String login = Login.verificarLogin(jTextFieldUsuario.getText(), jPasswordFieldSenha.getText());
-        
-        if(login != null){
+
+        if (login != null) {
             System.out.println("LOGADO COM SUCESSO!");
-            
+
             String ID = login.split("-")[0];
             String cargo = login.split("-")[1];
-            
-            if(cargo.equals("Administrador")){
+
+            if (cargo.equals("Administrador")) {
                 // JanAdministrador(ID)
-                System.out.println("JanAdministrador - "+ID);
+                System.out.println("JanAdministrador - " + ID);
                 abreJanAdmin(ID);
-                
+
             }
-            if(cargo.equals("Atendente")){
+            if (cargo.equals("Atendente")) {
                 // JanAtendente(ID)
-                System.out.println("JanAtendente - "+ID);
+                System.out.println("JanAtendente - " + ID);
                 abreJanAtendente(ID);
             }
-            if(cargo.equals("Enfermeira")){
+            if (cargo.equals("Enfermeira")) {
                 // JanEnfermeira(ID)
-                System.out.println("JanEnfermeira - "+ID);
+                System.out.println("JanEnfermeira - " + ID);
                 abreJanEnfermeira(ID);
             }
-            if(cargo.equals("Medico")){
+            if (cargo.equals("Medico")) {
                 // JanMedico(ID)
-                System.out.println("JanMedico - "+ID);
+                System.out.println("JanMedico - " + ID);
                 abreJanMedico(ID);
             }
-            
-        }else{
+
+        } else {
             statusLabel.setText("USUARIO/SENHA INCORRETOS!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -216,7 +216,7 @@ public class JanLogin extends javax.swing.JFrame {
         nome = nome.split(" ")[0];
         JanAtendente.getJanAtendente().setNomePerfil(nome);
     }
-    
+
     public void abreJanEnfermeira(String ID) {
         statusLabel.setText("");
         JanEnfermeira.getJanEnfermeira().setVisible(true);
@@ -224,7 +224,7 @@ public class JanLogin extends javax.swing.JFrame {
         nome = nome.split(" ")[0];
         JanEnfermeira.getJanEnfermeira().setNomePerfil(nome);
     }
-    
+
     public void abreJanMedico(String ID) {
         statusLabel.setText("");
         JanMedico.getJanMedico().setVisible(true);
@@ -232,7 +232,7 @@ public class JanLogin extends javax.swing.JFrame {
         nome = nome.split(" ")[0];
         JanMedico.getJanMedico().setNomePerfil(nome);
     }
-    
+
     /**
      * @param args the command line arguments
      */

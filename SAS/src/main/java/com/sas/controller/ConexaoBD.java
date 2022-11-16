@@ -6,29 +6,29 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-
 public class ConexaoBD {
-    
+
     private static Connection conn;
-    
+
     private static ConexaoBD conexao;
-    
-    public ConexaoBD(){
+
+    public ConexaoBD() {
         conectaBD();
     }
-    
+
     // SINGLETON (ConexaoBD)
-    public static ConexaoBD getConexao(){
-        if(conexao == null)
+    public static ConexaoBD getConexao() {
+        if (conexao == null) {
             conexao = new ConexaoBD();
+        }
         return conexao;
     }
-    
-    public static Connection getConnection(){
+
+    public static Connection getConnection() {
         return conn;
     }
-    
-    public ResultSet executarQueryBD(String query){
+
+    public ResultSet executarQueryBD(String query) {
         ResultSet resultSet = null;
         try {
             Statement statement = conn.createStatement();
@@ -46,9 +46,7 @@ public class ConexaoBD {
             System.out.println("CONECTADO COM SUCESSO!");
 
         } catch (SQLException e) {
-            System.out.println("ERRO DE CONEXAO "+e);
+            System.out.println("ERRO DE CONEXAO " + e);
         }
-
     }
 }
-

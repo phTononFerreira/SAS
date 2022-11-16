@@ -6,57 +6,60 @@ import java.text.SimpleDateFormat;
 
 public class Medico extends Funcionario {
 
-	private String crm;
-	private String especialidade;
-	private String adm_id;
+    private String crm;
+    private String especialidade;
+    private String adm_id;
 
-	public String getCrm() {
-		return crm;
-	}
-	public void setCrm(String crm) {
-		this.crm = crm;
-	}
+    public String getCrm() {
+        return crm;
+    }
 
-	public String getEspecialidade() {
-		return especialidade;
-	}
-	public void setEspecialidade(String especialidade) {
-		this.especialidade = especialidade;
-	}
+    public void setCrm(String crm) {
+        this.crm = crm;
+    }
 
-	public String getAdm_id() {
-		return adm_id;
-	}
-	public void setAdm_id(String adm_id) {
-		this.adm_id = adm_id;
-	}
+    public String getEspecialidade() {
+        return especialidade;
+    }
 
-	public Medico() {
-	}
-	
-	public Medico(String crm, String especialidade, String adm_id) {
-		this.crm = crm;
-		this.especialidade = especialidade;
-		this.adm_id = adm_id;
-	}
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
 
-	public void finalizarCon(Consulta con) {
+    public String getAdm_id() {
+        return adm_id;
+    }
 
-	}
+    public void setAdm_id(String adm_id) {
+        this.adm_id = adm_id;
+    }
 
-	public String encaminharPac(Consulta con) {
-		return null;
-	}
+    public Medico() {
+    }
 
-	public String receitarPac(InsumoMedico ins) {
-		return null;
-	}
+    public Medico(String crm, String especialidade, String adm_id) {
+        this.crm = crm;
+        this.especialidade = especialidade;
+        this.adm_id = adm_id;
+    }
 
-	public void visualizarPro(Prontuario pro) {
+    public void finalizarCon(Consulta con) {
 
-	}
-        
-        public static Medico pesquisarMedicoID(String ID) {
+    }
+
+    public String encaminharPac(Consulta con) {
+        return null;
+    }
+
+    public String receitarPac(InsumoMedico ins) {
+        return null;
+    }
+
+    public void visualizarPro(Prontuario pro) {
+
+    }
+
+    public static Medico pesquisarMedicoID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_id = '" + ID + "'");
         Medico med = null;
         try {
@@ -75,12 +78,12 @@ public class Medico extends Funcionario {
                 med.setEspecialidade(pesquisa.getString("med_especialidade"));
                 med.setAdm_id(pesquisa.getString("adm_id"));
                 //System.out.println(adm.toString());
-            }else{
+            } else {
                 med = null;
             }
 
         } catch (Exception e) {
-            System.out.println("ERRO NA FORMATAÇÃO => "+e);
+            System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 
         return med;

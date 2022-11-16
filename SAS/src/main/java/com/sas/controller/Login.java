@@ -19,49 +19,47 @@ public class Login {
             if (usuarioEncontrado.getSenha().equals(senha)) {
                 cargo = "Administrador";
             }
-            
-        }else{
+
+        } else {
             System.out.println("[ADM] USUARIO NAO ENCONTRADO!");
         }
-            
+
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Atendente
-        if(cargo == null){
+        if (cargo == null) {
             usuarioEncontrado = (Atendente) Atendente.pesquisarAtendenteID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Atendente";
                 }
-            }else{
+            } else {
                 System.out.println("[ATE] USUARIO NAO ENCONTRADO!");
             }
         }
-            
-        
+
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Enfermeira
-        if(cargo == null){
+        if (cargo == null) {
             usuarioEncontrado = (Enfermeira) Enfermeira.pesquisarEnfermeiraID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Enfermeira";
                 }
-            }else{
+            } else {
                 System.out.println("[ENF] USUARIO NAO ENCONTRADO!");
             }
         }
-            
-        
+
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Medico
-        if(cargo == null){
-                usuarioEncontrado = (Medico) Medico.pesquisarMedicoID(ID);
+        if (cargo == null) {
+            usuarioEncontrado = (Medico) Medico.pesquisarMedicoID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Medico";
                 }
-            }else{
+            } else {
                 System.out.println("[MED] USUARIO NAO ENCONTRADO!");
             }
         }
-        
+
         if (cargo == null || usuarioEncontrado == null) {
             return null;
         }

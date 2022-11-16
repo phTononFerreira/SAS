@@ -6,43 +6,45 @@ import java.text.SimpleDateFormat;
 
 public class Atendente extends Funcionario {
 
-        private String adm_id;
+    private String adm_id;
 
-	public String getAdm_id() {
-		return adm_id;
-	}
-	public void setAdm_id(String ate_id) {
-		this.adm_id = ate_id;
-	}
+    public String getAdm_id() {
+        return adm_id;
+    }
 
-	public Atendente() {
-	}
+    public void setAdm_id(String ate_id) {
+        this.adm_id = ate_id;
+    }
 
-	public Atendente(String adm_id) {
-		this.adm_id = adm_id;
-	}
+    public Atendente() {
+        adm_id = "";
+    }
 
-	public Paciente cadastrarPac() {
-		return null;
-	}
+    public Atendente(String adm_id) {
+        this.adm_id = adm_id;
+    }
 
-	public void editarPac(Paciente pac) {
+    public Paciente cadastrarPac() {
+        return null;
+    }
 
-	}
+    public void editarPac(Paciente pac) {
 
-	public void encaminharTriagem(Consulta con) {
+    }
 
-	}
+    public void encaminharTriagem(Consulta con) {
 
-	public Consulta agendarCon() {
-		return null;
-	}
+    }
 
-	public void cancelarCon(Consulta con) {
+    public Consulta agendarCon() {
+        return null;
+    }
 
-	}          
-        
-        public static Atendente pesquisarAtendenteID(String ID) {
+    public void cancelarCon(Consulta con) {
+
+    }
+
+    public static Atendente pesquisarAtendenteID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente WHERE ate_id = '" + ID + "'");
         Atendente ate = null;
         try {
@@ -59,12 +61,12 @@ public class Atendente extends Funcionario {
                 ate.setSalario(Double.parseDouble(pesquisa.getString("ate_salario")));
                 ate.setAdm_id(pesquisa.getString("adm_id"));
                 //System.out.println(adm.toString());
-            }else{
+            } else {
                 ate = null;
             }
 
         } catch (Exception e) {
-            System.out.println("ERRO NA FORMATAÇÃO => "+e);
+            System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 
         return ate;
