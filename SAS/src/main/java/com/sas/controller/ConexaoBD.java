@@ -33,7 +33,7 @@ public class ConexaoBD {
         try {
             Statement statement = conn.createStatement();
             resultSet = statement.executeQuery(query);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("ERRO NA PESQUISA");
         }
         return resultSet;

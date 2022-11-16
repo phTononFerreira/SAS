@@ -2,6 +2,8 @@ package com.sas.model;
 
 import com.sas.controller.ConexaoBD;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Enfermeira extends Funcionario {
@@ -70,7 +72,7 @@ public class Enfermeira extends Funcionario {
                 enf = null;
             }
 
-        } catch (Exception e) {
+        } catch (NumberFormatException | SQLException | ParseException e) {
             System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 

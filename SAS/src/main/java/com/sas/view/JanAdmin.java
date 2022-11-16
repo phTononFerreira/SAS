@@ -5,7 +5,6 @@
 package com.sas.view;
 
 import java.awt.CardLayout;
-import com.sas.model.Administrador;
 
 /**
  *

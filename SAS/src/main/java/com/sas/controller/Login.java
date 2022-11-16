@@ -5,7 +5,6 @@ import com.sas.model.Atendente;
 import com.sas.model.Enfermeira;
 import com.sas.model.Funcionario;
 import com.sas.model.Medico;
-import java.sql.ResultSet;
 
 public class Login {
 

@@ -3,6 +3,7 @@ package com.sas.model;
 import com.sas.controller.ConexaoBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Administrador extends Funcionario {
@@ -38,7 +39,7 @@ public class Administrador extends Funcionario {
                 adm = null;
             }
 
-        } catch (Exception e) {
+        } catch (NumberFormatException | SQLException | ParseException e) {
             System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 
