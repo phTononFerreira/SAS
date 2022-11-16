@@ -14,7 +14,7 @@ import com.sas.model.Administrador;
 public class JanAdmin extends javax.swing.JFrame {
 
     private static JanAdmin unicoJanAdmin;
-    private static Administrador gad;
+    private static String ID;
     
     CardLayout   cardLayout;
     
@@ -24,9 +24,7 @@ public class JanAdmin extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);   
     }
     
-    public static JanAdmin getJanAdmin(Administrador gad1) {
-        gad = gad1;
-
+    public static JanAdmin getJanAdmin() {
         if (unicoJanAdmin == null) {
             unicoJanAdmin = new JanAdmin();
         }
@@ -603,6 +601,9 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton7ActionPerformed
 
+    public void setNomePerfil(String nome){
+        labUser.setText(nome);
+    }
     /**
      * @param args the command line arguments
      */

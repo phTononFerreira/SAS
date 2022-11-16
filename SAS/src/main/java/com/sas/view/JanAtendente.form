@@ -68,7 +68,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="labUserImage" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cardCadPaciente" min="-2" max="-2" attributes="0"/>
+                  <Component id="labUser" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -91,7 +91,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="cardCadPaciente" alignment="1" max="32767" attributes="0"/>
+                      <Component id="labUser" alignment="1" max="32767" attributes="0"/>
                       <Component id="labUserImage" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
@@ -149,7 +149,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="cardCadPaciente">
+        <Component class="javax.swing.JLabel" name="labUser">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="0"/>

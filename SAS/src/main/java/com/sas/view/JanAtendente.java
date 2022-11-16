@@ -14,7 +14,6 @@ import com.sas.model.Atendente;
 public class JanAtendente extends javax.swing.JFrame {
 
     private static JanAtendente unicoJanAtendente;
-    private static Atendente gat;
     
     CardLayout   cardLayout;
     
@@ -24,9 +23,7 @@ public class JanAtendente extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);   
     }
     
-    public static JanAtendente getJanAtendente(Atendente gat1) {
-        gat = gat1;
-
+    public static JanAtendente getJanAtendente() {
         if (unicoJanAtendente == null) {
             unicoJanAtendente = new JanAtendente();
         }
@@ -47,7 +44,7 @@ public class JanAtendente extends javax.swing.JFrame {
         labCadPaciente = new javax.swing.JLabel();
         labConsulta = new javax.swing.JLabel();
         labUserImage = new javax.swing.JLabel();
-        cardCadPaciente = new javax.swing.JLabel();
+        labUser = new javax.swing.JLabel();
         panCardsAtendente = new javax.swing.JPanel();
         cardConsulta = new javax.swing.JPanel();
         btCriar = new javax.swing.JButton();
@@ -120,8 +117,8 @@ public class JanAtendente extends javax.swing.JFrame {
             }
         }.getIcon());
 
-        cardCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        cardCadPaciente.setText("Atendente");
+        labUser.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        labUser.setText("Atendente");
 
         javax.swing.GroupLayout panTopLayout = new javax.swing.GroupLayout(panTop);
         panTop.setLayout(panTopLayout);
@@ -137,7 +134,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labUserImage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cardCadPaciente)
+                .addComponent(labUser)
                 .addGap(35, 35, 35))
         );
         panTopLayout.setVerticalGroup(
@@ -155,7 +152,7 @@ public class JanAtendente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createSequentialGroup()
                 .addGap(0, 53, Short.MAX_VALUE)
                 .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(cardCadPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(51, 51, 51))
         );
@@ -466,7 +463,10 @@ public class JanAtendente extends javax.swing.JFrame {
     private void btExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluir1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btExcluir1ActionPerformed
-
+    
+    public void setNomePerfil(String nome){
+        labUser.setText(nome);
+    }
     /**
      * @param args the command line arguments
      */
@@ -508,7 +508,6 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JButton btCriar;
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btExcluir1;
-    private javax.swing.JLabel cardCadPaciente;
     private javax.swing.JPanel cardCadastro;
     private javax.swing.JPanel cardConsulta;
     private javax.swing.JScrollPane jScrollPane1;
@@ -520,6 +519,7 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JLabel labEndereco;
     private javax.swing.JLabel labLogo;
     private javax.swing.JLabel labNome;
+    private javax.swing.JLabel labUser;
     private javax.swing.JLabel labUserImage;
     private javax.swing.JLabel lbTelefone;
     private javax.swing.JPanel panCardsAtendente;

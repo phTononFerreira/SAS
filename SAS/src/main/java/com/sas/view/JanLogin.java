@@ -3,17 +3,11 @@ package com.sas.view;
 import com.sas.controller.Login;
 import com.sas.model.Administrador;
 import com.sas.model.Atendente;
-import com.sas.model.Medico;
 import com.sas.model.Enfermeira;
+import com.sas.model.Medico;
 
 public class JanLogin extends javax.swing.JFrame {
-
-    private Administrador gad = new Administrador();
-    private Atendente gat = new Atendente();
-    private Medico gme = new Medico();
-    private Enfermeira gen = new Enfermeira();
     
-  
     public JanLogin() {
         initComponents();
     }
@@ -183,23 +177,23 @@ public class JanLogin extends javax.swing.JFrame {
             if(cargo.equals("Administrador")){
                 // JanAdministrador(ID)
                 System.out.println("JanAdministrador - "+ID);
-                abreJanAdmin();
+                abreJanAdmin(ID);
                 
             }
             if(cargo.equals("Atendente")){
                 // JanAtendente(ID)
                 System.out.println("JanAtendente - "+ID);
-                abreJanAtendente();
+                abreJanAtendente(ID);
             }
             if(cargo.equals("Enfermeira")){
                 // JanEnfermeira(ID)
                 System.out.println("JanEnfermeira - "+ID);
-                abreJanEnfermeira();
+                abreJanEnfermeira(ID);
             }
             if(cargo.equals("Medico")){
                 // JanMedico(ID)
                 System.out.println("JanMedico - "+ID);
-                abreJanMedico();
+                abreJanMedico(ID);
             }
             
         }else{
@@ -207,24 +201,36 @@ public class JanLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void abreJanAdmin() {
+    public void abreJanAdmin(String ID) {
         statusLabel.setText("");
-        JanAdmin.getJanAdmin(gad).setVisible(true);
+        JanAdmin.getJanAdmin().setVisible(true);
+        String nome = Administrador.pesquisarAdministradorID(ID).getNome();
+        nome = nome.split(" ")[0];
+        JanAdmin.getJanAdmin().setNomePerfil(nome);
     }
 
-    public void abreJanAtendente() {
+    public void abreJanAtendente(String ID) {
         statusLabel.setText("");
-        JanAtendente.getJanAtendente(gat).setVisible(true);
+        JanAtendente.getJanAtendente().setVisible(true);
+        String nome = Atendente.pesquisarAtendenteID(ID).getNome();
+        nome = nome.split(" ")[0];
+        JanAtendente.getJanAtendente().setNomePerfil(nome);
     }
     
-    public void abreJanEnfermeira() {
+    public void abreJanEnfermeira(String ID) {
         statusLabel.setText("");
-        JanEnfermeira.getJanEnfermeira(gen).setVisible(true);
+        JanEnfermeira.getJanEnfermeira().setVisible(true);
+        String nome = Enfermeira.pesquisarEnfermeiraID(ID).getNome();
+        nome = nome.split(" ")[0];
+        JanEnfermeira.getJanEnfermeira().setNomePerfil(nome);
     }
     
-    public void abreJanMedico() {
+    public void abreJanMedico(String ID) {
         statusLabel.setText("");
-        JanMedico.getJanMedico(gme).setVisible(true);
+        JanMedico.getJanMedico().setVisible(true);
+        String nome = Medico.pesquisarMedicoID(ID).getNome();
+        nome = nome.split(" ")[0];
+        JanMedico.getJanMedico().setNomePerfil(nome);
     }
     
     /**

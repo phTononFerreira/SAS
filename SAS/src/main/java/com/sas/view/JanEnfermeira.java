@@ -17,7 +17,6 @@ public class JanEnfermeira extends javax.swing.JFrame {
      */
     
     private static JanEnfermeira unicoJanEnfermeira;
-    private static Enfermeira gen;
     
     CardLayout   cardLayout;
     
@@ -28,8 +27,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         
     }
     
-    public static JanEnfermeira getJanEnfermeira(Enfermeira gen1) {
-        gen = gen1;
+    public static JanEnfermeira getJanEnfermeira() {
 
         if (unicoJanEnfermeira == null) {
             unicoJanEnfermeira = new JanEnfermeira();
@@ -448,7 +446,10 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void btAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btAlterar1ActionPerformed
-
+    
+    public void setNomePerfil(String nome){
+        labUser.setText(nome);
+    }
     /**
      * @param args the command line arguments
      */
