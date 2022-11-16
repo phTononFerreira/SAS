@@ -4,17 +4,17 @@ import java.util.Date;
 
 public class Paciente {
 
-	private int id;
+	private String id;
 	private String nome;
 	private Date data_nascimento;
 	private String telefone;
 	private String cpf;
 	private String endereco;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -56,7 +56,7 @@ public class Paciente {
 	public Paciente() {
 	}
 
-	public Paciente(int id, String nome, Date data_nascimento, String telefone, String cpf, String endereco) {
+	public Paciente(String id, String nome, Date data_nascimento, String telefone, String cpf, String endereco) {
 		this.id = id;
 		this.nome = nome;
 		this.data_nascimento = data_nascimento;

@@ -2,17 +2,17 @@ package com.sas.model;
 
 public class Prontuario {
 
-	private int id;
+	private String id;
 	private float temperatura;
 	private String pressao;
 	private String descricao;
-	private int pac_id;
-	private int enf_id;
+	private String pac_id;
+	private String enf_id;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -37,24 +37,24 @@ public class Prontuario {
 		this.descricao = descricao;
 	}
 
-	public int getPac_id() {
+	public String getPac_id() {
 		return pac_id;
 	}
-	public void setPac_id(int pac_id) {
+	public void setPac_id(String pac_id) {
 		this.pac_id = pac_id;
 	}
 
-	public int getEnf_id() {
+	public String getEnf_id() {
 		return enf_id;
 	}
-	public void setEnf_id(int enf_id) {
+	public void setEnf_id(String enf_id) {
 		this.enf_id = enf_id;
 	}
 
 	public Prontuario() {
 	}
 
-	public Prontuario(int id, float temperatura, String pressao, String descricao, int pac_id, int enf_id) {
+	public Prontuario(String id, float temperatura, String pressao, String descricao, String pac_id, String enf_id) {
 		this.id = id;
 		this.temperatura = temperatura;
 		this.pressao = pressao;
