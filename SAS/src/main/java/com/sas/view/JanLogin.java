@@ -184,6 +184,7 @@ public class JanLogin extends javax.swing.JFrame {
                 // JanAdministrador(ID)
                 System.out.println("JanAdministrador - "+ID);
                 abreJanAdmin();
+                
             }
             if(cargo.equals("Atendente")){
                 // JanAtendente(ID)

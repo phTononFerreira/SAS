@@ -20,6 +20,7 @@ public class JanMedico extends javax.swing.JFrame {
     
     public JanMedico() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);   
     }
     
     public static JanMedico getJanMedico(Medico gme1) {

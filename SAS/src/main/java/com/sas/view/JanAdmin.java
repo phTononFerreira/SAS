@@ -21,6 +21,7 @@ public class JanAdmin extends javax.swing.JFrame {
     public JanAdmin() {
         initComponents();
         cardLayout = (CardLayout)(panCards.getLayout());
+        this.setExtendedState(MAXIMIZED_BOTH);   
     }
     
     public static JanAdmin getJanAdmin(Administrador gad1) {
@@ -103,6 +104,7 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         }.getIcon());
 
+        labUserImage.setForeground(new java.awt.Color(255, 0, 0));
         labUserImage.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {

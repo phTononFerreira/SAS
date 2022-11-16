@@ -21,6 +21,7 @@ public class JanAtendente extends javax.swing.JFrame {
     public JanAtendente() {
         initComponents();
         cardLayout = (CardLayout)(panCardsAtendente.getLayout());
+        this.setExtendedState(MAXIMIZED_BOTH);   
     }
     
     public static JanAtendente getJanAtendente(Atendente gat1) {

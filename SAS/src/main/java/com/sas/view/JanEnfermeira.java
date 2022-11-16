@@ -24,6 +24,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     public JanEnfermeira() {
         initComponents();
         cardLayout = (CardLayout)(panCards.getLayout());
+        this.setExtendedState(MAXIMIZED_BOTH);   
         
     }
     
