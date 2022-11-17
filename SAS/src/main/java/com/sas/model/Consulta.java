@@ -5,7 +5,7 @@ import java.util.Date;
 public class Consulta {
 
     private String id;
-    private Date data;
+    private String data;
     private String receita;
     private int status;
     private String pac_id;
@@ -21,11 +21,11 @@ public class Consulta {
         this.id = id;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -80,7 +80,7 @@ public class Consulta {
     public Consulta() {
     }
 
-    public Consulta(String id, Date data, String receita, int status, String pac_id, String med_id, String pro_id, String ate_id) {
+    public Consulta(String id, String data, String receita, int status, String pac_id, String med_id, String pro_id, String ate_id) {
         this.id = id;
         this.data = data;
         this.receita = receita;

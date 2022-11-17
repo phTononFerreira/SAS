@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import static javax.swing.UIManager.getString;
+
 
 public class Administrador extends Funcionario {
 
@@ -27,7 +27,7 @@ public class Administrador extends Funcionario {
                 pstm.setString(1, f.getId());
                 pstm.setString(2, f.getSenha());
                 pstm.setString(3, f.getNome());
-                pstm.setDate(4, (Date) f.getData_nascimento());
+                pstm.setDate(4, f.getData_nascimento());
                 pstm.setString(5, f.getCpf());
                 pstm.setString(6, f.getTelefone());
                 pstm.setString(7, f.getEndereco());
@@ -67,7 +67,7 @@ public class Administrador extends Funcionario {
                 adm.setId(pesquisa.getString("adm_id"));
                 adm.setSenha(pesquisa.getString("adm_senha"));
                 adm.setNome(pesquisa.getString("adm_nome"));
-                adm.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("adm_dataNasc")));
+                adm.setData_nascimento(pesquisa.getString("adm_dataNasc"));
                 adm.setCpf(pesquisa.getString("adm_cpf"));
                 adm.setTelefone(pesquisa.getString("adm_telefone"));
                 adm.setEndereco(pesquisa.getString("adm_endereco"));
@@ -77,7 +77,7 @@ public class Administrador extends Funcionario {
                 adm = null;
             }
 
-        } catch (NumberFormatException | SQLException | ParseException e) {
+        } catch (NumberFormatException | SQLException e) {
             System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 

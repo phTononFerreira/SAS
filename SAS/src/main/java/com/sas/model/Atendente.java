@@ -56,7 +56,7 @@ public class Atendente extends Funcionario {
                 ate.setId(pesquisa.getString("ate_id"));
                 ate.setSenha(pesquisa.getString("ate_senha"));
                 ate.setNome(pesquisa.getString("ate_nome"));
-                ate.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("ate_dataNasc")));
+                ate.setData_nascimento(pesquisa.getString("ate_dataNasc"));
                 ate.setCpf(pesquisa.getString("ate_cpf"));
                 ate.setTelefone(pesquisa.getString("ate_telefone"));
                 ate.setEndereco(pesquisa.getString("ate_endereco"));
@@ -67,7 +67,7 @@ public class Atendente extends Funcionario {
                 ate = null;
             }
 
-        } catch (NumberFormatException | SQLException | ParseException e) {
+        } catch (NumberFormatException | SQLException e) {
             System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 

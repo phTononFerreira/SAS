@@ -7,7 +7,7 @@ public abstract class Funcionario {
     private String id;
     private String senha;
     private String nome;
-    private Date data_nascimento;
+    private String data_nascimento;
     private String cpf;
     private String telefone;
     private String endereco;
@@ -37,11 +37,11 @@ public abstract class Funcionario {
         this.nome = nome;
     }
 
-    public Date getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
+    public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 
@@ -80,7 +80,7 @@ public abstract class Funcionario {
     public Funcionario() {
     }
 
-    public Funcionario(String id, String senha, String nome, Date data_nascimento, String cpf, String telefone, String endereco,
+    public Funcionario(String id, String senha, String nome, String data_nascimento, String cpf, String telefone, String endereco,
             double salario) {
         this.id = id;
         this.senha = senha;

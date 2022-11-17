@@ -3,8 +3,6 @@ package com.sas.model;
 import com.sas.controller.ConexaoBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class Medico extends Funcionario {
 
@@ -71,7 +69,7 @@ public class Medico extends Funcionario {
                 med.setId(pesquisa.getString("med_id"));
                 med.setSenha(pesquisa.getString("med_senha"));
                 med.setNome(pesquisa.getString("med_nome"));
-                med.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("med_dataNasc")));
+                med.setData_nascimento(pesquisa.getString("med_dataNasc"));
                 med.setCpf(pesquisa.getString("med_cpf"));
                 med.setTelefone(pesquisa.getString("med_telefone"));
                 med.setEndereco(pesquisa.getString("med_endereco"));
@@ -84,7 +82,7 @@ public class Medico extends Funcionario {
                 med = null;
             }
 
-        } catch (NumberFormatException | SQLException | ParseException e) {
+        } catch (NumberFormatException | SQLException e) {
             System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 

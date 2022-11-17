@@ -61,7 +61,7 @@ public class Enfermeira extends Funcionario {
                 enf.setId(pesquisa.getString("enf_id"));
                 enf.setSenha(pesquisa.getString("enf_senha"));
                 enf.setNome(pesquisa.getString("enf_nome"));
-                enf.setData_nascimento(new SimpleDateFormat("yyyy-MM-dd").parse(pesquisa.getString("enf_dataNasc")));
+                enf.setData_nascimento(pesquisa.getString("enf_dataNasc"));
                 enf.setCpf(pesquisa.getString("enf_cpf"));
                 enf.setEndereco(pesquisa.getString("enf_endereco"));
                 enf.setSalario(Double.parseDouble(pesquisa.getString("enf_salario")));
@@ -72,7 +72,7 @@ public class Enfermeira extends Funcionario {
                 enf = null;
             }
 
-        } catch (NumberFormatException | SQLException | ParseException e) {
+        } catch (NumberFormatException | SQLException e) {
             System.out.println("ERRO NA FORMATAÇÃO => " + e);
         }
 
