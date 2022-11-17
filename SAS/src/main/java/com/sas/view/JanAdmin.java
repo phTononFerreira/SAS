@@ -1,5 +1,6 @@
 package com.sas.view;
 
+import com.sas.controller.AdministradorController;
 import java.awt.CardLayout;
 
 public class JanAdmin extends javax.swing.JFrame {
@@ -1004,7 +1005,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_rbAdministradorActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        // TODO add your handling code here:
+        cadastrarFunc();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void rbAdministracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministracaoActionPerformed
@@ -1016,15 +1017,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btRefreshActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
-        tfNome.setText("");
-        tfCpf.setText("");
-        tfNasc.setText("");
-        tfEndereco.setText("");
-        tfEspecialidade.setText("");
-        tfSalario.setText("");
-        tfCrM.setText("");
-        tfTelefone.setText("");
-        tfNome.requestFocus();
+        limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btNomePesquisaAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltActionPerformed
@@ -1117,6 +1110,37 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfTelefoneActionPerformed
 
+    public void cadastrarFunc(){
+        String feedback = "";
+        
+        String tipo = 
+        String id_adm = 
+        String senha = 
+        String nome = 
+        String[] data_nascimento = 
+        String cpf = 
+        String telefone = 
+        String endereco = 
+        String salario = 
+        String cr = 
+        String crm = 
+        String especialidade = 
+        
+        feedback = AdministradorController.cadastrarFuncionario(ID, ID, ID, ID, data_nascimento, ID, ID, ID, ID, ID, ID, ID);
+    }
+    
+    public void limpar() {
+        tfNome.setText("");
+        tfCpf.setText("");
+        tfNasc.setText("");
+        tfEndereco.setText("");
+        tfEspecialidade.setText("");
+        tfSalario.setText("");
+        tfCrM.setText("");
+        tfTelefone.setText("");
+        tfNome.requestFocus();
+    }
+    
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }

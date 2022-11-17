@@ -6,11 +6,6 @@ import com.sas.model.Enfermeira;
 import com.sas.model.Funcionario;
 import com.sas.model.Medico;
 
-import com.sas.dao.AdministradorDAO;
-import com.sas.dao.AtendenteDAO;
-import com.sas.dao.EnfermeiraDAO;
-import com.sas.dao.MedicoDAO;
-
 public class Login {
 
     public static String verificarLogin(String ID, String senha) {
