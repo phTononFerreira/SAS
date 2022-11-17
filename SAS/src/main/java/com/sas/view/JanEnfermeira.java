@@ -19,6 +19,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private static JanEnfermeira unicoJanEnfermeira;
 
     CardLayout cardLayout;
+    private Boolean Muser=false;
 
     public JanEnfermeira() {
         initComponents();
@@ -48,8 +49,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         labLogo = new javax.swing.JLabel();
         labEstoque = new javax.swing.JLabel();
         labTriagem = new javax.swing.JLabel();
+        panUser = new javax.swing.JPanel();
         labUserImage = new javax.swing.JLabel();
         labUser = new javax.swing.JLabel();
+        labLogout = new javax.swing.JLabel();
+        labLogout.setVisible(false);
         panCards = new javax.swing.JPanel();
         cardTriagem = new javax.swing.JPanel();
         btSalvar = new javax.swing.JButton();
@@ -63,6 +67,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tabPaciente = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         taDescricao = new javax.swing.JTextArea();
+        btNomePesquisa1 = new javax.swing.JButton();
+        btRefresh1 = new javax.swing.JButton();
         cardEstoque = new javax.swing.JPanel();
         btCadastrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -106,20 +112,83 @@ public class JanEnfermeira extends javax.swing.JFrame {
             }
         });
 
+        panUser.setBackground(new java.awt.Color(255, 255, 255));
+
+        labUserImage.setForeground(new java.awt.Color(255, 0, 0));
         labUserImage.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
-                        new java.net.URL("https://www.dropbox.com/s/b6da3hn35crnihb/userProjeto_2_7.png?dl=1")
+                        new java.net.URL("https://media.discordapp.net/attachments/445732137623224331/1042497769887240332/icone_enfermeira_SAS.png?width=40&height=40")
                     );
                 } catch (java.net.MalformedURLException e) {
                 }
                 return null;
             }
         }.getIcon());
+        labUserImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labUserImage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labUserImageMouseClicked(evt);
+            }
+        });
 
-        labUser.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        labUser.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        labUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labUser.setText("Enfermeira");
+        labUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labUserMouseClicked(evt);
+            }
+        });
+
+        labLogout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labLogout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labLogout.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://media.discordapp.net/attachments/445732137623224331/1042833350861267045/log-out.png?width=15&height=15")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        labLogout.setText("SAIR");
+        labLogout.setToolTipText("");
+        labLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labLogoutMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panUserLayout = new javax.swing.GroupLayout(panUser);
+        panUser.setLayout(panUserLayout);
+        panUserLayout.setHorizontalGroup(
+            panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panUserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labUserImage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
+        );
+        panUserLayout.setVerticalGroup(
+            panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panUserLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labUser, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labUserImage))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labLogout)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panTopLayout = new javax.swing.GroupLayout(panTop);
         panTop.setLayout(panTopLayout);
@@ -132,11 +201,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addComponent(labTriagem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labEstoque)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labUserImage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labUser)
-                .addGap(35, 35, 35))
+                .addGap(289, 289, 289)
+                .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panTopLayout.setVerticalGroup(
             panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,17 +211,12 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labTriagem)
                     .addComponent(labEstoque))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panTopLayout.createSequentialGroup()
+                .addContainerGap(78, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createSequentialGroup()
-                .addGap(0, 53, Short.MAX_VALUE)
-                .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(51, 51, 51))
+            .addComponent(panUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         panCards.setLayout(new java.awt.CardLayout());
@@ -227,6 +288,24 @@ public class JanEnfermeira extends javax.swing.JFrame {
         taDescricao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         jScrollPane3.setViewportView(taDescricao);
 
+        btNomePesquisa1.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisa1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btNomePesquisa1.setForeground(new java.awt.Color(255, 255, 255));
+        btNomePesquisa1.setText("LIMPAR");
+        btNomePesquisa1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btNomePesquisa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNomePesquisa1ActionPerformed(evt);
+            }
+        });
+
+        btRefresh1.setBackground(new java.awt.Color(249, 100, 100));
+        btRefresh1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btRefresh1.setForeground(new java.awt.Color(255, 255, 255));
+        btRefresh1.setText("🔄");
+        btRefresh1.setToolTipText("Atualizar Tabela");
+        btRefresh1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout panInformacoesLayout = new javax.swing.GroupLayout(panInformacoes);
         panInformacoes.setLayout(panInformacoesLayout);
         panInformacoesLayout.setHorizontalGroup(
@@ -234,25 +313,37 @@ public class JanEnfermeira extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInformacoesLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane1)
                     .addGroup(panInformacoesLayout.createSequentialGroup()
                         .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labTemperatura)
-                            .addComponent(tfTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                            .addComponent(tfTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfPressao, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labPressao))))
-                .addGap(30, 30, 30))
+                            .addComponent(labPressao))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panInformacoesLayout.createSequentialGroup()
+                        .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panInformacoesLayout.createSequentialGroup()
+                                .addComponent(labDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(925, 925, 925)
+                                .addComponent(btNomePesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panInformacoesLayout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(btRefresh1))
+                                .addComponent(jScrollPane1)
+                                .addComponent(jScrollPane3)))
+                        .addGap(30, 30, 30))))
         );
         panInformacoesLayout.setVerticalGroup(
             panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInformacoesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
+                .addGap(21, 21, 21)
+                .addComponent(btRefresh1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panInformacoesLayout.createSequentialGroup()
                         .addComponent(labPressao)
@@ -262,9 +353,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addComponent(labTemperatura)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(labDescricao)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labDescricao, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btNomePesquisa1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
         );
@@ -275,9 +368,9 @@ public class JanEnfermeira extends javax.swing.JFrame {
             cardTriagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardTriagemLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1246, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
-                .addComponent(btSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addComponent(btSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         cardTriagemLayout.setVerticalGroup(
@@ -288,7 +381,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(cardTriagemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
         );
 
@@ -348,14 +441,14 @@ public class JanEnfermeira extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1169, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -381,7 +474,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                    .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
                     .addComponent(btAlterar1))
                 .addGap(22, 22, 22))
         );
@@ -447,6 +540,36 @@ public class JanEnfermeira extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btAlterar1ActionPerformed
 
+    private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
+        if(Muser){
+            Muser=false;
+            labLogout.setVisible(false);
+        }
+        else{
+            Muser=true;
+            labLogout.setVisible(true);
+        }
+    }//GEN-LAST:event_labUserImageMouseClicked
+
+    private void labUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserMouseClicked
+        if(Muser){
+            Muser=false;
+            labLogout.setVisible(false);
+        }
+        else{
+            Muser=true;
+            labLogout.setVisible(true);
+        }
+    }//GEN-LAST:event_labUserMouseClicked
+
+    private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
+
+    }//GEN-LAST:event_labLogoutMouseClicked
+
+    private void btNomePesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btNomePesquisa1ActionPerformed
+
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
@@ -492,6 +615,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterar1;
     private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btNomePesquisa1;
+    private javax.swing.JButton btRefresh1;
     private javax.swing.JButton btSalvar;
     private javax.swing.JPanel cardEstoque;
     private javax.swing.JPanel cardTriagem;
@@ -502,6 +627,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JLabel labDescricao;
     private javax.swing.JLabel labEstoque;
     private javax.swing.JLabel labLogo;
+    private javax.swing.JLabel labLogout;
     private javax.swing.JLabel labPressao;
     private javax.swing.JLabel labTemperatura;
     private javax.swing.JLabel labTriagem;
@@ -510,6 +636,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panInformacoes;
     private javax.swing.JPanel panTop;
+    private javax.swing.JPanel panUser;
     private javax.swing.JTextArea taDescricao;
     private javax.swing.JTable tabEstoque;
     private javax.swing.JTable tabPaciente;

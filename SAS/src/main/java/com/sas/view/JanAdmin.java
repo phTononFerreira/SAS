@@ -14,7 +14,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private static JanAdmin unicoJanAdmin;
     private String ID;
-    private Boolean mcUser=false;
+    private Boolean Muser=false;
 
     CardLayout cardLayout;
     
@@ -391,6 +391,7 @@ public class JanAdmin extends javax.swing.JFrame {
         });
 
         labUser.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        labUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labUser.setText("Administrador");
         labUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labUser.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -400,6 +401,7 @@ public class JanAdmin extends javax.swing.JFrame {
         });
 
         labLogout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labLogout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labLogout.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -426,12 +428,11 @@ public class JanAdmin extends javax.swing.JFrame {
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panUserLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labLogout)
-                    .addGroup(panUserLayout.createSequentialGroup()
-                        .addComponent(labUserImage)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labUser, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(labUserImage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         panUserLayout.setVerticalGroup(
@@ -1012,12 +1013,12 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_labLogoutMouseClicked
 
     private void labUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserMouseClicked
-        if(mcUser){
-            mcUser=false;
+        if(Muser){
+            Muser=false;
             labLogout.setVisible(false);
         }
         else{
-            mcUser=true;
+            Muser=true;
             labLogout.setVisible(true);
         }
     }//GEN-LAST:event_labUserMouseClicked
@@ -1039,12 +1040,12 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_labFuncionarioMouseClicked
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
-        if(mcUser){
-            mcUser=false;
+        if(Muser){
+            Muser=false;
             labLogout.setVisible(false);
         }
         else{
-            mcUser=true;
+            Muser=true;
             labLogout.setVisible(true);
         }
     }//GEN-LAST:event_labUserImageMouseClicked
