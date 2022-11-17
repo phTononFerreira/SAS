@@ -15,7 +15,7 @@ public class Administrador extends Funcionario {
     public Administrador() {
     }
 
-    public boolean cadastrarFunc(Funcionario f) {
+    public static boolean cadastrarFunc(Funcionario f) {
         Connection conn = ConexaoBD.getConnection();
         if(f.getId().contains("adm")){ 
             Administrador adm = (Administrador) f;
@@ -27,7 +27,7 @@ public class Administrador extends Funcionario {
                 pstm.setString(1, f.getId());
                 pstm.setString(2, f.getSenha());
                 pstm.setString(3, f.getNome());
-                pstm.setDate(4, f.getData_nascimento());
+                pstm.setString(4, f.getData_nascimento());
                 pstm.setString(5, f.getCpf());
                 pstm.setString(6, f.getTelefone());
                 pstm.setString(7, f.getEndereco());

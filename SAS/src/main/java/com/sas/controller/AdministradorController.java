@@ -5,28 +5,40 @@ import java.util.Date;
 
 public class AdministradorController {
 
-    public static void cadastrarFuncionario(String tipo, String id_adm, String senha, String nome, String data_nascimento, String cpf, String telefone, String endereco, String salario, String cr, String crm, String especialidade) {
-        if (tipo.equals("Administrador")){
+    public static String cadastrarFuncionario(String tipo, String id_adm, String senha, String nome, String[] data_nascimento, String cpf, String telefone, String endereco, String salario, String cr, String crm, String especialidade) {
+        if (tipo.equals("Administrador")) {
             Administrador administrador = new Administrador();
             administrador.setId("IdTeste");
             administrador.setNome(nome);
-            administrador.setData_nascimento(new Date(1,1,1)); //FORMATAR STRING -> DATE
+            administrador.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            if (cpf.matches("[A-Z]*")) {
+                System.out.println("CPF INVÁLIDO");
+                return "CPF INVALIDO!";
+            }
+            administrador.setCpf(cpf);
+            administrador.setTelefone(telefone);
+            administrador.setEndereco(endereco);
+            try {
+                administrador.setSalario(Double.parseDouble(salario));
+            } catch (Exception e) {
+                return "SALARIO INVALIDO!";
+            }
             
+            if (Administrador.cadastrarFunc(administrador)){
+                return "CADASTRADO COM SUCESSO!";
+            }else{
+                return "ERRO NO CADASTRO!";
+            }
             
-        }else if(tipo.equals("Atendente")){
-            
-        }else if(tipo.equals("Enfermeira")){
-            
-        }else if(tipo.equals("Enfermeira")){
-            
-        }else{
-            
+        } else if (tipo.equals("Atendente")) {
+
+        } else if (tipo.equals("Enfermeira")) {
+
+        } else if (tipo.equals("Enfermeira")) {
+
         }
-        
-        
-        
-        
-        //Administrador.cadastrarFunc(func);
+
+        return "ERRO NO CADASTRO! [NENHUM TIPO SELECIONADO]";
     }
 
 }
