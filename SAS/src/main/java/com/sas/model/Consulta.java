@@ -1,7 +1,5 @@
 package com.sas.model;
 
-import java.util.Date;
-
 public class Consulta {
 
     private String id;

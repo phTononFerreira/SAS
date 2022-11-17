@@ -1,12 +1,10 @@
 package com.sas.model;
 
-import java.util.Date;
-
 public class Paciente {
 
     private String id;
     private String nome;
-    private Date data_nascimento;
+    private String data_nascimento;
     private String telefone;
     private String cpf;
     private String endereco;
@@ -27,11 +25,11 @@ public class Paciente {
         this.nome = nome;
     }
 
-    public Date getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
+    public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 
@@ -62,7 +60,7 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String id, String nome, Date data_nascimento, String telefone, String cpf, String endereco) {
+    public Paciente(String id, String nome, String data_nascimento, String telefone, String cpf, String endereco) {
         this.id = id;
         this.nome = nome;
         this.data_nascimento = data_nascimento;
