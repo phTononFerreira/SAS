@@ -1,18 +1,56 @@
 package com.sas.model;
 
 import com.sas.controller.ConexaoBD;
+import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import static javax.swing.UIManager.getString;
 
 public class Administrador extends Funcionario {
 
     public Administrador() {
     }
 
-    public Funcionario cadastrarFunc() {
-        return null;
+    public boolean cadastrarFunc(Funcionario f) {
+        Connection conn = ConexaoBD.getConnection();
+        if(f.getId().contains("adm")){ 
+            Administrador adm = (Administrador) f;
+            String query = "INSERT INTO administrador VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstm;
+            
+            try{
+                pstm = conn.prepareStatement(query);
+                pstm.setString(1, f.getId());
+                pstm.setString(2, f.getSenha());
+                pstm.setString(3, f.getNome());
+                pstm.setDate(4, (Date) f.getData_nascimento());
+                pstm.setString(5, f.getCpf());
+                pstm.setString(6, f.getTelefone());
+                pstm.setString(7, f.getEndereco());
+                pstm.setDouble(8, f.getSalario());
+                
+                pstm.execute();
+                pstm.close();
+ 
+
+
+            } catch (Exception erro){
+                System.out.println("ERRO");
+            }
+           
+         
+        }
+        
+        else if(f.getId().contains("med")){
+            Medico med= (Medico) f;
+            System.out.println("DEU CERTO med"+med.getCrm());
+            return true;
+        }
+        return false;
     }
 
     public void editarFunc(Funcionario func) {
@@ -45,5 +83,6 @@ public class Administrador extends Funcionario {
 
         return adm;
     }
+    
 
 }
