@@ -1,10 +1,6 @@
 package com.sas.view;
 
 import com.sas.controller.Login;
-import com.sas.model.Administrador;
-import com.sas.model.Atendente;
-import com.sas.model.Enfermeira;
-import com.sas.model.Medico;
 
 public class JanLogin extends javax.swing.JFrame {
 
@@ -225,9 +221,6 @@ public class JanLogin extends javax.swing.JFrame {
         JanMedico.getJanMedico().setNomePerfil(Login.retornaNomeFuncionario(ID));
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

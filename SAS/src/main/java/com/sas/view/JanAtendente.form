@@ -190,7 +190,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btExcluir1" max="32767" attributes="0"/>
+                                  <Component id="btIniciarTriagem" max="32767" attributes="0"/>
                                   <Component id="btExcluir" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -213,7 +213,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btExcluir" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btExcluir1" min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="btIniciarTriagem" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -349,7 +349,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExcluirActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btExcluir1">
+            <Component class="javax.swing.JButton" name="btIniciarTriagem">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="64" green="64" red="f9" type="rgb"/>
@@ -366,7 +366,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExcluir1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btIniciarTriagemActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
