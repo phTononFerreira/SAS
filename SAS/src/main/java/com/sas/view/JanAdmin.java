@@ -14,6 +14,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private static JanAdmin unicoJanAdmin;
     private String ID;
+    private Boolean mcUser=false;
 
     CardLayout cardLayout;
     
@@ -49,12 +50,40 @@ public class JanAdmin extends javax.swing.JFrame {
 
         bgFiltro = new javax.swing.ButtonGroup();
         bgEquipe = new javax.swing.ButtonGroup();
+        dialogAlteracao = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        tfEnderecoAlt = new javax.swing.JTextField();
+        tfCpfAlt = new javax.swing.JTextField();
+        labEnderecoAlt = new javax.swing.JLabel();
+        labCpfAlt = new javax.swing.JLabel();
+        tfNomeAlt = new javax.swing.JTextField();
+        labNomeAlt = new javax.swing.JLabel();
+        tfSalarioAlt = new javax.swing.JTextField();
+        tfNascAlt = new javax.swing.JTextField();
+        labSalarioAlt = new javax.swing.JLabel();
+        labNascAlt = new javax.swing.JLabel();
+        labEspecialidadeAlt = new javax.swing.JLabel();
+        tfEspecialidadeAlt = new javax.swing.JTextField();
+        labCrMAlt = new javax.swing.JLabel();
+        tfCrMAlt = new javax.swing.JTextField();
+        tfTelefoneAlt = new javax.swing.JTextField();
+        labTelefoneAlt = new javax.swing.JLabel();
+        btNomePesquisaAlt = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        btCancelarAlt = new javax.swing.JButton();
+        btSalvarAlt = new javax.swing.JButton();
+        labAlt = new javax.swing.JLabel();
         panTop = new javax.swing.JPanel();
         labLogo = new javax.swing.JLabel();
-        labUserImage = new javax.swing.JLabel();
-        labUser = new javax.swing.JLabel();
         labFuncionario = new javax.swing.JLabel();
         labCadFuncionario = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        panUser = new javax.swing.JPanel();
+        labUserImage = new javax.swing.JLabel();
+        labUser = new javax.swing.JLabel();
+        labLogout = new javax.swing.JLabel();
+        labLogout.setVisible(false);
         panCards = new javax.swing.JPanel();
         cardCadFuncionario = new javax.swing.JPanel();
         panInfo = new javax.swing.JPanel();
@@ -81,6 +110,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labEspecialidade = new javax.swing.JLabel();
         rbAdministracao = new javax.swing.JRadioButton();
         btNomePesquisa1 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
         btCadastrar = new javax.swing.JButton();
         cardFuncionarios = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -95,6 +125,211 @@ public class JanAdmin extends javax.swing.JFrame {
         rbAdministrador = new javax.swing.JRadioButton();
         tfNome1 = new javax.swing.JTextField();
         btRefresh = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        tfEnderecoAlt.setBackground(new java.awt.Color(242, 242, 242));
+        tfEnderecoAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        tfCpfAlt.setBackground(new java.awt.Color(242, 242, 242));
+        tfCpfAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        labEnderecoAlt.setText("ENDEREÇO");
+
+        labCpfAlt.setText("CPF");
+
+        tfNomeAlt.setBackground(new java.awt.Color(242, 242, 242));
+        tfNomeAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        labNomeAlt.setText("NOME");
+
+        tfSalarioAlt.setBackground(new java.awt.Color(242, 242, 242));
+        tfSalarioAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        tfNascAlt.setBackground(new java.awt.Color(242, 242, 242));
+        tfNascAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNascAlt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNascAltActionPerformed(evt);
+            }
+        });
+
+        labSalarioAlt.setText("SALÁRIO");
+
+        labNascAlt.setText("<html>DATA DE NASCIMENTO<br />DD/MM/AAAA</html>");
+
+        labEspecialidadeAlt.setText("ESPECIALIDADE");
+
+        tfEspecialidadeAlt.setBackground(new java.awt.Color(242, 242, 242));
+        tfEspecialidadeAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        labCrMAlt.setText("CRM");
+
+        tfCrMAlt.setBackground(new java.awt.Color(242, 242, 242));
+        tfCrMAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        tfTelefoneAlt.setBackground(new java.awt.Color(242, 242, 242));
+        tfTelefoneAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        labTelefoneAlt.setText("TELEFONE");
+
+        btNomePesquisaAlt.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisaAlt.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btNomePesquisaAlt.setForeground(new java.awt.Color(255, 255, 255));
+        btNomePesquisaAlt.setText("LIMPAR");
+        btNomePesquisaAlt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNomePesquisaAltActionPerformed(evt);
+            }
+        });
+
+        btCancelarAlt.setBackground(new java.awt.Color(249, 100, 100));
+        btCancelarAlt.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btCancelarAlt.setForeground(new java.awt.Color(255, 255, 255));
+        btCancelarAlt.setText("CANCELAR");
+        btCancelarAlt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarAltActionPerformed(evt);
+            }
+        });
+
+        btSalvarAlt.setBackground(new java.awt.Color(249, 100, 100));
+        btSalvarAlt.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btSalvarAlt.setForeground(new java.awt.Color(255, 255, 255));
+        btSalvarAlt.setText("SALVAR");
+        btSalvarAlt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarAltActionPerformed(evt);
+            }
+        });
+
+        labAlt.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        labAlt.setText("Alteração de dados");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(382, 382, 382)
+                        .addComponent(tfTelefoneAlt))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(602, 602, 602)
+                        .addComponent(btNomePesquisaAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btCancelarAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btSalvarAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labAlt)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tfCpfAlt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labNomeAlt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labCpfAlt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labEnderecoAlt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfEnderecoAlt, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfNomeAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(labTelefoneAlt)
+                                .addGap(316, 316, 316))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labNascAlt)
+                                    .addComponent(tfNascAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labSalarioAlt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfSalarioAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labCrMAlt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labEspecialidadeAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfEspecialidadeAlt)
+                                    .addComponent(tfCrMAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30))))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(labAlt)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labNascAlt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tfNascAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labNomeAlt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfNomeAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labEspecialidadeAlt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfEspecialidadeAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labCpfAlt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfCpfAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labSalarioAlt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfSalarioAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labCrMAlt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfCrMAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labEnderecoAlt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfEnderecoAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(labTelefoneAlt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfTelefoneAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btNomePesquisaAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCancelarAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btSalvarAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
+        );
+
+        javax.swing.GroupLayout dialogAlteracaoLayout = new javax.swing.GroupLayout(dialogAlteracao.getContentPane());
+        dialogAlteracao.getContentPane().setLayout(dialogAlteracaoLayout);
+        dialogAlteracaoLayout.setHorizontalGroup(
+            dialogAlteracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogAlteracaoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+        dialogAlteracaoLayout.setVerticalGroup(
+            dialogAlteracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogAlteracaoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -113,22 +348,6 @@ public class JanAdmin extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
-
-        labUserImage.setForeground(new java.awt.Color(255, 0, 0));
-        labUserImage.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://media.discordapp.net/attachments/445732137623224331/1042497768830279770/icone_adm2_SAS.png?width=40&height=40")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-
-        labUser.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        labUser.setText("Administrador");
 
         labFuncionario.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         labFuncionario.setText("FUNCIONÁRIOS");
@@ -150,6 +369,83 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
+        panUser.setBackground(new java.awt.Color(255, 255, 255));
+
+        labUserImage.setForeground(new java.awt.Color(255, 0, 0));
+        labUserImage.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://media.discordapp.net/attachments/445732137623224331/1042497768830279770/icone_adm2_SAS.png?width=40&height=40")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        labUserImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labUserImage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labUserImageMouseClicked(evt);
+            }
+        });
+
+        labUser.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        labUser.setText("Administrador");
+        labUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labUserMouseClicked(evt);
+            }
+        });
+
+        labLogout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labLogout.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("https://media.discordapp.net/attachments/445732137623224331/1042833350861267045/log-out.png?width=15&height=15")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        labLogout.setText("SAIR");
+        labLogout.setToolTipText("");
+        labLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labLogoutMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panUserLayout = new javax.swing.GroupLayout(panUser);
+        panUser.setLayout(panUserLayout);
+        panUserLayout.setHorizontalGroup(
+            panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panUserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labLogout)
+                    .addGroup(panUserLayout.createSequentialGroup()
+                        .addComponent(labUserImage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labUser, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        panUserLayout.setVerticalGroup(
+            panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panUserLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labLogout)
+                .addGap(18, 18, 18))
+        );
+
         javax.swing.GroupLayout panTopLayout = new javax.swing.GroupLayout(panTop);
         panTop.setLayout(panTopLayout);
         panTopLayout.setHorizontalGroup(
@@ -157,34 +453,41 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panTopLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(labLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labFuncionario)
-                .addGap(385, 385, 385)
-                .addComponent(labCadFuncionario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(labUserImage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labUser)
-                .addGap(30, 30, 30))
+                .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panTopLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panTopLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labFuncionario)
+                        .addGap(370, 370, 370)
+                        .addComponent(labCadFuncionario)
+                        .addGap(391, 391, 391)))
+                .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panTopLayout.setVerticalGroup(
             panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panTopLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(panTopLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labFuncionario)
+                                    .addComponent(labCadFuncionario))
+                                .addGap(12, 12, 12)
+                                .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(panUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createSequentialGroup()
-                .addGap(0, 60, Short.MAX_VALUE)
-                .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labFuncionario)
-                    .addComponent(labCadFuncionario))
-                .addGap(55, 55, 55))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
         );
 
         panCards.setBackground(new java.awt.Color(231, 231, 231));
@@ -228,6 +531,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
         bgEquipe.add(rbAtendimento);
         rbAtendimento.setText("ATENDIMENTO");
+        rbAtendimento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbAtendimentoActionPerformed(evt);
@@ -236,6 +540,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
         bgEquipe.add(rbEnfermagem);
         rbEnfermagem.setText("ENFERMAGEM");
+        rbEnfermagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbEnfermagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbEnfermagemActionPerformed(evt);
@@ -247,6 +552,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
         bgEquipe.add(rbMedica);
         rbMedica.setText("MÉDICA");
+        rbMedica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbMedica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbMedicaActionPerformed(evt);
@@ -265,6 +571,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
         bgEquipe.add(rbAdministracao);
         rbAdministracao.setText("ADMINISTRAÇÃO");
+        rbAdministracao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbAdministracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbAdministracaoActionPerformed(evt);
@@ -275,6 +582,7 @@ public class JanAdmin extends javax.swing.JFrame {
         btNomePesquisa1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btNomePesquisa1.setForeground(new java.awt.Color(255, 255, 255));
         btNomePesquisa1.setText("LIMPAR");
+        btNomePesquisa1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btNomePesquisa1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNomePesquisa1ActionPerformed(evt);
@@ -335,6 +643,10 @@ public class JanAdmin extends javax.swing.JFrame {
                                     .addComponent(labCrM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(tfCrM))))))
                 .addGap(167, 167, 167))
+            .addGroup(panInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator2)
+                .addContainerGap())
         );
         panInfoLayout.setVerticalGroup(
             panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,13 +703,16 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addComponent(btNomePesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btCadastrar.setBackground(new java.awt.Color(249, 100, 100));
         btCadastrar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btCadastrar.setText("CADASTRAR");
+        btCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastrarActionPerformed(evt);
@@ -422,14 +737,15 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addComponent(panInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardCadFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(420, Short.MAX_VALUE)
                 .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
 
         panCards.add(cardCadFuncionario, "cardCadFuncionario");
 
         cardFuncionarios.setBackground(new java.awt.Color(231, 231, 231));
+        cardFuncionarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jScrollPane4.setBorder(null);
         jScrollPane4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -470,6 +786,7 @@ public class JanAdmin extends javax.swing.JFrame {
         lbFiltrarEquipe.setText("Filtrar Equipe");
 
         rbEnfermeira.setText("ENFERMAGEM");
+        rbEnfermeira.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbEnfermeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbEnfermeiraActionPerformed(evt);
@@ -494,6 +811,7 @@ public class JanAdmin extends javax.swing.JFrame {
         btNomePesquisa.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btNomePesquisa.setForeground(new java.awt.Color(255, 255, 255));
         btNomePesquisa.setText("PESQUISAR");
+        btNomePesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btNomePesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNomePesquisaActionPerformed(evt);
@@ -506,6 +824,7 @@ public class JanAdmin extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("ALTERAR");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -513,6 +832,7 @@ public class JanAdmin extends javax.swing.JFrame {
         });
 
         rbAdministrador.setText("ADMINISTRAÇÃO");
+        rbAdministrador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbAdministradorActionPerformed(evt);
@@ -526,6 +846,8 @@ public class JanAdmin extends javax.swing.JFrame {
         btRefresh.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btRefresh.setForeground(new java.awt.Color(255, 255, 255));
         btRefresh.setText("🔄");
+        btRefresh.setToolTipText("Atualizar Tabela");
+        btRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btRefreshActionPerformed(evt);
@@ -617,22 +939,6 @@ public class JanAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void labFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labFuncionarioMouseClicked
-        cardLayout.show(panCards, "cardFuncionarios");
-        labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        labFuncionario.setFont(new java.awt.Font("Verdana", 0, 18));
-        labCadFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
-    }//GEN-LAST:event_labFuncionarioMouseClicked
-
-    private void labCadFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadFuncionarioMouseClicked
-        cardLayout.show(panCards, "cardCadFuncionario");
-        labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        labCadFuncionario.setFont(new java.awt.Font("Verdana", 0, 18));
-        labFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
-    }//GEN-LAST:event_labCadFuncionarioMouseClicked
-
     private void rbEnfermeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEnfermeiraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbEnfermeiraActionPerformed
@@ -685,6 +991,64 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btNomePesquisa1ActionPerformed
 
+    private void btNomePesquisaAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btNomePesquisaAltActionPerformed
+
+    private void btCancelarAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarAltActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btCancelarAltActionPerformed
+
+    private void btSalvarAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarAltActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btSalvarAltActionPerformed
+
+    private void tfNascAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNascAltActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNascAltActionPerformed
+
+    private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
+
+    }//GEN-LAST:event_labLogoutMouseClicked
+
+    private void labUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserMouseClicked
+        if(mcUser){
+            mcUser=false;
+            labLogout.setVisible(false);
+        }
+        else{
+            mcUser=true;
+            labLogout.setVisible(true);
+        }
+    }//GEN-LAST:event_labUserMouseClicked
+
+    private void labCadFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadFuncionarioMouseClicked
+        cardLayout.show(panCards, "cardCadFuncionario");
+        labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labCadFuncionario.setFont(new java.awt.Font("Verdana", 0, 18));
+        labFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
+    }//GEN-LAST:event_labCadFuncionarioMouseClicked
+
+    private void labFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labFuncionarioMouseClicked
+        cardLayout.show(panCards, "cardFuncionarios");
+        labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labFuncionario.setFont(new java.awt.Font("Verdana", 0, 18));
+        labCadFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
+    }//GEN-LAST:event_labFuncionarioMouseClicked
+
+    private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
+        if(mcUser){
+            mcUser=false;
+            labLogout.setVisible(false);
+        }
+        else{
+            mcUser=true;
+            labLogout.setVisible(true);
+        }
+    }//GEN-LAST:event_labUserImageMouseClicked
+
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
@@ -735,33 +1099,53 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bgEquipe;
     private javax.swing.ButtonGroup bgFiltro;
     private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btCancelarAlt;
     private javax.swing.JButton btNomePesquisa;
     private javax.swing.JButton btNomePesquisa1;
+    private javax.swing.JButton btNomePesquisaAlt;
     private javax.swing.JButton btRefresh;
+    private javax.swing.JButton btSalvarAlt;
     private javax.swing.JPanel cardCadFuncionario;
     private javax.swing.JPanel cardFuncionarios;
+    private javax.swing.JDialog dialogAlteracao;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel labAlt;
     private javax.swing.JLabel labCadFuncionario;
     private javax.swing.JLabel labCpf;
+    private javax.swing.JLabel labCpfAlt;
     private javax.swing.JLabel labCrM;
+    private javax.swing.JLabel labCrMAlt;
     private javax.swing.JLabel labEndereco;
+    private javax.swing.JLabel labEnderecoAlt;
     private javax.swing.JLabel labEspecialidade;
+    private javax.swing.JLabel labEspecialidadeAlt;
     private javax.swing.JLabel labFuncionario;
     private javax.swing.JLabel labLogo;
+    private javax.swing.JLabel labLogout;
     private javax.swing.JLabel labNasc;
+    private javax.swing.JLabel labNascAlt;
     private javax.swing.JLabel labNome;
+    private javax.swing.JLabel labNomeAlt;
     private javax.swing.JLabel labNomePesquisa;
     private javax.swing.JLabel labSalario;
+    private javax.swing.JLabel labSalarioAlt;
     private javax.swing.JLabel labTelefone;
+    private javax.swing.JLabel labTelefoneAlt;
     private javax.swing.JLabel labUser;
     private javax.swing.JLabel labUserImage;
     private javax.swing.JLabel lbFiltrarEquipe;
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panInfo;
     private javax.swing.JPanel panTop;
+    private javax.swing.JPanel panUser;
     private javax.swing.JRadioButton rbAdministracao;
     private javax.swing.JRadioButton rbAdministrador;
     private javax.swing.JRadioButton rbAtendente;
@@ -772,13 +1156,21 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbMedico;
     private javax.swing.JTable tabFuncionario;
     private javax.swing.JTextField tfCpf;
+    private javax.swing.JTextField tfCpfAlt;
     private javax.swing.JTextField tfCrM;
+    private javax.swing.JTextField tfCrMAlt;
     private javax.swing.JTextField tfEndereco;
+    private javax.swing.JTextField tfEnderecoAlt;
     private javax.swing.JTextField tfEspecialidade;
+    private javax.swing.JTextField tfEspecialidadeAlt;
     private javax.swing.JTextField tfNasc;
+    private javax.swing.JTextField tfNascAlt;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfNome1;
+    private javax.swing.JTextField tfNomeAlt;
     private javax.swing.JTextField tfSalario;
+    private javax.swing.JTextField tfSalarioAlt;
     private javax.swing.JTextField tfTelefone;
+    private javax.swing.JTextField tfTelefoneAlt;
     // End of variables declaration//GEN-END:variables
 }
