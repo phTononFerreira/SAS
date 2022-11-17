@@ -58,7 +58,7 @@ public class JanAdmin extends javax.swing.JFrame {
         panCards = new javax.swing.JPanel();
         cardCadFuncionario = new javax.swing.JPanel();
         panInfo = new javax.swing.JPanel();
-        tfTemperatura = new javax.swing.JTextField();
+        labNome = new javax.swing.JTextField();
         labTemperatura = new javax.swing.JLabel();
         tfTemperatura1 = new javax.swing.JTextField();
         labTemperatura1 = new javax.swing.JLabel();
@@ -77,6 +77,9 @@ public class JanAdmin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         tfTemperatura6 = new javax.swing.JTextField();
         labTemperatura6 = new javax.swing.JLabel();
+        tfTemperatura7 = new javax.swing.JTextField();
+        labTemperatura7 = new javax.swing.JLabel();
+        jRadioButton8 = new javax.swing.JRadioButton();
         jButtonCadastrar = new javax.swing.JButton();
         cardFuncionarios = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -188,15 +191,15 @@ public class JanAdmin extends javax.swing.JFrame {
         panInfo.setBackground(new java.awt.Color(255, 255, 255));
         panInfo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(249, 100, 100), 1, true));
 
-        tfTemperatura.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labNome.setBackground(new java.awt.Color(242, 242, 242));
+        labNome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
         labTemperatura.setText("NOME");
 
         tfTemperatura1.setBackground(new java.awt.Color(242, 242, 242));
         tfTemperatura1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura1.setText("DATA DE NASCIMENTO");
+        labTemperatura1.setText("<html>DATA DE NASCIMENTO<br />DD/MM/AAAA</html>");
 
         tfTemperatura2.setBackground(new java.awt.Color(242, 242, 242));
         tfTemperatura2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
@@ -211,7 +214,7 @@ public class JanAdmin extends javax.swing.JFrame {
         tfTemperatura4.setBackground(new java.awt.Color(242, 242, 242));
         tfTemperatura4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura4.setText("Endereço");
+        labTemperatura4.setText("ENDEREÇO");
 
         tfTemperatura5.setBackground(new java.awt.Color(242, 242, 242));
         tfTemperatura5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
@@ -250,84 +253,116 @@ public class JanAdmin extends javax.swing.JFrame {
 
         labTemperatura6.setText("SALÁRIO");
 
+        tfTemperatura7.setBackground(new java.awt.Color(242, 242, 242));
+        tfTemperatura7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        labTemperatura7.setText("ESPECIALIDADE");
+
+        bgEquipe.add(jRadioButton8);
+        jRadioButton8.setText("ADMINISTRAÇÃO");
+        jRadioButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panInfoLayout = new javax.swing.GroupLayout(panInfo);
         panInfo.setLayout(panInfoLayout);
         panInfoLayout.setHorizontalGroup(
             panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panInfoLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panInfoLayout.createSequentialGroup()
-                        .addComponent(jRadioButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton4))
+                        .addGap(23, 23, 23)
+                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(panInfoLayout.createSequentialGroup()
+                                .addComponent(jRadioButton8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton6)))
+                        .addGap(0, 301, Short.MAX_VALUE))
                     .addGroup(panInfoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1)))
+                .addContainerGap())
+            .addGroup(panInfoLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(tfTemperatura4, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(tfTemperatura4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(tfTemperatura2, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(labTemperatura, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(tfTemperatura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))
-                                    .addComponent(labTemperatura2)))
-                            .addComponent(labTemperatura4))
+                                .addComponent(tfTemperatura2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labTemperatura, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labTemperatura2)))
+                    .addComponent(labTemperatura4))
+                .addGap(18, 18, 18)
+                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labTemperatura3)
+                    .addComponent(tfTemperatura3)
+                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labTemperatura1)
+                                .addComponent(tfTemperatura1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labTemperatura6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tfTemperatura6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labTemperatura3)
-                            .addGroup(panInfoLayout.createSequentialGroup()
-                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labTemperatura1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfTemperatura1)
-                                    .addComponent(labTemperatura5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfTemperatura5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labTemperatura6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfTemperatura6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(tfTemperatura3)))
-                    .addComponent(jLabel5))
-                .addContainerGap(153, Short.MAX_VALUE))
-            .addGroup(panInfoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator1)
-                .addContainerGap())
+                            .addComponent(labTemperatura5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfTemperatura5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labTemperatura7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfTemperatura7, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panInfoLayout.setVerticalGroup(
             panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInfoLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel5)
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
                 .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton5)
                     .addComponent(jRadioButton6)
-                    .addComponent(jRadioButton4))
+                    .addComponent(jRadioButton4)
+                    .addComponent(jRadioButton8))
                 .addGap(27, 27, 27)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panInfoLayout.createSequentialGroup()
-                        .addComponent(labTemperatura1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfTemperatura1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panInfoLayout.createSequentialGroup()
-                        .addComponent(labTemperatura)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panInfoLayout.createSequentialGroup()
-                        .addComponent(labTemperatura2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfTemperatura2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panInfoLayout.createSequentialGroup()
+                                .addComponent(labTemperatura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfTemperatura1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panInfoLayout.createSequentialGroup()
+                                .addComponent(labTemperatura)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labNome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panInfoLayout.createSequentialGroup()
+                                .addComponent(labTemperatura7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfTemperatura7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panInfoLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labTemperatura2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfTemperatura2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panInfoLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(labTemperatura5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfTemperatura5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panInfoLayout.createSequentialGroup()
-                        .addComponent(labTemperatura5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfTemperatura5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(labTemperatura6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfTemperatura6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -341,7 +376,7 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(labTemperatura3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfTemperatura3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(68, 68, 68))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jButtonCadastrar.setBackground(new java.awt.Color(249, 100, 100));
@@ -371,10 +406,10 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(panInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
-            .addGroup(cardCadFuncionarioLayout.createSequentialGroup()
-                .addGap(185, 185, 185)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardCadFuncionarioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(180, 180, 180))
         );
 
         panCards.add(cardCadFuncionario, "cardCadFuncionario");
@@ -617,6 +652,10 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
+    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton8ActionPerformed
+
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
@@ -681,12 +720,14 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextFieldNomeFunc;
     private javax.swing.JLabel labCadFuncionario;
     private javax.swing.JLabel labFuncionario;
     private javax.swing.JLabel labLogo;
+    private javax.swing.JTextField labNome;
     private javax.swing.JLabel labTemperatura;
     private javax.swing.JLabel labTemperatura1;
     private javax.swing.JLabel labTemperatura2;
@@ -694,18 +735,19 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel labTemperatura4;
     private javax.swing.JLabel labTemperatura5;
     private javax.swing.JLabel labTemperatura6;
+    private javax.swing.JLabel labTemperatura7;
     private javax.swing.JLabel labUser;
     private javax.swing.JLabel labUserImage;
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panInfo;
     private javax.swing.JPanel panTop;
     private javax.swing.JTable tabEstoque;
-    private javax.swing.JTextField tfTemperatura;
     private javax.swing.JTextField tfTemperatura1;
     private javax.swing.JTextField tfTemperatura2;
     private javax.swing.JTextField tfTemperatura3;
     private javax.swing.JTextField tfTemperatura4;
     private javax.swing.JTextField tfTemperatura5;
     private javax.swing.JTextField tfTemperatura6;
+    private javax.swing.JTextField tfTemperatura7;
     // End of variables declaration//GEN-END:variables
 }
