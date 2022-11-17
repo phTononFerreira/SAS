@@ -48,11 +48,11 @@ public class AdministradorDAO {
         return false;
     }
 
-    public void editarFunc(Funcionario func) {
+    public static void editarFunc(Funcionario func) {
 
     }
 
-    public static Administrador pesquisarAdministradorID(String ID) {
+    public static Administrador pesquisarAdminID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_id = '" + ID + "'");
         Administrador adm = null;
         try {

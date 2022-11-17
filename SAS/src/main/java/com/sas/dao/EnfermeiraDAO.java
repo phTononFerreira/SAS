@@ -12,19 +12,19 @@ public class EnfermeiraDAO {
         return null;
     }
 
-    public InsumoMedico cadastrarInsumo() {
+    public InsumoMedico cadastrarIns() {
         return null;
     }
 
-    public void controlarEstoque(InsumoMedico ins) {
+    public void controlarEst(InsumoMedico ins) {
 
     }
 
-    public int contarEstoque(InsumoMedico ins) {
+    public int contarEst(InsumoMedico ins) {
         return 0;
     }
 
-    public static Enfermeira pesquisarEnfermeiraID(String ID) {
+    public static Enfermeira pesquisarEnfID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira WHERE enf_id = '" + ID + "'");
         Enfermeira enf = null;
         try {

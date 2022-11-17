@@ -48,5 +48,13 @@ public class AdministradorController {
 
         return "ERRO NO CADASTRO! [NENHUM TIPO SELECIONADO]";
     }
+    
+    public static void editarFuncionario(Funcionario func) {
+
+    }
+    
+    public static Administrador pesquisarAdministradorID(String ID) {
+        return AdministradorDAO.pesquisarAdminID(ID);
+    }
 
 }

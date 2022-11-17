@@ -9,23 +9,23 @@ import java.sql.SQLException;
 
 public class MedicoDAO {
     
-    public void finalizarCon(Consulta con) {
+    public static void finalizarCon(Consulta con) {
 
     }
 
-    public String encaminharPac(Consulta con) {
+    public static String encaminharPac(Consulta con) {
         return null;
     }
 
-    public String receitarPac(InsumoMedico ins) {
+    public static String receitarPac(InsumoMedico ins) {
         return null;
     }
 
-    public void visualizarPro(Prontuario pro) {
+    public static void visualizarPro(Prontuario pro) {
 
     }
 
-    public static Medico pesquisarMedicoID(String ID) {
+    public static Medico pesquisarMedID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_id = '" + ID + "'");
         Medico med = null;
         try {

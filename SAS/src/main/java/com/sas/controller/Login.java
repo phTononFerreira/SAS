@@ -18,7 +18,7 @@ public class Login {
         String cargo = null;
 
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Administrador
-        usuarioEncontrado = (Administrador) AdministradorDAO.pesquisarAdministradorID(ID);
+        usuarioEncontrado = (Administrador) AdministradorController.pesquisarAdministradorID(ID);
         if (usuarioEncontrado != null) {
             if (usuarioEncontrado.getSenha().equals(senha)) {
                 cargo = "Administrador";
@@ -30,7 +30,7 @@ public class Login {
 
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Atendente
         if (cargo == null) {
-            usuarioEncontrado = (Atendente) AtendenteDAO.pesquisarAtendenteID(ID);
+            usuarioEncontrado = (Atendente) AtendenteController.pesquisarAtendenteID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Atendente";
@@ -42,7 +42,7 @@ public class Login {
 
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Enfermeira
         if (cargo == null) {
-            usuarioEncontrado = (Enfermeira) EnfermeiraDAO.pesquisarEnfermeiraID(ID);
+            usuarioEncontrado = (Enfermeira) EnfermeiraController.pesquisarEnfermeiraID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Enfermeira";
@@ -54,7 +54,7 @@ public class Login {
 
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Medico
         if (cargo == null) {
-            usuarioEncontrado = (Medico) MedicoDAO.pesquisarMedicoID(ID);
+            usuarioEncontrado = (Medico) MedicoController.pesquisarMedicoID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Medico";
@@ -73,10 +73,10 @@ public class Login {
     
     public static String retornaNomeFuncionario(String ID) {
         String nome = switch (ID.substring(0,3)) {
-            case "adm" -> AdministradorDAO.pesquisarAdministradorID(ID).getNome();
-            case "ate" -> AtendenteDAO.pesquisarAtendenteID(ID).getNome();
-            case "enf" -> EnfermeiraDAO.pesquisarEnfermeiraID(ID).getNome();
-            case "med" -> MedicoDAO.pesquisarMedicoID(ID).getNome();
+            case "adm" -> AdministradorController.pesquisarAdministradorID(ID).getNome();
+            case "ate" -> AtendenteController.pesquisarAtendenteID(ID).getNome();
+            case "enf" -> EnfermeiraController.pesquisarEnfermeiraID(ID).getNome();
+            case "med" -> MedicoController.pesquisarMedicoID(ID).getNome();
             default -> "Usuário não encontrado.";
         };
         nome = nome.split(" ")[0];

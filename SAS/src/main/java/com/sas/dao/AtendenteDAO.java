@@ -8,27 +8,27 @@ import java.sql.SQLException;
 
 public class AtendenteDAO {
     
-    public Paciente cadastrarPac() {
+    public static Paciente cadastrarPac() {
         return null;
     }
 
-    public void editarPac(Paciente pac) {
+    public static void editarPac(Paciente pac) {
 
     }
 
-    public void encaminharTriagem(Consulta con) {
+    public static void encaminharTri(Consulta con) {
 
     }
 
-    public Consulta agendarCon() {
+    public static Consulta agendarCon() {
         return null;
     }
 
-    public void cancelarCon(Consulta con) {
+    public static void cancelarCon(Consulta con) {
 
     }
 
-    public static Atendente pesquisarAtendenteID(String ID) {
+    public static Atendente pesquisarAteID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente WHERE ate_id = '" + ID + "'");
         Atendente ate = null;
         try {
