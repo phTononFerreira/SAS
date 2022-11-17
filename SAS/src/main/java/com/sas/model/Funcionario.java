@@ -1,7 +1,5 @@
 package com.sas.model;
 
-import java.util.Date;
-
 public abstract class Funcionario {
 
     private String id;
