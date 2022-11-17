@@ -1037,7 +1037,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNascAltActionPerformed
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
-
+        sair();
     }//GEN-LAST:event_labLogoutMouseClicked
 
     private void labUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserMouseClicked
@@ -1141,6 +1141,9 @@ public class JanAdmin extends javax.swing.JFrame {
         tfNome.requestFocus();
     }
     
+    public void sair(){
+        dispose();
+    }
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }

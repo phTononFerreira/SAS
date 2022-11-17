@@ -546,13 +546,17 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_labUserMouseClicked
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
-
+        sair();
     }//GEN-LAST:event_labLogoutMouseClicked
 
     private void btNomePesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisa1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btNomePesquisa1ActionPerformed
-
+    
+    public void sair(){
+        dispose();
+    }
+    
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
