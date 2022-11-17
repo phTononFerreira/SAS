@@ -348,6 +348,11 @@ public class JanAdmin extends javax.swing.JFrame {
         jButtonCadastrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jButtonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCadastrar.setText("CADASTRAR");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cardCadFuncionarioLayout = new javax.swing.GroupLayout(cardCadFuncionario);
         cardCadFuncionario.setLayout(cardCadFuncionarioLayout);
@@ -607,6 +612,10 @@ public class JanAdmin extends javax.swing.JFrame {
     private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton7ActionPerformed
+
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
