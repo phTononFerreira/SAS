@@ -1,6 +1,5 @@
 package com.sas.dao;
 
-import com.sas.controller.ConexaoBD;
 import com.sas.model.Atendente;
 import com.sas.model.Consulta;
 import com.sas.model.Paciente;

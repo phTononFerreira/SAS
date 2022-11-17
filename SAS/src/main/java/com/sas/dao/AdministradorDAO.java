@@ -1,6 +1,5 @@
 package com.sas.dao;
 
-import com.sas.controller.ConexaoBD;
 import com.sas.model.Administrador;
 import com.sas.model.Funcionario;
 import com.sas.model.Medico;
