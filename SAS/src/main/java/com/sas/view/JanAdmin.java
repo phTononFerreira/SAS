@@ -440,7 +440,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -502,31 +502,61 @@ public class JanAdmin extends javax.swing.JFrame {
 
         tfNome.setBackground(new java.awt.Color(242, 242, 242));
         tfNome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNomeActionPerformed(evt);
+            }
+        });
 
         labNome.setText("NOME");
 
         tfNasc.setBackground(new java.awt.Color(242, 242, 242));
         tfNasc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNasc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNascActionPerformed(evt);
+            }
+        });
 
         labNasc.setText("<html>DATA DE NASCIMENTO<br />DD/MM/AAAA</html>");
 
         tfCpf.setBackground(new java.awt.Color(242, 242, 242));
         tfCpf.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCpfActionPerformed(evt);
+            }
+        });
 
         labCpf.setText("CPF");
 
         tfTelefone.setBackground(new java.awt.Color(242, 242, 242));
         tfTelefone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTelefoneActionPerformed(evt);
+            }
+        });
 
         labTelefone.setText("TELEFONE");
 
         tfEndereco.setBackground(new java.awt.Color(242, 242, 242));
         tfEndereco.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEnderecoActionPerformed(evt);
+            }
+        });
 
         labEndereco.setText("ENDEREÇO");
 
         tfCrM.setBackground(new java.awt.Color(242, 242, 242));
         tfCrM.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCrM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCrMActionPerformed(evt);
+            }
+        });
 
         labCrM.setText("CRM");
 
@@ -562,11 +592,21 @@ public class JanAdmin extends javax.swing.JFrame {
 
         tfSalario.setBackground(new java.awt.Color(242, 242, 242));
         tfSalario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfSalario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSalarioActionPerformed(evt);
+            }
+        });
 
         labSalario.setText("SALÁRIO");
 
         tfEspecialidade.setBackground(new java.awt.Color(242, 242, 242));
         tfEspecialidade.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfEspecialidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEspecialidadeActionPerformed(evt);
+            }
+        });
 
         labEspecialidade.setText("ESPECIALIDADE");
 
@@ -989,7 +1029,15 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btRefreshActionPerformed
 
     private void btNomePesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisa1ActionPerformed
-        // TODO add your handling code here:
+        tfNome.setText("");
+        tfCpf.setText("");
+        tfNasc.setText("");
+        tfEndereco.setText("");
+        tfEspecialidade.setText("");
+        tfSalario.setText("");
+        tfCrM.setText("");
+        tfTelefone.setText("");
+        tfNome.requestFocus();
     }//GEN-LAST:event_btNomePesquisa1ActionPerformed
 
     private void btNomePesquisaAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltActionPerformed
@@ -1049,6 +1097,38 @@ public class JanAdmin extends javax.swing.JFrame {
             labLogout.setVisible(true);
         }
     }//GEN-LAST:event_labUserImageMouseClicked
+
+    private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomeActionPerformed
+
+    private void tfCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCpfActionPerformed
+
+    private void tfEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEnderecoActionPerformed
+
+    private void tfNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNascActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNascActionPerformed
+
+    private void tfEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEspecialidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEspecialidadeActionPerformed
+
+    private void tfSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSalarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSalarioActionPerformed
+
+    private void tfCrMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCrMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCrMActionPerformed
+
+    private void tfTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTelefoneActionPerformed
 
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
