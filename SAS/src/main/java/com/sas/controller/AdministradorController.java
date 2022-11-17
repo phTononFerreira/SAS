@@ -1,7 +1,15 @@
 package com.sas.controller;
 
 import com.sas.model.Administrador;
-import java.util.Date;
+import com.sas.model.Atendente;
+import com.sas.model.Enfermeira;
+import com.sas.model.Funcionario;
+import com.sas.model.Medico;
+
+import com.sas.dao.AdministradorDAO;
+import com.sas.dao.AtendenteDAO;
+import com.sas.dao.EnfermeiraDAO;
+import com.sas.dao.MedicoDAO;
 
 public class AdministradorController {
 
@@ -24,7 +32,7 @@ public class AdministradorController {
                 return "SALARIO INVALIDO!";
             }
             
-            if (Administrador.cadastrarFunc(administrador)){
+            if (AdministradorDAO.cadastrarFunc(administrador)){
                 return "CADASTRADO COM SUCESSO!";
             }else{
                 return "ERRO NO CADASTRO!";

@@ -6,6 +6,11 @@ import com.sas.model.Enfermeira;
 import com.sas.model.Funcionario;
 import com.sas.model.Medico;
 
+import com.sas.dao.AdministradorDAO;
+import com.sas.dao.AtendenteDAO;
+import com.sas.dao.EnfermeiraDAO;
+import com.sas.dao.MedicoDAO;
+
 public class Login {
 
     public static String verificarLogin(String ID, String senha) {
@@ -13,7 +18,7 @@ public class Login {
         String cargo = null;
 
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Administrador
-        usuarioEncontrado = (Administrador) Administrador.pesquisarAdministradorID(ID);
+        usuarioEncontrado = (Administrador) AdministradorDAO.pesquisarAdministradorID(ID);
         if (usuarioEncontrado != null) {
             if (usuarioEncontrado.getSenha().equals(senha)) {
                 cargo = "Administrador";
@@ -25,7 +30,7 @@ public class Login {
 
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Atendente
         if (cargo == null) {
-            usuarioEncontrado = (Atendente) Atendente.pesquisarAtendenteID(ID);
+            usuarioEncontrado = (Atendente) AtendenteDAO.pesquisarAtendenteID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Atendente";
@@ -37,7 +42,7 @@ public class Login {
 
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Enfermeira
         if (cargo == null) {
-            usuarioEncontrado = (Enfermeira) Enfermeira.pesquisarEnfermeiraID(ID);
+            usuarioEncontrado = (Enfermeira) EnfermeiraDAO.pesquisarEnfermeiraID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Enfermeira";
@@ -49,7 +54,7 @@ public class Login {
 
         //VERIFICAR SE EXISTE USUARIO NA TABELA: Medico
         if (cargo == null) {
-            usuarioEncontrado = (Medico) Medico.pesquisarMedicoID(ID);
+            usuarioEncontrado = (Medico) MedicoDAO.pesquisarMedicoID(ID);
             if (usuarioEncontrado != null) {
                 if (usuarioEncontrado.getSenha().equals(senha)) {
                     cargo = "Medico";
@@ -68,10 +73,10 @@ public class Login {
     
     public static String retornaNomeFuncionario(String ID) {
         String nome = switch (ID.substring(0,3)) {
-            case "adm" -> Administrador.pesquisarAdministradorID(ID).getNome();
-            case "ate" -> Atendente.pesquisarAtendenteID(ID).getNome();
-            case "enf" -> Enfermeira.pesquisarEnfermeiraID(ID).getNome();
-            case "med" -> Medico.pesquisarMedicoID(ID).getNome();
+            case "adm" -> AdministradorDAO.pesquisarAdministradorID(ID).getNome();
+            case "ate" -> AtendenteDAO.pesquisarAtendenteID(ID).getNome();
+            case "enf" -> EnfermeiraDAO.pesquisarEnfermeiraID(ID).getNome();
+            case "med" -> MedicoDAO.pesquisarMedicoID(ID).getNome();
             default -> "Usuário não encontrado.";
         };
         nome = nome.split(" ")[0];
