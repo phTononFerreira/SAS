@@ -58,41 +58,43 @@ public class JanAdmin extends javax.swing.JFrame {
         panCards = new javax.swing.JPanel();
         cardCadFuncionario = new javax.swing.JPanel();
         panInfo = new javax.swing.JPanel();
-        labNome = new javax.swing.JTextField();
-        labTemperatura = new javax.swing.JLabel();
-        tfTemperatura1 = new javax.swing.JTextField();
-        labTemperatura1 = new javax.swing.JLabel();
-        tfTemperatura2 = new javax.swing.JTextField();
-        labTemperatura2 = new javax.swing.JLabel();
-        tfTemperatura3 = new javax.swing.JTextField();
-        labTemperatura3 = new javax.swing.JLabel();
-        tfTemperatura4 = new javax.swing.JTextField();
-        labTemperatura4 = new javax.swing.JLabel();
-        tfTemperatura5 = new javax.swing.JTextField();
-        labTemperatura5 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        tfNome = new javax.swing.JTextField();
+        labNome = new javax.swing.JLabel();
+        tfNasc = new javax.swing.JTextField();
+        labNasc = new javax.swing.JLabel();
+        tfCpf = new javax.swing.JTextField();
+        labCpf = new javax.swing.JLabel();
+        tfTelefone = new javax.swing.JTextField();
+        labTelefone = new javax.swing.JLabel();
+        tfEndereco = new javax.swing.JTextField();
+        labEndereco = new javax.swing.JLabel();
+        tfCrM = new javax.swing.JTextField();
+        labCrM = new javax.swing.JLabel();
+        rbAtendimento = new javax.swing.JRadioButton();
+        rbEnfermagem = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        rbMedica = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
-        tfTemperatura6 = new javax.swing.JTextField();
-        labTemperatura6 = new javax.swing.JLabel();
-        tfTemperatura7 = new javax.swing.JTextField();
-        labTemperatura7 = new javax.swing.JLabel();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jButtonCadastrar = new javax.swing.JButton();
+        tfSalario = new javax.swing.JTextField();
+        labSalario = new javax.swing.JLabel();
+        tfEspecialidade = new javax.swing.JTextField();
+        labEspecialidade = new javax.swing.JLabel();
+        rbAdministracao = new javax.swing.JRadioButton();
+        btNomePesquisa1 = new javax.swing.JButton();
+        btCadastrar = new javax.swing.JButton();
         cardFuncionarios = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tabEstoque = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jTextFieldNomeFunc = new javax.swing.JTextField();
-        jButtonPesquisar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        tabFuncionario = new javax.swing.JTable();
+        lbFiltrarEquipe = new javax.swing.JLabel();
+        rbEnfermeira = new javax.swing.JRadioButton();
+        rbAtendente = new javax.swing.JRadioButton();
+        rbMedico = new javax.swing.JRadioButton();
+        btNomePesquisa = new javax.swing.JButton();
+        labNomePesquisa = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        rbAdministrador = new javax.swing.JRadioButton();
+        tfNome1 = new javax.swing.JTextField();
+        btRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -117,7 +119,7 @@ public class JanAdmin extends javax.swing.JFrame {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
-                        new java.net.URL("https://www.dropbox.com/s/b6da3hn35crnihb/userProjeto_2_7.png?dl=1")
+                        new java.net.URL("https://media.discordapp.net/attachments/445732137623224331/1042497768830279770/icone_adm2_SAS.png?width=40&height=40")
                     );
                 } catch (java.net.MalformedURLException e) {
                 }
@@ -157,13 +159,13 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addComponent(labLogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labFuncionario)
-                .addGap(64, 64, 64)
+                .addGap(385, 385, 385)
                 .addComponent(labCadFuncionario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labUserImage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labUser)
-                .addGap(35, 35, 35))
+                .addGap(30, 30, 30))
         );
         panTopLayout.setVerticalGroup(
             panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,14 +174,17 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addComponent(labLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createSequentialGroup()
-                .addGap(0, 49, Short.MAX_VALUE)
+                .addGap(0, 60, Short.MAX_VALUE)
+                .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labFuncionario)
+                    .addComponent(labCadFuncionario))
+                .addGap(55, 55, 55))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labFuncionario)
-                        .addComponent(labCadFuncionario)))
-                .addGap(55, 55, 55))
+                    .addComponent(labUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
         );
 
         panCards.setBackground(new java.awt.Color(231, 231, 231));
@@ -191,78 +196,88 @@ public class JanAdmin extends javax.swing.JFrame {
         panInfo.setBackground(new java.awt.Color(255, 255, 255));
         panInfo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(249, 100, 100), 1, true));
 
-        labNome.setBackground(new java.awt.Color(242, 242, 242));
-        labNome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNome.setBackground(new java.awt.Color(242, 242, 242));
+        tfNome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura.setText("NOME");
+        labNome.setText("NOME");
 
-        tfTemperatura1.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNasc.setBackground(new java.awt.Color(242, 242, 242));
+        tfNasc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura1.setText("<html>DATA DE NASCIMENTO<br />DD/MM/AAAA</html>");
+        labNasc.setText("<html>DATA DE NASCIMENTO<br />DD/MM/AAAA</html>");
 
-        tfTemperatura2.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCpf.setBackground(new java.awt.Color(242, 242, 242));
+        tfCpf.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura2.setText("CPF");
+        labCpf.setText("CPF");
 
-        tfTemperatura3.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfTelefone.setBackground(new java.awt.Color(242, 242, 242));
+        tfTelefone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura3.setText("TELEFONE");
+        labTelefone.setText("TELEFONE");
 
-        tfTemperatura4.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfEndereco.setBackground(new java.awt.Color(242, 242, 242));
+        tfEndereco.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura4.setText("ENDEREÇO");
+        labEndereco.setText("ENDEREÇO");
 
-        tfTemperatura5.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCrM.setBackground(new java.awt.Color(242, 242, 242));
+        tfCrM.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura5.setText("CRM");
+        labCrM.setText("CRM");
 
-        bgEquipe.add(jRadioButton4);
-        jRadioButton4.setText("ATENDIMENTO");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        bgEquipe.add(rbAtendimento);
+        rbAtendimento.setText("ATENDIMENTO");
+        rbAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                rbAtendimentoActionPerformed(evt);
             }
         });
 
-        bgEquipe.add(jRadioButton5);
-        jRadioButton5.setText("ENFERMAGEM");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        bgEquipe.add(rbEnfermagem);
+        rbEnfermagem.setText("ENFERMAGEM");
+        rbEnfermagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                rbEnfermagemActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
         jLabel5.setText("Selecionar Equipe");
 
-        bgEquipe.add(jRadioButton6);
-        jRadioButton6.setText("MÉDICA");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+        bgEquipe.add(rbMedica);
+        rbMedica.setText("MÉDICA");
+        rbMedica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
+                rbMedicaActionPerformed(evt);
             }
         });
 
-        tfTemperatura6.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfSalario.setBackground(new java.awt.Color(242, 242, 242));
+        tfSalario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura6.setText("SALÁRIO");
+        labSalario.setText("SALÁRIO");
 
-        tfTemperatura7.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfEspecialidade.setBackground(new java.awt.Color(242, 242, 242));
+        tfEspecialidade.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura7.setText("ESPECIALIDADE");
+        labEspecialidade.setText("ESPECIALIDADE");
 
-        bgEquipe.add(jRadioButton8);
-        jRadioButton8.setText("ADMINISTRAÇÃO");
-        jRadioButton8.addActionListener(new java.awt.event.ActionListener() {
+        bgEquipe.add(rbAdministracao);
+        rbAdministracao.setText("ADMINISTRAÇÃO");
+        rbAdministracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton8ActionPerformed(evt);
+                rbAdministracaoActionPerformed(evt);
+            }
+        });
+
+        btNomePesquisa1.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisa1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btNomePesquisa1.setForeground(new java.awt.Color(255, 255, 255));
+        btNomePesquisa1.setText("LIMPAR");
+        btNomePesquisa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNomePesquisa1ActionPerformed(evt);
             }
         });
 
@@ -277,49 +292,49 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addGroup(panInfoLayout.createSequentialGroup()
-                                .addComponent(jRadioButton8)
+                                .addComponent(rbAdministracao)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton4)
+                                .addComponent(rbAtendimento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton5)
+                                .addComponent(rbEnfermagem)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton6)))
-                        .addGap(0, 301, Short.MAX_VALUE))
+                                .addComponent(rbMedica)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panInfoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator1)))
                 .addContainerGap())
-            .addGroup(panInfoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(tfTemperatura4, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(tfTemperatura2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labTemperatura, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(labTemperatura2)))
-                    .addComponent(labTemperatura4))
-                .addGap(18, 18, 18)
-                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labTemperatura3)
-                    .addComponent(tfTemperatura3)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInfoLayout.createSequentialGroup()
+                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panInfoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btNomePesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(labTemperatura1)
-                                .addComponent(tfTemperatura1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(labTemperatura6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tfTemperatura6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tfEndereco)
+                            .addComponent(tfCpf)
+                            .addComponent(labNome)
+                            .addComponent(tfNome, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+                            .addComponent(labCpf)
+                            .addComponent(labEndereco))
                         .addGap(18, 18, 18)
-                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labTemperatura5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfTemperatura5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labTemperatura7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfTemperatura7, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labTelefone)
+                            .addComponent(tfTelefone)
+                            .addGroup(panInfoLayout.createSequentialGroup()
+                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labNasc)
+                                    .addComponent(tfNasc)
+                                    .addComponent(labSalario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfSalario))
+                                .addGap(18, 18, 18)
+                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labEspecialidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfEspecialidade, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                                    .addComponent(labCrM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfCrM))))))
+                .addGap(167, 167, 167))
         );
         panInfoLayout.setVerticalGroup(
             panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,64 +343,64 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton8))
+                    .addComponent(rbEnfermagem)
+                    .addComponent(rbMedica)
+                    .addComponent(rbAtendimento)
+                    .addComponent(rbAdministracao))
                 .addGap(27, 27, 27)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panInfoLayout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panInfoLayout.createSequentialGroup()
-                                .addComponent(labTemperatura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfTemperatura1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panInfoLayout.createSequentialGroup()
-                                .addComponent(labTemperatura)
+                                .addComponent(labNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labNome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panInfoLayout.createSequentialGroup()
-                                .addComponent(labTemperatura7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfTemperatura7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panInfoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labTemperatura2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfTemperatura2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panInfoLayout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(labTemperatura5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfTemperatura5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panInfoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labTemperatura6)
+                        .addComponent(labEspecialidade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfTemperatura6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addComponent(labCpf)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addComponent(labSalario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addComponent(labCrM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfCrM, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tfTemperatura4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panInfoLayout.createSequentialGroup()
-                        .addComponent(labTemperatura4)
+                        .addComponent(labEndereco)
                         .addGap(39, 39, 39))
                     .addGroup(panInfoLayout.createSequentialGroup()
-                        .addComponent(labTemperatura3)
+                        .addComponent(labTelefone)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfTemperatura3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                        .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27)
+                .addComponent(btNomePesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(463, Short.MAX_VALUE))
         );
 
-        jButtonCadastrar.setBackground(new java.awt.Color(249, 100, 100));
-        jButtonCadastrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButtonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonCadastrar.setText("CADASTRAR");
-        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btCadastrar.setBackground(new java.awt.Color(249, 100, 100));
+        btCadastrar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btCadastrar.setText("CADASTRAR");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCadastrarActionPerformed(evt);
+                btCadastrarActionPerformed(evt);
             }
         });
 
@@ -396,8 +411,8 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(cardCadFuncionarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
         );
         cardCadFuncionarioLayout.setVerticalGroup(
@@ -408,8 +423,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardCadFuncionarioLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180))
+                .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panCards.add(cardCadFuncionario, "cardCadFuncionario");
@@ -419,10 +434,10 @@ public class JanAdmin extends javax.swing.JFrame {
         jScrollPane4.setBorder(null);
         jScrollPane4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        tabEstoque.setBackground(new java.awt.Color(242, 242, 242));
-        tabEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
-        tabEstoque.setForeground(new java.awt.Color(51, 51, 51));
-        tabEstoque.setModel(new javax.swing.table.DefaultTableModel(
+        tabFuncionario.setBackground(new java.awt.Color(242, 242, 242));
+        tabFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        tabFuncionario.setForeground(new java.awt.Color(51, 51, 51));
+        tabFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"", null, null, null, null},
                 {null, null, null, null, null},
@@ -444,56 +459,51 @@ public class JanAdmin extends javax.swing.JFrame {
                 "Nome", "Cargo", "Salário", "Telefone", "CPF"
             }
         ));
-        tabEstoque.setGridColor(new java.awt.Color(204, 204, 204));
-        tabEstoque.setIntercellSpacing(new java.awt.Dimension(0, 5));
-        tabEstoque.setSelectionBackground(new java.awt.Color(196, 67, 67));
-        tabEstoque.setShowGrid(true);
-        jScrollPane4.setViewportView(tabEstoque);
+        tabFuncionario.setGridColor(new java.awt.Color(204, 204, 204));
+        tabFuncionario.setIntercellSpacing(new java.awt.Dimension(0, 5));
+        tabFuncionario.setRowHeight(20);
+        tabFuncionario.setSelectionBackground(new java.awt.Color(196, 67, 67));
+        tabFuncionario.setShowGrid(true);
+        jScrollPane4.setViewportView(tabFuncionario);
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
-        jLabel2.setText("Filtrar Equipe");
+        lbFiltrarEquipe.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        lbFiltrarEquipe.setText("Filtrar Equipe");
 
-        jRadioButton1.setText("ENFERMAGEM");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        rbEnfermeira.setText("ENFERMAGEM");
+        rbEnfermeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rbEnfermeiraActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("ATENDIMENTO");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        rbAtendente.setText("ATENDIMENTO");
+        rbAtendente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                rbAtendenteActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("MÉDICA");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        rbMedico.setText("MÉDICA");
+        rbMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                rbMedicoActionPerformed(evt);
             }
         });
 
-        jTextFieldNomeFunc.addActionListener(new java.awt.event.ActionListener() {
+        btNomePesquisa.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisa.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btNomePesquisa.setForeground(new java.awt.Color(255, 255, 255));
+        btNomePesquisa.setText("PESQUISAR");
+        btNomePesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomeFuncActionPerformed(evt);
+                btNomePesquisaActionPerformed(evt);
             }
         });
 
-        jButtonPesquisar.setBackground(new java.awt.Color(249, 100, 100));
-        jButtonPesquisar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButtonPesquisar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonPesquisar.setText("PESQUISAR");
-        jButtonPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPesquisarActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("NOME");
+        labNomePesquisa.setText("NOME");
 
         jButton2.setBackground(new java.awt.Color(249, 100, 100));
-        jButton2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("ALTERAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -502,10 +512,23 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton7.setText("ADMINISTRAÇÃO");
-        jRadioButton7.addActionListener(new java.awt.event.ActionListener() {
+        rbAdministrador.setText("ADMINISTRAÇÃO");
+        rbAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton7ActionPerformed(evt);
+                rbAdministradorActionPerformed(evt);
+            }
+        });
+
+        tfNome1.setBackground(new java.awt.Color(242, 242, 242));
+        tfNome1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        btRefresh.setBackground(new java.awt.Color(249, 100, 100));
+        btRefresh.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btRefresh.setText("🔄");
+        btRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRefreshActionPerformed(evt);
             }
         });
 
@@ -514,61 +537,63 @@ public class JanAdmin extends javax.swing.JFrame {
         cardFuncionariosLayout.setHorizontalGroup(
             cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cardFuncionariosLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel2))))
+                .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(cardFuncionariosLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                                .addComponent(jTextFieldNomeFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3))))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                                .addComponent(rbAtendente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbMedico)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbAdministrador)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbEnfermeira))
+                            .addComponent(lbFiltrarEquipe))
+                        .addGap(385, 385, 385)
+                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labNomePesquisa))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cardFuncionariosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane4)))
+                .addGap(22, 22, 22)
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
         );
         cardFuncionariosLayout.setVerticalGroup(
             cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
-                .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNomeFunc)))
-                    .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton7))))
+                .addGap(20, 20, 20)
+                .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
+                            .addGap(0, 23, Short.MAX_VALUE)
+                            .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(cardFuncionariosLayout.createSequentialGroup()
+                            .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbFiltrarEquipe)
+                                .addComponent(labNomePesquisa))
+                            .addGap(16, 16, 16)
+                            .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(rbAtendente)
+                                .addComponent(rbMedico)
+                                .addComponent(rbAdministrador)
+                                .addComponent(rbEnfermeira)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(124, 124, 124)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -578,7 +603,7 @@ public class JanAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, 958, Short.MAX_VALUE)
+            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, 2010, Short.MAX_VALUE)
             .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -608,53 +633,57 @@ public class JanAdmin extends javax.swing.JFrame {
         labFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
     }//GEN-LAST:event_labCadFuncionarioMouseClicked
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void rbEnfermeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEnfermeiraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_rbEnfermeiraActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void rbAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_rbAtendenteActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void rbMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_rbMedicoActionPerformed
 
-    private void jTextFieldNomeFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeFuncActionPerformed
+    private void btNomePesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeFuncActionPerformed
-
-    private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPesquisarActionPerformed
+    }//GEN-LAST:event_btNomePesquisaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void rbAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_rbAtendimentoActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void rbEnfermagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEnfermagemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_rbEnfermagemActionPerformed
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+    private void rbMedicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    }//GEN-LAST:event_rbMedicaActionPerformed
 
-    private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
+    private void rbAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministradorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton7ActionPerformed
+    }//GEN-LAST:event_rbAdministradorActionPerformed
 
-    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonCadastrarActionPerformed
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
-    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
+    private void rbAdministracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministracaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton8ActionPerformed
+    }//GEN-LAST:event_rbAdministracaoActionPerformed
+
+    private void btRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btRefreshActionPerformed
+
+    private void btNomePesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btNomePesquisa1ActionPerformed
 
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
@@ -705,49 +734,51 @@ public class JanAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bgEquipe;
     private javax.swing.ButtonGroup bgFiltro;
+    private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btNomePesquisa;
+    private javax.swing.JButton btNomePesquisa1;
+    private javax.swing.JButton btRefresh;
     private javax.swing.JPanel cardCadFuncionario;
     private javax.swing.JPanel cardFuncionarios;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonCadastrar;
-    private javax.swing.JButton jButtonPesquisar;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextFieldNomeFunc;
     private javax.swing.JLabel labCadFuncionario;
+    private javax.swing.JLabel labCpf;
+    private javax.swing.JLabel labCrM;
+    private javax.swing.JLabel labEndereco;
+    private javax.swing.JLabel labEspecialidade;
     private javax.swing.JLabel labFuncionario;
     private javax.swing.JLabel labLogo;
-    private javax.swing.JTextField labNome;
-    private javax.swing.JLabel labTemperatura;
-    private javax.swing.JLabel labTemperatura1;
-    private javax.swing.JLabel labTemperatura2;
-    private javax.swing.JLabel labTemperatura3;
-    private javax.swing.JLabel labTemperatura4;
-    private javax.swing.JLabel labTemperatura5;
-    private javax.swing.JLabel labTemperatura6;
-    private javax.swing.JLabel labTemperatura7;
+    private javax.swing.JLabel labNasc;
+    private javax.swing.JLabel labNome;
+    private javax.swing.JLabel labNomePesquisa;
+    private javax.swing.JLabel labSalario;
+    private javax.swing.JLabel labTelefone;
     private javax.swing.JLabel labUser;
     private javax.swing.JLabel labUserImage;
+    private javax.swing.JLabel lbFiltrarEquipe;
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panInfo;
     private javax.swing.JPanel panTop;
-    private javax.swing.JTable tabEstoque;
-    private javax.swing.JTextField tfTemperatura1;
-    private javax.swing.JTextField tfTemperatura2;
-    private javax.swing.JTextField tfTemperatura3;
-    private javax.swing.JTextField tfTemperatura4;
-    private javax.swing.JTextField tfTemperatura5;
-    private javax.swing.JTextField tfTemperatura6;
-    private javax.swing.JTextField tfTemperatura7;
+    private javax.swing.JRadioButton rbAdministracao;
+    private javax.swing.JRadioButton rbAdministrador;
+    private javax.swing.JRadioButton rbAtendente;
+    private javax.swing.JRadioButton rbAtendimento;
+    private javax.swing.JRadioButton rbEnfermagem;
+    private javax.swing.JRadioButton rbEnfermeira;
+    private javax.swing.JRadioButton rbMedica;
+    private javax.swing.JRadioButton rbMedico;
+    private javax.swing.JTable tabFuncionario;
+    private javax.swing.JTextField tfCpf;
+    private javax.swing.JTextField tfCrM;
+    private javax.swing.JTextField tfEndereco;
+    private javax.swing.JTextField tfEspecialidade;
+    private javax.swing.JTextField tfNasc;
+    private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfNome1;
+    private javax.swing.JTextField tfSalario;
+    private javax.swing.JTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 }
