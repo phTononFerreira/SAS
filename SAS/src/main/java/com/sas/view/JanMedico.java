@@ -26,8 +26,8 @@ public class JanMedico extends javax.swing.JFrame {
         labLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         panUser = new javax.swing.JPanel();
-        labUser = new javax.swing.JLabel();
         labUserImage = new javax.swing.JLabel();
+        labUser = new javax.swing.JLabel();
         labLogout = new javax.swing.JLabel();
         labLogout.setVisible(false);
         jPanel1 = new javax.swing.JPanel();
@@ -36,6 +36,8 @@ public class JanMedico extends javax.swing.JFrame {
         btEncaminhar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabPaciente = new javax.swing.JTable();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        btRefresh1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -62,28 +64,32 @@ public class JanMedico extends javax.swing.JFrame {
 
         panUser.setBackground(new java.awt.Color(255, 255, 255));
 
-        labUser.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        labUser.setText("Médico");
-        labUser.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labUserMouseClicked(evt);
-            }
-        });
-
+        labUserImage.setForeground(new java.awt.Color(255, 0, 0));
         labUserImage.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
-                        new java.net.URL("https://www.dropbox.com/s/b6da3hn35crnihb/userProjeto_2_7.png?dl=1")
+                        new java.net.URL("https://media.discordapp.net/attachments/445732137623224331/1042497770533179432/icone_medico_SAS.png?width=40&height=40")
                     );
                 } catch (java.net.MalformedURLException e) {
                 }
                 return null;
             }
         }.getIcon());
+        labUserImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labUserImage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labUserImageMouseClicked(evt);
+            }
+        });
+
+        labUser.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        labUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labUser.setText("Médico");
+        labUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labUserMouseClicked(evt);
             }
         });
 
@@ -115,24 +121,23 @@ public class JanMedico extends javax.swing.JFrame {
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panUserLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(labUserImage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panUserLayout.createSequentialGroup()
-                        .addComponent(labUserImage)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labUser))
-                    .addComponent(labLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(labLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         panUserLayout.setVerticalGroup(
             panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUserLayout.createSequentialGroup()
+            .addGroup(panUserLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labUser, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labUser, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labUserImage))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panTopLayout = new javax.swing.GroupLayout(panTop);
@@ -142,11 +147,10 @@ public class JanMedico extends javax.swing.JFrame {
             .addGroup(panTopLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(labLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 788, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(400, 400, 400)
-                .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 630, Short.MAX_VALUE)
+                .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panTopLayout.setVerticalGroup(
             panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,13 +160,13 @@ public class JanMedico extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(labLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(panTopLayout.createSequentialGroup()
-                        .addGap(0, 19, Short.MAX_VALUE)
-                        .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panTopLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(29, 29, 29)))))
+                        .addGap(0, 45, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(29, 29, 29)))
                 .addGap(20, 20, 20))
+            .addGroup(panTopLayout.createSequentialGroup()
+                .addComponent(panUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel1.setBackground(new java.awt.Color(231, 231, 231));
@@ -184,6 +188,7 @@ public class JanMedico extends javax.swing.JFrame {
         btReceitar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btReceitar.setForeground(new java.awt.Color(255, 255, 255));
         btReceitar.setText("RECEITAR");
+        btReceitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btReceitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btReceitarActionPerformed(evt);
@@ -194,6 +199,7 @@ public class JanMedico extends javax.swing.JFrame {
         btEncaminhar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btEncaminhar.setForeground(new java.awt.Color(255, 255, 255));
         btEncaminhar.setText("ENCAMINHAR");
+        btEncaminhar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btEncaminhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEncaminharActionPerformed(evt);
@@ -227,31 +233,52 @@ public class JanMedico extends javax.swing.JFrame {
         tabPaciente.setShowGrid(true);
         jScrollPane1.setViewportView(tabPaciente);
 
+        btRefresh1.setBackground(new java.awt.Color(249, 100, 100));
+        btRefresh1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btRefresh1.setForeground(new java.awt.Color(255, 255, 255));
+        btRefresh1.setText("🔄");
+        btRefresh1.setToolTipText("Atualizar Tabela");
+        btRefresh1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(381, 381, 381))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btRefresh1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane1)))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btReceitar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btEncaminhar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(btFinalizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btEncaminhar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+                .addGap(302, 302, 302))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 13, Short.MAX_VALUE)
+                .addComponent(btRefresh1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,7 +286,7 @@ public class JanMedico extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -285,7 +312,7 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_btFinalizarActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
-         if(Muser){
+        if(Muser){
             Muser=false;
             labLogout.setVisible(false);
         }
@@ -307,7 +334,7 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_labUserMouseClicked
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
-     sair();
+        sair();
     }//GEN-LAST:event_labLogoutMouseClicked
     
     public void sair(){
@@ -357,6 +384,8 @@ public class JanMedico extends javax.swing.JFrame {
     private javax.swing.JButton btEncaminhar;
     private javax.swing.JButton btFinalizar;
     private javax.swing.JButton btReceitar;
+    private javax.swing.JButton btRefresh1;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
