@@ -60,6 +60,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         btAlterar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Enfermagem");
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
         panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(249, 100, 100)));

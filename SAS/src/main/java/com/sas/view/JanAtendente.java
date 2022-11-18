@@ -64,6 +64,7 @@ public class JanAtendente extends javax.swing.JFrame {
         btLimpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Atendimento");
         setMinimumSize(new java.awt.Dimension(950, 600));
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
