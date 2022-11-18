@@ -600,6 +600,19 @@ public class JanAtendente extends javax.swing.JFrame {
         labUser.setText(nome);
     }
 
+    public void sair(){
+        this.dispose();
+    }
+    
+    public void limpar(){
+        tfNome.setText("");
+        tfCPF.setText("");
+        tfDataNasc.setText("");
+        tfTelefone.setText("");
+        tfEndereco.setText("");
+        tfNome.requestFocus();
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
