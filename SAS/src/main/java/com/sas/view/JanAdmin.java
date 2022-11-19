@@ -1117,15 +1117,15 @@ public class JanAdmin extends javax.swing.JFrame {
         String tipo = 
         String id_adm = 
         String senha = 
-        String nome = 
-        String[] data_nascimento = 
-        String cpf = 
-        String telefone = 
-        String endereco = 
-        String salario = 
-        String cr = 
+        String nome = tfNome.getText();
+        String[] data_nascimento = tfNasc.getText();
+        String cpf = tfCpf.getText();
+        String telefone = tfTelefone.getText();
+        String endereco = tfEndereco.getText();
+        String salario = tfSalario.getText();
+        String cr = tfCrM.getText();
         String crm = 
-        String especialidade = 
+        String especialidade = tfEspecialidade.getText();
         
         feedback = AdministradorController.cadastrarFuncionario(ID, ID, ID, ID, data_nascimento, ID, ID, ID, ID, ID, ID, ID);
     }
