@@ -23,6 +23,7 @@ public class JanAdmin extends javax.swing.JFrame {
         initComponents();
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
+        rbAdministracao.setSelected(true);
     }
 
     public static JanAdmin getJanAdmin() {
@@ -431,7 +432,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -756,7 +757,7 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(445, Short.MAX_VALUE))
+                .addContainerGap(447, Short.MAX_VALUE))
         );
 
         btCadastrar.setBackground(new java.awt.Color(249, 100, 100));
@@ -788,9 +789,9 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addComponent(panInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardCadFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(420, Short.MAX_VALUE)
+                .addContainerGap(423, Short.MAX_VALUE)
                 .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addContainerGap(415, Short.MAX_VALUE))
         );
 
         panCards.add(cardCadFuncionario, "cardCadFuncionario");
@@ -962,7 +963,7 @@ public class JanAdmin extends javax.swing.JFrame {
                                 .addComponent(rbEnfermeira)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1152,21 +1153,39 @@ public class JanAdmin extends javax.swing.JFrame {
 
     public void cadastrarFunc(){
         String feedback = "";
-        
-        String tipo = 
-        String id_adm = 
-        String senha = 
+        String tipo = "";
+        String id_adm = ID;
+        String senha = tfSenha.getText();
         String nome = tfNome.getText();
         String[] data_nascimento = tfNasc.getText().split("/");
         String cpf = tfCpf.getText();
         String telefone = tfTelefone.getText();
         String endereco = tfEndereco.getText();
         String salario = tfSalario.getText();
-        String cr = tfCrM.getText();
-        String crm = 
-        String especialidade = tfEspecialidade.getText();
+        String cr = "";
+        String especialidade = "";
         
-        feedback = AdministradorController.cadastrarFuncionario(ID, ID, ID, ID, data_nascimento, ID, ID, ID, ID, ID, ID, ID);
+        if(rbAdministracao.isSelected())
+            tipo = "administrador";
+        else if(rbAtendimento.isSelected()){
+            tipo = "atendente";         
+        }
+        else if(rbEnfermagem.isSelected()){
+            tipo = "enfermeira";
+            cr = tfCrM.getText();
+        }    
+        else if(rbMedica.isSelected()){
+            tipo = "medico";
+            cr = tfCrM.getText();
+            especialidade = tfEspecialidade.getText();
+        }
+          
+        feedback = AdministradorController.cadastrarFuncionario(tipo, id_adm, senha, nome, data_nascimento, cpf, telefone, endereco, salario, cr, cr, especialidade);
+        
+        if(feedback == null)
+            System.out.println("Deu certo cadastrar");
+        else
+            System.out.println("Deu errado errado cadastro" + feedback);
     }
     
     public void limpar() {
