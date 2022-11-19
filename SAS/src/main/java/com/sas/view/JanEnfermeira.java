@@ -555,7 +555,9 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_btNomePesquisa1ActionPerformed
     
     public void sair(){
-        dispose();
+        this.dispose();
+        labLogout.setVisible(false);
+        JanLogin.getJanLogin().setVisible(true);
     }
     
     public void setNomePerfil(String nome) {

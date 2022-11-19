@@ -3,11 +3,19 @@ package com.sas.view;
 import com.sas.controller.Login;
 
 public class JanLogin extends javax.swing.JFrame {
+    
+    private static JanLogin unicoJanLogin;
 
     public JanLogin() {
         initComponents();
     }
-
+    
+    public static JanLogin getJanLogin() {
+        if (unicoJanLogin == null) {
+            unicoJanLogin = new JanLogin();
+        }
+        return unicoJanLogin;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -164,7 +172,7 @@ public class JanLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String login = Login.verificarLogin(jTextFieldUsuario.getText(), jPasswordFieldSenha.getText());
-
+        limpar();
         if (login != null) {
             System.out.println("LOGADO COM SUCESSO!");
 
@@ -202,24 +210,33 @@ public class JanLogin extends javax.swing.JFrame {
         statusLabel.setText("");
         JanAdmin.getJanAdmin().setVisible(true);
         JanAdmin.getJanAdmin().setNomePerfil(Login.retornaNomeFuncionario(ID));
+        this.setVisible(false);
     }
 
     public void abreJanAtendente(String ID) {
         statusLabel.setText("");
         JanAtendente.getJanAtendente().setVisible(true);
         JanAtendente.getJanAtendente().setNomePerfil(Login.retornaNomeFuncionario(ID));
+        this.setVisible(false);
     }
 
     public void abreJanEnfermeira(String ID) {
         statusLabel.setText("");
         JanEnfermeira.getJanEnfermeira().setVisible(true);
         JanEnfermeira.getJanEnfermeira().setNomePerfil(Login.retornaNomeFuncionario(ID));
+        this.setVisible(false);
     }
 
     public void abreJanMedico(String ID) {
         statusLabel.setText("");
         JanMedico.getJanMedico().setVisible(true);
         JanMedico.getJanMedico().setNomePerfil(Login.retornaNomeFuncionario(ID));
+        this.setVisible(false);
+    }
+    
+    public void limpar(){
+        jTextFieldUsuario.setText("");
+        jPasswordFieldSenha.setText("");
     }
 
     public static void main(String args[]) {

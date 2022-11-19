@@ -602,6 +602,9 @@ public class JanAtendente extends javax.swing.JFrame {
 
     public void sair(){
         this.dispose();
+        limpar();
+        labLogout.setVisible(false);
+        JanLogin.getJanLogin().setVisible(true);
     }
     
     public void limpar(){

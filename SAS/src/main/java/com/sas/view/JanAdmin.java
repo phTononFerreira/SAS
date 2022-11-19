@@ -99,6 +99,8 @@ public class JanAdmin extends javax.swing.JFrame {
         rbAdministracao = new javax.swing.JRadioButton();
         btLimpar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
+        tfSenha = new javax.swing.JTextField();
+        labSenha = new javax.swing.JLabel();
         btCadastrar = new javax.swing.JButton();
         cardFuncionarios = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -429,7 +431,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -453,7 +455,7 @@ public class JanAdmin extends javax.swing.JFrame {
                     .addGroup(panTopLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(labFuncionario)
-                        .addGap(370, 370, 370)
+                        .addGap(100, 100, 100)
                         .addComponent(labCadFuncionario)
                         .addGap(391, 391, 391)))
                 .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -609,9 +611,10 @@ public class JanAdmin extends javax.swing.JFrame {
         });
 
         btLimpar.setBackground(new java.awt.Color(249, 100, 100));
-        btLimpar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btLimpar.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btLimpar.setForeground(new java.awt.Color(255, 255, 255));
-        btLimpar.setText("LIMPAR");
+        btLimpar.setText("LIMPAR ✖");
+        btLimpar.setToolTipText("");
         btLimpar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -619,10 +622,55 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
+        tfSenha.setBackground(new java.awt.Color(242, 242, 242));
+        tfSenha.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfSenhaActionPerformed(evt);
+            }
+        });
+
+        labSenha.setText("SENHA");
+
         javax.swing.GroupLayout panInfoLayout = new javax.swing.GroupLayout(panInfo);
         panInfo.setLayout(panInfoLayout);
         panInfoLayout.setHorizontalGroup(
             panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panInfoLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(309, 309, 309)
+                        .addComponent(btLimpar)
+                        .addGap(166, 166, 166))
+                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labNome)
+                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labCpf)
+                            .addComponent(labEndereco))
+                        .addGap(18, 18, 18)
+                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labTelefone)
+                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panInfoLayout.createSequentialGroup()
+                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tfNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labSalario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labEspecialidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labCrM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tfCrM, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(167, 167, 167))))
             .addGroup(panInfoLayout.createSequentialGroup()
                 .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panInfoLayout.createSequentialGroup()
@@ -640,42 +688,10 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panInfoLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jSeparator1)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInfoLayout.createSequentialGroup()
-                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jSeparator1))
                     .addGroup(panInfoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panInfoLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfEndereco)
-                            .addComponent(tfCpf)
-                            .addComponent(labNome)
-                            .addComponent(tfNome, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
-                            .addComponent(labCpf)
-                            .addComponent(labEndereco))
-                        .addGap(18, 18, 18)
-                        .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labTelefone)
-                            .addComponent(tfTelefone)
-                            .addGroup(panInfoLayout.createSequentialGroup()
-                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labNasc)
-                                    .addComponent(tfNasc)
-                                    .addComponent(labSalario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfSalario))
-                                .addGap(18, 18, 18)
-                                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labEspecialidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfEspecialidade, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                                    .addComponent(labCrM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfCrM))))))
-                .addGap(167, 167, 167))
-            .addGroup(panInfoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator2)
+                        .addContainerGap()
+                        .addComponent(jSeparator2)))
                 .addContainerGap())
         );
         panInfoLayout.setVerticalGroup(
@@ -731,11 +747,16 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(labTelefone)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panInfoLayout.createSequentialGroup()
+                        .addComponent(labSenha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
 
         btCadastrar.setBackground(new java.awt.Color(249, 100, 100));
@@ -757,7 +778,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(22, 22, 22)
-                .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
+                .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
         );
         cardCadFuncionarioLayout.setVerticalGroup(
@@ -990,15 +1011,26 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void rbAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendimentoActionPerformed
-        // TODO add your handling code here:
+        tfCrM.setVisible(false);
+        labCrM.setVisible(false);
+        labEspecialidade.setVisible(false);
+        tfEspecialidade.setVisible(false);
     }//GEN-LAST:event_rbAtendimentoActionPerformed
 
     private void rbEnfermagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEnfermagemActionPerformed
-        // TODO add your handling code here:
+        tfCrM.setVisible(true);
+        labCrM.setVisible(true);
+        labEspecialidade.setVisible(false);
+        tfEspecialidade.setVisible(false);
+        labCrM.setText("CR");
     }//GEN-LAST:event_rbEnfermagemActionPerformed
 
     private void rbMedicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicaActionPerformed
-        // TODO add your handling code here:
+        tfCrM.setVisible(true);
+        labCrM.setVisible(true);
+        labEspecialidade.setVisible(true);
+        tfEspecialidade.setVisible(true);
+        labCrM.setText("CRM");
     }//GEN-LAST:event_rbMedicaActionPerformed
 
     private void rbAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministradorActionPerformed
@@ -1010,7 +1042,10 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void rbAdministracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministracaoActionPerformed
-        // TODO add your handling code here:
+        tfCrM.setVisible(false);
+        labCrM.setVisible(false);
+        labEspecialidade.setVisible(false);
+        tfEspecialidade.setVisible(false);
     }//GEN-LAST:event_rbAdministracaoActionPerformed
 
     private void btRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefreshActionPerformed
@@ -1111,6 +1146,10 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfTelefoneActionPerformed
 
+    private void tfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSenhaActionPerformed
+
     public void cadastrarFunc(){
         String feedback = "";
         
@@ -1118,7 +1157,7 @@ public class JanAdmin extends javax.swing.JFrame {
         String id_adm = 
         String senha = 
         String nome = tfNome.getText();
-        String[] data_nascimento = tfNasc.getText();
+        String[] data_nascimento = tfNasc.getText().split("/");
         String cpf = tfCpf.getText();
         String telefone = tfTelefone.getText();
         String endereco = tfEndereco.getText();
@@ -1139,11 +1178,15 @@ public class JanAdmin extends javax.swing.JFrame {
         tfSalario.setText("");
         tfCrM.setText("");
         tfTelefone.setText("");
+        tfSenha.setText("");
         tfNome.requestFocus();
     }
     
     public void sair(){
-        dispose();
+        this.dispose();
+        labLogout.setVisible(false);
+        limpar();
+        JanLogin.getJanLogin().setVisible(true);
     }
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
@@ -1230,6 +1273,7 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel labNomePesquisa;
     private javax.swing.JLabel labSalario;
     private javax.swing.JLabel labSalarioAlt;
+    private javax.swing.JLabel labSenha;
     private javax.swing.JLabel labTelefone;
     private javax.swing.JLabel labTelefoneAlt;
     private javax.swing.JLabel labUser;
@@ -1263,6 +1307,7 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JTextField tfNomeAlt;
     private javax.swing.JTextField tfSalario;
     private javax.swing.JTextField tfSalarioAlt;
+    private javax.swing.JTextField tfSenha;
     private javax.swing.JTextField tfTelefone;
     private javax.swing.JTextField tfTelefoneAlt;
     // End of variables declaration//GEN-END:variables
