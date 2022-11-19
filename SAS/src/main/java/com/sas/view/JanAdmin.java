@@ -24,6 +24,7 @@ public class JanAdmin extends javax.swing.JFrame {
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         rbAdministracao.setSelected(true);
+        selectAdm();
     }
 
     public static JanAdmin getJanAdmin() {
@@ -1010,26 +1011,15 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void rbAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendimentoActionPerformed
-        tfCrM.setVisible(false);
-        labCrM.setVisible(false);
-        labEspecialidade.setVisible(false);
-        tfEspecialidade.setVisible(false);
+        selectAte();
     }//GEN-LAST:event_rbAtendimentoActionPerformed
 
     private void rbEnfermagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEnfermagemActionPerformed
-        tfCrM.setVisible(true);
-        labCrM.setVisible(true);
-        labEspecialidade.setVisible(false);
-        tfEspecialidade.setVisible(false);
-        labCrM.setText("CR");
+        selectEnf();
     }//GEN-LAST:event_rbEnfermagemActionPerformed
 
     private void rbMedicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicaActionPerformed
-        tfCrM.setVisible(true);
-        labCrM.setVisible(true);
-        labEspecialidade.setVisible(true);
-        tfEspecialidade.setVisible(true);
-        labCrM.setText("CRM");
+        selectMed();
     }//GEN-LAST:event_rbMedicaActionPerformed
 
     private void rbAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministradorActionPerformed
@@ -1041,10 +1031,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void rbAdministracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministracaoActionPerformed
-        tfCrM.setVisible(false);
-        labCrM.setVisible(false);
-        labEspecialidade.setVisible(false);
-        tfEspecialidade.setVisible(false);
+        selectAdm();
     }//GEN-LAST:event_rbAdministracaoActionPerformed
 
     private void btRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefreshActionPerformed
@@ -1149,6 +1136,36 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfSenhaActionPerformed
 
+    public void selectAdm(){
+        tfCrM.setVisible(false);
+        labCrM.setVisible(false);
+        labEspecialidade.setVisible(false);
+        tfEspecialidade.setVisible(false);
+    }
+    
+    public void selectAte(){
+        tfCrM.setVisible(false);
+        labCrM.setVisible(false);
+        labEspecialidade.setVisible(false);
+        tfEspecialidade.setVisible(false);
+    }
+    
+    public void selectEnf(){
+        tfCrM.setVisible(true);
+        labCrM.setVisible(true);
+        labEspecialidade.setVisible(false);
+        tfEspecialidade.setVisible(false);
+        labCrM.setText("CR");
+    }
+    
+    public void selectMed(){
+        tfCrM.setVisible(true);
+        labCrM.setVisible(true);
+        labEspecialidade.setVisible(true);
+        tfEspecialidade.setVisible(true);
+        labCrM.setText("CRM");
+    }    
+    
     public void cadastrarFunc(){
         String feedback = "";
         String tipo = "";
@@ -1205,6 +1222,7 @@ public class JanAdmin extends javax.swing.JFrame {
         limpar();
         JanLogin.getJanLogin().setVisible(true);
     }
+    
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
