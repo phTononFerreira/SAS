@@ -9,42 +9,40 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdministradorDAO {
-    
+
     public static boolean cadastrarFunc(Funcionario f) {
         Connection conn = ConexaoBD.getConnection();
-        if(f.getId().contains("adm")){ 
+        if (f.getId().contains("adm")) {
             Administrador adm = (Administrador) f;
             String query = "INSERT INTO administrador VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstm;
-            
-            try{
+
+            try {
                 pstm = conn.prepareStatement(query);
-                pstm.setString(1, f.getId());
-                pstm.setString(2, f.getSenha());
-                pstm.setString(3, f.getNome());
-                pstm.setString(4, f.getData_nascimento());
-                pstm.setString(5, f.getCpf());
-                pstm.setString(6, f.getTelefone());
-                pstm.setString(7, f.getEndereco());
-                pstm.setDouble(8, f.getSalario());
-                
+                pstm.setString(1, adm.getId());
+                pstm.setString(2, adm.getSenha());
+                pstm.setString(3, adm.getNome());
+                pstm.setString(4, adm.getData_nascimento());
+                pstm.setString(5, adm.getCpf());
+                pstm.setString(6, adm.getTelefone());
+                pstm.setString(7, adm.getEndereco());
+                pstm.setDouble(8, adm.getSalario());
+
                 pstm.execute();
                 pstm.close();
- 
 
+                return true;
 
-            } catch (Exception erro){
-                System.out.println("ERRO");
+            } catch (Exception erro) {
+                System.out.println("ERRO DAO " + erro);
             }
-           
-         
-        }
-        
-        else if(f.getId().contains("med")){
-            Medico med= (Medico) f;
-            System.out.println("DEU CERTO med"+med.getCrm());
+
+        } else if (f.getId().contains("med")) {
+            Medico med = (Medico) f;
+            System.out.println("DEU CERTO med" + med.getCrm());
             return true;
         }
+
         return false;
     }
 
@@ -78,5 +76,5 @@ public class AdministradorDAO {
 
         return adm;
     }
-    
+
 }

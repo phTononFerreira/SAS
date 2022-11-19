@@ -79,7 +79,7 @@ public abstract class Funcionario {
     }
 
     public Funcionario(String id, String senha, String nome, String data_nascimento, String cpf, String telefone, String endereco,
-            double salario) {
+        double salario) {
         this.id = id;
         this.senha = senha;
         this.nome = nome;
@@ -90,4 +90,10 @@ public abstract class Funcionario {
         this.salario = salario;
     }
 
+    @Override
+    public String toString() {
+        return "Funcionario{" + "id=" + id + ", senha=" + senha + ", nome=" + nome + ", data_nascimento=" + data_nascimento + ", cpf=" + cpf + ", telefone=" + telefone + ", endereco=" + endereco + ", salario=" + salario + '}';
+    }
+       
+    
 }

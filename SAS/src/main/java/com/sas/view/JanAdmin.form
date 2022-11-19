@@ -420,7 +420,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panTop" pref="2010" max="32767" attributes="0"/>
+          <Component id="panTop" pref="2023" max="32767" attributes="0"/>
           <Component id="panCards" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -604,7 +604,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labUserImage" pref="49" max="32767" attributes="0"/>
+                          <Component id="labUserImage" pref="54" max="32767" attributes="0"/>
                           <Component id="labUser" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -703,7 +703,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="panInfo" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="btCadastrar" pref="756" max="32767" attributes="0"/>
+                      <Component id="btCadastrar" pref="761" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -757,10 +757,10 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="tfEndereco" alignment="0" min="-2" pref="569" max="-2" attributes="0"/>
                                       <Component id="tfCpf" alignment="0" min="-2" pref="569" max="-2" attributes="0"/>
-                                      <Component id="labNome" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="tfNome" alignment="0" min="-2" pref="569" max="-2" attributes="0"/>
                                       <Component id="labCpf" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="labEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labNome" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -770,12 +770,12 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="labNasc" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                               <Component id="tfNasc" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                              <Component id="labSalario" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="labSalario" alignment="0" pref="134" max="32767" attributes="0"/>
                                               <Component id="tfSalario" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="labEspecialidade" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="labEspecialidade" alignment="0" pref="281" max="32767" attributes="0"/>
                                               <Component id="tfEspecialidade" alignment="0" min="-2" pref="275" max="-2" attributes="0"/>
                                               <Component id="labCrM" alignment="0" max="32767" attributes="0"/>
                                               <Component id="tfCrM" alignment="0" min="-2" pref="275" max="-2" attributes="0"/>
@@ -834,12 +834,10 @@
                               <Group type="102" attributes="0">
                                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="labNasc" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="labNasc" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="tfNasc" min="-2" pref="33" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="tfNasc" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="labNome" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -895,7 +893,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-                          <EmptySpace pref="447" max="32767" attributes="0"/>
+                          <EmptySpace pref="409" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -920,7 +918,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="labNome">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="NOME"/>
+                    <Property name="text" type="java.lang.String" value="NOME*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfNasc">
@@ -942,7 +940,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="labNasc">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;html&gt;DATA DE NASCIMENTO&lt;br /&gt;DD/MM/AAAA&lt;/html&gt;"/>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;DATA DE NASCIMENTO*&lt;br /&gt;DD/MM/AAAA&lt;/html&gt;"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfCpf">
@@ -964,7 +962,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="labCpf">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="CPF"/>
+                    <Property name="text" type="java.lang.String" value="CPF*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfTelefone">
@@ -1104,7 +1102,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="labSalario">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="SAL&#xc1;RIO"/>
+                    <Property name="text" type="java.lang.String" value="SAL&#xc1;RIO*"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfEspecialidade">
@@ -1185,7 +1183,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="labSenha">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="SENHA"/>
+                    <Property name="text" type="java.lang.String" value="SENHA*"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -1370,7 +1368,6 @@
                     <Property name="intercellSpacing" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[0, 5]"/>
                     </Property>
-                    <Property name="rowHeight" type="int" value="20"/>
                     <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="43" green="43" red="c4" type="rgb"/>
                     </Property>
