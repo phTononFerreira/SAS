@@ -30,7 +30,7 @@ public class JanAdmin extends javax.swing.JFrame {
         rbAdministracao.setSelected(true);
         selectAdmCad();
         rbAdministrador.setSelected(true);
-        selectAdmFuc();
+        selectFiltroFuc();
     }
 
     public static JanAdmin getJanAdmin() {
@@ -996,19 +996,21 @@ public class JanAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbEnfermeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEnfermeiraActionPerformed
-        selectEnfFuc();
+        selectFiltroFuc();
     }//GEN-LAST:event_rbEnfermeiraActionPerformed
 
     private void rbAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendenteActionPerformed
-        selectAteFuc();
+        selectFiltroFuc();
     }//GEN-LAST:event_rbAtendenteActionPerformed
 
     private void rbMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicoActionPerformed
-        selectMedFuc();
+        selectFiltroFuc();
     }//GEN-LAST:event_rbMedicoActionPerformed
 
     private void btNomePesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaActionPerformed
-        // TODO add your handling code here:
+        pesquisaTabelaNome(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
+        tfNome1.setText("");
+        tfNome1.requestFocus();
     }//GEN-LAST:event_btNomePesquisaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1028,7 +1030,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_rbMedicaActionPerformed
 
     private void rbAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministradorActionPerformed
-        selectAdmFuc();
+        selectFiltroFuc();
     }//GEN-LAST:event_rbAdministradorActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
@@ -1171,33 +1173,9 @@ public class JanAdmin extends javax.swing.JFrame {
         labCrM.setText("CRM");
     }    
     
-    public void selectAdmFuc(){
-        if(rbAdministrador.isSelected())
-            carregaTabela(true,rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
-        else
-            carregaTabela(false,rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());  
+    public void selectFiltroFuc(){
+        carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
     }
-    
-    public void selectAteFuc(){
-        if(rbAtendente.isSelected())
-            carregaTabela(rbAdministrador.isSelected(),true,rbEnfermeira.isSelected(),rbMedico.isSelected());
-        else
-            carregaTabela(rbAdministrador.isSelected(),false,rbEnfermeira.isSelected(),rbMedico.isSelected());
-    }
-    
-    public void selectEnfFuc(){
-        if(rbEnfermeira.isSelected())
-            carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),true,rbMedico.isSelected());
-        else
-            carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),false,rbMedico.isSelected());
-    }
-    
-    public void selectMedFuc(){
-        if(rbMedico.isSelected())
-            carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),true);
-        else
-            carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),false);
-    }   
     
     public void cadastrarFunc(){
         String feedback = "";
@@ -1265,6 +1243,13 @@ public class JanAdmin extends javax.swing.JFrame {
         modelo.setNumRows(0);
         
         AdministradorController.carregaTabela(modelo, adm, ate, enf, med);
+    }
+    
+    public void pesquisaTabelaNome(boolean adm, boolean ate, boolean enf, boolean med) {
+        DefaultTableModel modelo = (DefaultTableModel) tabFuncionario.getModel();
+        modelo.setNumRows(0);
+        
+        AdministradorController.pesquisaTabelaNome(modelo, adm, ate, enf, med, tfNome1.getText());
     }
 
     public static void main(String args[]) {

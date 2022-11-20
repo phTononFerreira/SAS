@@ -191,5 +191,9 @@ public class AdministradorController {
     public static void carregaTabela(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med) {
         AdministradorDAO.carregaTab(modelo, adm, ate, enf, med);
     }
+    
+    public static void pesquisaTabelaNome(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med, String nome) {
+        AdministradorDAO.pesquisaTabNome(modelo, adm, ate, enf, med, nome);
+    }
 
 }
