@@ -3,7 +3,16 @@ package com.sas.view;
 public class JanMedico extends javax.swing.JFrame {
 
     private static JanMedico unicoJanMedico;
+    private static String ID;
     private Boolean Muser=false;
+    
+    public String getId(){
+        return ID;
+    }
+    
+    public static void setId(String ID1){
+        ID = ID1;
+    }
     
     public JanMedico() {
         initComponents();

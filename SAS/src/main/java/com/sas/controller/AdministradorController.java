@@ -16,7 +16,7 @@ import java.util.Random;
 public class AdministradorController {
 
     public static String cadastrarFuncionario(String tipo, String id_adm, String senha, String nome, String[] data_nascimento, String cpf, String telefone, String endereco, String salario, String crm, String especialidade) {
-        if (tipo.equalsIgnoreCase("Administrador")) {
+        if (tipo.equalsIgnoreCase("administrador")) {
             Administrador administrador = new Administrador();
             
             administrador.setId("adm" + String.valueOf(AdministradorDAO.contarAdmin() + 1));    //ID AUTOINCREMENT
@@ -54,11 +54,50 @@ public class AdministradorController {
                 return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
             }
             
-        } else if (tipo.equals("Atendente")) {
+        } else if (tipo.equalsIgnoreCase("atendente")) {
+            Atendente atendente = new Atendente();
+            
+            atendente.setId("ate" + String.valueOf(AtendenteDAO.contarAtend() + 1));    //ID AUTOINCREMENT
+            
+            if (nome.equals(""))
+                return "NOME INVALIDO!";
+            atendente.setNome(nome);
+            
+            if (senha.equals(""))
+                return "SENHA INVALIDA!";
+            atendente.setSenha(senha);
+            
+            atendente.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            
+            if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
+                System.out.println("CPF INVÁLIDO");
+                return "CPF INVALIDO!";
+            }
+            atendente.setCpf(cpf);
+            
+            atendente.setTelefone(telefone);
+            atendente.setEndereco(endereco);
+            
+            try {
+                atendente.setSalario(Double.parseDouble(salario));
+            } catch (Exception e) {
+                return "SALARIO INVALIDO!";
+            }
+            
+            System.out.println("ID_ADM controll: "+id_adm);
+            atendente.setAdm_id(id_adm);
+            
+            System.out.println(atendente.toString());
+            
+            if (AdministradorDAO.cadastrarFunc(atendente)){
+                return null;
+            }else{
+                return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+            }
 
-        } else if (tipo.equals("Enfermeira")) {
+        } else if (tipo.equalsIgnoreCase("enfermeira")) {
 
-        } else if (tipo.equals("Medico")) {
+        } else if (tipo.equalsIgnoreCase("medico")) {
 
         }
 

@@ -1,6 +1,7 @@
 package com.sas.dao;
 
 import com.sas.model.Administrador;
+import com.sas.model.Atendente;
 import com.sas.model.Funcionario;
 import com.sas.model.Medico;
 import java.sql.Connection;
@@ -36,12 +37,46 @@ public class AdministradorDAO {
             } catch (Exception erro) {
                 System.out.println("ERRO DAO " + erro);
             }
+        
+        } else if (f.getId().contains("ate")) {
+            Atendente ate = (Atendente) f;
+            String query = "INSERT INTO atendente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstm;
 
-        } else if (f.getId().contains("med")) {
-            Medico med = (Medico) f;
-            System.out.println("DEU CERTO med" + med.getCrm());
+            try {
+                System.out.println(ate.toString());
+                System.out.println("ID_ADM dao: "+ate.getAdm_id());
+                
+                pstm = conn.prepareStatement(query);
+                pstm.setString(1, ate.getId());
+                pstm.setString(2, ate.getSenha());
+                pstm.setString(3, ate.getNome());
+                pstm.setString(4, ate.getData_nascimento());
+                pstm.setString(5, ate.getCpf());
+                pstm.setString(6, ate.getTelefone());
+                pstm.setString(7, ate.getEndereco());
+                pstm.setDouble(8, ate.getSalario());
+                pstm.setString(9, ate.getAdm_id());
+
+                pstm.execute();
+                pstm.close();
+
+                return true;
+
+            } catch (Exception erro) {
+                System.out.println("ERRO DAO " + erro);
+            }
+        }
+
+        /*} else if (f.getId().contains("enf")) {
+            System.out.println("Enf");  
             return true;
         }
+            
+        } else if (f.getId().contains("med")) {
+            System.out.println("Med");  
+            return true;
+        }*/
 
         return false;
     }

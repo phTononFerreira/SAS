@@ -56,4 +56,15 @@ public class AtendenteDAO {
         return ate;
     }
     
+    public static int contarAtend() {
+        ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT COUNT(*) FROM atendente");
+        try{
+            pesquisa.next();
+            return Integer.parseInt(pesquisa.getString(1));
+        } catch (Exception e) {
+            return -1;
+        }
+        
+    }
+    
 }

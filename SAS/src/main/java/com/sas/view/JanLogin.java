@@ -210,6 +210,7 @@ public class JanLogin extends javax.swing.JFrame {
         statusLabel.setText("");
         JanAdmin.getJanAdmin().setVisible(true);
         JanAdmin.getJanAdmin().setNomePerfil(Login.retornaNomeFuncionario(ID));
+        JanAdmin.setId(ID);
         this.setVisible(false);
     }
 
@@ -217,6 +218,7 @@ public class JanLogin extends javax.swing.JFrame {
         statusLabel.setText("");
         JanAtendente.getJanAtendente().setVisible(true);
         JanAtendente.getJanAtendente().setNomePerfil(Login.retornaNomeFuncionario(ID));
+        JanAtendente.setId(ID);
         this.setVisible(false);
     }
 
@@ -224,6 +226,7 @@ public class JanLogin extends javax.swing.JFrame {
         statusLabel.setText("");
         JanEnfermeira.getJanEnfermeira().setVisible(true);
         JanEnfermeira.getJanEnfermeira().setNomePerfil(Login.retornaNomeFuncionario(ID));
+        JanEnfermeira.setId(ID);
         this.setVisible(false);
     }
 
@@ -231,6 +234,7 @@ public class JanLogin extends javax.swing.JFrame {
         statusLabel.setText("");
         JanMedico.getJanMedico().setVisible(true);
         JanMedico.getJanMedico().setNomePerfil(Login.retornaNomeFuncionario(ID));
+        JanMedico.setId(ID);
         this.setVisible(false);
     }
     

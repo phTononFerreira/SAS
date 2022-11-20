@@ -5,10 +5,18 @@ import java.awt.CardLayout;
 public class JanAtendente extends javax.swing.JFrame {
 
     private static JanAtendente unicoJanAtendente;
+    private static String ID;
     private Boolean Muser=false;
 
     CardLayout cardLayout;
     
+    public String getId(){
+        return ID;
+    }
+    
+    public static void setId(String ID1){
+        ID = ID1;
+    }
 
     public JanAtendente() {
         initComponents();
