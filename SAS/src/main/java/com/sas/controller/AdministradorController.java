@@ -11,7 +11,7 @@ import com.sas.dao.AtendenteDAO;
 import com.sas.dao.EnfermeiraDAO;
 import com.sas.dao.MedicoDAO;
 
-import java.util.Random;
+import javax.swing.table.DefaultTableModel;
 
 public class AdministradorController {
 
@@ -186,6 +186,10 @@ public class AdministradorController {
     
     public static Administrador pesquisarAdministradorID(String ID) {
         return AdministradorDAO.pesquisarAdminID(ID);
+    }
+    
+    public static void carregaTabela(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med) {
+        AdministradorDAO.carregaTab(modelo, adm, ate, enf, med);
     }
 
 }

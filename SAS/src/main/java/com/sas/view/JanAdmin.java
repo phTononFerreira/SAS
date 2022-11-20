@@ -1,7 +1,11 @@
 package com.sas.view;
 
 import com.sas.controller.AdministradorController;
+import com.sas.dao.ConexaoBD;
 import java.awt.CardLayout;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 public class JanAdmin extends javax.swing.JFrame {
 
@@ -24,7 +28,9 @@ public class JanAdmin extends javax.swing.JFrame {
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         rbAdministracao.setSelected(true);
-        selectAdm();
+        selectAdmCad();
+        rbAdministrador.setSelected(true);
+        selectAdmFuc();
     }
 
     public static JanAdmin getJanAdmin() {
@@ -433,7 +439,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -913,17 +919,16 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(cardFuncionariosLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                                .addComponent(rbAtendente)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbMedico)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbAdministrador)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbEnfermeira))
+                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rbAdministrador)
                             .addComponent(lbFiltrarEquipe))
-                        .addGap(385, 385, 385)
+                        .addGap(6, 6, 6)
+                        .addComponent(rbAtendente)
+                        .addGap(6, 6, 6)
+                        .addComponent(rbEnfermeira)
+                        .addGap(6, 6, 6)
+                        .addComponent(rbMedico)
+                        .addGap(354, 354, 354)
                         .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labNomePesquisa))
@@ -944,9 +949,9 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
-                            .addGap(0, 23, Short.MAX_VALUE)
+                            .addGap(23, 23, 23)
                             .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -954,7 +959,7 @@ public class JanAdmin extends javax.swing.JFrame {
                             .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lbFiltrarEquipe)
                                 .addComponent(labNomePesquisa))
-                            .addGap(16, 16, 16)
+                            .addGap(18, 18, 18)
                             .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(rbAtendente)
                                 .addComponent(rbMedico)
@@ -976,7 +981,7 @@ public class JanAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, 2023, Short.MAX_VALUE)
+            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, 2027, Short.MAX_VALUE)
             .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -991,15 +996,15 @@ public class JanAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbEnfermeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEnfermeiraActionPerformed
-        // TODO add your handling code here:
+        selectEnfFuc();
     }//GEN-LAST:event_rbEnfermeiraActionPerformed
 
     private void rbAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendenteActionPerformed
-        // TODO add your handling code here:
+        selectAteFuc();
     }//GEN-LAST:event_rbAtendenteActionPerformed
 
     private void rbMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicoActionPerformed
-        // TODO add your handling code here:
+        selectMedFuc();
     }//GEN-LAST:event_rbMedicoActionPerformed
 
     private void btNomePesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaActionPerformed
@@ -1011,19 +1016,19 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void rbAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendimentoActionPerformed
-        selectAte();
+        selectAteCad();
     }//GEN-LAST:event_rbAtendimentoActionPerformed
 
     private void rbEnfermagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEnfermagemActionPerformed
-        selectEnf();
+        selectEnfCad();
     }//GEN-LAST:event_rbEnfermagemActionPerformed
 
     private void rbMedicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbMedicaActionPerformed
-        selectMed();
+        selectMedCad();
     }//GEN-LAST:event_rbMedicaActionPerformed
 
     private void rbAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministradorActionPerformed
-        // TODO add your handling code here:
+        selectAdmFuc();
     }//GEN-LAST:event_rbAdministradorActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
@@ -1031,11 +1036,11 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void rbAdministracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministracaoActionPerformed
-        selectAdm();
+        selectAdmCad();
     }//GEN-LAST:event_rbAdministracaoActionPerformed
 
     private void btRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefreshActionPerformed
-        // TODO add your handling code here:
+        carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
     }//GEN-LAST:event_btRefreshActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
@@ -1136,21 +1141,21 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfSenhaActionPerformed
 
-    public void selectAdm(){
+    public void selectAdmCad(){
         tfCrM.setVisible(false);
         labCrM.setVisible(false);
         labEspecialidade.setVisible(false);
         tfEspecialidade.setVisible(false);
     }
     
-    public void selectAte(){
+    public void selectAteCad(){
         tfCrM.setVisible(false);
         labCrM.setVisible(false);
         labEspecialidade.setVisible(false);
         tfEspecialidade.setVisible(false);
     }
     
-    public void selectEnf(){
+    public void selectEnfCad(){
         tfCrM.setVisible(true);
         labCrM.setVisible(true);
         labEspecialidade.setVisible(false);
@@ -1158,13 +1163,41 @@ public class JanAdmin extends javax.swing.JFrame {
         labCrM.setText("CR");
     }
     
-    public void selectMed(){
+    public void selectMedCad(){
         tfCrM.setVisible(true);
         labCrM.setVisible(true);
         labEspecialidade.setVisible(true);
         tfEspecialidade.setVisible(true);
         labCrM.setText("CRM");
     }    
+    
+    public void selectAdmFuc(){
+        if(rbAdministrador.isSelected())
+            carregaTabela(true,rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
+        else
+            carregaTabela(false,rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());  
+    }
+    
+    public void selectAteFuc(){
+        if(rbAtendente.isSelected())
+            carregaTabela(rbAdministrador.isSelected(),true,rbEnfermeira.isSelected(),rbMedico.isSelected());
+        else
+            carregaTabela(rbAdministrador.isSelected(),false,rbEnfermeira.isSelected(),rbMedico.isSelected());
+    }
+    
+    public void selectEnfFuc(){
+        if(rbEnfermeira.isSelected())
+            carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),true,rbMedico.isSelected());
+        else
+            carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),false,rbMedico.isSelected());
+    }
+    
+    public void selectMedFuc(){
+        if(rbMedico.isSelected())
+            carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),true);
+        else
+            carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),false);
+    }   
     
     public void cadastrarFunc(){
         String feedback = "";
@@ -1225,6 +1258,13 @@ public class JanAdmin extends javax.swing.JFrame {
     
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
+    }
+    
+    public void carregaTabela(boolean adm, boolean ate, boolean enf, boolean med) {
+        DefaultTableModel modelo = (DefaultTableModel) tabFuncionario.getModel();
+        modelo.setNumRows(0);
+        
+        AdministradorController.carregaTabela(modelo, adm, ate, enf, med);
     }
 
     public static void main(String args[]) {

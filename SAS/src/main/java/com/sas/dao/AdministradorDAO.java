@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 public class AdministradorDAO {
 
@@ -165,6 +166,86 @@ public class AdministradorDAO {
             return -1;
         }
         
+    }
+    
+    public static void carregaTab(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med) {
+        ResultSet rs = null;
+        if(adm){
+            try{
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador");
+
+                while(rs.next()){
+                    modelo.addRow(new Object[]{
+                        rs.getString("adm_nome"),
+                        "Administrador",
+                        Double.parseDouble(rs.getString("adm_salario")),
+                        rs.getString("adm_telefone"),
+                        rs.getString("adm_cpf"),
+
+                    });
+                }
+
+            }catch(Exception e){
+                System.out.println("Erro ao puxar tabela administrador");
+            }
+        }
+        if(ate){
+            try{
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente");
+
+                while(rs.next()){
+                    modelo.addRow(new Object[]{
+                        rs.getString("ate_nome"),
+                        "Atendente",
+                        Double.parseDouble(rs.getString("ate_salario")),
+                        rs.getString("ate_telefone"),
+                        rs.getString("ate_cpf"),
+
+                    });
+                }
+
+            }catch(Exception e){
+                System.out.println("Erro ao puxar tabela atendente");
+            }
+        }
+        if(enf){
+            try{
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira");
+
+                while(rs.next()){
+                    modelo.addRow(new Object[]{
+                        rs.getString("enf_nome"),
+                        "Enfermeira",
+                        Double.parseDouble(rs.getString("enf_salario")),
+                        rs.getString("enf_telefone"),
+                        rs.getString("enf_cpf"),
+
+                    });
+                }
+
+            }catch(Exception e){
+                System.out.println("Erro ao puxar tabela enfermeira");
+            }
+        }
+        if(med){
+            try{
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico");
+
+                while(rs.next()){
+                    modelo.addRow(new Object[]{
+                        rs.getString("med_nome"),
+                        "Médico",
+                        Double.parseDouble(rs.getString("med_salario")),
+                        rs.getString("med_telefone"),
+                        rs.getString("med_cpf"),
+
+                    });
+                }
+
+            }catch(Exception e){
+                System.out.println("Erro ao puxar tabela medico");
+            }
+        }
     }
 
 }
