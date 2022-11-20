@@ -76,5 +76,15 @@ public class AdministradorDAO {
 
         return adm;
     }
+    
+    /*public static int contarAdmin() {
+        ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT COUNT(*) FROM administrador");
+        try{
+            return Integer.parseInt(pesquisa.getString(1));
+        } catch (Exception e) {
+            return -1;
+        }
+        
+    }*/
 
 }

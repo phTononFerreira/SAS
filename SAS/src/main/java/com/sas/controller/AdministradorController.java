@@ -11,13 +11,26 @@ import com.sas.dao.AtendenteDAO;
 import com.sas.dao.EnfermeiraDAO;
 import com.sas.dao.MedicoDAO;
 
+import java.util.Random;
+
 public class AdministradorController {
 
     public static String cadastrarFuncionario(String tipo, String id_adm, String senha, String nome, String[] data_nascimento, String cpf, String telefone, String endereco, String salario, String crm, String especialidade) {
         if (tipo.equalsIgnoreCase("Administrador")) {
             Administrador administrador = new Administrador();
             
-            administrador.setId("admTeste2");    //ID AUTOINCREMENT
+            
+            /*Random random = new Random();
+            int autoInc = 1;
+            Administrador temAdm = null;
+            do {  
+                autoInc = random.nextInt(100);
+                temAdm = AdministradorController.pesquisarAdministradorID("adm"+String.valueOf(autoInc));
+           }while(temAdm.equals(null));  
+
+            administrador.setId("adm" + String.valueOf(autoInc));    //ID AUTOINCREMENT
+            */
+            administrador.setId("adm10");    //ID AUTOINCREMENT
             
             if (nome.equals(""))
                 return "NOME INVALIDO!";

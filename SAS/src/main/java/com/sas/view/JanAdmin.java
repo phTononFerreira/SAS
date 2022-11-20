@@ -1177,7 +1177,7 @@ public class JanAdmin extends javax.swing.JFrame {
         String telefone = tfTelefone.getText();
         String endereco = tfEndereco.getText();
         String salario = tfSalario.getText();
-        String cr = "";
+        String crM = "";
         String especialidade = "";
         
         if(rbAdministracao.isSelected())
@@ -1187,15 +1187,15 @@ public class JanAdmin extends javax.swing.JFrame {
         }
         else if(rbEnfermagem.isSelected()){
             tipo = "enfermeira";
-            cr = tfCrM.getText();
+            crM = tfCrM.getText();
         }    
         else if(rbMedica.isSelected()){
             tipo = "medico";
-            cr = tfCrM.getText();
+            crM = tfCrM.getText();
             especialidade = tfEspecialidade.getText();
         }
           
-        feedback = AdministradorController.cadastrarFuncionario(tipo, id_adm, senha, nome, data_nascimento, cpf, telefone, endereco, salario, cr, especialidade);
+        feedback = AdministradorController.cadastrarFuncionario(tipo, id_adm, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
         
         if(feedback == null)
             System.out.println("Deu certo cadastrar");
