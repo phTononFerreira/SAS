@@ -2,8 +2,10 @@ package com.sas.dao;
 
 import com.sas.model.Administrador;
 import com.sas.model.Atendente;
+import com.sas.model.Enfermeira;
 import com.sas.model.Funcionario;
 import com.sas.model.Medico;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,10 +45,7 @@ public class AdministradorDAO {
             String query = "INSERT INTO atendente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstm;
 
-            try {
-                System.out.println(ate.toString());
-                System.out.println("ID_ADM dao: "+ate.getAdm_id());
-                
+            try {           
                 pstm = conn.prepareStatement(query);
                 pstm.setString(1, ate.getId());
                 pstm.setString(2, ate.getSenha());
@@ -66,17 +65,62 @@ public class AdministradorDAO {
             } catch (Exception erro) {
                 System.out.println("ERRO DAO " + erro);
             }
-        }
 
-        /*} else if (f.getId().contains("enf")) {
-            System.out.println("Enf");  
-            return true;
-        }
+        } else if (f.getId().contains("enf")) {
+            Enfermeira enf = (Enfermeira) f;
+            String query = "INSERT INTO enfermeira VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstm;
+
+            try {           
+                pstm = conn.prepareStatement(query);
+                pstm.setString(1, enf.getId());
+                pstm.setString(2, enf.getSenha());
+                pstm.setString(3, enf.getCr());
+                pstm.setString(4, enf.getNome());
+                pstm.setString(5, enf.getData_nascimento());
+                pstm.setString(6, enf.getCpf());
+                pstm.setString(7, enf.getTelefone());
+                pstm.setString(8, enf.getEndereco());
+                pstm.setDouble(9, enf.getSalario());
+                pstm.setString(10, enf.getAdm_id());
+
+                pstm.execute();
+                pstm.close();
+
+                return true;
+
+            } catch (Exception erro) {
+                System.out.println("ERRO DAO " + erro);
+            }
             
         } else if (f.getId().contains("med")) {
-            System.out.println("Med");  
-            return true;
-        }*/
+            Medico med = (Medico) f;
+            String query = "INSERT INTO medico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstm;
+
+            try {           
+                pstm = conn.prepareStatement(query);
+                pstm.setString(1, med.getId());
+                pstm.setString(2, med.getSenha());
+                pstm.setString(3, med.getCrm());
+                pstm.setString(4, med.getNome());
+                pstm.setString(5, med.getData_nascimento());
+                pstm.setString(6, med.getCpf());
+                pstm.setString(7, med.getTelefone());
+                pstm.setString(8, med.getEndereco());
+                pstm.setDouble(9, med.getSalario());
+                pstm.setString(10, med.getEspecialidade());
+                pstm.setString(11, med.getAdm_id());
+
+                pstm.execute();
+                pstm.close();
+
+                return true;
+
+            } catch (Exception erro) {
+                System.out.println("ERRO DAO " + erro);
+            }
+        }
 
         return false;
     }

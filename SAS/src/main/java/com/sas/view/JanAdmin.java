@@ -1194,7 +1194,6 @@ public class JanAdmin extends javax.swing.JFrame {
             crM = tfCrM.getText();
             especialidade = tfEspecialidade.getText();
         }
-        System.out.println("ID_ADM view: "+id_adm);
           
         feedback = AdministradorController.cadastrarFuncionario(tipo, id_adm, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
         
