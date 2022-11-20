@@ -19,18 +19,7 @@ public class AdministradorController {
         if (tipo.equalsIgnoreCase("Administrador")) {
             Administrador administrador = new Administrador();
             
-            
-            /*Random random = new Random();
-            int autoInc = 1;
-            Administrador temAdm = null;
-            do {  
-                autoInc = random.nextInt(100);
-                temAdm = AdministradorController.pesquisarAdministradorID("adm"+String.valueOf(autoInc));
-           }while(temAdm.equals(null));  
-
-            administrador.setId("adm" + String.valueOf(autoInc));    //ID AUTOINCREMENT
-            */
-            administrador.setId("adm10");    //ID AUTOINCREMENT
+            administrador.setId("adm" + String.valueOf(AdministradorDAO.contarAdmin() + 1));    //ID AUTOINCREMENT
             
             if (nome.equals(""))
                 return "NOME INVALIDO!";
