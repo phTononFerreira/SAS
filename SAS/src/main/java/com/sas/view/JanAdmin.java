@@ -1208,8 +1208,10 @@ public class JanAdmin extends javax.swing.JFrame {
           
         feedback = AdministradorController.cadastrarFuncionario(tipo, id_adm, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
         
-        if(feedback == null)
+        if(feedback == null){
             System.out.println("Deu certo cadastrar");
+            limpar();
+        }
         else
             System.out.println(feedback);
     }
