@@ -1,10 +1,7 @@
 package com.sas.view;
 
 import com.sas.controller.AdministradorController;
-import com.sas.dao.ConexaoBD;
 import java.awt.CardLayout;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 
 public class JanAdmin extends javax.swing.JFrame {

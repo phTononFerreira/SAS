@@ -164,8 +164,7 @@ public class AdministradorDAO {
             return Integer.parseInt(pesquisa.getString(1));
         } catch (Exception e) {
             return -1;
-        }
-        
+        }    
     }
     
     public static void carregaTab(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med) {

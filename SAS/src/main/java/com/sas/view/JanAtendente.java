@@ -1,5 +1,6 @@
 package com.sas.view;
 
+import com.sas.controller.AtendenteController;
 import java.awt.CardLayout;
 
 public class JanAtendente extends javax.swing.JFrame {
@@ -349,7 +350,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 913, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE)
                         .addGap(15, 15, 15))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -381,7 +382,7 @@ public class JanAtendente extends javax.swing.JFrame {
         panTabela.setBackground(new java.awt.Color(255, 255, 255));
         panTabela.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(249, 100, 100), 1, true));
 
-        labNome.setText("NOME");
+        labNome.setText("NOME*");
 
         tfNome.setBackground(new java.awt.Color(242, 242, 242));
         tfNome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
@@ -389,12 +390,13 @@ public class JanAtendente extends javax.swing.JFrame {
         tfCPF.setBackground(new java.awt.Color(242, 242, 242));
         tfCPF.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labCPF.setText("CPF");
+        labCPF.setText("CPF*");
+        labCPF.setToolTipText("");
 
         tfDataNasc.setBackground(new java.awt.Color(242, 242, 242));
         tfDataNasc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labDataNasc.setText("DATA DE NASCIMENTO");
+        labDataNasc.setText("<html>DATA DE NASCIMENTO*<br />DD/MM/AAAA</html>");
 
         labEndereco.setText("ENDEREÇO");
 
@@ -437,13 +439,11 @@ public class JanAtendente extends javax.swing.JFrame {
                                 .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panTabelaLayout.createSequentialGroup()
                                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panTabelaLayout.createSequentialGroup()
-                                        .addComponent(labNome)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(tfNome)
                                     .addGroup(panTabelaLayout.createSequentialGroup()
                                         .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labDataNasc)
+                                            .addComponent(labNome)
+                                            .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel1)
                                             .addGroup(panTabelaLayout.createSequentialGroup()
                                                 .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -463,40 +463,38 @@ public class JanAtendente extends javax.swing.JFrame {
         panTabelaLayout.setVerticalGroup(
             panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panTabelaLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panTabelaLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labCPF)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panTabelaLayout.createSequentialGroup()
+                        .addComponent(labNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41)
+                .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panTabelaLayout.createSequentialGroup()
                         .addComponent(labEndereco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panTabelaLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                        .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panTabelaLayout.createSequentialGroup()
-                                .addComponent(labCPF)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panTabelaLayout.createSequentialGroup()
-                                .addComponent(labNome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panTabelaLayout.createSequentialGroup()
-                                .addComponent(labDataNasc)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panTabelaLayout.createSequentialGroup()
-                                .addComponent(lbTelefone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panTabelaLayout.createSequentialGroup()
+                            .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panTabelaLayout.createSequentialGroup()
+                            .addComponent(lbTelefone)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(547, Short.MAX_VALUE))
+                .addContainerGap(542, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cardCadastroLayout = new javax.swing.GroupLayout(cardCadastro);
@@ -563,7 +561,7 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btCriarActionPerformed
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
-        // TODO add your handling code here:
+        cadastrarPaciente();
     }//GEN-LAST:event_btAlterarActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
@@ -622,6 +620,25 @@ public class JanAtendente extends javax.swing.JFrame {
         tfTelefone.setText("");
         tfEndereco.setText("");
         tfNome.requestFocus();
+    }
+    
+    public void cadastrarPaciente(){
+        String feedback = "";
+
+        String nome = tfNome.getText();
+        String[] data_nascimento = tfDataNasc.getText().split("/");
+        String cpf = tfCPF.getText();
+        String telefone = tfTelefone.getText();
+        String endereco = tfEndereco.getText();
+
+        feedback = AtendenteController.cadastrarPaciente(nome, data_nascimento, cpf, telefone, endereco);
+        
+        if(feedback == null){
+            System.out.println("Deu certo cadastrar");
+            limpar();
+        }
+        else
+            System.out.println(feedback);
     }
     
     public static void main(String args[]) {

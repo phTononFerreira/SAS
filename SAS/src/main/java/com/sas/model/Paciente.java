@@ -69,4 +69,9 @@ public class Paciente {
         this.endereco = endereco;
     }
 
+    @Override
+    public String toString() {
+        return "Paciente{" + "id=" + id + ", nome=" + nome + ", data_nascimento=" + data_nascimento + ", telefone=" + telefone + ", cpf=" + cpf + ", endereco=" + endereco + '}';
+    }
+
 }

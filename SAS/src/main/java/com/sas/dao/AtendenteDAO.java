@@ -3,13 +3,38 @@ package com.sas.dao;
 import com.sas.model.Atendente;
 import com.sas.model.Consulta;
 import com.sas.model.Paciente;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AtendenteDAO {
     
-    public static Paciente cadastrarPac() {
-        return null;
+    public static boolean cadastrarPac(Paciente pac) {
+        Connection conn = ConexaoBD.getConnection();
+
+        String query = "INSERT INTO paciente VALUES (?, ?, ?, ?, ?, ?)";
+        PreparedStatement pstm;
+
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, pac.getId());
+            pstm.setString(2, pac.getNome());
+            pstm.setString(3, pac.getData_nascimento());
+            pstm.setString(4, pac.getCpf());
+            pstm.setString(5, pac.getTelefone());
+            pstm.setString(6, pac.getEndereco());
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+            }
+        
+        return false;
     }
 
     public static void editarPac(Paciente pac) {
