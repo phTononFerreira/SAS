@@ -730,6 +730,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btSalvarEdit" pref="732" max="32767" attributes="0"/>
                           <Component id="btCancelarEdit" max="32767" attributes="0"/>
+                          <Component id="btSairEdit" alignment="0" pref="732" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -744,6 +745,8 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btSairEdit" min="-2" pref="87" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btSalvarEdit" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btCancelarEdit" min="-2" pref="87" max="-2" attributes="0"/>
@@ -797,7 +800,7 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="labNascEdit" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                               <Component id="tfNascEdit" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                              <Component id="labSalario1" alignment="0" pref="157" max="32767" attributes="0"/>
+                                              <Component id="labSalarioEdit" alignment="0" pref="157" max="32767" attributes="0"/>
                                               <Component id="tfSalarioEdit" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -883,7 +886,7 @@
                                   <Component id="tfCpfEdit" min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="labSalario1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labSalarioEdit" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="tfSalarioEdit" min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
@@ -1079,7 +1082,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfSalarioEditActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="labSalario1">
+                <Component class="javax.swing.JLabel" name="labSalarioEdit">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="SAL&#xc1;RIO*"/>
                   </Properties>
@@ -1222,6 +1225,27 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btCancelarEditMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCancelarEditActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btSairEdit">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Verdana" size="18" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="SAIR"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btSairEditMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairEditActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

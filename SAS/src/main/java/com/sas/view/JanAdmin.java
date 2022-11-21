@@ -109,7 +109,7 @@ public class JanAdmin extends javax.swing.JFrame {
         jLabelEdit = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         tfSalarioEdit = new javax.swing.JTextField();
-        labSalario1 = new javax.swing.JLabel();
+        labSalarioEdit = new javax.swing.JLabel();
         tfEspecialidadeEdit = new javax.swing.JTextField();
         labEspecialidadeEdit = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
@@ -120,6 +120,7 @@ public class JanAdmin extends javax.swing.JFrame {
         btIDPesquisa = new javax.swing.JButton();
         btSalvarEdit = new javax.swing.JButton();
         btCancelarEdit = new javax.swing.JButton();
+        btSairEdit = new javax.swing.JButton();
         cardCadFuncionario = new javax.swing.JPanel();
         panInfo = new javax.swing.JPanel();
         tfNome = new javax.swing.JTextField();
@@ -622,7 +623,7 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
-        labSalario1.setText("SALÁRIO*");
+        labSalarioEdit.setText("SALÁRIO*");
 
         tfEspecialidadeEdit.setBackground(new java.awt.Color(242, 242, 242));
         tfEspecialidadeEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
@@ -700,7 +701,7 @@ public class JanAdmin extends javax.swing.JFrame {
                                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labNascEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tfNascEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labSalario1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                                    .addComponent(labSalarioEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                                     .addComponent(tfSalarioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -763,7 +764,7 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfCpfEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addComponent(labSalario1)
+                        .addComponent(labSalarioEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfSalarioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panInfoEditLayout.createSequentialGroup()
@@ -824,6 +825,22 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
+        btSairEdit.setBackground(new java.awt.Color(249, 100, 100));
+        btSairEdit.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btSairEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btSairEdit.setText("SAIR");
+        btSairEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btSairEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btSairEditMouseClicked(evt);
+            }
+        });
+        btSairEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairEditActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout cardEditFuncionarioLayout = new javax.swing.GroupLayout(cardEditFuncionario);
         cardEditFuncionario.setLayout(cardEditFuncionarioLayout);
         cardEditFuncionarioLayout.setHorizontalGroup(
@@ -834,7 +851,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btSalvarEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
-                    .addComponent(btCancelarEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btCancelarEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btSairEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE))
                 .addContainerGap())
         );
         cardEditFuncionarioLayout.setVerticalGroup(
@@ -845,6 +863,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardEditFuncionarioLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btSairEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1511,7 +1531,6 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private void btSalvarEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarEditMouseClicked
         EditarFunc();
-        btSalvarEdit.setVisible(false);
     }//GEN-LAST:event_btSalvarEditMouseClicked
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
@@ -1550,6 +1569,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private void labEditarFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labEditarFuncionarioMouseClicked
         selectCardEditar();
+        ocultarEditar();
     }//GEN-LAST:event_labEditarFuncionarioMouseClicked
 
     private void btIDPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIDPesquisaActionPerformed
@@ -1563,8 +1583,17 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private void btCancelarEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarEditMouseClicked
         limparEdit();
-        btSalvarEdit.setVisible(false);
+        ocultarEditar();
     }//GEN-LAST:event_btCancelarEditMouseClicked
+
+    private void btSairEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairEditMouseClicked
+        limparEdit();
+        ocultarEditar();
+    }//GEN-LAST:event_btSairEditMouseClicked
+
+    private void btSairEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btSairEditActionPerformed
     public void selectCardFuncionarios(){
         cardLayout.show(panCards, "cardCadFuncionario");
         labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
@@ -1689,7 +1718,25 @@ public class JanAdmin extends javax.swing.JFrame {
                 labCrMEdit.setVisible(false);
                 labEspecialidadeEdit.setVisible(false);
                 tfEspecialidadeEdit.setVisible(false);
+                
+                labNomeEdit.setVisible(true);
+                tfNomeEdit.setVisible(true);
+                labCpfEdit.setVisible(true);
+                tfCpfEdit.setVisible(true);
+                labNascEdit.setVisible(true);
+                tfNascEdit.setVisible(true);
+                labSalarioEdit.setVisible(true);
+                tfSalarioEdit.setVisible(true);
+                labTelefoneEdit.setVisible(true);
+                tfTelefoneEdit.setVisible(true);
+                labEnderecoEdit.setVisible(true);
+                tfEnderecoEdit.setVisible(true);
+                labSenhaEdit.setVisible(true);
+                tfSenhaEdit.setVisible(true);
+                
                 btSalvarEdit.setVisible(true);
+                btCancelarEdit.setVisible(true);
+                
                 
                 tfNomeEdit.setText(admEdit.getNome());
                 tfCpfEdit.setText(admEdit.getCpf());
@@ -1716,8 +1763,26 @@ public class JanAdmin extends javax.swing.JFrame {
                 labCrMEdit.setVisible(true);
                 labEspecialidadeEdit.setVisible(false);
                 tfEspecialidadeEdit.setVisible(false);
+
+                btSalvarEdit.setVisible(true);
+                labNomeEdit.setVisible(true);
+                tfNomeEdit.setVisible(true);
+                labCpfEdit.setVisible(true);
+                tfCpfEdit.setVisible(true);
+                labNascEdit.setVisible(true);
+                tfNascEdit.setVisible(true);
+                labSalarioEdit.setVisible(true);
+                tfSalarioEdit.setVisible(true);
+                labTelefoneEdit.setVisible(true);
+                tfTelefoneEdit.setVisible(true);
+                labEnderecoEdit.setVisible(true);
+                tfEnderecoEdit.setVisible(true);
+                labSenhaEdit.setVisible(true);
+                tfSenhaEdit.setVisible(true);
+                
                 labCrMEdit.setText("CR");
                 btSalvarEdit.setVisible(true);
+                btCancelarEdit.setVisible(true);
                 
                 tfNomeEdit.setText(enfEdit.getNome());
                 tfCpfEdit.setText(enfEdit.getCpf());
@@ -1744,8 +1809,26 @@ public class JanAdmin extends javax.swing.JFrame {
                 labCrMEdit.setVisible(true);
                 labEspecialidadeEdit.setVisible(true);
                 tfEspecialidadeEdit.setVisible(true);
+
+                btSalvarEdit.setVisible(true);
+                labNomeEdit.setVisible(true);
+                tfNomeEdit.setVisible(true);
+                labCpfEdit.setVisible(true);
+                tfCpfEdit.setVisible(true);
+                labNascEdit.setVisible(true);
+                tfNascEdit.setVisible(true);
+                labSalarioEdit.setVisible(true);
+                tfSalarioEdit.setVisible(true);
+                labTelefoneEdit.setVisible(true);
+                tfTelefoneEdit.setVisible(true);
+                labEnderecoEdit.setVisible(true);
+                tfEnderecoEdit.setVisible(true);
+                labSenhaEdit.setVisible(true);
+                tfSenhaEdit.setVisible(true);
+                
                 labCrMEdit.setText("CRM");
                 btSalvarEdit.setVisible(true);
+                btCancelarEdit.setVisible(true);
                 
                 tfNomeEdit.setText(medEdit.getNome());
                 tfCpfEdit.setText(medEdit.getCpf());
@@ -1773,7 +1856,24 @@ public class JanAdmin extends javax.swing.JFrame {
                 labCrMEdit.setVisible(false);
                 labEspecialidadeEdit.setVisible(false);
                 tfEspecialidadeEdit.setVisible(false);
+                
+                labNomeEdit.setVisible(true);
+                tfNomeEdit.setVisible(true);
+                labCpfEdit.setVisible(true);
+                tfCpfEdit.setVisible(true);
+                labNascEdit.setVisible(true);
+                tfNascEdit.setVisible(true);
+                labSalarioEdit.setVisible(true);
+                tfSalarioEdit.setVisible(true);
+                labTelefoneEdit.setVisible(true);
+                tfTelefoneEdit.setVisible(true);
+                labEnderecoEdit.setVisible(true);
+                tfEnderecoEdit.setVisible(true);
+                labSenhaEdit.setVisible(true);
+                tfSenhaEdit.setVisible(true);
+                
                 btSalvarEdit.setVisible(true);
+                btCancelarEdit.setVisible(true);
                 
                 tfNomeEdit.setText(ateEdit.getNome());
                 tfCpfEdit.setText(ateEdit.getCpf());
@@ -1792,10 +1892,36 @@ public class JanAdmin extends javax.swing.JFrame {
         return "ID INCORRETO!";
         
     }
+    
+    public void ocultarEditar(){
+        btSairEdit.setVisible(false);
+        labNomeEdit.setVisible(false);
+        tfNomeEdit.setVisible(false);
+        labCpfEdit.setVisible(false);
+        tfCpfEdit.setVisible(false);
+        labEnderecoEdit.setVisible(false);
+        tfEnderecoEdit.setVisible(false);
+        labNascEdit.setVisible(false);
+        tfNascEdit.setVisible(false);
+        labSalarioEdit.setVisible(false);
+        tfSalarioEdit.setVisible(false);
+        labEspecialidadeEdit.setVisible(false);
+        tfEspecialidadeEdit.setVisible(false);
+        labCrMEdit.setVisible(false);
+        tfCrMEdit.setVisible(false);
+        labTelefoneEdit.setVisible(false);
+        tfTelefoneEdit.setVisible(false);
+        labSenhaEdit.setVisible(false);
+        tfSenhaEdit.setVisible(false);
+        btCancelarEdit.setVisible(false);
+        btSalvarEdit.setVisible(false);
+    }
+    
     public void EditarFunc(){
         labStatus.setForeground(Color.BLUE);
         labStatus.setText("STATUS DA EDIÇÃO");
-        limparEdit();
+        btSairEdit.setVisible(true);
+        btCancelarEdit.setVisible(false);
     }
     
     public void limpar() {
@@ -1899,6 +2025,7 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btNomePesquisa;
     private javax.swing.JButton btNomePesquisaAlt;
     private javax.swing.JButton btRefresh;
+    private javax.swing.JButton btSairEdit;
     private javax.swing.JButton btSalvarAlt;
     private javax.swing.JButton btSalvarEdit;
     private javax.swing.JPanel cardCadFuncionario;
@@ -1943,8 +2070,8 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel labNomeEdit;
     private javax.swing.JLabel labNomePesquisa;
     private javax.swing.JLabel labSalario;
-    private javax.swing.JLabel labSalario1;
     private javax.swing.JLabel labSalarioAlt;
+    private javax.swing.JLabel labSalarioEdit;
     private javax.swing.JLabel labSenha;
     private javax.swing.JLabel labSenhaEdit;
     private javax.swing.JLabel labStatus;
