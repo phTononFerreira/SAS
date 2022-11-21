@@ -1426,7 +1426,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btNomePesquisaAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btNomePesquisaAltActionPerformed
 
     private void btCancelarAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarAltActionPerformed
