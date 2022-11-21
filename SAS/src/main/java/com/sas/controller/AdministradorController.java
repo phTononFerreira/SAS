@@ -180,8 +180,8 @@ public class AdministradorController {
         return "ERRO NO CADASTRO! [NENHUM TIPO SELECIONADO]";
     }
     
-    public static void editarFuncionario(Funcionario func) {
-
+    public static String editarFuncionario(Funcionario func) {
+        return "STATUS DA EDIÇÃO!";
     }
     
     public static Administrador pesquisarAdministradorID(String ID) {
