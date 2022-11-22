@@ -7,6 +7,7 @@ import com.sas.controller.MedicoController;
 import com.sas.model.Administrador;
 import com.sas.model.Atendente;
 import com.sas.model.Enfermeira;
+import com.sas.model.Funcionario;
 import com.sas.model.Medico;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -21,8 +22,18 @@ public class JanAdmin extends javax.swing.JFrame {
     private Medico medEdit = null;
     private Enfermeira enfEdit = null;
     private Atendente ateEdit = null;
+    private static String idFuncionarioEditMoment;
 
     CardLayout cardLayout;
+
+    public static String getIdFuncionarioEditMoment() {
+        return idFuncionarioEditMoment;
+    }
+
+    public static void setIdFuncionarioEditMoment(String idFuncionarioEditMoment) {
+        JanAdmin.idFuncionarioEditMoment = idFuncionarioEditMoment;
+    }
+    
     
     public String getId(){
         return ID;
@@ -1518,7 +1529,38 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_tfSenhaEditActionPerformed
 
     private void btSalvarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarEditActionPerformed
-        // TODO add your handling code here:
+        String feedback = "";
+        String tipo = "";
+        String id = this.getIdFuncionarioEditMoment();
+        String senha = tfSenhaEdit.getText();
+        String nome = tfNomeEdit.getText();
+        String[] data_nascimento = tfNascEdit.getText().split("-");
+        String cpf = tfCpfEdit.getText();
+        String telefone = tfTelefoneEdit.getText();
+        String endereco = tfEnderecoEdit.getText();
+        String salario = tfSalarioEdit.getText();
+        String crM = "";
+        String especialidade = tfEspecialidadeEdit.getText();
+        
+        if(id.contains("adm"))
+            tipo = "adm";
+        else if(id.contains("ate")){
+            tipo = "ate";         
+        }
+        else if(id.contains("enf")){
+            tipo = "enf";
+        }    
+        else if(id.contains("med")){
+            tipo = "med";
+        }
+          
+        feedback = AdministradorController.alterarFuncionario(tipo, id, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
+        
+        if(feedback == null){
+            System.out.println("USUARIO ALTERADO COM SUCESSO!");
+        }
+        else
+            System.out.println(feedback);
     }//GEN-LAST:event_btSalvarEditActionPerformed
 
     private void tfIDEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDEditActionPerformed
@@ -1573,7 +1615,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btIDPesquisaActionPerformed
 
     private void btIDPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btIDPesquisaMouseClicked
-        String status = PesquisarFuncionario(tfIDEdit.getText());
+        String status = pesquisarFuncionario(tfIDEdit.getText());
         labStatus.setText(status);
     }//GEN-LAST:event_btIDPesquisaMouseClicked
 
@@ -1695,7 +1737,7 @@ public class JanAdmin extends javax.swing.JFrame {
             System.out.println(feedback);
     }
     
-    public String PesquisarFuncionario(String id_pesquisa){ 
+    public String pesquisarFuncionario(String id_pesquisa){ 
         if("".equals(id_pesquisa)){
             labStatus.setForeground(Color.red);
             limparEdit();
@@ -1704,6 +1746,9 @@ public class JanAdmin extends javax.swing.JFrame {
         if(id_pesquisa.contains("adm")){
             admEdit = new Administrador();
             admEdit = AdministradorController.pesquisarAdministradorID(id_pesquisa);
+            
+            this.setIdFuncionarioEditMoment(admEdit.getId());
+            
             if(admEdit == null){
                 labStatus.setForeground(Color.red);
                 btSalvarEdit.setVisible(false);
@@ -1750,6 +1795,9 @@ public class JanAdmin extends javax.swing.JFrame {
         else if(id_pesquisa.contains("enf")){
             enfEdit = new Enfermeira();
             enfEdit = EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa);
+            
+            this.setIdFuncionarioEditMoment(enfEdit.getId());
+            
             if(enfEdit == null){
                 labStatus.setForeground(Color.red);
                 limparEdit();
@@ -1797,6 +1845,9 @@ public class JanAdmin extends javax.swing.JFrame {
         else if(id_pesquisa.contains("med")){
             medEdit = new Medico();
             medEdit = MedicoController.pesquisarMedicoID(id_pesquisa);
+            
+            this.setIdFuncionarioEditMoment(medEdit.getId());
+            
             if(medEdit == null){
                 labStatus.setForeground(Color.red);
                 limparEdit();
@@ -1844,6 +1895,9 @@ public class JanAdmin extends javax.swing.JFrame {
         else if(id_pesquisa.contains("ate")){
             ateEdit = new Atendente();
             ateEdit = AtendenteController.pesquisarAtendenteID(id_pesquisa);
+            
+            this.setIdFuncionarioEditMoment(ateEdit.getId());
+            
             if(ateEdit == null){
                 labStatus.setForeground(Color.red);
                 limparEdit();

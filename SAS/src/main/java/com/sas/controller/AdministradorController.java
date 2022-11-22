@@ -196,7 +196,7 @@ public class AdministradorController {
         AdministradorDAO.pesquisaTabNome(modelo, adm, ate, enf, med, nome);
     }
     
-    public static String alterarFuncionario(String tipo, String id, String id_adm, String senha, String nome, String[] data_nascimento, String cpf, String telefone, String endereco, String salario, String crM, String especialidade){
+    public static String alterarFuncionario(String tipo, String id, String senha, String nome, String[] data_nascimento, String cpf, String telefone, String endereco, String salario, String crM, String especialidade){
          if (tipo.equalsIgnoreCase("adm")) {
             Administrador administrador = new Administrador();
             
@@ -210,7 +210,7 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             administrador.setSenha(senha);
             
-            administrador.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            administrador.setData_nascimento(data_nascimento[0] + "-" + data_nascimento[1] + "-" + data_nascimento[2]);
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
@@ -248,7 +248,7 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             atendente.setSenha(senha);
             
-            atendente.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            atendente.setData_nascimento(data_nascimento[0] + "-" + data_nascimento[1] + "-" + data_nascimento[2]);
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
@@ -265,7 +265,7 @@ public class AdministradorController {
                 return "SALARIO INVALIDO!";
             }
             
-            atendente.setAdm_id(id_adm);
+            atendente.setAdm_id("");
             
             System.out.println(atendente.toString());
             
@@ -288,7 +288,7 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             enfermeira.setSenha(senha);
             
-            enfermeira.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            enfermeira.setData_nascimento(data_nascimento[0] + "-" + data_nascimento[1] + "-" + data_nascimento[2]);
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
@@ -306,7 +306,7 @@ public class AdministradorController {
             }
             
             enfermeira.setCr(crM);
-            enfermeira.setAdm_id(id_adm);
+            enfermeira.setAdm_id("");
             
             System.out.println(enfermeira.toString());
             
@@ -328,7 +328,7 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             medico.setSenha(senha);
             
-            medico.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            medico.setData_nascimento(data_nascimento[0] + "-" + data_nascimento[1] + "-" + data_nascimento[2]);
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
@@ -347,7 +347,7 @@ public class AdministradorController {
             
             medico.setCrm(crM);
             medico.setEspecialidade(especialidade);
-            medico.setAdm_id(id_adm);
+            medico.setAdm_id("");
             
             System.out.println(medico.toString());
             
