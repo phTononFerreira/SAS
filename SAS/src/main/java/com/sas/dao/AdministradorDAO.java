@@ -126,7 +126,7 @@ public class AdministradorDAO {
         return false;
     }
 
-    public static boolean editarFunc(Funcionario func) {
+    public static boolean editarFunc(Funcionario f) {
         Connection conn = ConexaoBD.getConnection();
         if (f.getId().contains("adm")) {
             Administrador adm = (Administrador) f;
