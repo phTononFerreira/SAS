@@ -1732,6 +1732,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 
                 btSalvarEdit.setVisible(true);
                 btCancelarEdit.setVisible(true);
+                btSairEdit.setVisible(false);
                 
                 
                 tfNomeEdit.setText(admEdit.getNome());
@@ -1779,7 +1780,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 labCrMEdit.setText("CR");
                 btSalvarEdit.setVisible(true);
                 btCancelarEdit.setVisible(true);
-                
+                btSairEdit.setVisible(false);
                 tfNomeEdit.setText(enfEdit.getNome());
                 tfCpfEdit.setText(enfEdit.getCpf());
                 tfNascEdit.setText(enfEdit.getData_nascimento());
@@ -1826,7 +1827,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 labCrMEdit.setText("CRM");
                 btSalvarEdit.setVisible(true);
                 btCancelarEdit.setVisible(true);
-                
+                btSairEdit.setVisible(false);
                 tfNomeEdit.setText(medEdit.getNome());
                 tfCpfEdit.setText(medEdit.getCpf());
                 tfNascEdit.setText(medEdit.getData_nascimento());
@@ -1871,7 +1872,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 
                 btSalvarEdit.setVisible(true);
                 btCancelarEdit.setVisible(true);
-                
+                btSairEdit.setVisible(false);
                 tfNomeEdit.setText(ateEdit.getNome());
                 tfCpfEdit.setText(ateEdit.getCpf());
                 tfNascEdit.setText(ateEdit.getData_nascimento());
@@ -1947,6 +1948,9 @@ public class JanAdmin extends javax.swing.JFrame {
         tfTelefoneEdit.setText("");
         tfSenhaEdit.setText("");
         labStatus.setText("");
+        btSalvarEdit.setVisible(false);
+        btSairEdit.setVisible(false);
+        btCancelarEdit.setVisible(false);
         tfIDEdit.requestFocus();
     }
     
