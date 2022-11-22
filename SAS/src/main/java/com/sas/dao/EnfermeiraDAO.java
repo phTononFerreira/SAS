@@ -40,6 +40,7 @@ public class EnfermeiraDAO {
                 enf.setSalario(Double.parseDouble(pesquisa.getString("enf_salario")));
                 enf.setCr(pesquisa.getString("enf_salario"));
                 enf.setAdm_id(pesquisa.getString("adm_id"));
+                enf.setTelefone(pesquisa.getString("enf_telefone"));
                 //System.out.println(adm.toString());
             } else {
                 enf = null;
