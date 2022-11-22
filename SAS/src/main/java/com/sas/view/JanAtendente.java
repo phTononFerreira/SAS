@@ -53,7 +53,6 @@ public class JanAtendente extends javax.swing.JFrame {
         tabPaciente = new javax.swing.JTable();
         btRefresh1 = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
-        btIniciarTriagem = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         cardCadastro = new javax.swing.JPanel();
         btAlterar = new javax.swing.JButton();
@@ -295,7 +294,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addComponent(btRefresh1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         btExcluir.setBackground(new java.awt.Color(249, 100, 100));
@@ -309,17 +308,6 @@ public class JanAtendente extends javax.swing.JFrame {
             }
         });
 
-        btIniciarTriagem.setBackground(new java.awt.Color(249, 100, 100));
-        btIniciarTriagem.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btIniciarTriagem.setForeground(new java.awt.Color(255, 255, 255));
-        btIniciarTriagem.setText("<html>INICIAR<br />TRIAGEM</html>");
-        btIniciarTriagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btIniciarTriagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btIniciarTriagemActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout cardConsultaLayout = new javax.swing.GroupLayout(cardConsulta);
         cardConsulta.setLayout(cardConsultaLayout);
         cardConsultaLayout.setHorizontalGroup(
@@ -329,20 +317,17 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cardConsultaLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(btCriar, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE))
-                            .addGroup(cardConsultaLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btIniciarTriagem)
-                                    .addComponent(btExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(20, 20, 20))
-                    .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addGap(325, 325, 325)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(336, Short.MAX_VALUE))
+                    .addGroup(cardConsultaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cardConsultaLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(btCriar, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE))
+                            .addComponent(btExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         cardConsultaLayout.setVerticalGroup(
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,13 +339,11 @@ public class JanAtendente extends javax.swing.JFrame {
                         .addGap(15, 15, 15))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 283, Short.MAX_VALUE)
+                        .addGap(362, 362, 362)
                         .addComponent(btCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btIniciarTriagem, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(339, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         panCardsAtendente.add(cardConsulta, "cardConsulta");
@@ -443,11 +426,10 @@ public class JanAtendente extends javax.swing.JFrame {
                                     .addGroup(panTabelaLayout.createSequentialGroup()
                                         .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(labNome)
+                                            .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel1)
                                             .addGroup(panTabelaLayout.createSequentialGroup()
-                                                .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(lbTelefone)
@@ -482,14 +464,15 @@ public class JanAtendente extends javax.swing.JFrame {
                         .addComponent(labEndereco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panTabelaLayout.createSequentialGroup()
-                        .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panTabelaLayout.createSequentialGroup()
-                        .addComponent(lbTelefone)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panTabelaLayout.createSequentialGroup()
+                            .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panTabelaLayout.createSequentialGroup()
+                            .addComponent(lbTelefone)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -567,10 +550,6 @@ public class JanAtendente extends javax.swing.JFrame {
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btExcluirActionPerformed
-
-    private void btIniciarTriagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarTriagemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btIniciarTriagemActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
         if(Muser){
@@ -678,7 +657,6 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btCriar;
     private javax.swing.JButton btExcluir;
-    private javax.swing.JButton btIniciarTriagem;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btRefresh1;
     private javax.swing.JPanel cardCadastro;
