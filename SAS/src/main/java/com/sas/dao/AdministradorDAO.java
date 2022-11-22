@@ -126,8 +126,118 @@ public class AdministradorDAO {
         return false;
     }
 
-    public static void editarFunc(Funcionario func) {
+    public static boolean editarFunc(Funcionario func) {
+        Connection conn = ConexaoBD.getConnection();
+        if (f.getId().contains("adm")) {
+            Administrador adm = (Administrador) f;
+            
+            
+            String query = "UPDATE administrador set adm_senha = ?, adm_nome = ?, adm_dataNasc = ?, adm_cpf = ?, adm_telefone = ?, adm_endereco = ?, adm_salario = ? WHERE adm_id = ?";
+            PreparedStatement pstm;
 
+            try {
+                pstm = conn.prepareStatement(query);
+                pstm.setString(1, adm.getSenha());
+                pstm.setString(2, adm.getNome());
+                pstm.setString(3, adm.getData_nascimento());
+                pstm.setString(4, adm.getCpf());
+                pstm.setString(5, adm.getTelefone());
+                pstm.setString(6, adm.getEndereco());
+                pstm.setDouble(7, adm.getSalario());
+                pstm.setString(8, adm.getId());
+                
+                pstm.execute();
+                pstm.close();
+
+                return true;
+
+            } catch (Exception erro) {
+                System.out.println("ERRO DAO " + erro);
+            }
+        
+        } else if (f.getId().contains("ate")) {
+            Atendente ate = (Atendente) f;
+            String query = "UPDATE atendente set ate_senha = ?, ate_nome = ?, ate_dataNasc = ?, ate_cpf = ?, ate_telefone = ?, ate_endereco = ?, ate_salario = ? WHERE ate_id = ?";
+            PreparedStatement pstm;
+
+            try {           
+                pstm = conn.prepareStatement(query);
+                
+                pstm.setString(1, ate.getSenha());
+                pstm.setString(2, ate.getNome());
+                pstm.setString(3, ate.getData_nascimento());
+                pstm.setString(4, ate.getCpf());
+                pstm.setString(5, ate.getTelefone());
+                pstm.setString(6, ate.getEndereco());
+                pstm.setDouble(7, ate.getSalario());
+                pstm.setString(8, ate.getId());
+                
+                pstm.execute();
+                pstm.close();
+
+                return true;
+
+            } catch (Exception erro) {
+                System.out.println("ERRO DAO " + erro);
+            }
+
+        } else if (f.getId().contains("enf")) {
+            Enfermeira enf = (Enfermeira) f;
+            String query = "INSERT INTO enfermeira VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstm;
+
+            try {           
+                pstm = conn.prepareStatement(query);
+                pstm.setString(1, enf.getId());
+                pstm.setString(2, enf.getSenha());
+                pstm.setString(3, enf.getCr());
+                pstm.setString(4, enf.getNome());
+                pstm.setString(5, enf.getData_nascimento());
+                pstm.setString(6, enf.getCpf());
+                pstm.setString(7, enf.getTelefone());
+                pstm.setString(8, enf.getEndereco());
+                pstm.setDouble(9, enf.getSalario());
+                pstm.setString(10, enf.getAdm_id());
+
+                pstm.execute();
+                pstm.close();
+
+                return true;
+
+            } catch (Exception erro) {
+                System.out.println("ERRO DAO " + erro);
+            }
+            
+        } else if (f.getId().contains("med")) {
+            Medico med = (Medico) f;
+            String query = "INSERT INTO medico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstm;
+
+            try {           
+                pstm = conn.prepareStatement(query);
+                pstm.setString(1, med.getId());
+                pstm.setString(2, med.getSenha());
+                pstm.setString(3, med.getCrm());
+                pstm.setString(4, med.getNome());
+                pstm.setString(5, med.getData_nascimento());
+                pstm.setString(6, med.getCpf());
+                pstm.setString(7, med.getTelefone());
+                pstm.setString(8, med.getEndereco());
+                pstm.setDouble(9, med.getSalario());
+                pstm.setString(10, med.getEspecialidade());
+                pstm.setString(11, med.getAdm_id());
+
+                pstm.execute();
+                pstm.close();
+
+                return true;
+
+            } catch (Exception erro) {
+                System.out.println("ERRO DAO " + erro);
+            }
+        }
+
+        return false;
     }
 
     public static Administrador pesquisarAdminID(String ID) {
