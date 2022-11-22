@@ -1534,7 +1534,7 @@ public class JanAdmin extends javax.swing.JFrame {
         String id = this.getIdFuncionarioEditMoment();
         String senha = tfSenhaEdit.getText();
         String nome = tfNomeEdit.getText();
-        String[] data_nascimento = tfNascEdit.getText().split("-");
+        String[] data_nascimento = tfNascEdit.getText().split("/");
         String cpf = tfCpfEdit.getText();
         String telefone = tfTelefoneEdit.getText();
         String endereco = tfEnderecoEdit.getText();
@@ -1782,7 +1782,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 
                 tfNomeEdit.setText(admEdit.getNome());
                 tfCpfEdit.setText(admEdit.getCpf());
-                tfNascEdit.setText(admEdit.getData_nascimento());
+                String[] dataNasc = admEdit.getData_nascimento().split("-");
+                tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
                 tfSalarioEdit.setText(String.valueOf(admEdit.getSalario()));
                 tfTelefoneEdit.setText(admEdit.getTelefone());
                 tfEnderecoEdit.setText(admEdit.getEndereco());
@@ -1831,7 +1832,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 btSairEdit.setVisible(false);
                 tfNomeEdit.setText(enfEdit.getNome());
                 tfCpfEdit.setText(enfEdit.getCpf());
-                tfNascEdit.setText(enfEdit.getData_nascimento());
+                String[] dataNasc = enfEdit.getData_nascimento().split("-");
+                tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
                 tfSalarioEdit.setText(String.valueOf(enfEdit.getSalario()));
                 tfTelefoneEdit.setText(enfEdit.getTelefone());
                 tfEnderecoEdit.setText(enfEdit.getEndereco());
@@ -1881,7 +1883,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 btSairEdit.setVisible(false);
                 tfNomeEdit.setText(medEdit.getNome());
                 tfCpfEdit.setText(medEdit.getCpf());
-                tfNascEdit.setText(medEdit.getData_nascimento());
+                String[] dataNasc = medEdit.getData_nascimento().split("-");
+                tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
                 tfSalarioEdit.setText(String.valueOf(medEdit.getSalario()));
                 tfTelefoneEdit.setText(medEdit.getTelefone());
                 tfEnderecoEdit.setText(medEdit.getEndereco());
@@ -1929,7 +1932,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 btSairEdit.setVisible(false);
                 tfNomeEdit.setText(ateEdit.getNome());
                 tfCpfEdit.setText(ateEdit.getCpf());
-                tfNascEdit.setText(ateEdit.getData_nascimento());
+                String[] dataNasc = ateEdit.getData_nascimento().split("-");
+                tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
                 tfSalarioEdit.setText(String.valueOf(ateEdit.getSalario()));
                 tfTelefoneEdit.setText(ateEdit.getTelefone());
                 tfEnderecoEdit.setText(ateEdit.getEndereco());

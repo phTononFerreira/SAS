@@ -210,7 +210,7 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             administrador.setSenha(senha);
             
-            administrador.setData_nascimento(data_nascimento[0] + "-" + data_nascimento[1] + "-" + data_nascimento[2]);
+            administrador.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
@@ -248,7 +248,7 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             atendente.setSenha(senha);
             
-            atendente.setData_nascimento(data_nascimento[0] + "-" + data_nascimento[1] + "-" + data_nascimento[2]);
+            atendente.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
@@ -288,7 +288,7 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             enfermeira.setSenha(senha);
             
-            enfermeira.setData_nascimento(data_nascimento[0] + "-" + data_nascimento[1] + "-" + data_nascimento[2]);
+            enfermeira.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
@@ -328,7 +328,7 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             medico.setSenha(senha);
             
-            medico.setData_nascimento(data_nascimento[0] + "-" + data_nascimento[1] + "-" + data_nascimento[2]);
+            medico.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
