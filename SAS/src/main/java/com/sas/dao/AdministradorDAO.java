@@ -129,7 +129,7 @@ public class AdministradorDAO {
     public static boolean alterarFunc(Funcionario f) {
         Connection conn = ConexaoBD.getConnection();
         if (f.getId().contains("adm")) {
-            Administrador adm = (Administrador) f;
+            Administrador adm = (Administrador) f; 
             
             
             String query = "UPDATE administrador set adm_senha = ?, adm_nome = ?, adm_dataNasc = ?, adm_cpf = ?, adm_telefone = ?, adm_endereco = ?, adm_salario = ? WHERE adm_id = ?";
