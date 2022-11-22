@@ -338,10 +338,7 @@
                                           <Component id="btNomePesquisa1" min="-2" pref="175" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                              <Component id="btRefresh1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="btRefresh1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                                           <Component id="jScrollPane3" max="32767" attributes="0"/>
                                       </Group>
@@ -560,12 +557,21 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jPanel1" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btCadastrar" pref="634" max="32767" attributes="0"/>
-                          <Component id="btAlterar1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btCadastrar" pref="634" max="32767" attributes="0"/>
+                                  <Component id="btAlterar1" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
+                              <Component id="jSpinner1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -577,6 +583,8 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                      <Component id="jSpinner1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btCadastrar" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -731,6 +739,8 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAlterar1ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner1">
             </Component>
           </SubComponents>
         </Container>

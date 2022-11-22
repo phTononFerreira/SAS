@@ -67,6 +67,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tabEstoque = new javax.swing.JTable();
         btAlterar1 = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Enfermagem");
@@ -322,9 +323,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                                 .addGap(925, 925, 925)
                                 .addComponent(btNomePesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(panInformacoesLayout.createSequentialGroup()
-                                    .addGap(0, 0, 0)
-                                    .addComponent(btRefresh1))
+                                .addComponent(btRefresh1)
                                 .addComponent(jScrollPane1)
                                 .addComponent(jScrollPane3)))
                         .addGap(30, 30, 30))))
@@ -465,11 +464,17 @@ public class JanEnfermeira extends javax.swing.JFrame {
             .addGroup(cardEstoqueLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
                 .addGroup(cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
-                    .addComponent(btAlterar1))
-                .addGap(22, 22, 22))
+                    .addGroup(cardEstoqueLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
+                            .addComponent(btAlterar1))
+                        .addGap(22, 22, 22))
+                    .addGroup(cardEstoqueLayout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         cardEstoqueLayout.setVerticalGroup(
             cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,7 +483,9 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
             .addGroup(cardEstoqueLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(114, 114, 114)
+                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -620,6 +627,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel labDescricao;
     private javax.swing.JLabel labEstoque;
     private javax.swing.JLabel labLogo;
