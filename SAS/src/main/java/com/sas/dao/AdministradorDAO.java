@@ -246,6 +246,7 @@ public class AdministradorDAO {
         try {
             if (pesquisa.isBeforeFirst()) {
                 adm = new Administrador();
+                
                 pesquisa.next();
                 adm.setId(pesquisa.getString("adm_id"));
                 adm.setSenha(pesquisa.getString("adm_senha"));
