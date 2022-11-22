@@ -1789,6 +1789,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfSenhaEdit.setText(enfEdit.getSenha());
                 tfCrMEdit.setText(enfEdit.getCr());   
                 labStatus.setForeground(Color.green); 
+                  
                 return "FUNCIONÁRIO ENCONTRADO!";
             }
         }
@@ -1933,6 +1934,7 @@ public class JanAdmin extends javax.swing.JFrame {
         tfSenha.setText("");
         tfNome.requestFocus();
     }
+    
     public void limparEdit() {
         tfIDEdit.setText("");
         tfNomeEdit.setText("");
