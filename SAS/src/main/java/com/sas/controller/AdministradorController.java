@@ -209,9 +209,11 @@ public class AdministradorController {
             if (senha.equals(""))
                 return "SENHA INVALIDA!";
             administrador.setSenha(senha);
-            
-            administrador.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
-            
+            try{
+                administrador.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            }catch(ArrayIndexOutOfBoundsException aibe){
+                return "DATA INVALIDA";
+            }
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
@@ -248,8 +250,11 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             atendente.setSenha(senha);
             
-            atendente.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
-            
+            try{
+                atendente.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            }catch(ArrayIndexOutOfBoundsException aibe){
+                return "DATA INVALIDA";
+            }
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
@@ -288,8 +293,11 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             enfermeira.setSenha(senha);
             
-            enfermeira.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
-            
+            try{
+                enfermeira.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            }catch(ArrayIndexOutOfBoundsException aibe){
+                return "DATA INVALIDA";
+            }
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
@@ -328,7 +336,11 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             medico.setSenha(senha);
             
-            medico.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            try{
+                medico.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            }catch(ArrayIndexOutOfBoundsException aibe){
+                return "DATA INVALIDA";
+            }
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
