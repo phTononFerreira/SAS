@@ -97,7 +97,7 @@ public class AdministradorController {
         } else if (tipo.equalsIgnoreCase("enfermeira")) {
             Enfermeira enfermeira = new Enfermeira();
             
-            enfermeira.setId("enf" + String.valueOf(AtendenteDAO.contarAtend() + 1));    //ID AUTOINCREMENT   ESSA LINE
+            enfermeira.setId("enf" + String.valueOf(EnfermeiraDAO.contarEnf()+ 1));    //ID AUTOINCREMENT   ESSA LINE
             
             if (nome.equals(""))
                 return "NOME INVALIDO!";
@@ -137,7 +137,7 @@ public class AdministradorController {
         } else if (tipo.equalsIgnoreCase("medico")) {
             Medico medico = new Medico();
             
-            medico.setId("med" + String.valueOf(AtendenteDAO.contarAtend() + 1));    //ID AUTOINCREMENT THIS LINE TOO
+            medico.setId("med" + String.valueOf(MedicoDAO.contarMedic()+ 1));    //ID AUTOINCREMENT THIS LINE TOO
             
             if (nome.equals(""))
                 return "NOME INVALIDO!";
