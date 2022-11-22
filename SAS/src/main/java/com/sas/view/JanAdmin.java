@@ -170,7 +170,6 @@ public class JanAdmin extends javax.swing.JFrame {
         rbMedico = new javax.swing.JRadioButton();
         btNomePesquisa = new javax.swing.JButton();
         labNomePesquisa = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         rbAdministrador = new javax.swing.JRadioButton();
         tfNome1 = new javax.swing.JTextField();
         btRefresh = new javax.swing.JButton();
@@ -864,17 +863,19 @@ public class JanAdmin extends javax.swing.JFrame {
         );
         cardEditFuncionarioLayout.setVerticalGroup(
             cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardEditFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btSairEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(cardEditFuncionarioLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(panInfoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardEditFuncionarioLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btSairEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(cardEditFuncionarioLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(panInfoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -1200,26 +1201,45 @@ public class JanAdmin extends javax.swing.JFrame {
         tabFuncionario.setForeground(new java.awt.Color(51, 51, 51));
         tabFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, "", null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Cargo", "Salário", "Telefone", "CPF"
+                "Cargo", "ID", "Nome", "CPF", "Telefone", "Data Nascimento", "Endereço", "Salário", "CRM / CR", "Especialidade"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabFuncionario.setGridColor(new java.awt.Color(204, 204, 204));
         tabFuncionario.setIntercellSpacing(new java.awt.Dimension(0, 5));
         tabFuncionario.setSelectionBackground(new java.awt.Color(196, 67, 67));
@@ -1264,17 +1284,6 @@ public class JanAdmin extends javax.swing.JFrame {
 
         labNomePesquisa.setText("NOME");
 
-        jButton2.setBackground(new java.awt.Color(249, 100, 100));
-        jButton2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("ALTERAR");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         rbAdministrador.setText("ADMINISTRAÇÃO");
         rbAdministrador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbAdministrador.addActionListener(new java.awt.event.ActionListener() {
@@ -1303,9 +1312,9 @@ public class JanAdmin extends javax.swing.JFrame {
         cardFuncionariosLayout.setHorizontalGroup(
             cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardFuncionariosLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
                         .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(rbAdministrador)
                             .addComponent(lbFiltrarEquipe))
@@ -1315,7 +1324,7 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(rbEnfermeira)
                         .addGap(6, 6, 6)
                         .addComponent(rbMedico)
-                        .addGap(354, 354, 354)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labNomePesquisa))
@@ -1323,42 +1332,35 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(btNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cardFuncionariosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane4)))
-                .addGap(22, 22, 22)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 2005, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
         cardFuncionariosLayout.setVerticalGroup(
             cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(cardFuncionariosLayout.createSequentialGroup()
-                            .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lbFiltrarEquipe)
-                                .addComponent(labNomePesquisa))
-                            .addGap(18, 18, 18)
-                            .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(rbAtendente)
-                                .addComponent(rbMedico)
-                                .addComponent(rbAdministrador)
-                                .addComponent(rbEnfermeira)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+                    .addGroup(cardFuncionariosLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
+                                    .addGap(23, 23, 23)
+                                    .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tfNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(labNomePesquisa))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(lbFiltrarEquipe)
+                        .addGap(18, 18, 18)
+                        .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbAtendente)
+                            .addComponent(rbMedico)
+                            .addComponent(rbAdministrador)
+                            .addComponent(rbEnfermeira))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1400,10 +1402,6 @@ public class JanAdmin extends javax.swing.JFrame {
         tfNome1.requestFocus();
     }//GEN-LAST:event_btNomePesquisaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void rbAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendimentoActionPerformed
         selectAteCad();
     }//GEN-LAST:event_rbAtendimentoActionPerformed
@@ -1419,10 +1417,6 @@ public class JanAdmin extends javax.swing.JFrame {
     private void rbAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministradorActionPerformed
         selectFiltroFuc();
     }//GEN-LAST:event_rbAdministradorActionPerformed
-
-    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        cadastrarFunc();
-    }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void rbAdministracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAdministracaoActionPerformed
         selectAdmCad();
@@ -1539,7 +1533,7 @@ public class JanAdmin extends javax.swing.JFrame {
         String telefone = tfTelefoneEdit.getText();
         String endereco = tfEnderecoEdit.getText();
         String salario = tfSalarioEdit.getText();
-        String crM = "";
+        String crM = tfCrMEdit.getText();
         String especialidade = tfEspecialidadeEdit.getText();
         
         if(id.contains("adm"))
@@ -1632,6 +1626,10 @@ public class JanAdmin extends javax.swing.JFrame {
     private void btSairEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairEditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btSairEditActionPerformed
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        cadastrarFunc();
+    }//GEN-LAST:event_btCadastrarActionPerformed
     public void selectCardFuncionarios(){
         cardLayout.show(panCards, "cardCadFuncionario");
         labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
@@ -1974,12 +1972,48 @@ public class JanAdmin extends javax.swing.JFrame {
     }
     
     public void EditarFunc(){
-        labStatus.setForeground(Color.BLUE);
-        labStatus.setText("STATUS DA EDIÇÃO");
+         String feedback = "";
+        String tipo = "";
+        String id = this.getIdFuncionarioEditMoment();
+        String senha = tfSenhaEdit.getText();
+        String nome = tfNomeEdit.getText();
+        String[] data_nascimento = tfNascEdit.getText().split("/");
+        String cpf = tfCpfEdit.getText();
+        String telefone = tfTelefoneEdit.getText();
+        String endereco = tfEnderecoEdit.getText();
+        String salario = tfSalarioEdit.getText();
+        String crM = "";
+        String especialidade = tfEspecialidadeEdit.getText();
+        
+        if(id.contains("adm"))
+            tipo = "adm";
+        else if(id.contains("ate")){
+            tipo = "ate";         
+        }
+        else if(id.contains("enf")){
+            tipo = "enf";
+        }    
+        else if(id.contains("med")){
+            tipo = "med";
+        }
+          
+        feedback = AdministradorController.alterarFuncionario(tipo, id, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
+        
         btSairEdit.setVisible(true);
         btCancelarEdit.setVisible(false);
-        btSalvarEdit.setVisible(false);
-    }
+        btSalvarEdit.setVisible(false); 
+        
+        if(feedback == null){
+            labStatus.setForeground(Color.green);
+            labStatus.setText("USUARIO ALTERADO COM SUCESSO!");
+        }
+        else{
+            labStatus.setForeground(Color.red);
+            labStatus.setText(feedback);
+        }
+        
+    }              
+    
     
     public void limpar() {
         tfNome.setText("");
@@ -2096,7 +2130,6 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JDialog dialogAlteracao;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelEdit;
     private javax.swing.JPanel jPanelEditar;
