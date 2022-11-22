@@ -52,4 +52,15 @@ public class EnfermeiraDAO {
         return enf;
     }
     
+    public static int contarEnf() {
+        ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT COUNT(*) FROM enfermeira");
+        try{
+            pesquisa.next();
+            return Integer.parseInt(pesquisa.getString(1));
+        } catch (Exception e) {
+            return -1;
+        }
+        
+    }
+    
 }

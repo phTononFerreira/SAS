@@ -55,4 +55,15 @@ public class MedicoDAO {
         return med;
     }
     
+    public static int contarMedic() {
+        ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT COUNT(*) FROM medico");
+        try{
+            pesquisa.next();
+            return Integer.parseInt(pesquisa.getString(1));
+        } catch (Exception e) {
+            return -1;
+        }
+        
+    }
+    
 }
