@@ -183,21 +183,21 @@ public class AdministradorDAO {
 
         } else if (f.getId().contains("enf")) {
             Enfermeira enf = (Enfermeira) f;
-            String query = "INSERT INTO enfermeira VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "UPDATE enfermeira set enf_senha = ?, enf_cr = ?, enf_nome = ?, enf_dataNasc = ?, enf_cpf = ?, enf_telefone = ?, enf_endereco = ?, enf_salario = ? WHERE enf_id = ?";
             PreparedStatement pstm;
 
             try {           
                 pstm = conn.prepareStatement(query);
-                pstm.setString(1, enf.getId());
-                pstm.setString(2, enf.getSenha());
-                pstm.setString(3, enf.getCr());
-                pstm.setString(4, enf.getNome());
-                pstm.setString(5, enf.getData_nascimento());
-                pstm.setString(6, enf.getCpf());
-                pstm.setString(7, enf.getTelefone());
-                pstm.setString(8, enf.getEndereco());
-                pstm.setDouble(9, enf.getSalario());
-                pstm.setString(10, enf.getAdm_id());
+                
+                pstm.setString(1, enf.getSenha());
+                pstm.setString(2, enf.getCr());
+                pstm.setString(3, enf.getNome());
+                pstm.setString(4, enf.getData_nascimento());
+                pstm.setString(5, enf.getCpf());
+                pstm.setString(6, enf.getTelefone());
+                pstm.setString(7, enf.getEndereco());
+                pstm.setDouble(8, enf.getSalario());
+                pstm.setString(9, enf.getId());
 
                 pstm.execute();
                 pstm.close();
@@ -210,23 +210,23 @@ public class AdministradorDAO {
             
         } else if (f.getId().contains("med")) {
             Medico med = (Medico) f;
-            String query = "INSERT INTO medico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "UPDATE medico set med_senha = ?, med_crm = ?, med_nome = ?, med_dataNasc = ?, med_cpf = ?, med_telefone = ?, med_endereco = ?, med_salario = ?, med_especialidade = ? WHERE med_id = ?";
             PreparedStatement pstm;
 
             try {           
                 pstm = conn.prepareStatement(query);
-                pstm.setString(1, med.getId());
-                pstm.setString(2, med.getSenha());
-                pstm.setString(3, med.getCrm());
-                pstm.setString(4, med.getNome());
-                pstm.setString(5, med.getData_nascimento());
-                pstm.setString(6, med.getCpf());
-                pstm.setString(7, med.getTelefone());
-                pstm.setString(8, med.getEndereco());
-                pstm.setDouble(9, med.getSalario());
-                pstm.setString(10, med.getEspecialidade());
-                pstm.setString(11, med.getAdm_id());
-
+                
+                pstm.setString(1, med.getSenha());
+                pstm.setString(2, med.getCrm());
+                pstm.setString(3, med.getNome());
+                pstm.setString(4, med.getData_nascimento());
+                pstm.setString(5, med.getCpf());
+                pstm.setString(6, med.getTelefone());
+                pstm.setString(7, med.getEndereco());
+                pstm.setDouble(8, med.getSalario());
+                pstm.setString(9, med.getEspecialidade());
+                pstm.setString(10, med.getId());
+                                
                 pstm.execute();
                 pstm.close();
 
