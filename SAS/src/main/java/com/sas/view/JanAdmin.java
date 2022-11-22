@@ -515,7 +515,7 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(labFuncionario)
                         .addGap(100, 100, 100)
                         .addComponent(labCadFuncionario)
-                        .addGap(75, 75, 75)
+                        .addGap(100, 100, 100)
                         .addComponent(labEditarFuncionario)
                         .addGap(202, 202, 202)))
                 .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -655,7 +655,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
         labStatus.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         labStatus.setForeground(new java.awt.Color(0, 153, 0));
-        labStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         btIDPesquisa.setBackground(new java.awt.Color(249, 100, 100));
         btIDPesquisa.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -710,24 +710,21 @@ public class JanAdmin extends javax.swing.JFrame {
                                     .addComponent(labCrMEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(tfCrMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(167, 167, 167))))
-            .addGroup(panInfoEditLayout.createSequentialGroup()
-                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panInfoEditLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInfoEditLayout.createSequentialGroup()
+                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator5)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panInfoEditLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator4)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInfoEditLayout.createSequentialGroup()
-                                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jSeparator5))
-                                .addGap(161, 161, 161))))
-                    .addGroup(panInfoEditLayout.createSequentialGroup()
+                        .addComponent(jSeparator4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panInfoEditLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfIDEdit))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btIDPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -739,7 +736,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfIDEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btIDPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btIDPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panInfoEditLayout.createSequentialGroup()
@@ -785,11 +783,9 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addComponent(labSenhaEdit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labStatus)
-                .addGap(25, 25, 25))
+                .addGap(120, 120, 120))
         );
 
         btSalvarEdit.setBackground(new java.awt.Color(249, 100, 100));
@@ -857,10 +853,6 @@ public class JanAdmin extends javax.swing.JFrame {
         );
         cardEditFuncionarioLayout.setVerticalGroup(
             cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cardEditFuncionarioLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(panInfoEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardEditFuncionarioLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btSairEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -869,6 +861,10 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(cardEditFuncionarioLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(panInfoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         panCards.add(cardEditFuncionario, "cardEditFuncionario");
@@ -1143,7 +1139,7 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(409, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         btCadastrar.setBackground(new java.awt.Color(249, 100, 100));
@@ -1175,9 +1171,9 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addComponent(panInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardCadFuncionarioLayout.createSequentialGroup()
-                .addContainerGap(423, Short.MAX_VALUE)
+                .addContainerGap(279, Short.MAX_VALUE)
                 .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(415, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         panCards.add(cardCadFuncionario, "cardCadFuncionario");
@@ -1347,7 +1343,7 @@ public class JanAdmin extends javax.swing.JFrame {
                                 .addComponent(rbEnfermeira)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cardFuncionariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardFuncionariosLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1430,7 +1426,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btNomePesquisaAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btNomePesquisaAltActionPerformed
 
     private void btCancelarAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarAltActionPerformed
@@ -1793,6 +1789,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfSenhaEdit.setText(enfEdit.getSenha());
                 tfCrMEdit.setText(enfEdit.getCr());   
                 labStatus.setForeground(Color.green); 
+                  
                 return "FUNCIONÁRIO ENCONTRADO!";
             }
         }
@@ -1922,6 +1919,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labStatus.setText("STATUS DA EDIÇÃO");
         btSairEdit.setVisible(true);
         btCancelarEdit.setVisible(false);
+        btSalvarEdit.setVisible(false);
     }
     
     public void limpar() {
@@ -1936,6 +1934,7 @@ public class JanAdmin extends javax.swing.JFrame {
         tfSenha.setText("");
         tfNome.requestFocus();
     }
+    
     public void limparEdit() {
         tfIDEdit.setText("");
         tfNomeEdit.setText("");
@@ -1947,6 +1946,7 @@ public class JanAdmin extends javax.swing.JFrame {
         tfCrMEdit.setText("");
         tfTelefoneEdit.setText("");
         tfSenhaEdit.setText("");
+        labStatus.setText("");
         tfIDEdit.requestFocus();
     }
     
