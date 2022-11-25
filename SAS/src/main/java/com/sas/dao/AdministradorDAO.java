@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
+import java.text.DecimalFormat; 
 
 public class AdministradorDAO {
 
@@ -280,18 +281,23 @@ public class AdministradorDAO {
     
     public static void carregaTab(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med) {
         ResultSet rs = null;
+        String[] data_nascimento = null;
+        DecimalFormat df = new DecimalFormat("#.00");
         if(adm){
             try{
                 rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador");
 
                 while(rs.next()){
+                    data_nascimento = rs.getString("adm_dataNasc").split("-");
                     modelo.addRow(new Object[]{
-                        rs.getString("adm_nome"),
                         "Administrador",
-                        Double.parseDouble(rs.getString("adm_salario")),
-                        rs.getString("adm_telefone"),
+                        rs.getString("adm_id"),
+                        rs.getString("adm_nome"),
                         rs.getString("adm_cpf"),
-
+                        rs.getString("adm_telefone"),
+                        data_nascimento[2]+"/"+data_nascimento[1]+"/"+data_nascimento[0],
+                        rs.getString("adm_endereco"),   
+                        "R$ "+df.format(rs.getDouble("adm_salario"))    
                     });
                 }
 
@@ -304,13 +310,16 @@ public class AdministradorDAO {
                 rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente");
 
                 while(rs.next()){
+                    data_nascimento = rs.getString("ate_dataNasc").split("-");
                     modelo.addRow(new Object[]{
-                        rs.getString("ate_nome"),
                         "Atendente",
-                        Double.parseDouble(rs.getString("ate_salario")),
-                        rs.getString("ate_telefone"),
+                        rs.getString("ate_id"),
+                        rs.getString("ate_nome"),
                         rs.getString("ate_cpf"),
-
+                        rs.getString("ate_telefone"),
+                        data_nascimento[2]+"/"+data_nascimento[1]+"/"+data_nascimento[0],
+                        rs.getString("ate_endereco"),
+                        "R$ "+df.format(rs.getDouble("ate_salario"))
                     });
                 }
 
@@ -323,13 +332,17 @@ public class AdministradorDAO {
                 rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira");
 
                 while(rs.next()){
+                    data_nascimento = rs.getString("enf_dataNasc").split("-");
                     modelo.addRow(new Object[]{
-                        rs.getString("enf_nome"),
                         "Enfermeira",
-                        Double.parseDouble(rs.getString("enf_salario")),
-                        rs.getString("enf_telefone"),
+                        rs.getString("enf_id"),
+                        rs.getString("enf_nome"),
                         rs.getString("enf_cpf"),
-
+                        rs.getString("enf_telefone"),
+                        data_nascimento[2]+"/"+data_nascimento[1]+"/"+data_nascimento[0],
+                        rs.getString("enf_endereco"),
+                        "R$ "+df.format(rs.getDouble("enf_salario")), 
+                        rs.getString("enf_cr")
                     });
                 }
 
@@ -342,13 +355,18 @@ public class AdministradorDAO {
                 rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico");
 
                 while(rs.next()){
+                    data_nascimento = rs.getString("med_dataNasc").split("-");
                     modelo.addRow(new Object[]{
-                        rs.getString("med_nome"),
                         "Médico",
-                        Double.parseDouble(rs.getString("med_salario")),
-                        rs.getString("med_telefone"),
+                        rs.getString("med_id"),
+                        rs.getString("med_nome"),
                         rs.getString("med_cpf"),
-
+                        rs.getString("med_telefone"),
+                        data_nascimento[2]+"/"+data_nascimento[1]+"/"+data_nascimento[0],
+                        rs.getString("med_endereco"),
+                        "R$ "+df.format(rs.getDouble("med_salario")),
+                        rs.getString("med_crm"),
+                        rs.getString("med_especialidade"),
                     });
                 }
 
@@ -360,18 +378,23 @@ public class AdministradorDAO {
     
     public static void pesquisaTabNome(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med, String nome) {
         ResultSet rs = null;
+        String[] data_nascimento = null;
+        DecimalFormat df = new DecimalFormat("#.00");
         if(adm){
             try{
                 rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_nome Like '%" + nome + "%'");
 
                 while(rs.next()){
+                    data_nascimento = rs.getString("adm_dataNasc").split("-");
                     modelo.addRow(new Object[]{
-                        rs.getString("adm_nome"),
                         "Administrador",
-                        Double.parseDouble(rs.getString("adm_salario")),
-                        rs.getString("adm_telefone"),
+                        rs.getString("adm_id"),
+                        rs.getString("adm_nome"),
                         rs.getString("adm_cpf"),
-
+                        rs.getString("adm_telefone"),
+                        data_nascimento[2]+"/"+data_nascimento[1]+"/"+data_nascimento[0],
+                        rs.getString("adm_endereco"),   
+                        "R$ "+df.format(rs.getDouble("adm_salario"))    
                     });
                 }
 
@@ -384,13 +407,16 @@ public class AdministradorDAO {
                 rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente WHERE ate_nome Like '%" + nome + "%'");
 
                 while(rs.next()){
+                    data_nascimento = rs.getString("ate_dataNasc").split("-");
                     modelo.addRow(new Object[]{
-                        rs.getString("ate_nome"),
                         "Atendente",
-                        Double.parseDouble(rs.getString("ate_salario")),
-                        rs.getString("ate_telefone"),
+                        rs.getString("ate_id"),
+                        rs.getString("ate_nome"),
                         rs.getString("ate_cpf"),
-
+                        rs.getString("ate_telefone"),
+                        data_nascimento[2]+"/"+data_nascimento[1]+"/"+data_nascimento[0],
+                        rs.getString("ate_endereco"),
+                        "R$ "+df.format(rs.getDouble("ate_salario"))
                     });
                 }
 
@@ -403,13 +429,17 @@ public class AdministradorDAO {
                 rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira WHERE enf_nome Like '%" + nome + "%'");
 
                 while(rs.next()){
+                    data_nascimento = rs.getString("enf_dataNasc").split("-");
                     modelo.addRow(new Object[]{
-                        rs.getString("enf_nome"),
                         "Enfermeira",
-                        Double.parseDouble(rs.getString("enf_salario")),
-                        rs.getString("enf_telefone"),
+                        rs.getString("enf_id"),
+                        rs.getString("enf_nome"),
                         rs.getString("enf_cpf"),
-
+                        rs.getString("enf_telefone"),
+                        data_nascimento[2]+"/"+data_nascimento[1]+"/"+data_nascimento[0],
+                        rs.getString("enf_endereco"),
+                        "R$ "+df.format(rs.getDouble("enf_salario")), 
+                        rs.getString("enf_cr")
                     });
                 }
 
@@ -422,13 +452,18 @@ public class AdministradorDAO {
                 rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_nome Like '%" + nome + "%'");
 
                 while(rs.next()){
+                    data_nascimento = rs.getString("med_dataNasc").split("-");
                     modelo.addRow(new Object[]{
-                        rs.getString("med_nome"),
                         "Médico",
-                        Double.parseDouble(rs.getString("med_salario")),
-                        rs.getString("med_telefone"),
+                        rs.getString("med_id"),
+                        rs.getString("med_nome"),
                         rs.getString("med_cpf"),
-
+                        rs.getString("med_telefone"),
+                        data_nascimento[2]+"/"+data_nascimento[1]+"/"+data_nascimento[0],
+                        rs.getString("med_endereco"),
+                        "R$ "+df.format(rs.getDouble("med_salario")),
+                        rs.getString("med_crm"),
+                        rs.getString("med_especialidade"),
                     });
                 }
 
