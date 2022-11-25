@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 public class AtendenteDAO {
     
@@ -48,9 +49,31 @@ public class AtendenteDAO {
     public static Consulta agendarCon() {
         return null;
     }
+    
+    public static Consulta pesquisarConID() {
+        return null;
+    }
 
-    public static void cancelarCon(Consulta con) {
+    public static boolean cancelarCon(String consultaID) {
+        Connection conn = ConexaoBD.getConnection();
 
+        String query = "DELETE FROM consulta WHERE con_id = ?";
+        PreparedStatement pstm;
+
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, consultaID);
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+            }
+        
+        return false;
     }
 
     public static Atendente pesquisarAteID(String ID) {
@@ -88,6 +111,30 @@ public class AtendenteDAO {
             return Integer.parseInt(pesquisa.getString(1));
         } catch (Exception e) {
             return -1;
+        }
+        
+    }
+    
+    public static void carregaTab(DefaultTableModel modelo) {
+        ResultSet rs = null;
+        String[] data = null;
+        String[] hora = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id");
+
+            while(rs.next()){
+                data = rs.getString("con_data").split("-");
+                hora = data[2].split(" ");
+                modelo.addRow(new Object[]{
+                    rs.getString("con_id"),
+                    rs.getString("pac_nome"),
+                    hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1]  
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela consulta");
         }
         
     }

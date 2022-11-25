@@ -2,11 +2,13 @@ package com.sas.view;
 
 import com.sas.controller.AtendenteController;
 import java.awt.CardLayout;
+import javax.swing.table.DefaultTableModel;
 
 public class JanAtendente extends javax.swing.JFrame {
 
     private static JanAtendente unicoJanAtendente;
     private static String ID;
+    private static String consultaID;
     private Boolean Muser=false;
 
     CardLayout cardLayout;
@@ -18,11 +20,20 @@ public class JanAtendente extends javax.swing.JFrame {
     public static void setId(String ID1){
         ID = ID1;
     }
+    
+    public String getConsultaID(){
+        return consultaID;
+    }
+    
+    public static void setConsultaID(String consultaID1){
+        consultaID = consultaID1;
+    }
 
     public JanAtendente() {
         initComponents();
         cardLayout = (CardLayout) (panCardsAtendente.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
+        carregaTabela();
     }
 
     public static JanAtendente getJanAtendente() {
@@ -244,19 +255,19 @@ public class JanAtendente extends javax.swing.JFrame {
         tabPaciente.setForeground(new java.awt.Color(51, 51, 51));
         tabPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Paciente", "Horário da Consulta"
+                "Código", "Paciente", "Horário da Consulta"
             }
         ));
         tabPaciente.setGridColor(new java.awt.Color(204, 204, 204));
@@ -264,6 +275,11 @@ public class JanAtendente extends javax.swing.JFrame {
         tabPaciente.setRowMargin(7);
         tabPaciente.setSelectionBackground(new java.awt.Color(196, 67, 67));
         tabPaciente.setShowGrid(true);
+        tabPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabPacienteMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabPaciente);
 
         btRefresh1.setBackground(new java.awt.Color(249, 100, 100));
@@ -272,6 +288,11 @@ public class JanAtendente extends javax.swing.JFrame {
         btRefresh1.setText("🔄");
         btRefresh1.setToolTipText("Atualizar Tabela");
         btRefresh1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btRefresh1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRefresh1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panInformacoesLayout = new javax.swing.GroupLayout(panInformacoes);
         panInformacoes.setLayout(panInformacoesLayout);
@@ -426,10 +447,11 @@ public class JanAtendente extends javax.swing.JFrame {
                                     .addGroup(panTabelaLayout.createSequentialGroup()
                                         .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(labNome)
-                                            .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel1)
                                             .addGroup(panTabelaLayout.createSequentialGroup()
-                                                .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(lbTelefone)
@@ -448,7 +470,7 @@ public class JanAtendente extends javax.swing.JFrame {
             .addGroup(panTabelaLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panTabelaLayout.createSequentialGroup()
                         .addComponent(labCPF)
@@ -464,20 +486,19 @@ public class JanAtendente extends javax.swing.JFrame {
                         .addComponent(labEndereco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panTabelaLayout.createSequentialGroup()
-                            .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panTabelaLayout.createSequentialGroup()
-                            .addComponent(lbTelefone)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panTabelaLayout.createSequentialGroup()
+                        .addComponent(labDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panTabelaLayout.createSequentialGroup()
+                        .addComponent(lbTelefone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(542, Short.MAX_VALUE))
+                .addContainerGap(543, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cardCadastroLayout = new javax.swing.GroupLayout(cardCadastro);
@@ -548,7 +569,8 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btAlterarActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-        // TODO add your handling code here:
+        AtendenteController.cancelarConsulta(consultaID);
+        carregaTabela();
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
@@ -580,6 +602,14 @@ public class JanAtendente extends javax.swing.JFrame {
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         limpar();
     }//GEN-LAST:event_btLimparActionPerformed
+
+    private void tabPacienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPacienteMousePressed
+        setConsultaID(tabPaciente.getValueAt(tabPaciente.getSelectedRow(), 0).toString());          
+    }//GEN-LAST:event_tabPacienteMousePressed
+
+    private void btRefresh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefresh1ActionPerformed
+        carregaTabela();
+    }//GEN-LAST:event_btRefresh1ActionPerformed
 
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
@@ -618,6 +648,13 @@ public class JanAtendente extends javax.swing.JFrame {
         }
         else
             System.out.println(feedback);
+    }
+    
+    public void carregaTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) tabPaciente.getModel();
+        modelo.setNumRows(0);
+        
+        AtendenteController.carregaTabela(modelo);
     }
     
     public static void main(String args[]) {

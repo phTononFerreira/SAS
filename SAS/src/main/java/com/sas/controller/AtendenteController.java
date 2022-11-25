@@ -5,6 +5,7 @@ import com.sas.dao.PacienteDAO;
 import com.sas.model.Atendente;
 import com.sas.model.Consulta;
 import com.sas.model.Paciente;
+import javax.swing.table.DefaultTableModel;
 
 public class AtendenteController {
     
@@ -49,13 +50,21 @@ public class AtendenteController {
     public static Consulta agendarConsulta() {
         return null;
     }
+    
+    public static Consulta pesquisarConsultaID() {
+        return null;
+    }
 
-    public static void cancelarConsulta(Consulta con) {
-
+    public static boolean cancelarConsulta(String consultaID) {
+        return AtendenteDAO.cancelarCon(consultaID);
     }
 
     public static Atendente pesquisarAtendenteID(String ID) {
         return AtendenteDAO.pesquisarAteID(ID);
+    }
+    
+    public static void carregaTabela(DefaultTableModel modelo) {
+        AtendenteDAO.carregaTab(modelo);
     }
     
 }
