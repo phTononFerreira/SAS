@@ -2,6 +2,8 @@ package com.sas.view;
 
 import com.sas.controller.AtendenteController;
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.table.DefaultTableModel;
 
 public class JanAtendente extends javax.swing.JFrame {
@@ -10,6 +12,8 @@ public class JanAtendente extends javax.swing.JFrame {
     private static String ID;
     private static String consultaID;
     private Boolean Muser=false;
+    
+    
 
     CardLayout cardLayout;
     
@@ -33,6 +37,8 @@ public class JanAtendente extends javax.swing.JFrame {
         initComponents();
         cardLayout = (CardLayout) (panCardsAtendente.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(dim.width / 2, dim.height / 2);
         carregaTabela();
     }
 
@@ -48,6 +54,7 @@ public class JanAtendente extends javax.swing.JFrame {
     private void initComponents() {
 
         panTop = new javax.swing.JPanel();
+        labAgenConsulta = new javax.swing.JLabel();
         labLogo = new javax.swing.JLabel();
         labCadPaciente = new javax.swing.JLabel();
         labConsulta = new javax.swing.JLabel();
@@ -56,16 +63,16 @@ public class JanAtendente extends javax.swing.JFrame {
         labUser = new javax.swing.JLabel();
         labLogout = new javax.swing.JLabel();
         labLogout.setVisible(false);
-        labCadPaciente1 = new javax.swing.JLabel();
         panCardsAtendente = new javax.swing.JPanel();
         cardConsulta = new javax.swing.JPanel();
-        btCriar = new javax.swing.JButton();
         panInformacoes = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabPaciente = new javax.swing.JTable();
         btRefresh1 = new javax.swing.JButton();
-        btCancelar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btEncaminhar = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        btEncaminhar1 = new javax.swing.JButton();
         cardCadastro = new javax.swing.JPanel();
         btAlterar = new javax.swing.JButton();
         panTabela = new javax.swing.JPanel();
@@ -82,13 +89,49 @@ public class JanAtendente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         btLimpar = new javax.swing.JButton();
+        cardAgendarConsulta = new javax.swing.JPanel();
+        tfData = new javax.swing.JPanel();
+        lanSelPaciente = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabSelPaciente1 = new javax.swing.JTable();
+        btlRefreshPac = new javax.swing.JButton();
+        tfNomePac = new javax.swing.JTextField();
+        btNomePesquisaPac = new javax.swing.JButton();
+        labNomePesquisaPac = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabSelMedico = new javax.swing.JTable();
+        btRefreshMed = new javax.swing.JButton();
+        btNomePesquisa1 = new javax.swing.JButton();
+        tfNomeMed = new javax.swing.JTextField();
+        labNomePesquisaMed = new javax.swing.JLabel();
+        lanSelMed = new javax.swing.JLabel();
+        tfAgenData = new javax.swing.JTextField();
+        labAgenData = new javax.swing.JLabel();
+        tfAgenHora = new javax.swing.JTextField();
+        labAgenData1 = new javax.swing.JLabel();
+        btAgendar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Atendimento");
-        setMinimumSize(new java.awt.Dimension(950, 600));
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
         panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(249, 100, 100)));
+
+        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        labAgenConsulta.setText("Agendar Consulta");
+        labAgenConsulta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labAgenConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labAgenConsultaMouseClicked(evt);
+            }
+        });
 
         labLogo.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -199,15 +242,6 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        labCadPaciente1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        labCadPaciente1.setText("Agendar Consulta");
-        labCadPaciente1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labCadPaciente1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labCadPaciente1MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout panTopLayout = new javax.swing.GroupLayout(panTop);
         panTop.setLayout(panTopLayout);
         panTopLayout.setHorizontalGroup(
@@ -215,13 +249,13 @@ public class JanAtendente extends javax.swing.JFrame {
             .addGroup(panTopLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(labLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 714, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labConsulta)
-                .addGap(111, 111, 111)
-                .addComponent(labCadPaciente1)
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labAgenConsulta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labCadPaciente)
-                .addGap(292, 292, 292)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panTopLayout.setVerticalGroup(
@@ -231,7 +265,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGroup(panTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labConsulta)
                     .addComponent(labCadPaciente)
-                    .addComponent(labCadPaciente1))
+                    .addComponent(labAgenConsulta))
                 .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(panTopLayout.createSequentialGroup()
                 .addContainerGap()
@@ -244,17 +278,6 @@ public class JanAtendente extends javax.swing.JFrame {
 
         cardConsulta.setBackground(new java.awt.Color(231, 231, 231));
         cardConsulta.setName(""); // NOI18N
-
-        btCriar.setBackground(new java.awt.Color(249, 100, 100));
-        btCriar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btCriar.setForeground(new java.awt.Color(255, 255, 255));
-        btCriar.setText("CRIAR");
-        btCriar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btCriar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCriarActionPerformed(evt);
-            }
-        });
 
         panInformacoes.setBackground(new java.awt.Color(255, 255, 255));
         panInformacoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(249, 100, 100)));
@@ -307,38 +330,55 @@ public class JanAtendente extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("CONSULTAS");
+
         javax.swing.GroupLayout panInformacoesLayout = new javax.swing.GroupLayout(panInformacoes);
         panInformacoes.setLayout(panInformacoesLayout);
         panInformacoesLayout.setHorizontalGroup(
             panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInformacoesLayout.createSequentialGroup()
-                .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panInformacoesLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btRefresh1))
-                    .addGroup(panInformacoesLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1185, Short.MAX_VALUE)))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btRefresh1)
                 .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInformacoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1213, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panInformacoesLayout.setVerticalGroup(
             panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panInformacoesLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(btRefresh1)
+                .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btRefresh1)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addComponent(jScrollPane1)
+                .addGap(29, 29, 29))
         );
 
-        btCancelar.setBackground(new java.awt.Color(249, 100, 100));
-        btCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btCancelar.setText("CANCELAR");
-        btCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btEncaminhar.setBackground(new java.awt.Color(249, 100, 100));
+        btEncaminhar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btEncaminhar.setForeground(new java.awt.Color(255, 255, 255));
+        btEncaminhar.setText("ENCAMINHAR PARA TRIAGEM");
+        btEncaminhar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEncaminhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCancelarActionPerformed(evt);
+                btEncaminharActionPerformed(evt);
+            }
+        });
+
+        btEncaminhar1.setBackground(new java.awt.Color(249, 100, 100));
+        btEncaminhar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btEncaminhar1.setForeground(new java.awt.Color(255, 255, 255));
+        btEncaminhar1.setText("CANCELAR CONSULTA");
+        btEncaminhar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEncaminhar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEncaminhar1ActionPerformed(evt);
             }
         });
 
@@ -348,19 +388,17 @@ public class JanAtendente extends javax.swing.JFrame {
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardConsultaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1239, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addGap(325, 325, 325)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(336, Short.MAX_VALUE))
+                        .addContainerGap(334, Short.MAX_VALUE))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cardConsultaLayout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(btCriar, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE))
-                            .addComponent(btCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btEncaminhar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btEncaminhar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         cardConsultaLayout.setVerticalGroup(
@@ -369,15 +407,15 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
-                        .addGap(15, 15, 15))
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
+                        .addGap(80, 80, 80))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(362, 362, 362)
-                        .addComponent(btCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                        .addComponent(btEncaminhar1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btEncaminhar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(404, Short.MAX_VALUE))))
         );
 
         panCardsAtendente.add(cardConsulta, "cardConsulta");
@@ -469,7 +507,7 @@ public class JanAtendente extends javax.swing.JFrame {
                                                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(lbTelefone)
                                                     .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(0, 9, Short.MAX_VALUE)))
+                                        .addGap(0, 4, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labCPF)
@@ -483,7 +521,7 @@ public class JanAtendente extends javax.swing.JFrame {
             .addGroup(panTabelaLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panTabelaLayout.createSequentialGroup()
                         .addComponent(labCPF)
@@ -511,7 +549,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(543, Short.MAX_VALUE))
+                .addContainerGap(531, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cardCadastroLayout = new javax.swing.GroupLayout(cardCadastro);
@@ -522,15 +560,15 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(panTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
-                .addComponent(btAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+                .addComponent(btAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         cardCadastroLayout.setVerticalGroup(
             cardCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardCadastroLayout.createSequentialGroup()
-                .addContainerGap(425, Short.MAX_VALUE)
+                .addContainerGap(421, Short.MAX_VALUE)
                 .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
             .addGroup(cardCadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -538,6 +576,284 @@ public class JanAtendente extends javax.swing.JFrame {
         );
 
         panCardsAtendente.add(cardCadastro, "cardCadastro");
+
+        tfData.setBackground(new java.awt.Color(255, 255, 255));
+        tfData.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(249, 100, 100)));
+
+        lanSelPaciente.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        lanSelPaciente.setText("SELECIONAR PACIENTE");
+
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        tabSelPaciente1.setBackground(new java.awt.Color(242, 242, 242));
+        tabSelPaciente1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        tabSelPaciente1.setForeground(new java.awt.Color(51, 51, 51));
+        tabSelPaciente1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Paciente"
+            }
+        ));
+        tabSelPaciente1.setGridColor(new java.awt.Color(204, 204, 204));
+        tabSelPaciente1.setRowHeight(30);
+        tabSelPaciente1.setRowMargin(7);
+        tabSelPaciente1.setSelectionBackground(new java.awt.Color(196, 67, 67));
+        tabSelPaciente1.setShowGrid(true);
+        tabSelPaciente1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabSelPaciente1MousePressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabSelPaciente1);
+
+        btlRefreshPac.setBackground(new java.awt.Color(249, 100, 100));
+        btlRefreshPac.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btlRefreshPac.setForeground(new java.awt.Color(255, 255, 255));
+        btlRefreshPac.setText("🔄");
+        btlRefreshPac.setToolTipText("Atualizar Tabela");
+        btlRefreshPac.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btlRefreshPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btlRefreshPacActionPerformed(evt);
+            }
+        });
+
+        tfNomePac.setBackground(new java.awt.Color(242, 242, 242));
+        tfNomePac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        btNomePesquisaPac.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisaPac.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btNomePesquisaPac.setForeground(new java.awt.Color(255, 255, 255));
+        btNomePesquisaPac.setText("PESQUISAR");
+        btNomePesquisaPac.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btNomePesquisaPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNomePesquisaPacActionPerformed(evt);
+            }
+        });
+
+        labNomePesquisaPac.setText("NOME");
+
+        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator2.setForeground(new java.awt.Color(51, 51, 51));
+
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        tabSelMedico.setBackground(new java.awt.Color(242, 242, 242));
+        tabSelMedico.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        tabSelMedico.setForeground(new java.awt.Color(51, 51, 51));
+        tabSelMedico.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Médico"
+            }
+        ));
+        tabSelMedico.setGridColor(new java.awt.Color(204, 204, 204));
+        tabSelMedico.setRowHeight(30);
+        tabSelMedico.setRowMargin(7);
+        tabSelMedico.setSelectionBackground(new java.awt.Color(196, 67, 67));
+        tabSelMedico.setShowGrid(true);
+        tabSelMedico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabSelMedicoMousePressed(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tabSelMedico);
+
+        btRefreshMed.setBackground(new java.awt.Color(249, 100, 100));
+        btRefreshMed.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btRefreshMed.setForeground(new java.awt.Color(255, 255, 255));
+        btRefreshMed.setText("🔄");
+        btRefreshMed.setToolTipText("Atualizar Tabela");
+        btRefreshMed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btRefreshMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRefreshMedActionPerformed(evt);
+            }
+        });
+
+        btNomePesquisa1.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisa1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btNomePesquisa1.setForeground(new java.awt.Color(255, 255, 255));
+        btNomePesquisa1.setText("PESQUISAR");
+        btNomePesquisa1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btNomePesquisa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNomePesquisa1ActionPerformed(evt);
+            }
+        });
+
+        tfNomeMed.setBackground(new java.awt.Color(242, 242, 242));
+        tfNomeMed.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        labNomePesquisaMed.setText("NOME");
+
+        lanSelMed.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        lanSelMed.setText("SELECIONAR MÉDICO");
+
+        tfAgenData.setBackground(new java.awt.Color(242, 242, 242));
+        tfAgenData.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        labAgenData.setText("HORA DA CONSULTA");
+
+        tfAgenHora.setBackground(new java.awt.Color(242, 242, 242));
+        tfAgenHora.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+
+        labAgenData1.setText("<html>DATA DA CONSULTA<br />DD/MM/AAAA</html>");
+
+        javax.swing.GroupLayout tfDataLayout = new javax.swing.GroupLayout(tfData);
+        tfData.setLayout(tfDataLayout);
+        tfDataLayout.setHorizontalGroup(
+            tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tfDataLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tfDataLayout.createSequentialGroup()
+                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(tfDataLayout.createSequentialGroup()
+                                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tfDataLayout.createSequentialGroup()
+                                        .addComponent(lanSelPaciente)
+                                        .addGap(509, 509, 509))
+                                    .addGroup(tfDataLayout.createSequentialGroup()
+                                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(tfDataLayout.createSequentialGroup()
+                                                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(labNomePesquisaPac)
+                                                    .addGroup(tfDataLayout.createSequentialGroup()
+                                                        .addComponent(tfNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(btNomePesquisaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btlRefreshPac))
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                        .addGap(272, 272, 272)))
+                                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tfDataLayout.createSequentialGroup()
+                                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labNomePesquisaMed)
+                                            .addGroup(tfDataLayout.createSequentialGroup()
+                                                .addComponent(tfNomeMed, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btNomePesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btRefreshMed))
+                                    .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tfDataLayout.createSequentialGroup()
+                                            .addComponent(lanSelMed)
+                                            .addGap(237, 237, 237))
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(jSeparator2))
+                        .addGap(40, 40, 40))
+                    .addGroup(tfDataLayout.createSequentialGroup()
+                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfAgenData, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labAgenData1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(65, 65, 65)
+                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfAgenHora, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labAgenData))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        tfDataLayout.setVerticalGroup(
+            tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tfDataLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tfDataLayout.createSequentialGroup()
+                        .addComponent(lanSelPaciente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labNomePesquisaPac)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btlRefreshPac, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btNomePesquisaPac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tfDataLayout.createSequentialGroup()
+                        .addComponent(lanSelMed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labNomePesquisaMed)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btRefreshMed, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btNomePesquisa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfNomeMed, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labAgenData1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labAgenData, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfAgenData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfAgenHora, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(512, 512, 512))
+        );
+
+        btAgendar.setBackground(new java.awt.Color(249, 100, 100));
+        btAgendar.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        btAgendar.setForeground(new java.awt.Color(255, 255, 255));
+        btAgendar.setText("AGENDAR");
+        btAgendar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btAgendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAgendarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout cardAgendarConsultaLayout = new javax.swing.GroupLayout(cardAgendarConsulta);
+        cardAgendarConsulta.setLayout(cardAgendarConsultaLayout);
+        cardAgendarConsultaLayout.setHorizontalGroup(
+            cardAgendarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        cardAgendarConsultaLayout.setVerticalGroup(
+            cardAgendarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tfData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
+                .addGap(415, 415, 415)
+                .addComponent(btAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panCardsAtendente.add(cardAgendarConsulta, "cardAgendarConsulta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -554,58 +870,44 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addComponent(panCardsAtendente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(0, 0, 1920, 1080);
     }// </editor-fold>//GEN-END:initComponents
 
     private void labCadPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadPacienteMouseClicked
         cardLayout.show(panCardsAtendente, "cardCadastro");
         labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 18));
         labConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
     }//GEN-LAST:event_labCadPacienteMouseClicked
 
     private void labConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labConsultaMouseClicked
         cardLayout.show(panCardsAtendente, "cardConsulta");
         labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labConsulta.setFont(new java.awt.Font("Verdana", 0, 18));
         labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
     }//GEN-LAST:event_labConsultaMouseClicked
-
-    private void btCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCriarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btCriarActionPerformed
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
         cadastrarPaciente();
     }//GEN-LAST:event_btAlterarActionPerformed
 
-    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+    private void btEncaminharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEncaminharActionPerformed
         AtendenteController.cancelarConsulta(consultaID);
         carregaTabela();
-    }//GEN-LAST:event_btCancelarActionPerformed
+    }//GEN-LAST:event_btEncaminharActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
-        if(Muser){
-            Muser=false;
-            labLogout.setVisible(false);
-        }
-        else{
-            Muser=true;
-            labLogout.setVisible(true);
-        }
+        logoutButton();
     }//GEN-LAST:event_labUserImageMouseClicked
 
     private void labUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserMouseClicked
-        if(Muser){
-            Muser=false;
-            labLogout.setVisible(false);
-        }
-        else{
-            Muser=true;
-            labLogout.setVisible(true);
-        }
+        logoutButton();
     }//GEN-LAST:event_labUserMouseClicked
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
@@ -624,10 +926,70 @@ public class JanAtendente extends javax.swing.JFrame {
         carregaTabela();
     }//GEN-LAST:event_btRefresh1ActionPerformed
 
-    private void labCadPaciente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadPaciente1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_labCadPaciente1MouseClicked
+    private void labAgenConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labAgenConsultaMouseClicked
+        cardLayout.show(panCardsAtendente, "cardAgendarConsulta");
+        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
+        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 18));
+    }//GEN-LAST:event_labAgenConsultaMouseClicked
 
+    private void tabSelPaciente1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelPaciente1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabSelPaciente1MousePressed
+
+    private void btlRefreshPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshPacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btlRefreshPacActionPerformed
+
+    private void btNomePesquisaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaPacActionPerformed
+        /*pesquisaTabelaNome(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
+        tfNomePac.setText("");
+        tfNomePac.requestFocus();*/
+    }//GEN-LAST:event_btNomePesquisaPacActionPerformed
+
+    private void tabSelMedicoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelMedicoMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabSelMedicoMousePressed
+
+    private void btRefreshMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefreshMedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btRefreshMedActionPerformed
+
+    private void btNomePesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btNomePesquisa1ActionPerformed
+
+    private void btAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btAgendarActionPerformed
+
+    private void btEncaminhar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEncaminhar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btEncaminhar1ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+    }//GEN-LAST:event_formWindowActivated
+
+    
+    public void logoutButton(){
+        if(Muser){
+            Muser=false;
+            labLogout.setVisible(false);
+        }
+        else{
+            Muser=true;
+            labLogout.setVisible(true);
+        }
+    }
+    
+    
+    
+    
+    
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
@@ -708,28 +1070,44 @@ public class JanAtendente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAgendar;
     private javax.swing.JButton btAlterar;
-    private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btCriar;
+    private javax.swing.JButton btEncaminhar;
+    private javax.swing.JButton btEncaminhar1;
     private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btNomePesquisa1;
+    private javax.swing.JButton btNomePesquisaPac;
     private javax.swing.JButton btRefresh1;
+    private javax.swing.JButton btRefreshMed;
+    private javax.swing.JButton btlRefreshPac;
+    private javax.swing.JPanel cardAgendarConsulta;
     private javax.swing.JPanel cardCadastro;
     private javax.swing.JPanel cardConsulta;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel labAgenConsulta;
+    private javax.swing.JLabel labAgenData;
+    private javax.swing.JLabel labAgenData1;
     private javax.swing.JLabel labCPF;
     private javax.swing.JLabel labCadPaciente;
-    private javax.swing.JLabel labCadPaciente1;
     private javax.swing.JLabel labConsulta;
     private javax.swing.JLabel labDataNasc;
     private javax.swing.JLabel labEndereco;
     private javax.swing.JLabel labLogo;
     private javax.swing.JLabel labLogout;
     private javax.swing.JLabel labNome;
+    private javax.swing.JLabel labNomePesquisaMed;
+    private javax.swing.JLabel labNomePesquisaPac;
     private javax.swing.JLabel labUser;
     private javax.swing.JLabel labUserImage;
+    private javax.swing.JLabel lanSelMed;
+    private javax.swing.JLabel lanSelPaciente;
     private javax.swing.JLabel lbTelefone;
     private javax.swing.JPanel panCardsAtendente;
     private javax.swing.JPanel panInformacoes;
@@ -737,10 +1115,17 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JPanel panTop;
     private javax.swing.JPanel panUser;
     private javax.swing.JTable tabPaciente;
+    private javax.swing.JTable tabSelMedico;
+    private javax.swing.JTable tabSelPaciente1;
+    private javax.swing.JTextField tfAgenData;
+    private javax.swing.JTextField tfAgenHora;
     private javax.swing.JTextField tfCPF;
+    private javax.swing.JPanel tfData;
     private javax.swing.JTextField tfDataNasc;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNome;
+    private javax.swing.JTextField tfNomeMed;
+    private javax.swing.JTextField tfNomePac;
     private javax.swing.JTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 }
