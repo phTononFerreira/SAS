@@ -269,6 +269,23 @@ public class AdministradorDAO {
         return adm;
     }
     
+    public static boolean pesquisarFunCPF(String cpf) {
+        ResultSet pesquisaAdm = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_cpf = '" + cpf + "'");
+        ResultSet pesquisaAte = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente WHERE ate_cpf = '" + cpf + "'");
+        ResultSet pesquisaEnf = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira WHERE enf_cpf = '" + cpf + "'");
+        ResultSet pesquisaMed = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_cpf = '" + cpf + "'");
+        ResultSet pesquisaPac = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM paciente WHERE pac_cpf = '" + cpf + "'");
+        try{
+            if (pesquisaAdm.isBeforeFirst() || pesquisaAte.isBeforeFirst() || pesquisaEnf.isBeforeFirst() || pesquisaMed.isBeforeFirst() || pesquisaPac.isBeforeFirst()) 
+                return false; //Tem CPF
+
+            else
+                return true; //Tem não CPF
+        }catch (Exception e) {
+            return true;
+        }
+    }
+    
     public static int contarAdmin() {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT COUNT(*) FROM administrador");
         try{
@@ -279,7 +296,7 @@ public class AdministradorDAO {
         }    
     }
     
-    public static void carregaTab(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med) {
+    public static void carregarTab(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med) {
         ResultSet rs = null;
         String[] data_nascimento = null;
         DecimalFormat df = new DecimalFormat("#.00");
@@ -376,7 +393,7 @@ public class AdministradorDAO {
         }
     }
     
-    public static void pesquisaTabNome(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med, String nome) {
+    public static void pesquisarTabNome(DefaultTableModel modelo, boolean adm, boolean ate, boolean enf, boolean med, String nome) {
         ResultSet rs = null;
         String[] data_nascimento = null;
         DecimalFormat df = new DecimalFormat("#.00");

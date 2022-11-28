@@ -1,5 +1,6 @@
 package com.sas.controller;
 
+import static com.sas.controller.AdministradorController.pesquisarFuncionarioCPF;
 import com.sas.dao.AtendenteDAO;
 import com.sas.dao.PacienteDAO;
 import com.sas.model.Atendente;
@@ -24,6 +25,12 @@ public class AtendenteController {
             System.out.println("CPF INVÁLIDO");
             return "CPF INVALIDO!";
         }
+        
+        if(!pesquisarFuncionarioCPF(cpf)){
+            System.out.println("CPF JÁ EXISTENTE");
+            return "CPF JÁ EXISTENTE!";
+        }
+            
         paciente.setCpf(cpf);
 
         paciente.setTelefone(telefone);

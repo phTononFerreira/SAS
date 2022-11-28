@@ -57,7 +57,7 @@ public class AtendenteDAO {
     public static boolean cancelarCon(String consultaID) {
         Connection conn = ConexaoBD.getConnection();
 
-        String query = "DELETE FROM consulta WHERE con_id = ?";
+        String query = "UPDATE consulta set con_status = 0 WHERE con_id = ?";
         PreparedStatement pstm;
 
         try {
@@ -121,7 +121,7 @@ public class AtendenteDAO {
         String[] hora = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1");
 
             while(rs.next()){
                 data = rs.getString("con_data").split("-");
