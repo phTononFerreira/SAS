@@ -90,7 +90,7 @@ public class JanAtendente extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btLimpar = new javax.swing.JButton();
         cardAgendarConsulta = new javax.swing.JPanel();
-        tfData = new javax.swing.JPanel();
+        panAgendar = new javax.swing.JPanel();
         lanSelPaciente = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabSelPaciente1 = new javax.swing.JTable();
@@ -114,7 +114,6 @@ public class JanAtendente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Atendimento");
-        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -274,6 +273,7 @@ public class JanAtendente extends javax.swing.JFrame {
             .addComponent(panUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        panCardsAtendente.setPreferredSize(new java.awt.Dimension(1920, 1080));
         panCardsAtendente.setLayout(new java.awt.CardLayout());
 
         cardConsulta.setBackground(new java.awt.Color(231, 231, 231));
@@ -281,7 +281,7 @@ public class JanAtendente extends javax.swing.JFrame {
 
         panInformacoes.setBackground(new java.awt.Color(255, 255, 255));
         panInformacoes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(249, 100, 100)));
-        panInformacoes.setPreferredSize(new java.awt.Dimension(2, 2));
+        panInformacoes.setPreferredSize(new java.awt.Dimension(1239, 838));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -307,6 +307,7 @@ public class JanAtendente extends javax.swing.JFrame {
             }
         ));
         tabPaciente.setGridColor(new java.awt.Color(204, 204, 204));
+        tabPaciente.setMinimumSize(new java.awt.Dimension(0, 0));
         tabPaciente.setRowHeight(30);
         tabPaciente.setRowMargin(7);
         tabPaciente.setSelectionBackground(new java.awt.Color(196, 67, 67));
@@ -388,7 +389,7 @@ public class JanAtendente extends javax.swing.JFrame {
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardConsultaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1239, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
@@ -407,15 +408,15 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(80, 80, 80))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                         .addComponent(btEncaminhar1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btEncaminhar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(404, Short.MAX_VALUE))))
+                        .addContainerGap(396, Short.MAX_VALUE))))
         );
 
         panCardsAtendente.add(cardConsulta, "cardConsulta");
@@ -577,8 +578,11 @@ public class JanAtendente extends javax.swing.JFrame {
 
         panCardsAtendente.add(cardCadastro, "cardCadastro");
 
-        tfData.setBackground(new java.awt.Color(255, 255, 255));
-        tfData.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(249, 100, 100)));
+        cardAgendarConsulta.setPreferredSize(new java.awt.Dimension(1920, 1080));
+
+        panAgendar.setBackground(new java.awt.Color(255, 255, 255));
+        panAgendar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(249, 100, 100)));
+        panAgendar.setMinimumSize(new java.awt.Dimension(0, 0));
 
         lanSelPaciente.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         lanSelPaciente.setText("SELECIONAR PACIENTE");
@@ -725,26 +729,26 @@ public class JanAtendente extends javax.swing.JFrame {
 
         labAgenData1.setText("<html>DATA DA CONSULTA<br />DD/MM/AAAA</html>");
 
-        javax.swing.GroupLayout tfDataLayout = new javax.swing.GroupLayout(tfData);
-        tfData.setLayout(tfDataLayout);
-        tfDataLayout.setHorizontalGroup(
-            tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tfDataLayout.createSequentialGroup()
+        javax.swing.GroupLayout panAgendarLayout = new javax.swing.GroupLayout(panAgendar);
+        panAgendar.setLayout(panAgendarLayout);
+        panAgendarLayout.setHorizontalGroup(
+            panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panAgendarLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tfDataLayout.createSequentialGroup()
-                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tfDataLayout.createSequentialGroup()
-                                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tfDataLayout.createSequentialGroup()
+                .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panAgendarLayout.createSequentialGroup()
+                        .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panAgendarLayout.createSequentialGroup()
+                                .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panAgendarLayout.createSequentialGroup()
                                         .addComponent(lanSelPaciente)
                                         .addGap(509, 509, 509))
-                                    .addGroup(tfDataLayout.createSequentialGroup()
-                                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(tfDataLayout.createSequentialGroup()
-                                                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panAgendarLayout.createSequentialGroup()
+                                        .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(panAgendarLayout.createSequentialGroup()
+                                                .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(labNomePesquisaPac)
-                                                    .addGroup(tfDataLayout.createSequentialGroup()
+                                                    .addGroup(panAgendarLayout.createSequentialGroup()
                                                         .addComponent(tfNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(btNomePesquisaPac, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -752,55 +756,55 @@ public class JanAtendente extends javax.swing.JFrame {
                                                 .addComponent(btlRefreshPac))
                                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                                         .addGap(272, 272, 272)))
-                                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tfDataLayout.createSequentialGroup()
-                                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panAgendarLayout.createSequentialGroup()
+                                        .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(labNomePesquisaMed)
-                                            .addGroup(tfDataLayout.createSequentialGroup()
+                                            .addGroup(panAgendarLayout.createSequentialGroup()
                                                 .addComponent(tfNomeMed, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(btNomePesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(18, 18, 18)
                                         .addComponent(btRefreshMed))
-                                    .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tfDataLayout.createSequentialGroup()
+                                    .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panAgendarLayout.createSequentialGroup()
                                             .addComponent(lanSelMed)
                                             .addGap(237, 237, 237))
                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                             .addComponent(jSeparator2))
                         .addGap(40, 40, 40))
-                    .addGroup(tfDataLayout.createSequentialGroup()
-                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panAgendarLayout.createSequentialGroup()
+                        .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfAgenData, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labAgenData1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(65, 65, 65)
-                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfAgenHora, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labAgenData))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        tfDataLayout.setVerticalGroup(
-            tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tfDataLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tfDataLayout.createSequentialGroup()
+        panAgendarLayout.setVerticalGroup(
+            panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panAgendarLayout.createSequentialGroup()
+                .addContainerGap(162, Short.MAX_VALUE)
+                .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panAgendarLayout.createSequentialGroup()
                         .addComponent(lanSelPaciente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labNomePesquisaPac)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btlRefreshPac, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(btNomePesquisaPac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfNomePac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tfDataLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panAgendarLayout.createSequentialGroup()
                         .addComponent(lanSelMed)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labNomePesquisaMed)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btRefreshMed, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(btNomePesquisa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfNomeMed, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -809,11 +813,11 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labAgenData1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labAgenData, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tfDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfAgenData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfAgenHora, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(512, 512, 512))
@@ -836,7 +840,7 @@ public class JanAtendente extends javax.swing.JFrame {
             cardAgendarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(tfData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
                 .addContainerGap())
@@ -845,7 +849,7 @@ public class JanAtendente extends javax.swing.JFrame {
             cardAgendarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tfData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
                 .addGap(415, 415, 415)
@@ -867,10 +871,10 @@ public class JanAtendente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panCardsAtendente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panCardsAtendente, javax.swing.GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 1920, 1080);
+        setBounds(0, 0, 1936, 1119);
     }// </editor-fold>//GEN-END:initComponents
 
     private void labCadPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadPacienteMouseClicked
@@ -1109,6 +1113,7 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JLabel lanSelMed;
     private javax.swing.JLabel lanSelPaciente;
     private javax.swing.JLabel lbTelefone;
+    private javax.swing.JPanel panAgendar;
     private javax.swing.JPanel panCardsAtendente;
     private javax.swing.JPanel panInformacoes;
     private javax.swing.JPanel panTabela;
@@ -1120,7 +1125,6 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JTextField tfAgenData;
     private javax.swing.JTextField tfAgenHora;
     private javax.swing.JTextField tfCPF;
-    private javax.swing.JPanel tfData;
     private javax.swing.JTextField tfDataNasc;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNome;
