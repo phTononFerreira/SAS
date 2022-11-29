@@ -17,7 +17,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private static JanAdmin unicoJanAdmin;
     private static String ID;
-    private Boolean Muser=false;
+    private Boolean Muser = false;
     private Administrador admEdit = null;
     private Medico medEdit = null;
     private Enfermeira enfEdit = null;
@@ -33,16 +33,15 @@ public class JanAdmin extends javax.swing.JFrame {
     public static void setIdFuncionarioEditMoment(String idFuncionarioEditMoment) {
         JanAdmin.idFuncionarioEditMoment = idFuncionarioEditMoment;
     }
-    
-    
-    public String getId(){
+
+    public String getId() {
         return ID;
     }
-    
-    public static void setId(String ID1){
+
+    public static void setId(String ID1) {
         ID = ID1;
     }
-        
+
     public JanAdmin() {
         initComponents();
         cardLayout = (CardLayout) (panCards.getLayout());
@@ -1362,7 +1361,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_rbMedicoActionPerformed
 
     private void btNomePesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaActionPerformed
-        pesquisaTabelaNome(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
+        pesquisaTabelaNome(rbAdministrador.isSelected(), rbAtendente.isSelected(), rbEnfermeira.isSelected(), rbMedico.isSelected());
         tfNome1.setText("");
         tfNome1.requestFocus();
     }//GEN-LAST:event_btNomePesquisaActionPerformed
@@ -1388,7 +1387,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_rbAdministracaoActionPerformed
 
     private void btRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefreshActionPerformed
-        carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
+        carregaTabela(rbAdministrador.isSelected(), rbAtendente.isSelected(), rbEnfermeira.isSelected(), rbMedico.isSelected());
     }//GEN-LAST:event_btRefreshActionPerformed
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
@@ -1396,7 +1395,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btNomePesquisaAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltActionPerformed
-       
+
     }//GEN-LAST:event_btNomePesquisaAltActionPerformed
 
     private void btCancelarAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarAltActionPerformed
@@ -1460,25 +1459,22 @@ public class JanAdmin extends javax.swing.JFrame {
         String salario = tfSalarioEdit.getText();
         String crM = tfCrMEdit.getText();
         String especialidade = tfEspecialidadeEdit.getText();
-        
-        if(id.contains("adm"))
+
+        if (id.contains("adm")) {
             tipo = "adm";
-        else if(id.contains("ate")){
-            tipo = "ate";         
-        }
-        else if(id.contains("enf")){
+        } else if (id.contains("ate")) {
+            tipo = "ate";
+        } else if (id.contains("enf")) {
             tipo = "enf";
-        }    
-        else if(id.contains("med")){
+        } else if (id.contains("med")) {
             tipo = "med";
         }
-          
+
         feedback = AdministradorController.alterarFuncionario(tipo, id, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
-        
-        if(feedback == null){
+
+        if (feedback == null) {
             System.out.println("USUARIO ALTERADO COM SUCESSO!");
-        }
-        else
+        } else
             System.out.println(feedback);
     }//GEN-LAST:event_btSalvarEditActionPerformed
 
@@ -1491,23 +1487,21 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_labLogoutMouseClicked
 
     private void labUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserMouseClicked
-        if(Muser){
-            Muser=false;
+        if (Muser) {
+            Muser = false;
             labLogout.setVisible(false);
-        }
-        else{
-            Muser=true;
+        } else {
+            Muser = true;
             labLogout.setVisible(true);
         }
     }//GEN-LAST:event_labUserMouseClicked
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
-        if(Muser){
-            Muser=false;
+        if (Muser) {
+            Muser = false;
             labLogout.setVisible(false);
-        }
-        else{
-            Muser=true;
+        } else {
+            Muser = true;
             labLogout.setVisible(true);
         }
     }//GEN-LAST:event_labUserImageMouseClicked
@@ -1578,7 +1572,7 @@ public class JanAdmin extends javax.swing.JFrame {
     private void tfNomeEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeEditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeEditActionPerformed
-    public void selectCardFuncionarios(){
+    public void selectCardFuncionarios() {
         cardLayout.show(panCards, "cardCadFuncionario");
         labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labEditarFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
@@ -1587,8 +1581,8 @@ public class JanAdmin extends javax.swing.JFrame {
         labFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
         labEditarFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
     }
-    
-    public void selectCardCadastrar(){
+
+    public void selectCardCadastrar() {
         cardLayout.show(panCards, "cardFuncionarios");
         labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
         labEditarFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
@@ -1597,8 +1591,8 @@ public class JanAdmin extends javax.swing.JFrame {
         labCadFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
         labEditarFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
     }
-    
-    public void selectCardEditar(){
+
+    public void selectCardEditar() {
         limparEdit();
         cardLayout.show(panCards, "cardEditFuncionario");
         labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
@@ -1609,42 +1603,42 @@ public class JanAdmin extends javax.swing.JFrame {
         labFuncionario.setFont(new java.awt.Font("Verdana", 0, 14));
         btSalvarEdit.setVisible(false);
     }
-    
-    public void selectAdmCad(){
+
+    public void selectAdmCad() {
         tfCrM.setVisible(false);
         labCrM.setVisible(false);
         labEspecialidade.setVisible(false);
         tfEspecialidade.setVisible(false);
     }
-    
-    public void selectAteCad(){
+
+    public void selectAteCad() {
         tfCrM.setVisible(false);
         labCrM.setVisible(false);
         labEspecialidade.setVisible(false);
         tfEspecialidade.setVisible(false);
     }
-    
-    public void selectEnfCad(){
+
+    public void selectEnfCad() {
         tfCrM.setVisible(true);
         labCrM.setVisible(true);
         labEspecialidade.setVisible(false);
         tfEspecialidade.setVisible(false);
         labCrM.setText("CR");
     }
-    
-    public void selectMedCad(){
+
+    public void selectMedCad() {
         tfCrM.setVisible(true);
         labCrM.setVisible(true);
         labEspecialidade.setVisible(true);
         tfEspecialidade.setVisible(true);
         labCrM.setText("CRM");
-    }    
-    
-    public void selectFiltroFuc(){
-        carregaTabela(rbAdministrador.isSelected(),rbAtendente.isSelected(),rbEnfermeira.isSelected(),rbMedico.isSelected());
     }
-    
-    public void cadastrarFunc(){
+
+    public void selectFiltroFuc() {
+        carregaTabela(rbAdministrador.isSelected(), rbAtendente.isSelected(), rbEnfermeira.isSelected(), rbMedico.isSelected());
+    }
+
+    public void cadastrarFunc() {
         String feedback = "";
         String tipo = "";
         String id_adm = ID;
@@ -1657,34 +1651,32 @@ public class JanAdmin extends javax.swing.JFrame {
         String salario = tfSalario.getText();
         String crM = "";
         String especialidade = "";
-        
-        if(rbAdministracao.isSelected())
+
+        if (rbAdministracao.isSelected()) {
             tipo = "administrador";
-        else if(rbAtendimento.isSelected()){
-            tipo = "atendente";         
-        }
-        else if(rbEnfermagem.isSelected()){
+        } else if (rbAtendimento.isSelected()) {
+            tipo = "atendente";
+        } else if (rbEnfermagem.isSelected()) {
             tipo = "enfermeira";
             crM = tfCrM.getText();
-        }    
-        else if(rbMedica.isSelected()){
+        } else if (rbMedica.isSelected()) {
             tipo = "medico";
             crM = tfCrM.getText();
             especialidade = tfEspecialidade.getText();
         }
-          
+
         feedback = AdministradorController.cadastrarFuncionario(tipo, id_adm, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
-        
-        if(feedback == null){
+
+        if (feedback == null) {
             System.out.println("Deu certo cadastrar");
             limpar();
-        }
-        else
+        } else {
             System.out.println(feedback);
+        }
     }
-    
-    public String pesquisarFuncionarioEdit(String id_pesquisa){ 
-        if (!AdministradorController.pesquisarFuncionarioId(id_pesquisa)){
+
+    public String pesquisarFuncionarioEdit(String id_pesquisa) {
+        if (!AdministradorController.pesquisarFuncionarioId(id_pesquisa)) {
             labNomeEdit.setVisible(true);
             tfNomeEdit.setVisible(true);
             labCpfEdit.setVisible(true);
@@ -1699,10 +1691,10 @@ public class JanAdmin extends javax.swing.JFrame {
             tfEnderecoEdit.setVisible(true);
             labSenhaEdit.setVisible(true);
             tfSenhaEdit.setVisible(true);
-            
+
             btSalvarEdit.setVisible(true);
-            
-            if(id_pesquisa.contains("adm")){
+
+            if (id_pesquisa.contains("adm")) {
                 setIdFuncionarioEditMoment(id_pesquisa);
 
                 tfCrMEdit.setVisible(false);
@@ -1713,15 +1705,14 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfNomeEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getNome());
                 tfCpfEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getCpf());
                 String[] dataNasc = AdministradorController.pesquisarAdministradorID(id_pesquisa).getData_nascimento().split("-");
-                tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
+                tfNascEdit.setText(dataNasc[2] + "/" + dataNasc[1] + "/" + dataNasc[0]);
                 tfSalarioEdit.setText(String.valueOf(AdministradorController.pesquisarAdministradorID(id_pesquisa).getSalario()));
                 tfTelefoneEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getTelefone());
                 tfEnderecoEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getEndereco());
                 tfSenhaEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getSenha());
-            }
-            else if(id_pesquisa.contains("enf")){
+            } else if (id_pesquisa.contains("enf")) {
                 setIdFuncionarioEditMoment(id_pesquisa);
-                
+
                 tfCrMEdit.setVisible(true);
                 labCrMEdit.setVisible(true);
                 labEspecialidadeEdit.setVisible(false);
@@ -1732,16 +1723,15 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfNomeEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getNome());
                 tfCpfEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getCpf());
                 String[] dataNasc = EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getData_nascimento().split("-");
-                tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
+                tfNascEdit.setText(dataNasc[2] + "/" + dataNasc[1] + "/" + dataNasc[0]);
                 tfSalarioEdit.setText(String.valueOf(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getSalario()));
                 tfTelefoneEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getTelefone());
                 tfEnderecoEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getEndereco());
                 tfSenhaEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getSenha());
-                tfCrMEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getCr());  
-            }
-            else if(id_pesquisa.contains("med")){
+                tfCrMEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getCr());
+            } else if (id_pesquisa.contains("med")) {
                 setIdFuncionarioEditMoment(id_pesquisa);
-                
+
                 tfCrMEdit.setVisible(true);
                 labCrMEdit.setVisible(true);
                 labEspecialidadeEdit.setVisible(true);
@@ -1752,17 +1742,16 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfNomeEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getNome());
                 tfCpfEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getCpf());
                 String[] dataNasc = MedicoController.pesquisarMedicoID(id_pesquisa).getData_nascimento().split("-");
-                tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
+                tfNascEdit.setText(dataNasc[2] + "/" + dataNasc[1] + "/" + dataNasc[0]);
                 tfSalarioEdit.setText(String.valueOf(MedicoController.pesquisarMedicoID(id_pesquisa).getSalario()));
                 tfTelefoneEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getTelefone());
                 tfEnderecoEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getEndereco());
                 tfSenhaEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getSenha());
                 tfCrMEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getCrm());
                 tfEspecialidadeEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getEspecialidade());
-            }
-            else if(id_pesquisa.contains("ate")){
+            } else if (id_pesquisa.contains("ate")) {
                 setIdFuncionarioEditMoment(id_pesquisa);
-                
+
                 tfCrMEdit.setVisible(false);
                 labCrMEdit.setVisible(false);
                 labEspecialidadeEdit.setVisible(false);
@@ -1771,28 +1760,28 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfNomeEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getNome());
                 tfCpfEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getCpf());
                 String[] dataNasc = AtendenteController.pesquisarAtendenteID(id_pesquisa).getData_nascimento().split("-");
-                tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
+                tfNascEdit.setText(dataNasc[2] + "/" + dataNasc[1] + "/" + dataNasc[0]);
                 tfSalarioEdit.setText(String.valueOf(AtendenteController.pesquisarAtendenteID(id_pesquisa).getSalario()));
                 tfTelefoneEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getTelefone());
                 tfEnderecoEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getEndereco());
                 tfSenhaEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getSenha());
             }
-            labStatus.setForeground(Color.green); 
+            labStatus.setForeground(Color.green);
             return "FUNCIONÁRIO ENCONTRADO!";
-        }
-        else{
+        } else {
             labStatus.setForeground(Color.red);
             limparEdit();
             ocultarEditar();
-            
-            if("".equals(id_pesquisa))
+
+            if ("".equals(id_pesquisa)) {
                 return "ERRO NA PESQUISA, CAMPO DE PESQUISA VAZIO!";
-            else
+            } else {
                 return "ID INCORRETO!";
-        }     
+            }
+        }
     }
-    
-    public void ocultarEditar(){
+
+    public void ocultarEditar() {
         labNomeEdit.setVisible(false);
         tfNomeEdit.setVisible(false);
         labCpfEdit.setVisible(false);
@@ -1811,11 +1800,11 @@ public class JanAdmin extends javax.swing.JFrame {
         tfTelefoneEdit.setVisible(false);
         labSenhaEdit.setVisible(false);
         tfSenhaEdit.setVisible(false);
-        
+
         btSalvarEdit.setVisible(false);
     }
-    
-    public void EditarFunc(){
+
+    public void EditarFunc() {
         String feedback = "";
         String tipo = "";
         String id = getIdFuncionarioEditMoment();
@@ -1828,35 +1817,32 @@ public class JanAdmin extends javax.swing.JFrame {
         String salario = tfSalarioEdit.getText();
         String crM = tfCrMEdit.getText();
         String especialidade = tfEspecialidadeEdit.getText();
-        
-        if(id.contains("adm"))
+
+        if (id.contains("adm")) {
             tipo = "adm";
-        else if(id.contains("ate")){
-            tipo = "ate";         
-        }
-        else if(id.contains("enf")){
+        } else if (id.contains("ate")) {
+            tipo = "ate";
+        } else if (id.contains("enf")) {
             tipo = "enf";
-        }    
-        else if(id.contains("med")){
+        } else if (id.contains("med")) {
             tipo = "med";
         }
-        
+
         feedback = AdministradorController.alterarFuncionario(tipo, id, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
-        
-        if(feedback == null){
+
+        if (feedback == null) {
             limparEdit();
             ocultarEditar();
-            
+
             labStatus.setForeground(Color.green);
             labStatus.setText("USUARIO ALTERADO COM SUCESSO!");
-        }
-        else{
+        } else {
             labStatus.setForeground(Color.red);
             labStatus.setText(feedback);
         }
-        
-    }              
-    
+
+    }
+
     public void limpar() {
         tfNome.setText("");
         tfCpf.setText("");
@@ -1869,7 +1855,7 @@ public class JanAdmin extends javax.swing.JFrame {
         tfSenha.setText("");
         tfNome.requestFocus();
     }
-    
+
     public void limparEdit() {
         tfIDEdit.setText("");
         tfNomeEdit.setText("");
@@ -1882,34 +1868,34 @@ public class JanAdmin extends javax.swing.JFrame {
         tfTelefoneEdit.setText("");
         tfSenhaEdit.setText("");
         labStatus.setText("");
-        
+
         btSalvarEdit.setVisible(false);
-        
+
         tfIDEdit.requestFocus();
     }
-    
-    public void sair(){
+
+    public void sair() {
         this.dispose();
         labLogout.setVisible(false);
         limpar();
         JanLogin.getJanLogin().setVisible(true);
     }
-    
+
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
-    
+
     public void carregaTabela(boolean adm, boolean ate, boolean enf, boolean med) {
         DefaultTableModel modelo = (DefaultTableModel) tabFuncionario.getModel();
         modelo.setNumRows(0);
-        
+
         AdministradorController.carregaTabela(modelo, adm, ate, enf, med);
     }
-    
+
     public void pesquisaTabelaNome(boolean adm, boolean ate, boolean enf, boolean med) {
         DefaultTableModel modelo = (DefaultTableModel) tabFuncionario.getModel();
         modelo.setNumRows(0);
-        
+
         AdministradorController.pesquisaTabelaNome(modelo, adm, ate, enf, med, tfNome1.getText());
     }
 
