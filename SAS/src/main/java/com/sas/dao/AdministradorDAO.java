@@ -269,6 +269,23 @@ public class AdministradorDAO {
         return adm;
     }
     
+    public static boolean pesquisarFunId(String Id) {
+        ResultSet pesquisaAdm = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_id = '" + Id+ "'");
+        ResultSet pesquisaAte = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente WHERE ate_id = '" + Id + "'");
+        ResultSet pesquisaEnf = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira WHERE enf_id = '" + Id + "'");
+        ResultSet pesquisaMed = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_id = '" + Id + "'");
+        ResultSet pesquisaPac = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM paciente WHERE pac_id = '" + Id + "'");
+        try{
+            if (pesquisaAdm.isBeforeFirst() || pesquisaAte.isBeforeFirst() || pesquisaEnf.isBeforeFirst() || pesquisaMed.isBeforeFirst() || pesquisaPac.isBeforeFirst()) 
+                return false; //Tem id
+
+            else
+                return true; //Tem não id
+        }catch (Exception e) {
+            return false; //Deu erro, mas coloca que tem (evitar bug)
+        }
+    }
+    
     public static boolean pesquisarFunCPF(String cpf) {
         ResultSet pesquisaAdm = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_cpf = '" + cpf + "'");
         ResultSet pesquisaAte = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente WHERE ate_cpf = '" + cpf + "'");
@@ -282,7 +299,7 @@ public class AdministradorDAO {
             else
                 return true; //Tem não CPF
         }catch (Exception e) {
-            return true;
+            return false; //Deu erro, mas coloca que tem (evitar bug)
         }
     }
     

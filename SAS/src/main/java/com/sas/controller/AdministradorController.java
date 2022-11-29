@@ -212,6 +212,10 @@ public class AdministradorController {
         return AdministradorDAO.pesquisarAdminID(ID);
     }
     
+    public static boolean pesquisarFuncionarioId(String Id) {
+        return AdministradorDAO.pesquisarFunId(Id);
+    }
+    
     public static boolean pesquisarFuncionarioCPF(String cpf) {
         return AdministradorDAO.pesquisarFunCPF(cpf);
     }
@@ -247,11 +251,13 @@ public class AdministradorController {
                 return "CPF INVALIDO!";
             }
             
-            if(!pesquisarFuncionarioCPF(cpf)){
-                System.out.println("CPF JÁ EXISTENTE");
-                return "CPF JÁ EXISTENTE!";
-            }
-            
+            if(!cpf.equals(pesquisarAdministradorID(id).getCpf())){
+                if(!pesquisarFuncionarioCPF(cpf)){
+                    System.out.println("CPF JÁ EXISTENTE");
+                    return "CPF JÁ EXISTENTE!";
+                }
+            }    
+
             administrador.setCpf(cpf);
             
             administrador.setTelefone(telefone);
@@ -294,9 +300,11 @@ public class AdministradorController {
                 return "CPF INVALIDO!";
             }
             
-            if(!pesquisarFuncionarioCPF(cpf)){
-                System.out.println("CPF JÁ EXISTENTE");
-                return "CPF JÁ EXISTENTE!";
+            if(!cpf.equals(AtendenteController.pesquisarAtendenteID(id).getCpf())){
+                if(!pesquisarFuncionarioCPF(cpf)){
+                    System.out.println("CPF JÁ EXISTENTE");
+                    return "CPF JÁ EXISTENTE!";
+                }
             }
             
             atendente.setCpf(cpf);
@@ -343,9 +351,11 @@ public class AdministradorController {
                 return "CPF INVALIDO!";
             }
             
-            if(!pesquisarFuncionarioCPF(cpf)){
-                System.out.println("CPF JÁ EXISTENTE");
-                return "CPF JÁ EXISTENTE!";
+            if(!cpf.equals(EnfermeiraController.pesquisarEnfermeiraID(id).getCpf())){
+                if(!pesquisarFuncionarioCPF(cpf)){
+                    System.out.println("CPF JÁ EXISTENTE");
+                    return "CPF JÁ EXISTENTE!";
+                }
             }
             
             enfermeira.setCpf(cpf);
@@ -393,9 +403,11 @@ public class AdministradorController {
                 return "CPF INVALIDO!";
             }
             
-            if(!pesquisarFuncionarioCPF(cpf)){
-                System.out.println("CPF JÁ EXISTENTE");
-                return "CPF JÁ EXISTENTE!";
+            if(!cpf.equals(MedicoController.pesquisarMedicoID(id).getCpf())){
+                if(!pesquisarFuncionarioCPF(cpf)){
+                    System.out.println("CPF JÁ EXISTENTE");
+                    return "CPF JÁ EXISTENTE!";
+                }
             }
             
             medico.setCpf(cpf);

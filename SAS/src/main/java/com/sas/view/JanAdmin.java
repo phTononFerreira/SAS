@@ -130,8 +130,6 @@ public class JanAdmin extends javax.swing.JFrame {
         labStatus = new javax.swing.JLabel();
         btIDPesquisa = new javax.swing.JButton();
         btSalvarEdit = new javax.swing.JButton();
-        btCancelarEdit = new javax.swing.JButton();
-        btSairEdit = new javax.swing.JButton();
         cardCadFuncionario = new javax.swing.JPanel();
         panInfo = new javax.swing.JPanel();
         tfNome = new javax.swing.JTextField();
@@ -500,7 +498,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -688,39 +686,6 @@ public class JanAdmin extends javax.swing.JFrame {
         panInfoEdit.setLayout(panInfoEditLayout);
         panInfoEditLayout.setHorizontalGroup(
             panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panInfoEditLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labSenhaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(630, 630, 630))
-                    .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfEnderecoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfCpfEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labCpfEdit)
-                            .addComponent(labEnderecoEdit)
-                            .addComponent(labNomeEdit))
-                        .addGap(18, 18, 18)
-                        .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labTelefoneEdit)
-                            .addComponent(tfTelefoneEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panInfoEditLayout.createSequentialGroup()
-                                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labNascEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfNascEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labSalarioEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                                    .addComponent(tfSalarioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labEspecialidadeEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                                    .addComponent(tfEspecialidadeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labCrMEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tfCrMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(167, 167, 167))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInfoEditLayout.createSequentialGroup()
                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator5)
@@ -738,6 +703,48 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(labStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(panInfoEditLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panInfoEditLayout.createSequentialGroup()
+                        .addComponent(labSenhaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                        .addGap(630, 630, 630))
+                    .addGroup(panInfoEditLayout.createSequentialGroup()
+                        .addComponent(tfSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panInfoEditLayout.createSequentialGroup()
+                        .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panInfoEditLayout.createSequentialGroup()
+                                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tfCpfEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
+                                    .addComponent(labCpfEdit)
+                                    .addComponent(labEnderecoEdit)
+                                    .addComponent(tfEnderecoEdit))
+                                .addGap(18, 18, 18)
+                                .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panInfoEditLayout.createSequentialGroup()
+                                        .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(labSalarioEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                            .addComponent(tfSalarioEdit))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tfCrMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(labTelefoneEdit)
+                                    .addComponent(tfTelefoneEdit)))
+                            .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(labCrMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panInfoEditLayout.createSequentialGroup()
+                                    .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tfNomeEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
+                                        .addComponent(labNomeEdit))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tfNascEdit)
+                                        .addComponent(labNascEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(labEspecialidadeEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                        .addComponent(tfEspecialidadeEdit)))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         panInfoEditLayout.setVerticalGroup(
             panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -750,36 +757,34 @@ public class JanAdmin extends javax.swing.JFrame {
                     .addComponent(btIDPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(labNomeEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panInfoEditLayout.createSequentialGroup()
                         .addComponent(labNascEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfNascEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panInfoEditLayout.createSequentialGroup()
-                                .addComponent(labNomeEdit)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfNomeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(tfNascEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panInfoEditLayout.createSequentialGroup()
                         .addComponent(labEspecialidadeEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(tfEspecialidadeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panInfoEditLayout.createSequentialGroup()
                         .addComponent(labCpfEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfCpfEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addComponent(labSalarioEdit)
+                        .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labSalarioEdit)
+                            .addComponent(labCrMEdit))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfSalarioEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addComponent(labCrMEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfCrMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(tfCrMEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(tfEnderecoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -790,7 +795,7 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(labTelefoneEdit)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfTelefoneEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(labSenhaEdit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -815,52 +820,16 @@ public class JanAdmin extends javax.swing.JFrame {
             }
         });
 
-        btCancelarEdit.setBackground(new java.awt.Color(249, 100, 100));
-        btCancelarEdit.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        btCancelarEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btCancelarEdit.setText("CANCELAR");
-        btCancelarEdit.setToolTipText("");
-        btCancelarEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btCancelarEdit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btCancelarEditMouseClicked(evt);
-            }
-        });
-        btCancelarEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCancelarEditActionPerformed(evt);
-            }
-        });
-
-        btSairEdit.setBackground(new java.awt.Color(249, 100, 100));
-        btSairEdit.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        btSairEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btSairEdit.setText("SAIR");
-        btSairEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btSairEdit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btSairEditMouseClicked(evt);
-            }
-        });
-        btSairEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSairEditActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout cardEditFuncionarioLayout = new javax.swing.GroupLayout(cardEditFuncionario);
         cardEditFuncionario.setLayout(cardEditFuncionarioLayout);
         cardEditFuncionarioLayout.setHorizontalGroup(
             cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardEditFuncionarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panInfoEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panInfoEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btSalvarEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
-                    .addComponent(btCancelarEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btSairEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(btSalvarEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
         cardEditFuncionarioLayout.setVerticalGroup(
             cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -868,15 +837,11 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGroup(cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardEditFuncionarioLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btSairEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(btSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btCancelarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(cardEditFuncionarioLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(panInfoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panInfoEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -1483,46 +1448,6 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfSenhaActionPerformed
 
-    private void tfNomeEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNomeEditActionPerformed
-
-    private void tfNascEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNascEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNascEditActionPerformed
-
-    private void tfCpfEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCpfEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCpfEditActionPerformed
-
-    private void tfTelefoneEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTelefoneEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfTelefoneEditActionPerformed
-
-    private void tfEnderecoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEnderecoEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEnderecoEditActionPerformed
-
-    private void tfCrMEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCrMEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCrMEditActionPerformed
-
-    private void tfSalarioEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSalarioEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfSalarioEditActionPerformed
-
-    private void tfEspecialidadeEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEspecialidadeEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEspecialidadeEditActionPerformed
-
-    private void btCancelarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btCancelarEditActionPerformed
-
-    private void tfSenhaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfSenhaEditActionPerformed
-
     private void btSalvarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarEditActionPerformed
         String feedback = "";
         String tipo = "";
@@ -1557,10 +1482,6 @@ public class JanAdmin extends javax.swing.JFrame {
         else
             System.out.println(feedback);
     }//GEN-LAST:event_btSalvarEditActionPerformed
-
-    private void tfIDEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDEditActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfIDEditActionPerformed
 
     private void btSalvarEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarEditMouseClicked
         EditarFunc();
@@ -1602,35 +1523,62 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private void labEditarFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labEditarFuncionarioMouseClicked
         selectCardEditar();
+        limparEdit();
         ocultarEditar();
     }//GEN-LAST:event_labEditarFuncionarioMouseClicked
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        cadastrarFunc();
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btIDPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIDPesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btIDPesquisaActionPerformed
 
     private void btIDPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btIDPesquisaMouseClicked
-        String status = pesquisarFuncionario(tfIDEdit.getText());
+        String status = pesquisarFuncionarioEdit(tfIDEdit.getText());
         labStatus.setText(status);
     }//GEN-LAST:event_btIDPesquisaMouseClicked
 
-    private void btCancelarEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarEditMouseClicked
-        limparEdit();
-        ocultarEditar();
-    }//GEN-LAST:event_btCancelarEditMouseClicked
-
-    private void btSairEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairEditMouseClicked
-        limparEdit();
-        ocultarEditar();
-    }//GEN-LAST:event_btSairEditMouseClicked
-
-    private void btSairEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairEditActionPerformed
+    private void tfIDEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDEditActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btSairEditActionPerformed
+    }//GEN-LAST:event_tfIDEditActionPerformed
 
-    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        cadastrarFunc();
-    }//GEN-LAST:event_btCadastrarActionPerformed
+    private void tfSenhaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSenhaEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSenhaEditActionPerformed
+
+    private void tfEspecialidadeEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEspecialidadeEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEspecialidadeEditActionPerformed
+
+    private void tfSalarioEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfSalarioEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfSalarioEditActionPerformed
+
+    private void tfCrMEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCrMEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCrMEditActionPerformed
+
+    private void tfEnderecoEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEnderecoEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEnderecoEditActionPerformed
+
+    private void tfTelefoneEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTelefoneEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTelefoneEditActionPerformed
+
+    private void tfCpfEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCpfEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCpfEditActionPerformed
+
+    private void tfNascEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNascEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNascEditActionPerformed
+
+    private void tfNomeEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNomeEditActionPerformed
     public void selectCardFuncionarios(){
         cardLayout.show(panCards, "cardCadFuncionario");
         labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
@@ -1736,220 +1684,116 @@ public class JanAdmin extends javax.swing.JFrame {
             System.out.println(feedback);
     }
     
-    public String pesquisarFuncionario(String id_pesquisa){ 
-        if("".equals(id_pesquisa)){
-            labStatus.setForeground(Color.red);
-            limparEdit();
-            return "ERRO NA PESQUISA, CAMPO DE PESQUISA VAZIO!";
-        }
-        if(id_pesquisa.contains("adm")){
-            admEdit = new Administrador();
-            admEdit = AdministradorController.pesquisarAdministradorID(id_pesquisa);
+    public String pesquisarFuncionarioEdit(String id_pesquisa){ 
+        if (!AdministradorController.pesquisarFuncionarioId(id_pesquisa)){
+            labNomeEdit.setVisible(true);
+            tfNomeEdit.setVisible(true);
+            labCpfEdit.setVisible(true);
+            tfCpfEdit.setVisible(true);
+            labNascEdit.setVisible(true);
+            tfNascEdit.setVisible(true);
+            labSalarioEdit.setVisible(true);
+            tfSalarioEdit.setVisible(true);
+            labTelefoneEdit.setVisible(true);
+            tfTelefoneEdit.setVisible(true);
+            labEnderecoEdit.setVisible(true);
+            tfEnderecoEdit.setVisible(true);
+            labSenhaEdit.setVisible(true);
+            tfSenhaEdit.setVisible(true);
             
-            this.setIdFuncionarioEditMoment(admEdit.getId());
+            btSalvarEdit.setVisible(true);
             
-            if(admEdit == null){
-                labStatus.setForeground(Color.red);
-                btSalvarEdit.setVisible(false);
-                limparEdit();
-                return "ERRO NA PESQUISA, FUNCIONÁRIO NÃO ENCONTRADO!";
-            }else{
+            if(id_pesquisa.contains("adm")){
+                setIdFuncionarioEditMoment(id_pesquisa);
+
                 tfCrMEdit.setVisible(false);
                 labCrMEdit.setVisible(false);
                 labEspecialidadeEdit.setVisible(false);
                 tfEspecialidadeEdit.setVisible(false);
-                
-                labNomeEdit.setVisible(true);
-                tfNomeEdit.setVisible(true);
-                labCpfEdit.setVisible(true);
-                tfCpfEdit.setVisible(true);
-                labNascEdit.setVisible(true);
-                tfNascEdit.setVisible(true);
-                labSalarioEdit.setVisible(true);
-                tfSalarioEdit.setVisible(true);
-                labTelefoneEdit.setVisible(true);
-                tfTelefoneEdit.setVisible(true);
-                labEnderecoEdit.setVisible(true);
-                tfEnderecoEdit.setVisible(true);
-                labSenhaEdit.setVisible(true);
-                tfSenhaEdit.setVisible(true);
-                
-                btSalvarEdit.setVisible(true);
-                btCancelarEdit.setVisible(true);
-                btSairEdit.setVisible(false);
-                
-                
-                tfNomeEdit.setText(admEdit.getNome());
-                tfCpfEdit.setText(admEdit.getCpf());
-                String[] dataNasc = admEdit.getData_nascimento().split("-");
+
+                tfNomeEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getNome());
+                tfCpfEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getCpf());
+                String[] dataNasc = AdministradorController.pesquisarAdministradorID(id_pesquisa).getData_nascimento().split("-");
                 tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
-                tfSalarioEdit.setText(String.valueOf(admEdit.getSalario()));
-                tfTelefoneEdit.setText(admEdit.getTelefone());
-                tfEnderecoEdit.setText(admEdit.getEndereco());
-                tfSenhaEdit.setText(admEdit.getSenha());
-                labStatus.setForeground(Color.green); 
-                return "FUNCIONÁRIO ENCONTRADO!";
+                tfSalarioEdit.setText(String.valueOf(AdministradorController.pesquisarAdministradorID(id_pesquisa).getSalario()));
+                tfTelefoneEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getTelefone());
+                tfEnderecoEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getEndereco());
+                tfSenhaEdit.setText(AdministradorController.pesquisarAdministradorID(id_pesquisa).getSenha());
             }
-            
-        }
-        else if(id_pesquisa.contains("enf")){
-            enfEdit = new Enfermeira();
-            enfEdit = EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa);
-            
-            this.setIdFuncionarioEditMoment(enfEdit.getId());
-            
-            if(enfEdit == null){
-                labStatus.setForeground(Color.red);
-                limparEdit();
-                btSalvarEdit.setVisible(false);
-                return "ERRO NA PESQUISA, FUNCIONÁRIO NÃO ENCONTRADO!";
-            }else{
+            else if(id_pesquisa.contains("enf")){
+                setIdFuncionarioEditMoment(id_pesquisa);
+                
                 tfCrMEdit.setVisible(true);
                 labCrMEdit.setVisible(true);
                 labEspecialidadeEdit.setVisible(false);
                 tfEspecialidadeEdit.setVisible(false);
 
-                btSalvarEdit.setVisible(true);
-                labNomeEdit.setVisible(true);
-                tfNomeEdit.setVisible(true);
-                labCpfEdit.setVisible(true);
-                tfCpfEdit.setVisible(true);
-                labNascEdit.setVisible(true);
-                tfNascEdit.setVisible(true);
-                labSalarioEdit.setVisible(true);
-                tfSalarioEdit.setVisible(true);
-                labTelefoneEdit.setVisible(true);
-                tfTelefoneEdit.setVisible(true);
-                labEnderecoEdit.setVisible(true);
-                tfEnderecoEdit.setVisible(true);
-                labSenhaEdit.setVisible(true);
-                tfSenhaEdit.setVisible(true);
-                
                 labCrMEdit.setText("CR");
-                btSalvarEdit.setVisible(true);
-                btCancelarEdit.setVisible(true);
-                btSairEdit.setVisible(false);
-                tfNomeEdit.setText(enfEdit.getNome());
-                tfCpfEdit.setText(enfEdit.getCpf());
-                String[] dataNasc = enfEdit.getData_nascimento().split("-");
+
+                tfNomeEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getNome());
+                tfCpfEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getCpf());
+                String[] dataNasc = EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getData_nascimento().split("-");
                 tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
-                tfSalarioEdit.setText(String.valueOf(enfEdit.getSalario()));
-                tfTelefoneEdit.setText(enfEdit.getTelefone());
-                tfEnderecoEdit.setText(enfEdit.getEndereco());
-                tfSenhaEdit.setText(enfEdit.getSenha());
-                tfCrMEdit.setText(enfEdit.getCr());   
-                labStatus.setForeground(Color.green); 
-                  
-                return "FUNCIONÁRIO ENCONTRADO!";
+                tfSalarioEdit.setText(String.valueOf(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getSalario()));
+                tfTelefoneEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getTelefone());
+                tfEnderecoEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getEndereco());
+                tfSenhaEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getSenha());
+                tfCrMEdit.setText(EnfermeiraController.pesquisarEnfermeiraID(id_pesquisa).getCr());  
             }
-        }
-        else if(id_pesquisa.contains("med")){
-            medEdit = new Medico();
-            medEdit = MedicoController.pesquisarMedicoID(id_pesquisa);
-            
-            this.setIdFuncionarioEditMoment(medEdit.getId());
-            
-            if(medEdit == null){
-                labStatus.setForeground(Color.red);
-                limparEdit();
-                btSalvarEdit.setVisible(false);
-                return "ERRO NA PESQUISA, FUNCIONÁRIO NÃO ENCONTRADO!";
-            }else{
+            else if(id_pesquisa.contains("med")){
+                setIdFuncionarioEditMoment(id_pesquisa);
+                
                 tfCrMEdit.setVisible(true);
                 labCrMEdit.setVisible(true);
                 labEspecialidadeEdit.setVisible(true);
                 tfEspecialidadeEdit.setVisible(true);
 
-                btSalvarEdit.setVisible(true);
-                labNomeEdit.setVisible(true);
-                tfNomeEdit.setVisible(true);
-                labCpfEdit.setVisible(true);
-                tfCpfEdit.setVisible(true);
-                labNascEdit.setVisible(true);
-                tfNascEdit.setVisible(true);
-                labSalarioEdit.setVisible(true);
-                tfSalarioEdit.setVisible(true);
-                labTelefoneEdit.setVisible(true);
-                tfTelefoneEdit.setVisible(true);
-                labEnderecoEdit.setVisible(true);
-                tfEnderecoEdit.setVisible(true);
-                labSenhaEdit.setVisible(true);
-                tfSenhaEdit.setVisible(true);
-                
                 labCrMEdit.setText("CRM");
-                btSalvarEdit.setVisible(true);
-                btCancelarEdit.setVisible(true);
-                btSairEdit.setVisible(false);
-                tfNomeEdit.setText(medEdit.getNome());
-                tfCpfEdit.setText(medEdit.getCpf());
-                String[] dataNasc = medEdit.getData_nascimento().split("-");
+
+                tfNomeEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getNome());
+                tfCpfEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getCpf());
+                String[] dataNasc = MedicoController.pesquisarMedicoID(id_pesquisa).getData_nascimento().split("-");
                 tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
-                tfSalarioEdit.setText(String.valueOf(medEdit.getSalario()));
-                tfTelefoneEdit.setText(medEdit.getTelefone());
-                tfEnderecoEdit.setText(medEdit.getEndereco());
-                tfSenhaEdit.setText(medEdit.getSenha());
-                tfCrMEdit.setText(medEdit.getCrm());
-                tfEspecialidadeEdit.setText(medEdit.getEspecialidade());
-                labStatus.setForeground(Color.green); 
-                return "FUNCIONÁRIO ENCONTRADO!";
+                tfSalarioEdit.setText(String.valueOf(MedicoController.pesquisarMedicoID(id_pesquisa).getSalario()));
+                tfTelefoneEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getTelefone());
+                tfEnderecoEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getEndereco());
+                tfSenhaEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getSenha());
+                tfCrMEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getCrm());
+                tfEspecialidadeEdit.setText(MedicoController.pesquisarMedicoID(id_pesquisa).getEspecialidade());
             }
-        }
-        else if(id_pesquisa.contains("ate")){
-            ateEdit = new Atendente();
-            ateEdit = AtendenteController.pesquisarAtendenteID(id_pesquisa);
-            
-            this.setIdFuncionarioEditMoment(ateEdit.getId());
-            
-            if(ateEdit == null){
-                labStatus.setForeground(Color.red);
-                limparEdit();
-                btSalvarEdit.setVisible(false);
-                return "ERRO NA PESQUISA, FUNCIONÁRIO NÃO ENCONTRADO!";
-            }else{
+            else if(id_pesquisa.contains("ate")){
+                setIdFuncionarioEditMoment(id_pesquisa);
+                
                 tfCrMEdit.setVisible(false);
                 labCrMEdit.setVisible(false);
                 labEspecialidadeEdit.setVisible(false);
                 tfEspecialidadeEdit.setVisible(false);
-                
-                labNomeEdit.setVisible(true);
-                tfNomeEdit.setVisible(true);
-                labCpfEdit.setVisible(true);
-                tfCpfEdit.setVisible(true);
-                labNascEdit.setVisible(true);
-                tfNascEdit.setVisible(true);
-                labSalarioEdit.setVisible(true);
-                tfSalarioEdit.setVisible(true);
-                labTelefoneEdit.setVisible(true);
-                tfTelefoneEdit.setVisible(true);
-                labEnderecoEdit.setVisible(true);
-                tfEnderecoEdit.setVisible(true);
-                labSenhaEdit.setVisible(true);
-                tfSenhaEdit.setVisible(true);
-                
-                btSalvarEdit.setVisible(true);
-                btCancelarEdit.setVisible(true);
-                btSairEdit.setVisible(false);
-                tfNomeEdit.setText(ateEdit.getNome());
-                tfCpfEdit.setText(ateEdit.getCpf());
-                String[] dataNasc = ateEdit.getData_nascimento().split("-");
+
+                tfNomeEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getNome());
+                tfCpfEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getCpf());
+                String[] dataNasc = AtendenteController.pesquisarAtendenteID(id_pesquisa).getData_nascimento().split("-");
                 tfNascEdit.setText(dataNasc[2]+"/"+dataNasc[1]+"/"+dataNasc[0]);
-                tfSalarioEdit.setText(String.valueOf(ateEdit.getSalario()));
-                tfTelefoneEdit.setText(ateEdit.getTelefone());
-                tfEnderecoEdit.setText(ateEdit.getEndereco());
-                tfSenhaEdit.setText(ateEdit.getSenha());
-                labStatus.setForeground(Color.green); 
-                return "FUNCIONÁRIO ENCONTRADO!";
+                tfSalarioEdit.setText(String.valueOf(AtendenteController.pesquisarAtendenteID(id_pesquisa).getSalario()));
+                tfTelefoneEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getTelefone());
+                tfEnderecoEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getEndereco());
+                tfSenhaEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getSenha());
             }
+            labStatus.setForeground(Color.green); 
+            return "FUNCIONÁRIO ENCONTRADO!";
         }
-        limparEdit();
-        btSalvarEdit.setVisible(false);
-        labStatus.setForeground(Color.red);
-        return "ID INCORRETO!";
-        
+        else{
+            labStatus.setForeground(Color.red);
+            limparEdit();
+            ocultarEditar();
+            
+            if("".equals(id_pesquisa))
+                return "ERRO NA PESQUISA, CAMPO DE PESQUISA VAZIO!";
+            else
+                return "ID INCORRETO!";
+        }     
     }
     
     public void ocultarEditar(){
-        btSairEdit.setVisible(false);
         labNomeEdit.setVisible(false);
         tfNomeEdit.setVisible(false);
         labCpfEdit.setVisible(false);
@@ -1968,14 +1812,14 @@ public class JanAdmin extends javax.swing.JFrame {
         tfTelefoneEdit.setVisible(false);
         labSenhaEdit.setVisible(false);
         tfSenhaEdit.setVisible(false);
-        btCancelarEdit.setVisible(false);
+        
         btSalvarEdit.setVisible(false);
     }
     
     public void EditarFunc(){
-         String feedback = "";
+        String feedback = "";
         String tipo = "";
-        String id = this.getIdFuncionarioEditMoment();
+        String id = getIdFuncionarioEditMoment();
         String senha = tfSenhaEdit.getText();
         String nome = tfNomeEdit.getText();
         String[] data_nascimento = tfNascEdit.getText().split("/");
@@ -1983,7 +1827,7 @@ public class JanAdmin extends javax.swing.JFrame {
         String telefone = tfTelefoneEdit.getText();
         String endereco = tfEnderecoEdit.getText();
         String salario = tfSalarioEdit.getText();
-        String crM = "";
+        String crM = tfCrMEdit.getText();
         String especialidade = tfEspecialidadeEdit.getText();
         
         if(id.contains("adm"))
@@ -2000,11 +1844,10 @@ public class JanAdmin extends javax.swing.JFrame {
           
         feedback = AdministradorController.alterarFuncionario(tipo, id, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
         
-        btSairEdit.setVisible(true);
-        btCancelarEdit.setVisible(false);
-        btSalvarEdit.setVisible(false); 
-        
         if(feedback == null){
+            limparEdit();
+            ocultarEditar();
+            
             labStatus.setForeground(Color.green);
             labStatus.setText("USUARIO ALTERADO COM SUCESSO!");
         }
@@ -2041,9 +1884,9 @@ public class JanAdmin extends javax.swing.JFrame {
         tfTelefoneEdit.setText("");
         tfSenhaEdit.setText("");
         labStatus.setText("");
+        
         btSalvarEdit.setVisible(false);
-        btSairEdit.setVisible(false);
-        btCancelarEdit.setVisible(false);
+        
         tfIDEdit.requestFocus();
     }
     
@@ -2116,13 +1959,11 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bgFiltro;
     private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btCancelarAlt;
-    private javax.swing.JButton btCancelarEdit;
     private javax.swing.JButton btIDPesquisa;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btNomePesquisa;
     private javax.swing.JButton btNomePesquisaAlt;
     private javax.swing.JButton btRefresh;
-    private javax.swing.JButton btSairEdit;
     private javax.swing.JButton btSalvarAlt;
     private javax.swing.JButton btSalvarEdit;
     private javax.swing.JPanel cardCadFuncionario;
