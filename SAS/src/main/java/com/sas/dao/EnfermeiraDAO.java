@@ -38,7 +38,7 @@ public class EnfermeiraDAO {
                 enf.setCpf(pesquisa.getString("enf_cpf"));
                 enf.setEndereco(pesquisa.getString("enf_endereco"));
                 enf.setSalario(Double.parseDouble(pesquisa.getString("enf_salario")));
-                enf.setCr(pesquisa.getString("enf_salario"));
+                enf.setCr(pesquisa.getString("enf_cr"));
                 enf.setAdm_id(pesquisa.getString("adm_id"));
                 enf.setTelefone(pesquisa.getString("enf_telefone"));
                 //System.out.println(adm.toString());
