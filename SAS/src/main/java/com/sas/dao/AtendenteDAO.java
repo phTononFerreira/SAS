@@ -3,6 +3,7 @@ package com.sas.dao;
 import com.sas.model.Atendente;
 import com.sas.model.Consulta;
 import com.sas.model.Paciente;
+import com.sas.model.Prontuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,8 +47,33 @@ public class AtendenteDAO {
 
     }
 
-    public static Consulta agendarCon() {
-        return null;
+    public static boolean agendarCon(Consulta con) {
+        Connection conn = ConexaoBD.getConnection();
+
+        String query = "INSERT INTO consulta VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement pstm;
+
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, con.getId());
+            pstm.setString(2, con.getData());
+            pstm.setString(3, con.getReceita());
+            pstm.setInt(4, con.getStatus());
+            pstm.setString(5, con.getPac_id());
+            pstm.setString(6, con.getMed_id());
+            pstm.setString(7, con.getPro_id());
+            pstm.setString(8, con.getAte_id());
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+        }
+        
+        return false;
     }
     
     public static Consulta pesquisarConID() {
@@ -211,6 +237,33 @@ public class AtendenteDAO {
         }catch(Exception e){
             System.out.println("Erro ao puxar tabela medico");
         } 
+    }
+    
+    public static boolean cadastrarTri(Prontuario pro) {
+        Connection conn = ConexaoBD.getConnection();
+
+        String query = "INSERT INTO prontuario VALUES (?, ?, ?, ?, ?, ?)";
+        PreparedStatement pstm;
+
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, pro.getId());
+            pstm.setFloat(2, pro.getTemperatura());
+            pstm.setString(3, pro.getPressao());
+            pstm.setString(4, pro.getDescricao());
+            pstm.setString(5, pro.getPac_id());
+            pstm.setString(6, pro.getEnf_id());
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+            }
+        
+        return false;
     }
     
 }

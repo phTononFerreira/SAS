@@ -11,6 +11,8 @@ import com.sas.model.Funcionario;
 import com.sas.model.Medico;
 import java.awt.CardLayout;
 import java.awt.Color;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class JanAdmin extends javax.swing.JFrame {
@@ -496,7 +498,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -705,7 +707,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addComponent(labSenhaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                        .addComponent(labSenhaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                         .addGap(630, 630, 630))
                     .addGroup(panInfoEditLayout.createSequentialGroup()
                         .addComponent(tfSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -826,8 +828,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panInfoEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btSalvarEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 965, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addComponent(btSalvarEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         cardEditFuncionarioLayout.setVerticalGroup(
             cardEditFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1022,7 +1024,7 @@ public class JanAdmin extends javax.swing.JFrame {
                                 .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tfNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                                    .addComponent(labSalario, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                                     .addComponent(tfSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(panInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1137,7 +1139,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(22, 22, 22)
-                .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
         );
         cardCadFuncionarioLayout.setVerticalGroup(
@@ -1296,7 +1298,7 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(btNomePesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 2005, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 2010, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
         cardFuncionariosLayout.setVerticalGroup(
@@ -1334,7 +1336,7 @@ public class JanAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, 2030, Short.MAX_VALUE)
+            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, 2034, Short.MAX_VALUE)
             .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -1890,6 +1892,7 @@ public class JanAdmin extends javax.swing.JFrame {
         modelo.setNumRows(0);
 
         AdministradorController.carregaTabela(modelo, adm, ate, enf, med);
+        centralizarTabela();
     }
 
     public void pesquisaTabelaNome(boolean adm, boolean ate, boolean enf, boolean med) {
@@ -1897,8 +1900,18 @@ public class JanAdmin extends javax.swing.JFrame {
         modelo.setNumRows(0);
 
         AdministradorController.pesquisaTabelaNome(modelo, adm, ate, enf, med, tfNome1.getText());
+        centralizarTabela();
     }
+    
+    public void centralizarTabela() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
 
+	for (int numCol = 0; numCol < tabFuncionario.getColumnCount(); numCol++) {
+            tabFuncionario.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+	}
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

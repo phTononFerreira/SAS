@@ -4,6 +4,8 @@ import com.sas.controller.AtendenteController;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class JanAtendente extends javax.swing.JFrame {
@@ -12,6 +14,8 @@ public class JanAtendente extends javax.swing.JFrame {
     private static String ID;
     private static String consultaID;
     private Boolean Muser=false;
+    private static String idPaciente;
+    private static String idMedico;
     
     CardLayout cardLayout;
     
@@ -29,6 +33,22 @@ public class JanAtendente extends javax.swing.JFrame {
     
     public static void setConsultaID(String consultaID1){
         consultaID = consultaID1;
+    }
+    
+    public String getIdPaciente() {
+        return idPaciente;
+    }
+
+    public static void setIdPaciente(String idPaciente1) {
+        idPaciente = idPaciente1;
+    }
+    
+    public String getIdMedico() {
+        return idMedico;
+    }
+
+    public static void setIdMedico(String idMedico1) {
+        idMedico = idMedico1;
     }
 
     public JanAtendente() {
@@ -937,7 +957,7 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_labAgenConsultaMouseClicked
 
     private void tabSelPaciente1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelPaciente1MousePressed
-        // TODO add your handling code here:
+        setIdPaciente(tabSelPaciente1.getValueAt(tabSelPaciente1.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tabSelPaciente1MousePressed
 
     private void btlRefreshPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshPacActionPerformed
@@ -951,7 +971,7 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btNomePesquisaPacActionPerformed
 
     private void tabSelMedicoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelMedicoMousePressed
-        // TODO add your handling code here:
+        setIdMedico(tabSelMedico.getValueAt(tabSelMedico.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tabSelMedicoMousePressed
 
     private void btRefreshMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefreshMedActionPerformed
@@ -965,7 +985,7 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btNomePesquisa1ActionPerformed
 
     private void btAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgendarActionPerformed
-        // TODO add your handling code here:
+        agendarConsulta();
     }//GEN-LAST:event_btAgendarActionPerformed
 
     private void btEncaminharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEncaminharActionPerformed
@@ -1027,11 +1047,51 @@ public class JanAtendente extends javax.swing.JFrame {
             System.out.println(feedback);
     }
     
+    public void agendarConsulta(){
+        String feedback = "";
+
+        int status = 1;
+        String pac_id = getIdPaciente();
+        String med_id = getIdMedico();
+        String ate_id = getId();
+        String data = tfAgenData.getText();
+        String hora = tfAgenHora.getText();
+        String receita = "";
+
+        feedback = AtendenteController.agendarConsulta(status, pac_id, med_id, ate_id, data, hora, receita);
+        
+        if(feedback == null){
+            System.out.println("Deu certo agendar");
+            limparAgenda();
+        }
+        else
+            System.out.println(feedback);
+    }
+    
+    public void limparAgenda(){
+        tfAgenData.setText("");
+        tfAgenHora.setText("");
+        tabSelPaciente1.clearSelection();
+        tabSelMedico.clearSelection();
+        tfAgenData.requestFocus();
+    }
+    
     public void carregaTabela() {
         DefaultTableModel modelo = (DefaultTableModel) tabPaciente.getModel();
         modelo.setNumRows(0);
         
         AtendenteController.carregaTabela(modelo);
+        
+        centralizarTabelaConsulta();
+    }
+    
+    public void centralizarTabelaConsulta() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+
+	for (int numCol = 0; numCol < tabPaciente.getColumnCount(); numCol++) {
+            tabPaciente.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+	}
     }
     
     public void carregaTabelaPaciente() {
@@ -1039,6 +1099,8 @@ public class JanAtendente extends javax.swing.JFrame {
         modelo.setNumRows(0);
         
         AtendenteController.carregaTabelaPaciente(modelo);
+        
+        centralizarTabelaPaciente();
     }
     
     public void pesquisaTabelaPaciente() {
@@ -1046,6 +1108,17 @@ public class JanAtendente extends javax.swing.JFrame {
         modelo.setNumRows(0);
         
         AtendenteController.pesquisaTabelaPaciente(modelo, tfNomePac.getText());
+        
+        centralizarTabelaPaciente();
+    }
+    
+    public void centralizarTabelaPaciente() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+
+	for (int numCol = 0; numCol < tabSelPaciente1.getColumnCount(); numCol++) {
+            tabSelPaciente1.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+	}
     }
     
     public void carregaTabelaMedico() {
@@ -1053,6 +1126,9 @@ public class JanAtendente extends javax.swing.JFrame {
         modelo.setNumRows(0);
         
         AtendenteController.carregaTabelaMedico(modelo);
+        
+        centralizarTabelaMedico();
+        
     }
     
     public void pesquisaTabelaMedico() {
@@ -1060,6 +1136,17 @@ public class JanAtendente extends javax.swing.JFrame {
         modelo.setNumRows(0);
         
         AtendenteController.pesquisaTabelaMedico(modelo, tfNomeMed.getText());
+        
+        centralizarTabelaMedico();
+    }
+    
+    public void centralizarTabelaMedico() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+
+	for (int numCol = 0; numCol < tabSelMedico.getColumnCount(); numCol++) {
+            tabSelMedico.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+	}
     }
     
     public static void main(String args[]) {

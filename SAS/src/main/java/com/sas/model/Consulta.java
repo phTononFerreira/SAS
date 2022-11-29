@@ -89,4 +89,9 @@ public class Consulta {
         this.ate_id = ate_id;
     }
 
+    @Override
+    public String toString() {
+        return "Consulta{" + "id=" + id + ", data=" + data + ", receita=" + receita + ", status=" + status + ", pac_id=" + pac_id + ", med_id=" + med_id + ", pro_id=" + pro_id + ", ate_id=" + ate_id + '}';
+    }
+
 }

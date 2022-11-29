@@ -420,7 +420,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panTop" pref="2030" max="32767" attributes="0"/>
+          <Component id="panTop" pref="2034" max="32767" attributes="0"/>
           <Component id="panCards" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -628,7 +628,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labUserImage" pref="54" max="32767" attributes="0"/>
+                          <Component id="labUserImage" pref="49" max="32767" attributes="0"/>
                           <Component id="labUser" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -727,8 +727,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="panInfoEdit" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btSalvarEdit" pref="965" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="btSalvarEdit" min="-2" pref="520" max="-2" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -795,7 +795,7 @@
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labSenhaEdit" pref="368" max="32767" attributes="0"/>
+                                  <Component id="labSenhaEdit" pref="317" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="630" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1230,7 +1230,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="panInfo" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="btCadastrar" pref="761" max="32767" attributes="0"/>
+                      <Component id="btCadastrar" pref="767" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1297,7 +1297,7 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="labNasc" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                               <Component id="tfNasc" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
-                                              <Component id="labSalario" alignment="0" pref="134" max="32767" attributes="0"/>
+                                              <Component id="labSalario" alignment="0" pref="135" max="32767" attributes="0"/>
                                               <Component id="tfSalario" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -1779,7 +1779,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btRefresh" min="-2" pref="52" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane4" pref="2005" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" pref="2010" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
