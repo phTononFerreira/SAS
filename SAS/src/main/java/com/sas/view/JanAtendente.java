@@ -1,7 +1,9 @@
 package com.sas.view;
 
 import com.sas.controller.AtendenteController;
+import com.sas.controller.PacienteController;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
@@ -16,6 +18,7 @@ public class JanAtendente extends javax.swing.JFrame {
     private Boolean Muser=false;
     private static String idPaciente;
     private static String idMedico;
+    private static String idPacienteEdit;
     
     CardLayout cardLayout;
     
@@ -50,6 +53,14 @@ public class JanAtendente extends javax.swing.JFrame {
     public static void setIdMedico(String idMedico1) {
         idMedico = idMedico1;
     }
+    
+    public String getIdPacienteEdit() {
+        return idPacienteEdit;
+    }
+
+    public static void setIdPacienteEdit(String idPacienteEdit1) {
+        idPacienteEdit = idPacienteEdit1;
+    }
 
     public JanAtendente() {
         initComponents();
@@ -60,6 +71,7 @@ public class JanAtendente extends javax.swing.JFrame {
         carregaTabela();
         carregaTabelaPaciente();
         carregaTabelaMedico();
+        carregaTabelaPacienteEdit();
     }
 
     public static JanAtendente getJanAtendente() {
@@ -152,6 +164,7 @@ public class JanAtendente extends javax.swing.JFrame {
         labAltDataNasc = new javax.swing.JLabel();
         btLimparAlt = new javax.swing.JButton();
         labSelAltPaciente = new javax.swing.JLabel();
+        labStatusEdit = new javax.swing.JLabel();
         btAltSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -443,7 +456,7 @@ public class JanAtendente extends javax.swing.JFrame {
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardConsultaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1238, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
@@ -462,7 +475,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
                         .addGap(80, 80, 80))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -933,7 +946,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código", "Paciente", "Endereço"
+                "Código", "Paciente", "CPF"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1065,7 +1078,9 @@ public class JanAtendente extends javax.swing.JFrame {
                                     .addComponent(tfAltEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(btLimparAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(430, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(labStatusEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1073,13 +1088,13 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(labNomePesquisaAltPac)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btNomePesquisaAltPac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tfNomeAltPac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labSelAltPaciente))
                     .addComponent(btlRefreshAltPac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btNomePesquisaAltPac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfNomeAltPac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labSelAltPaciente))))
+                    .addComponent(labStatusEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -1108,7 +1123,7 @@ public class JanAtendente extends javax.swing.JFrame {
                         .addComponent(tfAltCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btLimparAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addContainerGap(384, Short.MAX_VALUE))
         );
 
         btAltSalvar.setBackground(new java.awt.Color(249, 100, 100));
@@ -1286,23 +1301,26 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_labAltPacienteMouseClicked
 
     private void tabSelPaciente2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelPaciente2MousePressed
-        // TODO add your handling code here:
+        setIdPacienteEdit(tabSelPaciente2.getValueAt(tabSelPaciente2.getSelectedRow(), 0).toString());
+        puxarDadosPacienteEdit(getIdPacienteEdit());
     }//GEN-LAST:event_tabSelPaciente2MousePressed
 
     private void btNomePesquisaAltPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltPacActionPerformed
-        // TODO add your handling code here:
+        pesquisaTabelaPacienteEdit();
+        tfNomeAltPac.setText("");
+        tfNomeAltPac.requestFocus();
     }//GEN-LAST:event_btNomePesquisaAltPacActionPerformed
 
     private void btlRefreshAltPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshAltPacActionPerformed
-        // TODO add your handling code here:
+        carregaTabelaPacienteEdit();
     }//GEN-LAST:event_btlRefreshAltPacActionPerformed
 
     private void btLimparAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparAltActionPerformed
-        // TODO add your handling code here:
+        limparEdit();
     }//GEN-LAST:event_btLimparAltActionPerformed
 
     private void btAltSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAltSalvarActionPerformed
-        // TODO add your handling code here:
+        editarPaciente();
     }//GEN-LAST:event_btAltSalvarActionPerformed
 
     
@@ -1458,6 +1476,77 @@ public class JanAtendente extends javax.swing.JFrame {
 	}
     }
     
+    public void carregaTabelaPacienteEdit() {
+        DefaultTableModel modelo = (DefaultTableModel) tabSelPaciente2.getModel();
+        modelo.setNumRows(0);
+        
+        AtendenteController.carregaTabelaPacienteEdit(modelo);
+        
+        centralizarTabelaPacienteEdit();
+    }
+    
+    public void centralizarTabelaPacienteEdit() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+
+	for (int numCol = 0; numCol < tabSelPaciente2.getColumnCount(); numCol++) {
+            tabSelPaciente2.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+	}
+    }
+    
+    public void pesquisaTabelaPacienteEdit() {
+        DefaultTableModel modelo = (DefaultTableModel) tabSelPaciente2.getModel();
+        modelo.setNumRows(0);
+        
+        AtendenteController.pesquisaTabelaPacienteEdit(modelo, tfNomeAltPac.getText());
+        
+        centralizarTabelaPaciente();
+    }
+    
+    public void puxarDadosPacienteEdit(String pac_id) {
+        tfAltNome.setText(PacienteController.pesquisarPacienteID(pac_id).getNome());
+        tfAltCPF.setText(PacienteController.pesquisarPacienteID(pac_id).getCpf());
+        String[] dataNasc = PacienteController.pesquisarPacienteID(pac_id).getData_nascimento().split("-");
+        tfAltDataNasc.setText(dataNasc[2] + "/" + dataNasc[1] + "/" + dataNasc[0]);
+        tfAltTelefone.setText(PacienteController.pesquisarPacienteID(pac_id).getTelefone());
+        tfAltEndereco.setText(PacienteController.pesquisarPacienteID(pac_id).getEndereco());
+        
+    }
+    
+    public void limparEdit(){
+        tfAltNome.setText("");
+        tfAltCPF.setText("");
+        tfAltDataNasc.setText("");
+        tfAltTelefone.setText("");
+        tfAltEndereco.setText("");
+        tfAltNome.requestFocus();
+    }
+    
+    public void editarPaciente() {
+        String feedback = "";
+        
+        String id = getIdPacienteEdit();
+        
+        String nome = tfAltNome.getText();        
+        String data_nascimento = tfAltDataNasc.getText();
+        String cpf = tfAltCPF.getText();
+        String telefone = tfAltTelefone.getText();
+        String endereco = tfAltEndereco.getText();
+
+        feedback = AtendenteController.editarPaciente(id, nome, data_nascimento, cpf, telefone, endereco);
+
+        if (feedback == null) {
+            limparEdit();
+
+            labStatusEdit.setForeground(Color.green);
+            labStatusEdit.setText("PACIENTE ALTERADO COM SUCESSO!");
+        } else {
+            labStatusEdit.setForeground(Color.red);
+            labStatusEdit.setText(feedback);
+        }
+
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1540,6 +1629,7 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JLabel labNomePesquisaMed;
     private javax.swing.JLabel labNomePesquisaPac;
     private javax.swing.JLabel labSelAltPaciente;
+    private javax.swing.JLabel labStatusEdit;
     private javax.swing.JLabel labUser;
     private javax.swing.JLabel labUserImage;
     private javax.swing.JLabel lanSelMed;

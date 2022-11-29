@@ -49,8 +49,58 @@ public class AtendenteController {
 
     }
 
-    public static void editarPaciente(Paciente pac) {
+    public static String editarPaciente(String id, String nome, String data_nascimento, String cpf, String telefone, String endereco) {
+        Paciente paciente = new Paciente();
 
+        paciente.setId(id);
+
+        if (nome.equals(""))
+            return "NOME INVALIDO!";
+        paciente.setNome(nome);
+        
+        
+        String[] dataNascimentoFormata = data_nascimento.split("/");
+              
+        if (data_nascimento.equals(""))
+            return "DATA INVALIDO!";
+        else if(!data_nascimento.matches("([0-9]+(/[0-9]+)+)"))
+            return "DATA FORA DO PADRÃO!";
+        else if(!(Integer.parseInt(dataNascimentoFormata[0]) > 0 && Integer.parseInt(dataNascimentoFormata[0]) <= 31))
+            return "DIA INVALIDO!";
+        else if(!(Integer.parseInt(dataNascimentoFormata[1]) > 0 && Integer.parseInt(dataNascimentoFormata[1]) <= 12))
+            return "MES INVALIDO!";    
+        else if(!(Integer.parseInt(dataNascimentoFormata[2]) >= 1900 && Integer.parseInt(dataNascimentoFormata[2]) <= 2100))
+            return "ANO INVALIDO!";
+
+        paciente.setData_nascimento(dataNascimentoFormata[2] + "-" + dataNascimentoFormata[1] + "-" + dataNascimentoFormata[0]);
+        
+
+        if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
+            System.out.println("CPF INVÁLIDO");
+            return "CPF INVALIDO!";
+        }
+
+        if(!cpf.equals(PacienteController.pesquisarPacienteID(id).getCpf())){
+            if(!pesquisarFuncionarioCPF(cpf)){
+                System.out.println("CPF JÁ EXISTENTE");
+                return "CPF JÁ EXISTENTE!";
+            }
+        }    
+
+        paciente.setCpf(cpf);
+
+        paciente.setTelefone(telefone);
+        paciente.setEndereco(endereco);
+
+        
+
+        System.out.println(paciente.toString());
+
+        if (AtendenteDAO.editarPac(paciente)){
+            return null;
+        }else{
+            return "ERRO NO EDITAR PACIENTE";
+        }         
     }
 
     public static void encaminharTriagem(Consulta con) {
@@ -151,6 +201,14 @@ public class AtendenteController {
         AtendenteDAO.cadastrarTri(prontuario);
         
         return prontuario.getId();
+    }
+    
+    public static void carregaTabelaPacienteEdit(DefaultTableModel modelo) {
+        AtendenteDAO.carregaTabPacienteEdit(modelo);
+    }
+    
+    public static void pesquisaTabelaPacienteEdit(DefaultTableModel modelo, String nome) {
+        AtendenteDAO.pesquisaTabPacienteEdit(modelo, nome);
     }
     
 }
