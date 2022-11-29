@@ -293,7 +293,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="panInformacoes" pref="1238" max="32767" attributes="0"/>
+                      <Component id="panInformacoes" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -318,7 +318,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="panInformacoes" pref="835" max="32767" attributes="0"/>
+                              <Component id="panInformacoes" pref="840" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -1468,7 +1468,9 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="430" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="labStatusEdit" min="-2" pref="219" max="-2" attributes="0"/>
+                          <EmptySpace pref="179" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1478,15 +1480,14 @@
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="labNomePesquisaAltPac" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btlRefreshAltPac" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btNomePesquisaAltPac" alignment="1" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="tfNomeAltPac" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="labSelAltPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btNomePesquisaAltPac" alignment="1" max="32767" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                  <Component id="tfNomeAltPac" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="labSelAltPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="btlRefreshAltPac" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="labStatusEdit" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane4" min="-2" pref="257" max="-2" attributes="0"/>
@@ -1523,7 +1524,7 @@
                                   <Component id="btLimparAlt" min="-2" pref="42" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="367" max="32767" attributes="0"/>
+                          <EmptySpace pref="384" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1561,11 +1562,16 @@
                           <Table columnCount="3" rowCount="10">
                             <Column editable="false" title="C&#xf3;digo" type="java.lang.Object"/>
                             <Column editable="false" title="Paciente" type="java.lang.Object"/>
-                            <Column editable="false" title="Endere&#xe7;o" type="java.lang.Object"/>
+                            <Column editable="false" title="CPF" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
@@ -1780,6 +1786,8 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="SELECIONAR PACIENTE"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labStatusEdit">
                 </Component>
               </SubComponents>
             </Container>

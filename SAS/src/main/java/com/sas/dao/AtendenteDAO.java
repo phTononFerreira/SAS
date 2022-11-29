@@ -39,8 +39,33 @@ public class AtendenteDAO {
         return false;
     }
 
-    public static void editarPac(Paciente pac) {
+    public static boolean editarPac(Paciente pac) {
+        Connection conn = ConexaoBD.getConnection();
 
+        String query = "UPDATE paciente set pac_nome = ?, pac_dataNasc = ?, pac_cpf = ?, pac_telefone = ?, pac_endereco = ? WHERE pac_id = ?";
+        PreparedStatement pstm;
+
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, pac.getNome());
+            pstm.setString(2, pac.getData_nascimento());
+            pstm.setString(3, pac.getCpf());
+            pstm.setString(4, pac.getTelefone());
+            pstm.setString(5, pac.getEndereco());
+            pstm.setString(6, pac.getId());
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+        }
+
+        
+
+        return false;
     }
 
     public static void encaminharTri(Consulta con) {
@@ -118,7 +143,6 @@ public class AtendenteDAO {
                 ate.setEndereco(pesquisa.getString("ate_endereco"));
                 ate.setSalario(Double.parseDouble(pesquisa.getString("ate_salario")));
                 ate.setAdm_id(pesquisa.getString("adm_id"));
-                //System.out.println(adm.toString());
             } else {
                 ate = null;
             }
@@ -264,6 +288,45 @@ public class AtendenteDAO {
             }
         
         return false;
+    }
+    
+    public static void carregaTabPacienteEdit(DefaultTableModel modelo) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM paciente ORDER BY pac_nome");
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("pac_id"),
+                    rs.getString("pac_nome"),
+                    rs.getString("pac_cpf")                        
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela paciente");
+        }
+        
+    }
+    
+    public static void pesquisaTabPacienteEdit(DefaultTableModel modelo, String nome) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM paciente WHERE pac_nome LIKE '%" + nome + "%' ORDER BY pac_nome");
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("pac_id"),
+                    rs.getString("pac_nome"),
+                    rs.getString("pac_cpf")  
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela paciente");
+        } 
     }
     
 }
