@@ -319,7 +319,7 @@ public class AdministradorDAO {
         DecimalFormat df = new DecimalFormat("#.00");
         if(adm){
             try{
-                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador");
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador ORDER BY adm_nome");
 
                 while(rs.next()){
                     data_nascimento = rs.getString("adm_dataNasc").split("-");
@@ -341,7 +341,7 @@ public class AdministradorDAO {
         }
         if(ate){
             try{
-                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente");
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente ORDER BY ate_nome");
 
                 while(rs.next()){
                     data_nascimento = rs.getString("ate_dataNasc").split("-");
@@ -363,7 +363,7 @@ public class AdministradorDAO {
         }
         if(enf){
             try{
-                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira");
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira ORDER BY enf_nome");
 
                 while(rs.next()){
                     data_nascimento = rs.getString("enf_dataNasc").split("-");
@@ -386,7 +386,7 @@ public class AdministradorDAO {
         }
         if(med){
             try{
-                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico");
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico ORDER BY med_nome");
 
                 while(rs.next()){
                     data_nascimento = rs.getString("med_dataNasc").split("-");
@@ -416,7 +416,7 @@ public class AdministradorDAO {
         DecimalFormat df = new DecimalFormat("#.00");
         if(adm){
             try{
-                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_nome Like '%" + nome + "%'");
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM administrador WHERE adm_nome Like '%" + nome + "%' ORDER BY adm_nome");
 
                 while(rs.next()){
                     data_nascimento = rs.getString("adm_dataNasc").split("-");
@@ -438,7 +438,7 @@ public class AdministradorDAO {
         }
         if(ate){
             try{
-                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente WHERE ate_nome Like '%" + nome + "%'");
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM atendente WHERE ate_nome Like '%" + nome + "%' ORDER BY ate_nome");
 
                 while(rs.next()){
                     data_nascimento = rs.getString("ate_dataNasc").split("-");
@@ -460,7 +460,7 @@ public class AdministradorDAO {
         }
         if(enf){
             try{
-                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira WHERE enf_nome Like '%" + nome + "%'");
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira WHERE enf_nome Like '%" + nome + "%' ORDER BY enf_nome");
 
                 while(rs.next()){
                     data_nascimento = rs.getString("enf_dataNasc").split("-");
@@ -483,7 +483,7 @@ public class AdministradorDAO {
         }
         if(med){
             try{
-                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_nome Like '%" + nome + "%'");
+                rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_nome LIKE '%" + nome + "%' ORDER BY med_nome");
 
                 while(rs.next()){
                     data_nascimento = rs.getString("med_dataNasc").split("-");

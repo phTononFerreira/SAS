@@ -74,4 +74,20 @@ public class AtendenteController {
         AtendenteDAO.carregaTab(modelo);
     }
     
+    public static void carregaTabelaPaciente(DefaultTableModel modelo) {
+        AtendenteDAO.carregaTabPaciente(modelo);
+    }
+    
+    public static void pesquisaTabelaPaciente(DefaultTableModel modelo, String nome) {
+        AtendenteDAO.pesquisaTabPaciente(modelo, nome);
+    }
+    
+    public static void carregaTabelaMedico(DefaultTableModel modelo) {
+        AtendenteDAO.carregaTabMedico(modelo);
+    }
+    
+    public static void pesquisaTabelaMedico(DefaultTableModel modelo, String nome) {
+        AtendenteDAO.pesquisaTabMedico(modelo, nome);
+    }
+    
 }

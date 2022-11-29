@@ -121,7 +121,7 @@ public class AtendenteDAO {
         String[] hora = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1 ORDER BY c.con_data");
 
             while(rs.next()){
                 data = rs.getString("con_data").split("-");
@@ -137,6 +137,80 @@ public class AtendenteDAO {
             System.out.println("Erro ao puxar tabela consulta");
         }
         
+    }
+    
+    public static void carregaTabPaciente(DefaultTableModel modelo) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM paciente ORDER BY pac_nome");
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("pac_id"),
+                    rs.getString("pac_nome")
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela paciente");
+        }
+        
+    }
+    
+    public static void pesquisaTabPaciente(DefaultTableModel modelo, String nome) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM paciente WHERE pac_nome LIKE '%" + nome + "%' ORDER BY pac_nome");
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("pac_id"),
+                    rs.getString("pac_nome")  
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela paciente");
+        } 
+    }
+    
+    public static void carregaTabMedico(DefaultTableModel modelo) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico ORDER BY med_nome");
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("med_id"),
+                    rs.getString("med_nome")
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela medico");
+        }
+        
+    }
+    
+    public static void pesquisaTabMedico(DefaultTableModel modelo, String nome) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_nome LIKE '%" + nome + "%' ORDER BY med_nome");
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("med_id"),
+                    rs.getString("med_nome")  
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela medico");
+        } 
     }
     
 }

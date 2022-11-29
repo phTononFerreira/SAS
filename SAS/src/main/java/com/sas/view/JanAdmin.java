@@ -1858,7 +1858,6 @@ public class JanAdmin extends javax.swing.JFrame {
         
     }              
     
-    
     public void limpar() {
         tfNome.setText("");
         tfCpf.setText("");
