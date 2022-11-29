@@ -29,15 +29,18 @@ public class AdministradorController {
                 return "SENHA INVALIDA!";
             administrador.setSenha(senha);
             
-            administrador.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            try{
+                administrador.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
+            } catch(Exception e){
+                return "DATA DE NASCIMENTO INVALIDA!";
+            }
+            
             
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
-                System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
             }
             
             if(!pesquisarFuncionarioCPF(cpf)){
-                System.out.println("CPF JÁ EXISTENTE");
                 return "CPF JÁ EXISTENTE!";
             }
                 
