@@ -160,7 +160,12 @@ public class AtendenteController {
     }
 
     public static boolean cancelarConsulta(String consultaID) {
-        return AtendenteDAO.cancelarCon(consultaID);
+        if (consultaID != null){
+            return AtendenteDAO.cancelarCon(consultaID);
+        }else{
+            return false;
+        }
+        
     }
 
     public static Atendente pesquisarAtendenteID(String ID) {
@@ -209,6 +214,14 @@ public class AtendenteController {
     
     public static void pesquisaTabelaPacienteEdit(DefaultTableModel modelo, String nome) {
         AtendenteDAO.pesquisaTabPacienteEdit(modelo, nome);
+    }
+
+    public static String alterarStatusConsulta(String idConsulta, int status) {
+        if (AtendenteDAO.alterarStatusCon(idConsulta, status) && idConsulta != null){
+            return null;
+        }else{
+            return "ERRO AO ALTERAR STATUS";
+        }
     }
     
 }

@@ -329,4 +329,25 @@ public class AtendenteDAO {
         } 
     }
     
+    public static boolean alterarStatusCon(String id, int status) {
+        Connection conn = ConexaoBD.getConnection();
+        String query = "UPDATE consulta SET con_status = ? WHERE con_id = ?";
+        PreparedStatement pstm;
+
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setInt(1, status);
+            pstm.setString(2, id);
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+        }
+        return false;
+    }
+    
 }

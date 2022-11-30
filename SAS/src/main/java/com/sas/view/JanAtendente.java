@@ -103,6 +103,7 @@ public class JanAtendente extends javax.swing.JFrame {
         tabPaciente = new javax.swing.JTable();
         btRefresh1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jlStatusCon = new javax.swing.JLabel();
         btCancelar = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
         btEncaminhar = new javax.swing.JButton();
@@ -408,24 +409,26 @@ public class JanAtendente extends javax.swing.JFrame {
             .addGroup(panInformacoesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInformacoesLayout.createSequentialGroup()
+                    .addGroup(panInformacoesLayout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btRefresh1)
-                        .addGap(30, 30, 30))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInformacoesLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1212, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jlStatusCon, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE))
+                .addGap(69, 69, 69)
+                .addComponent(btRefresh1)
+                .addGap(30, 30, 30))
         );
         panInformacoesLayout.setVerticalGroup(
             panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panInformacoesLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(14, 14, 14)
                 .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRefresh1)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jlStatusCon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
                 .addGap(29, 29, 29))
         );
 
@@ -463,7 +466,7 @@ public class JanAtendente extends javax.swing.JFrame {
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addGap(325, 325, 325)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(335, Short.MAX_VALUE))
+                        .addContainerGap(336, Short.MAX_VALUE))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btEncaminhar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -476,15 +479,15 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
                         .addGap(80, 80, 80))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btEncaminhar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(394, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         panCardsAtendente.add(cardConsulta, "cardConsulta");
@@ -576,7 +579,7 @@ public class JanAtendente extends javax.swing.JFrame {
                                                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(lbTelefone)
                                                     .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addGap(0, 4, Short.MAX_VALUE)))
+                                        .addGap(0, 6, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labCPF)
@@ -590,7 +593,7 @@ public class JanAtendente extends javax.swing.JFrame {
             .addGroup(panTabelaLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addGroup(panTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panTabelaLayout.createSequentialGroup()
                         .addComponent(labCPF)
@@ -618,7 +621,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(528, Short.MAX_VALUE))
+                .addContainerGap(609, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cardCadastroLayout = new javax.swing.GroupLayout(cardCadastro);
@@ -629,15 +632,15 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(panTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
-                .addComponent(btAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 771, Short.MAX_VALUE)
+                .addComponent(btAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
         cardCadastroLayout.setVerticalGroup(
             cardCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardCadastroLayout.createSequentialGroup()
-                .addContainerGap(419, Short.MAX_VALUE)
+                .addContainerGap(495, Short.MAX_VALUE)
                 .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(419, Short.MAX_VALUE))
+                .addContainerGap(495, Short.MAX_VALUE))
             .addGroup(cardCadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -916,9 +919,9 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGroup(cardAgendarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
-                        .addGap(0, 407, Short.MAX_VALUE)
+                        .addGap(0, 485, Short.MAX_VALUE)
                         .addComponent(btAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 405, Short.MAX_VALUE)))
+                        .addGap(0, 483, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1124,7 +1127,7 @@ public class JanAtendente extends javax.swing.JFrame {
                         .addComponent(tfAltCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btLimparAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addContainerGap(533, Short.MAX_VALUE))
         );
 
         btAltSalvar.setBackground(new java.awt.Color(249, 100, 100));
@@ -1146,7 +1149,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btAltSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+                .addComponent(btAltSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                 .addContainerGap())
         );
         cardAlterarPacientesLayout.setVerticalGroup(
@@ -1209,8 +1212,15 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btAlterarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        AtendenteController.cancelarConsulta(consultaID);
+        if(AtendenteController.cancelarConsulta(consultaID)){
+            jlStatusCon.setForeground(Color.green);
+            jlStatusCon.setText("CONSULTA CANCELADA COM SUCESSO! ("+getConsultaID()+")");
+        }else{
+            jlStatusCon.setForeground(Color.red);
+            jlStatusCon.setText("ERRO AO CANCELAR CONSULTA!");
+        }
         carregaTabela();
+        setConsultaID(null);
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
@@ -1282,7 +1292,7 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btAgendarActionPerformed
 
     private void btEncaminharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEncaminharActionPerformed
-        // TODO add your handling code here:
+        encaminharTriagem();
     }//GEN-LAST:event_btEncaminharActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -1510,8 +1520,7 @@ public class JanAtendente extends javax.swing.JFrame {
         String[] dataNasc = PacienteController.pesquisarPacienteID(pac_id).getData_nascimento().split("-");
         tfAltDataNasc.setText(dataNasc[2] + "/" + dataNasc[1] + "/" + dataNasc[0]);
         tfAltTelefone.setText(PacienteController.pesquisarPacienteID(pac_id).getTelefone());
-        tfAltEndereco.setText(PacienteController.pesquisarPacienteID(pac_id).getEndereco());
-        
+        tfAltEndereco.setText(PacienteController.pesquisarPacienteID(pac_id).getEndereco());  
     }
     
     public void limparEdit(){
@@ -1538,14 +1547,35 @@ public class JanAtendente extends javax.swing.JFrame {
 
         if (feedback == null) {
             limparEdit();
-
-            labStatusEdit.setForeground(Color.green);
-            labStatusEdit.setText("PACIENTE ALTERADO COM SUCESSO!");
+            
+            jlStatusCon.setVisible(true);
+            jlStatusCon.setForeground(Color.green);
+            jlStatusCon.setText("PACIENTE ALTERADO COM SUCESSO!");
         } else {
-            labStatusEdit.setForeground(Color.red);
-            labStatusEdit.setText(feedback);
+            jlStatusCon.setForeground(Color.red);
+            jlStatusCon.setText(feedback);
         }
 
+    }
+    
+    public void encaminharTriagem(){
+        String feedback = "";
+        String idConsulta = getConsultaID();
+        
+        feedback = AtendenteController.alterarStatusConsulta(idConsulta, 2);
+
+        if (feedback == null) {
+            carregaTabela();
+            
+            
+            jlStatusCon.setForeground(Color.green);
+            jlStatusCon.setText("CONSULTA ENCAMINHADA COM SUCESSO! ("+ getConsultaID() +")");
+            setConsultaID(null);
+        } else {
+            jlStatusCon.setForeground(Color.red);
+            jlStatusCon.setText(feedback);
+        }
+        
     }
     
     public static void main(String args[]) {
@@ -1610,6 +1640,7 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel jlStatusCon;
     private javax.swing.JLabel labAgenConsulta;
     private javax.swing.JLabel labAgenData;
     private javax.swing.JLabel labAgenData1;
