@@ -19,9 +19,28 @@ public class EnfermeiraDAO {
         return null;
     }
 
-    public void controlarEst(InsumoMedico ins) {
+    public static boolean controlarEst(InsumoMedico ins) {
+        Connection conn = ConexaoBD.getConnection();
+        
+        String query = "UPDATE insumo set ins_qtd = ? WHERE ins_id = ?";
+        PreparedStatement pstm;
 
-    }
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setFloat(1, ins.getQuantidade());          
+            pstm.setString(2, ins.getId());
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+        }
+
+        return false;
+    }  
 
     public int contarEst(InsumoMedico ins) {
         return 0;
@@ -148,4 +167,24 @@ public class EnfermeiraDAO {
         return false;
     }
     
+    public static void carregaTabInsumo(DefaultTableModel modelo) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM insumo ORDER BY ins_nome");
+            
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("ins_id"),
+                    rs.getString("ins_nome"),
+                    rs.getInt("ins_qtd")                        
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela insumo");
+        }
+        
+    }
+        
 }

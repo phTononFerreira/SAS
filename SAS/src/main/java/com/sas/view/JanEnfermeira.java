@@ -2,6 +2,7 @@ package com.sas.view;
 
 import com.sas.controller.AtendenteController;
 import com.sas.controller.EnfermeiraController;
+import com.sas.controller.InsumoMedicoController;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
@@ -17,6 +18,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private Boolean Muser=false;
     private static String idConsulta;
     private static String idProtuario;
+    private static String idInsumo;
     
     CardLayout cardLayout;
     
@@ -43,6 +45,14 @@ public class JanEnfermeira extends javax.swing.JFrame {
     public static void setIdProtuario(String idProtuario1){
         idProtuario = idProtuario1;
     }
+    
+    public String getIdInsumo(){
+        return idInsumo;
+    }
+    
+    public static void setIdInsumo(String idInsumo1){
+        idInsumo = idInsumo1;
+    }
 
     public JanEnfermeira() {
         initComponents();
@@ -51,6 +61,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width / 2, dim.height / 2);
         carregaTabelaTriagem();
+        carregaTabelaInsumo();
     }
 
     public static JanEnfermeira getJanEnfermeira() {
@@ -497,19 +508,19 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tabEstoque.setForeground(new java.awt.Color(51, 51, 51));
         tabEstoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"", null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, "", null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome do Item", "Quantidade"
+                "Código Insumo", "Nome", "Quantidade"
             }
         ));
         tabEstoque.setGridColor(new java.awt.Color(204, 204, 204));
@@ -518,6 +529,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tabEstoque.setRowHeight(30);
         tabEstoque.setSelectionBackground(new java.awt.Color(196, 67, 67));
         tabEstoque.setShowGrid(true);
+        tabEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabEstoqueMousePressed(evt);
+            }
+        });
         jScrollPane4.setViewportView(tabEstoque);
 
         tfQuantidade.setBackground(new java.awt.Color(242, 242, 242));
@@ -675,7 +691,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterar1ActionPerformed
-        // TODO add your handling code here:
+        controlarEstoque();
+        carregaTabelaInsumo();
     }//GEN-LAST:event_btAlterar1ActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
@@ -728,12 +745,17 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNomePacActionPerformed
 
     private void btQtdDiminuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btQtdDiminuirActionPerformed
-        // TODO add your handling code here:
+        alterarQuantidadeInsumo(-1);
     }//GEN-LAST:event_btQtdDiminuirActionPerformed
 
     private void btQtdAumentar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btQtdAumentar1ActionPerformed
-        // TODO add your handling code here:
+        alterarQuantidadeInsumo(1);
     }//GEN-LAST:event_btQtdAumentar1ActionPerformed
+
+    private void tabEstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabEstoqueMousePressed
+        setIdInsumo(tabEstoque.getValueAt(tabEstoque.getSelectedRow(), 0).toString());
+        tfQuantidade.setText(Integer.toString(InsumoMedicoController.pesquisarInsumoID(getIdInsumo()).getQuantidade()));
+    }//GEN-LAST:event_tabEstoqueMousePressed
     
     public void sair(){
         this.dispose();
@@ -806,6 +828,48 @@ public class JanEnfermeira extends javax.swing.JFrame {
     
     public String pesquisarConsultaPorProntuario(String pro_id) {
         return EnfermeiraController.pesquisarConsultaPorProntuario(pro_id);
+    }
+    
+    public void carregaTabelaInsumo() {
+        DefaultTableModel modelo = (DefaultTableModel) tabEstoque.getModel();
+        modelo.setNumRows(0);
+        
+        EnfermeiraController.carregaTabelaInsumo(modelo);
+        
+        centralizarTabelaInsumo();
+    }
+    
+    public void centralizarTabelaInsumo() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+
+	for (int numCol = 0; numCol < tabEstoque.getColumnCount(); numCol++) {
+            tabEstoque.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+	}
+    }
+    
+    public void alterarQuantidadeInsumo(int i) {
+        if(Integer.parseInt(tfQuantidade.getText()) > 0 || i > 0)
+            tfQuantidade.setText(Integer.toString(Integer.parseInt(tfQuantidade.getText()) + i));
+        else
+            tfQuantidade.setText("0");
+    }
+    
+    public void controlarEstoque(){
+        String feedback = "";
+
+        String quantidade = tfQuantidade.getText();
+        String ins_id = getIdInsumo();
+        
+        feedback = EnfermeiraController.controlarEstoque(quantidade, ins_id);
+                
+        if(feedback == null){
+            System.out.println("QUANTIDADE ALTERADA COM SUCESSO!");
+            tfQuantidade.setText("");
+            setIdInsumo(null);
+        }
+        else
+            System.out.println(feedback);
     }
 
     public static void main(String args[]) {

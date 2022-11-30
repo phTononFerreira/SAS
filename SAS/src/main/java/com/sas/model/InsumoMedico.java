@@ -49,4 +49,9 @@ public class InsumoMedico {
         this.enf_id = enf_id;
     }
 
+    @Override
+    public String toString() {
+        return "InsumoMedico{" + "id=" + id + ", nome=" + nome + ", quantidade=" + quantidade + ", enf_id=" + enf_id + '}';
+    }
+
 }

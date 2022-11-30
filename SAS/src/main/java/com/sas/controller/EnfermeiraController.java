@@ -16,10 +16,6 @@ public class EnfermeiraController {
         return null;
     }
 
-    public static void controlarEstoque(InsumoMedico ins) {
-
-    }
-
     public static int contarEstoque(InsumoMedico ins) {
         return 0;
     }
@@ -62,6 +58,26 @@ public class EnfermeiraController {
         System.out.println(prontuario.toString());
 
         if (EnfermeiraDAO.preencherTri(prontuario)){
+            return null;
+        }else{
+            return "ERRO NO PREENCHER TRIAGEM";
+        }         
+    }
+    
+    public static void carregaTabelaInsumo(DefaultTableModel modelo) {
+        EnfermeiraDAO.carregaTabInsumo(modelo);
+    }
+    
+    public static String controlarEstoque(String quantidade, String ins_id) {
+        InsumoMedico insumo = new InsumoMedico();
+
+        insumo.setId(ins_id);
+
+        insumo.setQuantidade(Integer.parseInt(quantidade));
+        
+        System.out.println(insumo.toString());
+
+        if (EnfermeiraDAO.controlarEst(insumo)){
             return null;
         }else{
             return "ERRO NO PREENCHER TRIAGEM";
