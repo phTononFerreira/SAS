@@ -417,7 +417,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labDescricao, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btNomePesquisa1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+                    .addComponent(btNomePesquisa1, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(289, 289, 289))
@@ -640,18 +640,18 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_btNomePesquisa1ActionPerformed
 
     private void tabPaciente2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPaciente2MousePressed
-        setIdPacienteEdit(tabPaciente2.getValueAt(tabPaciente2.getSelectedRow(), 0).toString());
-        puxarDadosPacienteEdit(getIdPacienteEdit());
+        /*setIdPacienteEdit(tabPaciente2.getValueAt(tabPaciente2.getSelectedRow(), 0).toString());
+        puxarDadosPacienteEdit(getIdPacienteEdit());*/
     }//GEN-LAST:event_tabPaciente2MousePressed
 
     private void btlRefreshPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshPacActionPerformed
-        carregaTabelaPacienteEdit();
+        //carregaTabelaPacienteEdit();
     }//GEN-LAST:event_btlRefreshPacActionPerformed
 
     private void btNomePesquisaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaPacActionPerformed
-        pesquisaTabelaPacienteEdit();
+        /*pesquisaTabelaPacienteEdit();
         tfNomePac.setText("");
-        tfNomePac.requestFocus();
+        tfNomePac.requestFocus();*/
     }//GEN-LAST:event_btNomePesquisaPacActionPerformed
 
     private void tfNomePacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomePacActionPerformed

@@ -400,7 +400,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="labDescricao" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="btNomePesquisa1" pref="45" max="32767" attributes="0"/>
+                              <Component id="btNomePesquisa1" pref="64" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
