@@ -58,7 +58,6 @@ public class AtendenteController {
             return "NOME INVALIDO!";
         paciente.setNome(nome);
         
-        
         String[] dataNascimentoFormata = data_nascimento.split("/");
               
         if (data_nascimento.equals(""))
@@ -74,7 +73,6 @@ public class AtendenteController {
 
         paciente.setData_nascimento(dataNascimentoFormata[2] + "-" + dataNascimentoFormata[1] + "-" + dataNascimentoFormata[0]);
         
-
         if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
             System.out.println("CPF INVÁLIDO");
             return "CPF INVALIDO!";
@@ -91,8 +89,6 @@ public class AtendenteController {
 
         paciente.setTelefone(telefone);
         paciente.setEndereco(endereco);
-
-        
 
         System.out.println(paciente.toString());
 

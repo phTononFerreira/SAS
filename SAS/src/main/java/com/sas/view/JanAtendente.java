@@ -371,7 +371,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código", "Paciente", "Horário da Consulta"
+                "Código Consulta", "Paciente", "Horário da Consulta"
             }
         ));
         tabPaciente.setGridColor(new java.awt.Color(204, 204, 204));
@@ -423,10 +423,11 @@ public class JanAtendente extends javax.swing.JFrame {
             panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panInformacoesLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btRefresh1)
-                    .addComponent(jLabel2)
-                    .addComponent(jlStatusCon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlStatusCon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btRefresh1)
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
                 .addGap(29, 29, 29))
@@ -460,7 +461,7 @@ public class JanAtendente extends javax.swing.JFrame {
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardConsultaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1238, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
@@ -479,7 +480,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
                         .addGap(80, 80, 80))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -678,7 +679,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Código", "Paciente"
+                "Código Paciente", "Paciente"
             }
         ));
         tabSelPaciente1.setGridColor(new java.awt.Color(204, 204, 204));
@@ -744,7 +745,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Código", "Médico"
+                "Código Médico", "Médico"
             }
         ));
         tabSelMedico.setGridColor(new java.awt.Color(204, 204, 204));
@@ -1566,7 +1567,6 @@ public class JanAtendente extends javax.swing.JFrame {
 
         if (feedback == null) {
             carregaTabela();
-            
             
             jlStatusCon.setForeground(Color.green);
             jlStatusCon.setText("CONSULTA ENCAMINHADA COM SUCESSO! ("+ getConsultaID() +")");

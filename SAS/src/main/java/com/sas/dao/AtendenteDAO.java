@@ -63,8 +63,6 @@ public class AtendenteDAO {
             System.out.println("ERRO DAO " + erro);
         }
 
-        
-
         return false;
     }
 

@@ -1200,7 +1200,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cargo", "ID", "Nome", "CPF", "Telefone", "Data Nascimento", "Endereço", "Salário", "CRM / CR", "Especialidade"
+                "Cargo", "Código Funcionário", "Nome", "CPF", "Telefone", "Data Nascimento", "Endereço", "Salário", "CRM / CR", "Especialidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1341,7 +1341,7 @@ public class JanAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, 2034, Short.MAX_VALUE)
+            .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, 2036, Short.MAX_VALUE)
             .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(

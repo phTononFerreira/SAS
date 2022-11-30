@@ -1,15 +1,22 @@
 package com.sas.view;
 
+import com.sas.controller.AtendenteController;
+import com.sas.controller.EnfermeiraController;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Toolkit;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 public class JanEnfermeira extends javax.swing.JFrame {
 
     private static JanEnfermeira unicoJanEnfermeira;
     private static String ID;
     private Boolean Muser=false;
+    private static String idConsulta;
+    private static String idProtuario;
     
     CardLayout cardLayout;
     
@@ -20,6 +27,22 @@ public class JanEnfermeira extends javax.swing.JFrame {
     public static void setId(String ID1){
         ID = ID1;
     }
+    
+    public String getIdConsulta(){
+        return idConsulta;
+    }
+    
+    public static void setIdConsulta(String idConsulta1){
+        idConsulta = idConsulta1;
+    }
+    
+    public String getIdProtuario(){
+        return idProtuario;
+    }
+    
+    public static void setIdProtuario(String idProtuario1){
+        idProtuario = idProtuario1;
+    }
 
     public JanEnfermeira() {
         initComponents();
@@ -27,7 +50,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width / 2, dim.height / 2);
-
+        carregaTabelaTriagem();
     }
 
     public static JanEnfermeira getJanEnfermeira() {
@@ -294,7 +317,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código", "Paciente", "CPF"
+                "Código Triagem", "Paciente", "CPF"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -607,7 +630,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_labEstoqueMouseClicked
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        // TODO add your handling code here:
+        preencherTriagem();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
@@ -645,22 +668,22 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_labLogoutMouseClicked
 
     private void btNomePesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisa1ActionPerformed
-        // TODO add your handling code here:
+        limparTriagem();
     }//GEN-LAST:event_btNomePesquisa1ActionPerformed
 
     private void tabPaciente2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPaciente2MousePressed
-        /*setIdPacienteEdit(tabPaciente2.getValueAt(tabPaciente2.getSelectedRow(), 0).toString());
-        puxarDadosPacienteEdit(getIdPacienteEdit());*/
+        setIdProtuario(tabPaciente2.getValueAt(tabPaciente2.getSelectedRow(), 0).toString());
+        setIdConsulta(pesquisarConsultaPorProntuario(getIdProtuario()));
     }//GEN-LAST:event_tabPaciente2MousePressed
 
     private void btlRefreshPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshPacActionPerformed
-        //carregaTabelaPacienteEdit();
+        carregaTabelaTriagem();
     }//GEN-LAST:event_btlRefreshPacActionPerformed
 
     private void btNomePesquisaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaPacActionPerformed
-        /*pesquisaTabelaPacienteEdit();
+        pesquisaTabelaTriagem();
         tfNomePac.setText("");
-        tfNomePac.requestFocus();*/
+        tfNomePac.requestFocus();
     }//GEN-LAST:event_btNomePesquisaPacActionPerformed
 
     private void tfNomePacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomePacActionPerformed
@@ -675,6 +698,69 @@ public class JanEnfermeira extends javax.swing.JFrame {
     
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
+    }
+    
+    public void carregaTabelaTriagem() {
+        DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
+        modelo.setNumRows(0);
+        
+        EnfermeiraController.carregaTabelaTriagem(modelo);
+        
+        centralizarTabelaTriagem();
+    }
+    
+    public void centralizarTabelaTriagem() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+
+	for (int numCol = 0; numCol < tabPaciente2.getColumnCount(); numCol++) {
+            tabPaciente2.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+	}
+    }
+    
+    public void pesquisaTabelaTriagem() {
+        DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
+        modelo.setNumRows(0);
+        
+        EnfermeiraController.pesquisaTabelaTriagem(modelo, tfNomePac.getText());
+        
+        centralizarTabelaTriagem();
+    }
+    
+    public void limparTriagem(){
+        tfTemperatura.setText("");
+        tfPressao.setText("");
+        taDescricao.setText("");
+        tabPaciente2.clearSelection();
+        tfTemperatura.requestFocus();
+    }
+    
+    public void preencherTriagem(){
+        String feedback = "";
+        String feedbackAlt = "";
+        
+        String temperatura = tfTemperatura.getText();
+        String pressao = tfPressao.getText();
+        String descricao = taDescricao.getText();
+
+        String pro_id = getIdProtuario();
+        String enf_id = getId();
+ 
+        System.out.println(getIdConsulta());
+        
+        feedback = EnfermeiraController.preencherTriagem(temperatura, pressao, descricao, pro_id, enf_id);
+        feedbackAlt = AtendenteController.alterarStatusConsulta(getIdConsulta(), 3);
+        
+        if(feedback == null && feedbackAlt == null){
+            System.out.println("Deu certo preencher triagem");
+            limparTriagem();
+        }
+        else
+            System.out.println(feedback);
+    }
+    
+    public String pesquisarConsultaPorProntuario(String pro_id) {
+        return EnfermeiraController.pesquisarConsultaPorProntuario(pro_id);
     }
 
     public static void main(String args[]) {

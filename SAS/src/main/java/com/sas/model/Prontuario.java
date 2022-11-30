@@ -69,4 +69,9 @@ public class Prontuario {
         this.enf_id = enf_id;
     }
 
+    @Override
+    public String toString() {
+        return "Prontuario{" + "id=" + id + ", temperatura=" + temperatura + ", pressao=" + pressao + ", descricao=" + descricao + ", pac_id=" + pac_id + ", enf_id=" + enf_id + '}';
+    }
+
 }
