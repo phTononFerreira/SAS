@@ -1,6 +1,9 @@
 package com.sas.view;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Toolkit;
 
 public class JanEnfermeira extends javax.swing.JFrame {
 
@@ -22,6 +25,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
         initComponents();
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(dim.width / 2, dim.height / 2);
 
     }
 

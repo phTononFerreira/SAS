@@ -11,6 +11,9 @@ import com.sas.model.Funcionario;
 import com.sas.model.Medico;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -48,6 +51,8 @@ public class JanAdmin extends javax.swing.JFrame {
         initComponents();
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(dim.width / 2, dim.height / 2);
         selectCardFuncionarios();
         rbAdministracao.setSelected(true);
         selectAdmCad();
