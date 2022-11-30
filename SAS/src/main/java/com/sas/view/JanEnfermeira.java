@@ -95,16 +95,20 @@ public class JanEnfermeira extends javax.swing.JFrame {
         labNomePesquisaPac = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         cardEstoque = new javax.swing.JPanel();
-        btCadastrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabEstoque = new javax.swing.JTable();
+        tfNomePac1 = new javax.swing.JTextField();
         btAlterar1 = new javax.swing.JButton();
-        jSpinner1 = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
+        btQtdDiminuir = new javax.swing.JButton();
+        btQtdAumentar1 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Enfermagem");
         setPreferredSize(new java.awt.Dimension(1920, 1080));
+        setSize(new java.awt.Dimension(1920, 1080));
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
         panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(249, 100, 100)));
@@ -475,25 +479,12 @@ public class JanEnfermeira extends javax.swing.JFrame {
             .addGroup(cardTriagemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panCards.add(cardTriagem, "cardTriagem");
 
         cardEstoque.setBackground(new java.awt.Color(231, 231, 231));
-
-        btCadastrar.setBackground(new java.awt.Color(249, 100, 100));
-        btCadastrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btCadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        btCadastrar.setText("CADASTRAR");
-        btCadastrar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
-        btCadastrar.setBorder(null);
-        btCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastrarActionPerformed(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(249, 100, 100), 1, true));
@@ -523,32 +514,22 @@ public class JanEnfermeira extends javax.swing.JFrame {
         ));
         tabEstoque.setGridColor(new java.awt.Color(204, 204, 204));
         tabEstoque.setIntercellSpacing(new java.awt.Dimension(0, 10));
+        tabEstoque.setMinimumSize(new java.awt.Dimension(0, 0));
         tabEstoque.setRowHeight(30);
         tabEstoque.setSelectionBackground(new java.awt.Color(196, 67, 67));
         tabEstoque.setShowGrid(true);
         jScrollPane4.setViewportView(tabEstoque);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1165, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
-        );
+        tfNomePac1.setBackground(new java.awt.Color(242, 242, 242));
+        tfNomePac1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        tfNomePac1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfNomePac1.setToolTipText("");
+        tfNomePac1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
         btAlterar1.setBackground(new java.awt.Color(249, 100, 100));
         btAlterar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btAlterar1.setForeground(new java.awt.Color(255, 255, 255));
-        btAlterar1.setText("<html>&nbsp;&nbsp;  ALTERAR<br />QUANTIDADE</html>");
+        btAlterar1.setText("SALVAR");
         btAlterar1.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
         btAlterar1.setBorder(null);
         btAlterar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -558,6 +539,84 @@ public class JanEnfermeira extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ALTERAR QUANTIDADE");
+
+        btQtdDiminuir.setBackground(new java.awt.Color(249, 100, 100));
+        btQtdDiminuir.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btQtdDiminuir.setForeground(new java.awt.Color(255, 255, 255));
+        btQtdDiminuir.setText("▼");
+        btQtdDiminuir.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btQtdDiminuir.setBorder(null);
+        btQtdDiminuir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btQtdDiminuir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btQtdDiminuirActionPerformed(evt);
+            }
+        });
+
+        btQtdAumentar1.setBackground(new java.awt.Color(249, 100, 100));
+        btQtdAumentar1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btQtdAumentar1.setForeground(new java.awt.Color(255, 255, 255));
+        btQtdAumentar1.setText("▲");
+        btQtdAumentar1.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btQtdAumentar1.setBorder(null);
+        btQtdAumentar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btQtdAumentar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btQtdAumentar1ActionPerformed(evt);
+            }
+        });
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1397, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(tfNomePac1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btQtdAumentar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btQtdDiminuir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btAlterar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfNomePac1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btQtdAumentar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btQtdDiminuir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
+                        .addGap(30, 30, 30))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jSeparator2)
+                        .addContainerGap())))
+        );
+
         javax.swing.GroupLayout cardEstoqueLayout = new javax.swing.GroupLayout(cardEstoque);
         cardEstoque.setLayout(cardEstoqueLayout);
         cardEstoqueLayout.setHorizontalGroup(
@@ -565,17 +624,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
             .addGroup(cardEstoqueLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cardEstoqueLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
-                            .addComponent(btAlterar1))
-                        .addGap(22, 22, 22))
-                    .addGroup(cardEstoqueLayout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         cardEstoqueLayout.setVerticalGroup(
             cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -583,14 +632,6 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
-            .addGroup(cardEstoqueLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btAlterar1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panCards.add(cardEstoque, "cardEstoque");
@@ -632,10 +673,6 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         preencherTriagem();
     }//GEN-LAST:event_btSalvarActionPerformed
-
-    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btAlterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterar1ActionPerformed
         // TODO add your handling code here:
@@ -689,6 +726,14 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void tfNomePacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomePacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomePacActionPerformed
+
+    private void btQtdDiminuirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btQtdDiminuirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btQtdDiminuirActionPerformed
+
+    private void btQtdAumentar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btQtdAumentar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btQtdAumentar1ActionPerformed
     
     public void sair(){
         this.dispose();
@@ -800,19 +845,21 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlterar1;
-    private javax.swing.JButton btCadastrar;
     private javax.swing.JButton btNomePesquisa1;
     private javax.swing.JButton btNomePesquisaPac;
+    private javax.swing.JButton btQtdAumentar1;
+    private javax.swing.JButton btQtdDiminuir;
     private javax.swing.JButton btSalvar;
     private javax.swing.JButton btlRefreshPac;
     private javax.swing.JPanel cardEstoque;
     private javax.swing.JPanel cardTriagem;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labDescricao;
     private javax.swing.JLabel labEstoque;
     private javax.swing.JLabel labLogo;
@@ -832,6 +879,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JTable tabEstoque;
     private javax.swing.JTable tabPaciente2;
     private javax.swing.JTextField tfNomePac;
+    private javax.swing.JTextField tfNomePac1;
     private javax.swing.JTextField tfPressao;
     private javax.swing.JTextField tfTemperatura;
     // End of variables declaration//GEN-END:variables
