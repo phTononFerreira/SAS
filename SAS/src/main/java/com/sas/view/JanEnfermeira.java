@@ -271,12 +271,12 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tfTemperatura.setBackground(new java.awt.Color(242, 242, 242));
         tfTemperatura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labTemperatura.setText("TEMPERATURA");
+        labTemperatura.setText("TEMPERATURA ");
 
         tfPressao.setBackground(new java.awt.Color(242, 242, 242));
         tfPressao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
-        labPressao.setText("PRESSÃO ARTERIAL");
+        labPressao.setText("PRESSÃO ARTERIAL (SI/DI)");
 
         labDescricao.setText("DESCRIÇÃO");
 
@@ -752,7 +752,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         feedbackAlt = AtendenteController.alterarStatusConsulta(getIdConsulta(), 3);
         
         if(feedback == null && feedbackAlt == null){
-            System.out.println("Deu certo preencher triagem");
+            System.out.println("TRIAGEM PREENCHIDA COM SUCESSO!");
             limparTriagem();
         }
         else
