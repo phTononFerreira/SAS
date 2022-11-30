@@ -124,7 +124,7 @@ public class AdministradorController {
             if (AdministradorDAO.cadastrarFunc(atendente)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+                return "ERRO NO CADASTRO!";
             }
 
         } else if (tipo.equalsIgnoreCase("enfermeira")) {
@@ -182,7 +182,7 @@ public class AdministradorController {
             if (AdministradorDAO.cadastrarFunc(enfermeira)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+                return "ERRO NO CADASTRO!";
             }
         } else if (tipo.equalsIgnoreCase("medico")) {
             Medico medico = new Medico();
@@ -244,7 +244,7 @@ public class AdministradorController {
             }
         }
 
-        return "ERRO NO CADASTRO! [NENHUM TIPO SELECIONADO]";
+        return "ERRO NO CADASTRO!";
     }
 
     public static String editarFuncionario(Funcionario func) {

@@ -745,8 +745,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
         String pro_id = getIdProtuario();
         String enf_id = getId();
- 
-        System.out.println(getIdConsulta());
+        
+        System.out.println("CONSULTA: " + getIdConsulta());
         
         feedback = EnfermeiraController.preencherTriagem(temperatura, pressao, descricao, pro_id, enf_id);
         feedbackAlt = AtendenteController.alterarStatusConsulta(getIdConsulta(), 3);
