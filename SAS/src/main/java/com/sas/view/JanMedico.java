@@ -1,5 +1,9 @@
 package com.sas.view;
 
+import java.awt.Dimension;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Toolkit;
+
 public class JanMedico extends javax.swing.JFrame {
 
     private static JanMedico unicoJanMedico;
@@ -17,6 +21,8 @@ public class JanMedico extends javax.swing.JFrame {
     public JanMedico() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(dim.width / 2, dim.height / 2);
     }
 
     public static JanMedico getJanMedico() {
