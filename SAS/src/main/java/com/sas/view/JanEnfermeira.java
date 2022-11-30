@@ -98,7 +98,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabEstoque = new javax.swing.JTable();
-        tfNomePac1 = new javax.swing.JTextField();
+        tfQuantidade = new javax.swing.JTextField();
         btAlterar1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btQtdDiminuir = new javax.swing.JButton();
@@ -520,11 +520,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tabEstoque.setShowGrid(true);
         jScrollPane4.setViewportView(tabEstoque);
 
-        tfNomePac1.setBackground(new java.awt.Color(242, 242, 242));
-        tfNomePac1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
-        tfNomePac1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tfNomePac1.setToolTipText("");
-        tfNomePac1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfQuantidade.setBackground(new java.awt.Color(242, 242, 242));
+        tfQuantidade.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
+        tfQuantidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfQuantidade.setToolTipText("");
+        tfQuantidade.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
 
         btAlterar1.setBackground(new java.awt.Color(249, 100, 100));
         btAlterar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -584,7 +584,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tfNomePac1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btQtdAumentar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -601,7 +601,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tfNomePac1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btQtdAumentar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -879,8 +879,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JTable tabEstoque;
     private javax.swing.JTable tabPaciente2;
     private javax.swing.JTextField tfNomePac;
-    private javax.swing.JTextField tfNomePac1;
     private javax.swing.JTextField tfPressao;
+    private javax.swing.JTextField tfQuantidade;
     private javax.swing.JTextField tfTemperatura;
     // End of variables declaration//GEN-END:variables
 }
