@@ -1400,7 +1400,7 @@ public class JanAtendente extends javax.swing.JFrame {
         feedback = AtendenteController.agendarConsulta(status, pac_id, med_id, ate_id, data, hora, receita);
         
         if(feedback == null){
-            System.out.println("Deu certo agendar");
+            System.out.println("CONSULTA AGENDADA COM SUCESSO!");
             limparAgenda();
         }
         else

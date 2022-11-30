@@ -438,7 +438,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="labTemperatura">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="TEMPERATURA"/>
+                    <Property name="text" type="java.lang.String" value="TEMPERATURA "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfPressao">
@@ -457,7 +457,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="labPressao">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="PRESS&#xc3;O ARTERIAL"/>
+                    <Property name="text" type="java.lang.String" value="PRESS&#xc3;O ARTERIAL (SI/DI)"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labDescricao">

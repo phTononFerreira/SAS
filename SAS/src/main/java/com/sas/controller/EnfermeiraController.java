@@ -49,7 +49,7 @@ public class EnfermeiraController {
             return "TEMPERATURA INVALIDO!";
         prontuario.setTemperatura(Float.parseFloat(temperatura));
         
-        if (pressao.equals(""))
+        if (pressao.equals("") || !pressao.matches("[0-9]+/[0-9]+"))
             return "PRESSAO INVALIDO!";
         prontuario.setPressao(pressao);
         
