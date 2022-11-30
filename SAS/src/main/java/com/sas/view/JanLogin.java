@@ -91,6 +91,11 @@ public class JanLogin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
 
         jPasswordFieldSenha.setBackground(new java.awt.Color(238, 238, 238));
         jPasswordFieldSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -237,6 +242,12 @@ public class JanLogin extends javax.swing.JFrame {
             jButton1.doClick();
         }
     }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            jButton1.doClick();
+        }
+    }//GEN-LAST:event_jButton1KeyPressed
 
     public void abreJanAdmin(String ID) {
         statusLabel.setText("");
