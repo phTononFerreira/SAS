@@ -1,15 +1,23 @@
 package com.sas.view;
 
+import com.sas.controller.ConsultaController;
+import com.sas.controller.MedicoController;
+import com.sas.controller.PacienteController;
+import com.sas.controller.ProntuarioController;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Toolkit;
 import java.awt.CardLayout;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 public class JanMedico extends javax.swing.JFrame {
 
     private static JanMedico unicoJanMedico;
     private static String ID;
     private Boolean Muser=false;
+    private static String idConsulta;
     
     CardLayout cardLayout;
     
@@ -21,12 +29,21 @@ public class JanMedico extends javax.swing.JFrame {
         ID = ID1;
     }
     
+    public String getIdConsulta(){
+        return idConsulta;
+    }
+    
+    public static void setIdConsulta(String idConsulta1){
+        idConsulta = idConsulta1;
+    }
+    
     public JanMedico() {
         initComponents();
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
+        carregaTabelaConsulta();
     }
 
     public static JanMedico getJanMedico() {
@@ -247,7 +264,7 @@ public class JanMedico extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código Triagem", "Paciente", "CPF"
+                "Código Consulta", "Paciente", "CPF"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -263,6 +280,11 @@ public class JanMedico extends javax.swing.JFrame {
         tabPaciente2.setRowMargin(7);
         tabPaciente2.setSelectionBackground(new java.awt.Color(196, 67, 67));
         tabPaciente2.setShowGrid(true);
+        tabPaciente2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabPaciente2MousePressed(evt);
+            }
+        });
         jScrollPane5.setViewportView(tabPaciente2);
 
         labSelPaciente.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
@@ -278,6 +300,11 @@ public class JanMedico extends javax.swing.JFrame {
         btNomePesquisaPac.setForeground(new java.awt.Color(255, 255, 255));
         btNomePesquisaPac.setText("PESQUISAR");
         btNomePesquisaPac.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btNomePesquisaPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNomePesquisaPacActionPerformed(evt);
+            }
+        });
 
         btlRefreshPac.setBackground(new java.awt.Color(249, 100, 100));
         btlRefreshPac.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -285,6 +312,11 @@ public class JanMedico extends javax.swing.JFrame {
         btlRefreshPac.setText("🔄");
         btlRefreshPac.setToolTipText("Atualizar Tabela");
         btlRefreshPac.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btlRefreshPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btlRefreshPacActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -336,6 +368,11 @@ public class JanMedico extends javax.swing.JFrame {
                 btIniciarConsMouseClicked(evt);
             }
         });
+        btIniciarCons.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btIniciarConsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cardConsultaLayout = new javax.swing.GroupLayout(cardConsulta);
         cardConsulta.setLayout(cardConsultaLayout);
@@ -352,12 +389,13 @@ public class JanMedico extends javax.swing.JFrame {
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardConsultaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(cardConsultaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btIniciarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(cardConsultaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btIniciarCons, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panCards.add(cardConsulta, "cardConsulta");
@@ -529,6 +567,11 @@ public class JanMedico extends javax.swing.JFrame {
                 btSalvar2MouseClicked(evt);
             }
         });
+        btSalvar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cardPacInfoLayout = new javax.swing.GroupLayout(cardPacInfo);
         cardPacInfo.setLayout(cardPacInfoLayout);
@@ -606,7 +649,14 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_labLogoutMouseClicked
 
     private void btIniciarConsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btIniciarConsMouseClicked
-        cardLayout.show(panCards, "cardPacInfo");
+        if(getIdConsulta() != null){
+            cardLayout.show(panCards, "cardPacInfo");
+            puxarDadosProntuario(getIdConsulta(), ConsultaController.pesquisarConsultaID(getIdConsulta()).getPro_id(), ConsultaController.pesquisarConsultaID(getIdConsulta()).getPac_id()); 
+        }
+        else{
+            System.out.println("Selecione uma consulta primeiro!");
+        }            
+        
     }//GEN-LAST:event_btIniciarConsMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -615,7 +665,28 @@ public class JanMedico extends javax.swing.JFrame {
 
     private void btSalvar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvar2MouseClicked
         cardLayout.show(panCards, "cardConsulta");
+        limparConsultaSelecionada();
     }//GEN-LAST:event_btSalvar2MouseClicked
+
+    private void btIniciarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarConsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btIniciarConsActionPerformed
+
+    private void btSalvar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btSalvar2ActionPerformed
+
+    private void btlRefreshPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshPacActionPerformed
+        carregaTabelaConsulta();
+    }//GEN-LAST:event_btlRefreshPacActionPerformed
+
+    private void btNomePesquisaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaPacActionPerformed
+        pesquisaTabelaConsulta();
+    }//GEN-LAST:event_btNomePesquisaPacActionPerformed
+
+    private void tabPaciente2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPaciente2MousePressed
+        setIdConsulta(tabPaciente2.getValueAt(tabPaciente2.getSelectedRow(), 0).toString());
+    }//GEN-LAST:event_tabPaciente2MousePressed
     
     public void sair(){
         this.dispose();
@@ -625,6 +696,59 @@ public class JanMedico extends javax.swing.JFrame {
     
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
+    }
+    
+    public void carregaTabelaConsulta() {
+        DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
+        modelo.setNumRows(0);
+        
+        MedicoController.carregaTabelaConsulta(modelo);
+        
+        centralizarTabelaConsulta();
+    }
+    
+    public void centralizarTabelaConsulta() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+
+	for (int numCol = 0; numCol < tabPaciente2.getColumnCount(); numCol++) {
+            tabPaciente2.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+	}
+    }
+    
+    public void pesquisaTabelaConsulta() {
+        DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
+        modelo.setNumRows(0);
+        
+        MedicoController.pesquisaTabelaConsulta(modelo, tfNomePac.getText());
+        
+        tfNomePac.setText("");
+        tfNomePac.requestFocus();
+        
+        centralizarTabelaConsulta();
+    }
+    
+    public void puxarDadosProntuario(String con_id, String pro_id, String pac_id) {
+        labPacNome.setText(PacienteController.pesquisarPacienteID(pac_id).getNome());
+        String[] dataNasc = PacienteController.pesquisarPacienteID(pac_id).getData_nascimento().split("-");
+        int idade = 2022 - Integer.parseInt(dataNasc[0]);
+        labPacNome1.setText(idade + " anos");
+        
+        String[] dataFragmentada = ConsultaController.pesquisarConsultaID(con_id).getData().split(" ");
+        String[] data = dataFragmentada[0].split("-");
+        String dataFormatada = data[2] + "/" + data[1] + "/" + data[0];
+        
+        labPacData.setText(dataFormatada);
+        labPacHora.setText(dataFragmentada[1]);
+        
+        labPacTemperatura.setText(Float.toString(ProntuarioController.pesquisarProntuarioID(pro_id).getTemperatura()));
+        labPacPressão.setText(ProntuarioController.pesquisarProntuarioID(pro_id).getPressao());
+        labPacObs.setText(ProntuarioController.pesquisarProntuarioID(pro_id).getDescricao()); 
+    }
+    
+    public void limparConsultaSelecionada(){
+        setIdConsulta(null);
+        tabPaciente2.clearSelection();
     }
 
     public static void main(String args[]) {

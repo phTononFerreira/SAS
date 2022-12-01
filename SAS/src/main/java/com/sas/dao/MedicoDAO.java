@@ -6,6 +6,7 @@ import com.sas.model.Medico;
 import com.sas.model.Prontuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 public class MedicoDAO {
     
@@ -64,6 +65,45 @@ public class MedicoDAO {
             return -1;
         }
         
+    }
+    
+    public static void carregaTabConsulta(DefaultTableModel modelo) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, p.pac_cpf FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1 ORDER BY c.con_data");
+            
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("con_id"),
+                    rs.getString("pac_nome"),
+                    rs.getString("pac_cpf")                        
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela paciente");
+        }
+        
+    }
+    
+    public static void pesquisaTabConsulta(DefaultTableModel modelo, String nome) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, p.pac_cpf FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 3 AND pac_nome LIKE '%" + nome + "%' ORDER BY c.con_data");
+            
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("con_id"),
+                    rs.getString("pac_nome"),
+                    rs.getString("pac_cpf")   
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela paciente");
+        } 
     }
     
 }
