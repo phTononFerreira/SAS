@@ -373,7 +373,15 @@ public class JanAtendente extends javax.swing.JFrame {
             new String [] {
                 "Código Consulta", "Paciente", "Horário da Consulta"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabPaciente.setGridColor(new java.awt.Color(204, 204, 204));
         tabPaciente.setMinimumSize(new java.awt.Dimension(0, 0));
         tabPaciente.setRowHeight(30);
@@ -422,17 +430,13 @@ public class JanAtendente extends javax.swing.JFrame {
             panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panInformacoesLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panInformacoesLayout.createSequentialGroup()
-                        .addComponent(jlStatusCon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(662, 662, 662))
-                    .addGroup(panInformacoesLayout.createSequentialGroup()
-                        .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btRefresh1)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1)
-                        .addGap(215, 215, 215))))
+                .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btRefresh1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlStatusCon))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                .addGap(215, 215, 215))
         );
 
         btCancelar.setBackground(new java.awt.Color(249, 100, 100));
@@ -683,7 +687,15 @@ public class JanAtendente extends javax.swing.JFrame {
             new String [] {
                 "Código Paciente", "Paciente"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabSelPaciente1.setGridColor(new java.awt.Color(204, 204, 204));
         tabSelPaciente1.setRowHeight(30);
         tabSelPaciente1.setRowMargin(7);
@@ -749,7 +761,15 @@ public class JanAtendente extends javax.swing.JFrame {
             new String [] {
                 "Código Médico", "Médico"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabSelMedico.setGridColor(new java.awt.Color(204, 204, 204));
         tabSelMedico.setRowHeight(30);
         tabSelMedico.setRowMargin(7);

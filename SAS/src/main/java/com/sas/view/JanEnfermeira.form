@@ -10,6 +10,9 @@
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="windowLostFocus" listener="java.awt.event.WindowFocusListener" parameters="java.awt.event.WindowEvent" handler="dialogCadInsumoWindowLostFocus"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="dialogCadInsumo.setLocationRelativeTo(null);"/>
       </AuxValues>
@@ -213,6 +216,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btCadInsCancelarMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadInsCancelarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -489,7 +493,7 @@
                               <Component id="btSalvar" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="panInformacoes" alignment="0" pref="887" max="32767" attributes="0"/>
+                          <Component id="panInformacoes" alignment="0" pref="878" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -901,7 +905,7 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btCadInsumo" pref="482" max="32767" attributes="0"/>
+                      <Component id="btCadInsumo" pref="493" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -946,7 +950,7 @@
                           <Component id="jScrollPane4" min="-2" pref="1068" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jSeparator2" min="-2" pref="11" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" pref="240" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
@@ -957,15 +961,9 @@
                                       <Component id="btQtdDiminuir" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="btAlterar2" alignment="1" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="1129" max="-2" attributes="0"/>
-                              <Component id="btAlterar2" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -986,18 +984,13 @@
                                           <Component id="btQtdDiminuir" min="-2" pref="38" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btAlterar2" min="-2" pref="73" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane4" alignment="0" pref="767" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                              <Component id="btAlterar2" min="-2" pref="73" max="-2" attributes="0"/>
-                              <EmptySpace pref="621" max="32767" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1033,8 +1026,8 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="3" rowCount="10">
-                            <Column editable="true" title="C&#xf3;digo Insumo" type="java.lang.Object"/>
-                            <Column editable="true" title="Nome" type="java.lang.Object">
+                            <Column editable="false" title="C&#xf3;digo Insumo" type="java.lang.Object"/>
+                            <Column editable="false" title="Nome" type="java.lang.Object">
                               <Data value=""/>
                               <Data value="null"/>
                               <Data value="null"/>
@@ -1046,7 +1039,7 @@
                               <Data value="null"/>
                               <Data value="null"/>
                             </Column>
-                            <Column editable="true" title="Quantidade" type="java.lang.Object"/>
+                            <Column editable="false" title="Quantidade" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

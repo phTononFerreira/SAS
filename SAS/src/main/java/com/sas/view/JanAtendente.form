@@ -375,21 +375,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jlStatusCon" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="662" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btRefresh1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btRefresh1" max="32767" attributes="0"/>
+                              <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlStatusCon" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" pref="625" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -425,9 +418,9 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="3" rowCount="10">
-                            <Column editable="true" title="C&#xf3;digo Consulta" type="java.lang.Object"/>
-                            <Column editable="true" title="Paciente" type="java.lang.Object"/>
-                            <Column editable="true" title="Hor&#xe1;rio da Consulta" type="java.lang.Object"/>
+                            <Column editable="false" title="C&#xf3;digo Consulta" type="java.lang.Object"/>
+                            <Column editable="false" title="Paciente" type="java.lang.Object"/>
+                            <Column editable="false" title="Hor&#xe1;rio da Consulta" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1076,8 +1069,8 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="2" rowCount="10">
-                            <Column editable="true" title="C&#xf3;digo Paciente" type="java.lang.Object"/>
-                            <Column editable="true" title="Paciente" type="java.lang.Object"/>
+                            <Column editable="false" title="C&#xf3;digo Paciente" type="java.lang.Object"/>
+                            <Column editable="false" title="Paciente" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1213,8 +1206,8 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="2" rowCount="10">
-                            <Column editable="true" title="C&#xf3;digo M&#xe9;dico" type="java.lang.Object"/>
-                            <Column editable="true" title="M&#xe9;dico" type="java.lang.Object"/>
+                            <Column editable="false" title="C&#xf3;digo M&#xe9;dico" type="java.lang.Object"/>
+                            <Column editable="false" title="M&#xe9;dico" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

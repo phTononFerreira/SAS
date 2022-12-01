@@ -129,6 +129,13 @@ public class JanEnfermeira extends javax.swing.JFrame {
         dialogCadInsumo.setTitle("Cadastro de Insumos");
         dialogCadInsumo.setMinimumSize(new java.awt.Dimension(450, 360));
         dialogCadInsumo.setResizable(false);
+        dialogCadInsumo.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                dialogCadInsumoWindowLostFocus(evt);
+            }
+        });
 
         panCadInsBack.setBackground(new java.awt.Color(255, 255, 255));
         panCadInsBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
@@ -176,6 +183,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         btCadInsCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btCadInsCancelarMouseClicked(evt);
+            }
+        });
+        btCadInsCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadInsCancelarActionPerformed(evt);
             }
         });
 
@@ -617,7 +629,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE))
+                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -650,7 +662,15 @@ public class JanEnfermeira extends javax.swing.JFrame {
             new String [] {
                 "Código Insumo", "Nome", "Quantidade"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabEstoque.setGridColor(new java.awt.Color(204, 204, 204));
         tabEstoque.setIntercellSpacing(new java.awt.Dimension(0, 10));
         tabEstoque.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -729,7 +749,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1068, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -737,13 +757,9 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btQtdAumentar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btQtdDiminuir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btQtdDiminuir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btAlterar2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(1129, 1129, 1129)
-                    .addComponent(btAlterar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(22, 22, 22)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -760,14 +776,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
                                 .addComponent(btQtdAumentar1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btQtdDiminuir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btAlterar2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE))
                 .addGap(79, 79, 79))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(182, 182, 182)
-                    .addComponent(btAlterar2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(621, Short.MAX_VALUE)))
         );
 
         btCadInsumo.setBackground(new java.awt.Color(249, 100, 100));
@@ -791,7 +804,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btCadInsumo, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+                .addComponent(btCadInsumo, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
                 .addContainerGap())
         );
         cardEstoqueLayout.setVerticalGroup(
@@ -911,7 +924,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_tabEstoqueMousePressed
 
     private void btAlterar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterar2ActionPerformed
-        // TODO add your handling code here:
+        controlarEstoque();
+        carregaTabelaInsumo();
     }//GEN-LAST:event_btAlterar2ActionPerformed
 
     private void btCadInsSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsSalvarActionPerformed
@@ -929,6 +943,15 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void tfQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfQuantidadeActionPerformed
         //here
     }//GEN-LAST:event_tfQuantidadeActionPerformed
+
+    private void btCadInsCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btCadInsCancelarActionPerformed
+
+    private void dialogCadInsumoWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogCadInsumoWindowLostFocus
+        //dialogCadInsumo.dispose();
+        dialogCadInsumo.toFront();
+    }//GEN-LAST:event_dialogCadInsumoWindowLostFocus
     
     public void sair(){
         this.dispose();

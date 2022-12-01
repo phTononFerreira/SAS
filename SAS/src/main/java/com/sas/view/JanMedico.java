@@ -241,7 +241,15 @@ public class JanMedico extends javax.swing.JFrame {
             new String [] {
                 "Paciente", "Horário"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabPaciente.setGridColor(new java.awt.Color(204, 204, 204));
         tabPaciente.setRowHeight(30);
         tabPaciente.setRowMargin(5);
