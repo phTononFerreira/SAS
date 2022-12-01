@@ -128,7 +128,6 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
         dialogCadInsumo.setTitle("Cadastro de Insumos");
         dialogCadInsumo.setMinimumSize(new java.awt.Dimension(450, 360));
-        dialogCadInsumo.setPreferredSize(new java.awt.Dimension(450, 360));
         dialogCadInsumo.setResizable(false);
 
         panCadInsBack.setBackground(new java.awt.Color(255, 255, 255));
@@ -604,7 +603,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
             cardTriagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardTriagemLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1257, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1258, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
                 .addComponent(btSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
@@ -618,7 +617,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE))
+                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -670,6 +669,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tfQuantidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfQuantidade.setToolTipText("");
         tfQuantidade.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfQuantidadeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -794,12 +798,13 @@ public class JanEnfermeira extends javax.swing.JFrame {
             cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardEstoqueLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(cardEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardEstoqueLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btCadInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardEstoqueLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btCadInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panCards.add(cardEstoque, "cardEstoque");
@@ -836,6 +841,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         labEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         labEstoque.setFont(new java.awt.Font("Verdana", 0, 18));
         labTriagem.setFont(new java.awt.Font("Verdana", 0, 14));
+        tfQuantidade.setText("0");
     }//GEN-LAST:event_labEstoqueMouseClicked
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
@@ -919,6 +925,10 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void btCadInsCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadInsCancelarMouseClicked
         dialogCadInsumo.dispose();
     }//GEN-LAST:event_btCadInsCancelarMouseClicked
+
+    private void tfQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfQuantidadeActionPerformed
+        //here
+    }//GEN-LAST:event_tfQuantidadeActionPerformed
     
     public void sair(){
         this.dispose();
