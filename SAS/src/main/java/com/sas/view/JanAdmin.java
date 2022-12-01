@@ -99,8 +99,14 @@ public class JanAdmin extends javax.swing.JFrame {
         dialogPopUpStatus = new javax.swing.JDialog();
         dialogPopUpStatus.setLocationRelativeTo(null);
         panCadInsBack = new javax.swing.JPanel();
-        btCadInsSalvar = new javax.swing.JButton();
         labPopUpStatus = new javax.swing.JLabel();
+        btOK = new javax.swing.JButton();
+        dialogOptionPane = new javax.swing.JDialog();
+        dialogPopUpStatus.setLocationRelativeTo(null);
+        panCadInsBack1 = new javax.swing.JPanel();
+        btConfirmar = new javax.swing.JButton();
+        labOptionPane = new javax.swing.JLabel();
+        btCancelar = new javax.swing.JButton();
         panTop = new javax.swing.JPanel();
         labLogo = new javax.swing.JLabel();
         labFuncionario = new javax.swing.JLabel();
@@ -389,7 +395,9 @@ public class JanAdmin extends javax.swing.JFrame {
         );
 
         dialogPopUpStatus.setTitle("SAS ALERT");
-        dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(450, 170));
+        dialogPopUpStatus.setLocation(new java.awt.Point(800, 500));
+        dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(443, 175));
+        dialogPopUpStatus.setPreferredSize(new java.awt.Dimension(443, 170));
         dialogPopUpStatus.setResizable(false);
         dialogPopUpStatus.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -402,36 +410,37 @@ public class JanAdmin extends javax.swing.JFrame {
         panCadInsBack.setBackground(new java.awt.Color(255, 255, 255));
         panCadInsBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
 
-        btCadInsSalvar.setBackground(new java.awt.Color(249, 100, 100));
-        btCadInsSalvar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btCadInsSalvar.setForeground(new java.awt.Color(255, 255, 255));
-        btCadInsSalvar.setText("OK");
-        btCadInsSalvar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
-        btCadInsSalvar.setBorder(null);
-        btCadInsSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btCadInsSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadInsSalvarActionPerformed(evt);
-            }
-        });
-
         labPopUpStatus.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         labPopUpStatus.setForeground(new java.awt.Color(51, 51, 51));
         labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labPopUpStatus.setText("SAS ALERT");
+
+        btOK.setBackground(new java.awt.Color(249, 100, 100));
+        btOK.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btOK.setForeground(new java.awt.Color(255, 255, 255));
+        btOK.setText("OK");
+        btOK.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btOK.setBorder(null);
+        btOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOKActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panCadInsBackLayout = new javax.swing.GroupLayout(panCadInsBack);
         panCadInsBack.setLayout(panCadInsBackLayout);
         panCadInsBackLayout.setHorizontalGroup(
             panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCadInsBackLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labPopUpStatus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panCadInsBackLayout.createSequentialGroup()
-                        .addGap(0, 241, Short.MAX_VALUE)
-                        .addComponent(btCadInsSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panCadInsBackLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(labPopUpStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)))
+                .addGap(15, 15, 15))
         );
         panCadInsBackLayout.setVerticalGroup(
             panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,8 +448,8 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(labPopUpStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btCadInsSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout dialogPopUpStatusLayout = new javax.swing.GroupLayout(dialogPopUpStatus.getContentPane());
@@ -456,7 +465,99 @@ public class JanAdmin extends javax.swing.JFrame {
             dialogPopUpStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dialogPopUpStatusLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panCadInsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panCadInsBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        dialogOptionPane.setTitle("SAS ALERT");
+        dialogOptionPane.setLocation(new java.awt.Point(800, 500));
+        dialogOptionPane.setMinimumSize(new java.awt.Dimension(443, 175));
+        dialogOptionPane.setPreferredSize(new java.awt.Dimension(444, 170));
+        dialogOptionPane.setResizable(false);
+        dialogOptionPane.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                dialogOptionPaneWindowLostFocus(evt);
+            }
+        });
+
+        panCadInsBack1.setBackground(new java.awt.Color(255, 255, 255));
+        panCadInsBack1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
+
+        btConfirmar.setBackground(new java.awt.Color(249, 100, 100));
+        btConfirmar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        btConfirmar.setText("CONFIRMAR");
+        btConfirmar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btConfirmar.setBorder(null);
+        btConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConfirmarActionPerformed(evt);
+            }
+        });
+
+        labOptionPane.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        labOptionPane.setForeground(new java.awt.Color(51, 51, 51));
+        labOptionPane.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labOptionPane.setText("SAS OPTION PANE");
+
+        btCancelar.setBackground(new java.awt.Color(249, 100, 100));
+        btCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btCancelar.setText("CANCELAR");
+        btCancelar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btCancelar.setBorder(null);
+        btCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panCadInsBack1Layout = new javax.swing.GroupLayout(panCadInsBack1);
+        panCadInsBack1.setLayout(panCadInsBack1Layout);
+        panCadInsBack1Layout.setHorizontalGroup(
+            panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCadInsBack1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labOptionPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panCadInsBack1Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(12, 12, 12))
+        );
+        panCadInsBack1Layout.setVerticalGroup(
+            panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCadInsBack1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(labOptionPane, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10))
+        );
+
+        javax.swing.GroupLayout dialogOptionPaneLayout = new javax.swing.GroupLayout(dialogOptionPane.getContentPane());
+        dialogOptionPane.getContentPane().setLayout(dialogOptionPaneLayout);
+        dialogOptionPaneLayout.setHorizontalGroup(
+            dialogOptionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogOptionPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panCadInsBack1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        dialogOptionPaneLayout.setVerticalGroup(
+            dialogOptionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogOptionPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panCadInsBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1531,39 +1632,11 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_tfSenhaActionPerformed
 
     private void btSalvarEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarEditActionPerformed
-        String feedback = "";
-        String tipo = "";
-        String id = this.getIdFuncionarioEditMoment();
-        String senha = tfSenhaEdit.getText();
-        String nome = tfNomeEdit.getText();
-        String[] data_nascimento = tfNascEdit.getText().split("/");
-        String cpf = tfCpfEdit.getText();
-        String telefone = tfTelefoneEdit.getText();
-        String endereco = tfEnderecoEdit.getText();
-        String salario = tfSalarioEdit.getText();
-        String crM = tfCrMEdit.getText();
-        String especialidade = tfEspecialidadeEdit.getText();
-
-        if (id.contains("adm")) {
-            tipo = "adm";
-        } else if (id.contains("ate")) {
-            tipo = "ate";
-        } else if (id.contains("enf")) {
-            tipo = "enf";
-        } else if (id.contains("med")) {
-            tipo = "med";
-        }
-
-        feedback = AdministradorController.alterarFuncionario(tipo, id, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
-
-        if (feedback == null) {
-            System.out.println("USUARIO ALTERADO COM SUCESSO!");
-        } else
-            System.out.println(feedback);
+        
     }//GEN-LAST:event_btSalvarEditActionPerformed
 
     private void btSalvarEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarEditMouseClicked
-        EditarFunc();
+        optionAlterarFunc();
     }//GEN-LAST:event_btSalvarEditMouseClicked
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
@@ -1657,14 +1730,32 @@ public class JanAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeEditActionPerformed
 
-    private void btCadInsSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsSalvarActionPerformed
-        dialogPopUpStatus.setVisible(false);
-    }//GEN-LAST:event_btCadInsSalvarActionPerformed
-
     private void dialogPopUpStatusWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogPopUpStatusWindowLostFocus
-        //dialogCadInsumo.dispose();
         dialogPopUpStatus.toFront();
     }//GEN-LAST:event_dialogPopUpStatusWindowLostFocus
+
+    private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
+        editarFunc();
+        dialogOptionPane.setVisible(false);
+    }//GEN-LAST:event_btConfirmarActionPerformed
+
+    private void dialogOptionPaneWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogOptionPaneWindowLostFocus
+        dialogOptionPane.toFront();
+    }//GEN-LAST:event_dialogOptionPaneWindowLostFocus
+
+    private void btOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOKActionPerformed
+        dialogPopUpStatus.setVisible(false);
+    }//GEN-LAST:event_btOKActionPerformed
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        dialogOptionPane.setVisible(false);
+    }//GEN-LAST:event_btCancelarActionPerformed
+    
+    public void optionAlterarFunc(){
+        dialogOptionPane.setVisible(true);
+        labOptionPane.setText("Deseja alterar funcionario?");
+    }
+    
     public void selectCardFuncionarios() {
         cardLayout.show(panCards, "cardCadFuncionario");
         labFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
@@ -1864,10 +1955,10 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfEnderecoEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getEndereco());
                 tfSenhaEdit.setText(AtendenteController.pesquisarAtendenteID(id_pesquisa).getSenha());
             }
-            labStatus.setForeground(Color.green);
+            labStatus.setForeground(new Color(93, 201, 120));
             return "FUNCIONÁRIO ENCONTRADO!";
         } else {
-            labStatus.setForeground(Color.red);
+            labStatus.setForeground(new Color(247, 99, 99));
             limparEdit();
             ocultarEditar();
 
@@ -1902,7 +1993,7 @@ public class JanAdmin extends javax.swing.JFrame {
         btSalvarEdit.setVisible(false);
     }
 
-    public void EditarFunc() {
+    public void editarFunc() {
         String feedback = "";
         String tipo = "";
         String id = getIdFuncionarioEditMoment();
@@ -1931,9 +2022,10 @@ public class JanAdmin extends javax.swing.JFrame {
         if (feedback == null) {
             limparEdit();
             ocultarEditar();
-
-            labStatus.setForeground(Color.green);
-            labStatus.setText("USUARIO ALTERADO COM SUCESSO!");
+            
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ FUNCIONARIO ALTERADO COM SUCESSO!");
         } else {
             labStatus.setForeground(Color.red);
             labStatus.setText(feedback);
@@ -2050,13 +2142,15 @@ public class JanAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bgEquipe;
     private javax.swing.ButtonGroup bgFiltro;
-    private javax.swing.JButton btCadInsSalvar;
     private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btCancelar;
     private javax.swing.JButton btCancelarAlt;
+    private javax.swing.JButton btConfirmar;
     private javax.swing.JButton btIDPesquisa;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btNomePesquisa;
     private javax.swing.JButton btNomePesquisaAlt;
+    private javax.swing.JButton btOK;
     private javax.swing.JButton btRefresh;
     private javax.swing.JButton btSalvarAlt;
     private javax.swing.JButton btSalvarEdit;
@@ -2064,6 +2158,7 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel cardEditFuncionario;
     private javax.swing.JPanel cardFuncionarios;
     private javax.swing.JDialog dialogAlteracao;
+    private javax.swing.JDialog dialogOptionPane;
     private javax.swing.JDialog dialogPopUpStatus;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
@@ -2101,6 +2196,7 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel labNomeAlt;
     private javax.swing.JLabel labNomeEdit;
     private javax.swing.JLabel labNomePesquisa;
+    private javax.swing.JLabel labOptionPane;
     private javax.swing.JLabel labPopUpStatus;
     private javax.swing.JLabel labSalario;
     private javax.swing.JLabel labSalarioAlt;
@@ -2115,6 +2211,7 @@ public class JanAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel labUserImage;
     private javax.swing.JLabel lbFiltrarEquipe;
     private javax.swing.JPanel panCadInsBack;
+    private javax.swing.JPanel panCadInsBack1;
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panInfo;
     private javax.swing.JPanel panInfoEdit;
