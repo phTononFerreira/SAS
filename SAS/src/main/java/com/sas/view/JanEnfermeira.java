@@ -4,6 +4,7 @@ import com.sas.controller.AtendenteController;
 import com.sas.controller.EnfermeiraController;
 import com.sas.controller.InsumoMedicoController;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
@@ -85,6 +86,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         labCadInsNome = new javax.swing.JLabel();
         labCadInsQuantidade = new javax.swing.JLabel();
         btCadInsCancelar = new javax.swing.JButton();
+        dialogPopUpStatus = new javax.swing.JDialog();
+        dialogPopUpStatus.setLocationRelativeTo(null);
+        panCadInsBack1 = new javax.swing.JPanel();
+        labPopUpStatus = new javax.swing.JLabel();
+        btOK = new javax.swing.JButton();
         panTop = new javax.swing.JPanel();
         labLogo = new javax.swing.JLabel();
         labEstoque = new javax.swing.JLabel();
@@ -254,6 +260,81 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panCadInsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+
+        dialogPopUpStatus.setTitle("SAS ALERT");
+        dialogPopUpStatus.setLocation(new java.awt.Point(800, 500));
+        dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(443, 175));
+        dialogPopUpStatus.setPreferredSize(new java.awt.Dimension(443, 170));
+        dialogPopUpStatus.setResizable(false);
+        dialogPopUpStatus.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                dialogPopUpStatusWindowLostFocus(evt);
+            }
+        });
+
+        panCadInsBack1.setBackground(new java.awt.Color(255, 255, 255));
+        panCadInsBack1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
+
+        labPopUpStatus.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        labPopUpStatus.setForeground(new java.awt.Color(51, 51, 51));
+        labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labPopUpStatus.setText("SAS ALERT");
+
+        btOK.setBackground(new java.awt.Color(249, 100, 100));
+        btOK.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btOK.setForeground(new java.awt.Color(255, 255, 255));
+        btOK.setText("OK");
+        btOK.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btOK.setBorder(null);
+        btOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOKActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panCadInsBack1Layout = new javax.swing.GroupLayout(panCadInsBack1);
+        panCadInsBack1.setLayout(panCadInsBack1Layout);
+        panCadInsBack1Layout.setHorizontalGroup(
+            panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCadInsBack1Layout.createSequentialGroup()
+                .addGroup(panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panCadInsBack1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panCadInsBack1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(labPopUpStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)))
+                .addGap(15, 15, 15))
+        );
+        panCadInsBack1Layout.setVerticalGroup(
+            panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCadInsBack1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(labPopUpStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dialogPopUpStatusLayout = new javax.swing.GroupLayout(dialogPopUpStatus.getContentPane());
+        dialogPopUpStatus.getContentPane().setLayout(dialogPopUpStatusLayout);
+        dialogPopUpStatusLayout.setHorizontalGroup(
+            dialogPopUpStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogPopUpStatusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panCadInsBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        dialogPopUpStatusLayout.setVerticalGroup(
+            dialogPopUpStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogPopUpStatusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panCadInsBack1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -629,7 +710,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 885, Short.MAX_VALUE))
+                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -962,6 +1043,14 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void btCadInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsumoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btCadInsumoActionPerformed
+
+    private void btOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOKActionPerformed
+        dialogPopUpStatus.setVisible(false);
+    }//GEN-LAST:event_btOKActionPerformed
+
+    private void dialogPopUpStatusWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogPopUpStatusWindowLostFocus
+        dialogPopUpStatus.toFront();
+    }//GEN-LAST:event_dialogPopUpStatusWindowLostFocus
     
     public void sair(){
         this.dispose();
@@ -1025,11 +1114,21 @@ public class JanEnfermeira extends javax.swing.JFrame {
         feedbackAlt = AtendenteController.alterarStatusConsulta(getIdConsulta(), 3);
         
         if(feedback == null && feedbackAlt == null){
-            System.out.println("TRIAGEM PREENCHIDA COM SUCESSO!");
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ TRIAGEM PREENCHIDA COM SUCESSO!");
             limparTriagem();
+            setIdConsulta(null);
         }
-        else
-            System.out.println(feedback);
+        else{
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            if (feedback != null)
+                labPopUpStatus.setText("⚠ " + feedback);
+            else
+                labPopUpStatus.setText("⚠ Paciente não selecionado!");  
+            
+        }
     }
     
     public String pesquisarConsultaPorProntuario(String pro_id) {
@@ -1093,11 +1192,15 @@ public class JanEnfermeira extends javax.swing.JFrame {
         feedback = EnfermeiraController.cadastrarInsumo(nome, quantidade, enf_id);
         
         if(feedback == null){
-            System.out.println("Deu certo cadastrar insumo");
+            labPopUpStatus.setText("✅ Insumo cadastrado com sucesso");
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            dialogPopUpStatus.setVisible(true);
             limparInsumo();
         }
         else
-            System.out.println(feedback);
+            labPopUpStatus.setText("⚠ " + feedback);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            dialogPopUpStatus.setVisible(true);
     }
     
     public void limparInsumo(){
@@ -1149,6 +1252,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JButton btCadInsumo;
     private javax.swing.JButton btNomePesquisa1;
     private javax.swing.JButton btNomePesquisaPac;
+    private javax.swing.JButton btOK;
     private javax.swing.JButton btQtdAumentar1;
     private javax.swing.JButton btQtdDiminuir;
     private javax.swing.JButton btSalvar;
@@ -1156,6 +1260,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JPanel cardEstoque;
     private javax.swing.JPanel cardTriagem;
     private javax.swing.JDialog dialogCadInsumo;
+    private javax.swing.JDialog dialogPopUpStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1171,6 +1276,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JLabel labLogo;
     private javax.swing.JLabel labLogout;
     private javax.swing.JLabel labNomePesquisaPac;
+    private javax.swing.JLabel labPopUpStatus;
     private javax.swing.JLabel labPressao;
     private javax.swing.JLabel labSelPaciente;
     private javax.swing.JLabel labTemperatura;
@@ -1178,6 +1284,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private javax.swing.JLabel labUser;
     private javax.swing.JLabel labUserImage;
     private javax.swing.JPanel panCadInsBack;
+    private javax.swing.JPanel panCadInsBack1;
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panInformacoes;
     private javax.swing.JPanel panTop;
