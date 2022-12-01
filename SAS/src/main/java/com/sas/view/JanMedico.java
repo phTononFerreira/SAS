@@ -3,6 +3,7 @@ package com.sas.view;
 import com.sas.controller.ConsultaController;
 import com.sas.controller.MedicoController;
 import com.sas.controller.PacienteController;
+import com.sas.controller.ProntuarioController;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Toolkit;
@@ -652,7 +653,9 @@ public class JanMedico extends javax.swing.JFrame {
             cardLayout.show(panCards, "cardPacInfo");
             puxarDadosProntuario(getIdConsulta(), ConsultaController.pesquisarConsultaID(getIdConsulta()).getPro_id(), ConsultaController.pesquisarConsultaID(getIdConsulta()).getPac_id()); 
         }
-            
+        else{
+            System.out.println("Selecione uma consulta primeiro!");
+        }            
         
     }//GEN-LAST:event_btIniciarConsMouseClicked
 
@@ -662,6 +665,7 @@ public class JanMedico extends javax.swing.JFrame {
 
     private void btSalvar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvar2MouseClicked
         cardLayout.show(panCards, "cardConsulta");
+        limparConsultaSelecionada();
     }//GEN-LAST:event_btSalvar2MouseClicked
 
     private void btIniciarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarConsActionPerformed
@@ -730,21 +734,21 @@ public class JanMedico extends javax.swing.JFrame {
         int idade = 2022 - Integer.parseInt(dataNasc[0]);
         labPacNome1.setText(idade + " anos");
         
-        String data = ConsultaController.pesquisarConsultaID(getIdConsulta()).getData();
+        String[] dataFragmentada = ConsultaController.pesquisarConsultaID(con_id).getData().split(" ");
+        String[] data = dataFragmentada[0].split("-");
+        String dataFormatada = data[2] + "/" + data[1] + "/" + data[0];
         
-        labPacData.setText();
-        labPacHora.setText();
+        labPacData.setText(dataFormatada);
+        labPacHora.setText(dataFragmentada[1]);
         
-        labInfoTemperatura.setText();
-        labPacPressão.setText();
-        labPacObs.setText();
-                
-        
-        tfAltCPF.setText(PacienteController.pesquisarPacienteID(pac_id).getCpf());
-        String[] dataNasc = PacienteController.pesquisarPacienteID(pac_id).getData_nascimento().split("-");
-        tfAltDataNasc.setText(dataNasc[2] + "/" + dataNasc[1] + "/" + dataNasc[0]);
-        tfAltTelefone.setText(PacienteController.pesquisarPacienteID(pac_id).getTelefone());
-        tfAltEndereco.setText(PacienteController.pesquisarPacienteID(pac_id).getEndereco());  
+        labPacTemperatura.setText(Float.toString(ProntuarioController.pesquisarProntuarioID(pro_id).getTemperatura()));
+        labPacPressão.setText(ProntuarioController.pesquisarProntuarioID(pro_id).getPressao());
+        labPacObs.setText(ProntuarioController.pesquisarProntuarioID(pro_id).getDescricao()); 
+    }
+    
+    public void limparConsultaSelecionada(){
+        setIdConsulta(null);
+        tabPaciente2.clearSelection();
     }
 
     public static void main(String args[]) {

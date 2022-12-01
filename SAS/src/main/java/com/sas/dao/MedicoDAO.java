@@ -91,7 +91,7 @@ public class MedicoDAO {
         ResultSet rs = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, p.pac_cpf FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1 AND pac_nome LIKE '%" + nome + "%' ORDER BY c.con_data");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, p.pac_cpf FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 3 AND pac_nome LIKE '%" + nome + "%' ORDER BY c.con_data");
             
             while(rs.next()){
                 modelo.addRow(new Object[]{
