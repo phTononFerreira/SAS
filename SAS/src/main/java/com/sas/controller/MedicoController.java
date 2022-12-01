@@ -5,6 +5,7 @@ import com.sas.model.Consulta;
 import com.sas.model.InsumoMedico;
 import com.sas.model.Medico;
 import com.sas.model.Prontuario;
+import javax.swing.table.DefaultTableModel;
 
 public class MedicoController {
     
@@ -26,6 +27,14 @@ public class MedicoController {
 
     public static Medico pesquisarMedicoID(String ID) {
         return MedicoDAO.pesquisarMedID(ID);
+    }
+    
+    public static void carregaTabelaConsulta(DefaultTableModel modelo) {
+        MedicoDAO.carregaTabConsulta(modelo);
+    }
+    
+    public static void pesquisaTabelaConsulta(DefaultTableModel modelo, String nome) {
+        MedicoDAO.pesquisaTabConsulta(modelo, nome);
     }
     
 }
