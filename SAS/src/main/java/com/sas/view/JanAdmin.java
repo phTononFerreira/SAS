@@ -417,28 +417,28 @@ public class JanAdmin extends javax.swing.JFrame {
 
         labPopUpStatus.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         labPopUpStatus.setForeground(new java.awt.Color(51, 51, 51));
-        labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labPopUpStatus.setText("CADASTRO DE INSUMOS");
+        labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labPopUpStatus.setText("SAS ALERT");
 
         javax.swing.GroupLayout panCadInsBackLayout = new javax.swing.GroupLayout(panCadInsBack);
         panCadInsBack.setLayout(panCadInsBackLayout);
         panCadInsBackLayout.setHorizontalGroup(
             panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCadInsBackLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addGroup(panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labPopUpStatus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panCadInsBackLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btCadInsSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labPopUpStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE))
+                        .addGap(0, 241, Short.MAX_VALUE)
+                        .addComponent(btCadInsSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
         );
         panCadInsBackLayout.setVerticalGroup(
             panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCadInsBackLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(labPopUpStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGap(13, 13, 13)
+                .addComponent(labPopUpStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btCadInsSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -1762,11 +1762,12 @@ public class JanAdmin extends javax.swing.JFrame {
 
         if (feedback == null) {
             dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
             labPopUpStatus.setText("✅ FUNCIONARIO CADASTRADO COM SUCESSO!");
-            
             limpar();
         } else {
             dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
             labPopUpStatus.setText("⚠ " + feedback);
         }
 
