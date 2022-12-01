@@ -1124,9 +1124,9 @@ public class JanEnfermeira extends javax.swing.JFrame {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(247, 99, 99));
             if (feedback != null)
-                labPopUpStatus.setText("⚠ " + feedbackAlt);
+                labPopUpStatus.setText("⚠ " + feedback);
             else
-                labPopUpStatus.setText("⚠ " + feedback);  
+                labPopUpStatus.setText("⚠ Paciente não selecionado!");  
             
         }
     }
