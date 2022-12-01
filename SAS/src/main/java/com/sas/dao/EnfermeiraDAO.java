@@ -115,7 +115,7 @@ public class EnfermeiraDAO {
         ResultSet rs = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT pp.pro_id, pp.pac_nome, pp.pac_cpf FROM consulta as c INNER JOIN (SELECT pro.pro_id, pac.pac_nome, pac.pac_cpf, pac.pac_id FROM prontuario as pro INNER JOIN paciente as pac on pro.pac_id = pac.pac_id) as pp on c.pac_id = pp.pac_id WHERE c.con_status = 2 ORDER BY c.con_data");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT pp.pro_id, pp.pac_nome, pp.pac_cpf FROM consulta as c INNER JOIN (SELECT pro.pro_id, pac.pac_nome, pac.pac_cpf, pac.pac_id FROM prontuario as pro INNER JOIN paciente as pac on pro.pac_id = pac.pac_id) as pp on c.pro_id = pp.pro_id WHERE c.con_status = 2 ORDER BY c.con_data");
 
             while(rs.next()){
                 modelo.addRow(new Object[]{
