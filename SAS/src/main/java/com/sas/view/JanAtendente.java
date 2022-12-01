@@ -85,6 +85,17 @@ public class JanAtendente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogPopUpStatus = new javax.swing.JDialog();
+        dialogPopUpStatus.setLocationRelativeTo(null);
+        panCadInsBack = new javax.swing.JPanel();
+        labPopUpStatus = new javax.swing.JLabel();
+        btOK = new javax.swing.JButton();
+        dialogOptionPane = new javax.swing.JDialog();
+        dialogPopUpStatus.setLocationRelativeTo(null);
+        panCadInsBack1 = new javax.swing.JPanel();
+        btConfirmar = new javax.swing.JButton();
+        labOptionPane = new javax.swing.JLabel();
+        btCancelar1 = new javax.swing.JButton();
         panTop = new javax.swing.JPanel();
         labAgenConsulta = new javax.swing.JLabel();
         labLogo = new javax.swing.JLabel();
@@ -167,6 +178,173 @@ public class JanAtendente extends javax.swing.JFrame {
         labSelAltPaciente = new javax.swing.JLabel();
         labStatusEdit = new javax.swing.JLabel();
         btAltSalvar = new javax.swing.JButton();
+
+        dialogPopUpStatus.setTitle("SAS ALERT");
+        dialogPopUpStatus.setLocation(new java.awt.Point(800, 500));
+        dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(443, 175));
+        dialogPopUpStatus.setPreferredSize(new java.awt.Dimension(443, 170));
+        dialogPopUpStatus.setResizable(false);
+        dialogPopUpStatus.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                dialogPopUpStatusWindowLostFocus(evt);
+            }
+        });
+
+        panCadInsBack.setBackground(new java.awt.Color(255, 255, 255));
+        panCadInsBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
+
+        labPopUpStatus.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        labPopUpStatus.setForeground(new java.awt.Color(51, 51, 51));
+        labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labPopUpStatus.setText("SAS ALERT");
+
+        btOK.setBackground(new java.awt.Color(249, 100, 100));
+        btOK.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btOK.setForeground(new java.awt.Color(255, 255, 255));
+        btOK.setText("OK");
+        btOK.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btOK.setBorder(null);
+        btOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOKActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panCadInsBackLayout = new javax.swing.GroupLayout(panCadInsBack);
+        panCadInsBack.setLayout(panCadInsBackLayout);
+        panCadInsBackLayout.setHorizontalGroup(
+            panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCadInsBackLayout.createSequentialGroup()
+                .addGroup(panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panCadInsBackLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panCadInsBackLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(labPopUpStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)))
+                .addGap(15, 15, 15))
+        );
+        panCadInsBackLayout.setVerticalGroup(
+            panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCadInsBackLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(labPopUpStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout dialogPopUpStatusLayout = new javax.swing.GroupLayout(dialogPopUpStatus.getContentPane());
+        dialogPopUpStatus.getContentPane().setLayout(dialogPopUpStatusLayout);
+        dialogPopUpStatusLayout.setHorizontalGroup(
+            dialogPopUpStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogPopUpStatusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panCadInsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        dialogPopUpStatusLayout.setVerticalGroup(
+            dialogPopUpStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogPopUpStatusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panCadInsBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        dialogOptionPane.setTitle("SAS ALERT");
+        dialogOptionPane.setLocation(new java.awt.Point(800, 500));
+        dialogOptionPane.setMinimumSize(new java.awt.Dimension(443, 175));
+        dialogOptionPane.setPreferredSize(new java.awt.Dimension(444, 170));
+        dialogOptionPane.setResizable(false);
+        dialogOptionPane.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                dialogOptionPaneWindowLostFocus(evt);
+            }
+        });
+
+        panCadInsBack1.setBackground(new java.awt.Color(255, 255, 255));
+        panCadInsBack1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
+
+        btConfirmar.setBackground(new java.awt.Color(249, 100, 100));
+        btConfirmar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        btConfirmar.setText("CONFIRMAR");
+        btConfirmar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btConfirmar.setBorder(null);
+        btConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConfirmarActionPerformed(evt);
+            }
+        });
+
+        labOptionPane.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        labOptionPane.setForeground(new java.awt.Color(51, 51, 51));
+        labOptionPane.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labOptionPane.setText("SAS OPTION PANE");
+
+        btCancelar1.setBackground(new java.awt.Color(249, 100, 100));
+        btCancelar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btCancelar1.setForeground(new java.awt.Color(255, 255, 255));
+        btCancelar1.setText("CANCELAR");
+        btCancelar1.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btCancelar1.setBorder(null);
+        btCancelar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelar1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panCadInsBack1Layout = new javax.swing.GroupLayout(panCadInsBack1);
+        panCadInsBack1.setLayout(panCadInsBack1Layout);
+        panCadInsBack1Layout.setHorizontalGroup(
+            panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCadInsBack1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labOptionPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panCadInsBack1Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(12, 12, 12))
+        );
+        panCadInsBack1Layout.setVerticalGroup(
+            panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCadInsBack1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(labOptionPane, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panCadInsBack1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10))
+        );
+
+        javax.swing.GroupLayout dialogOptionPaneLayout = new javax.swing.GroupLayout(dialogOptionPane.getContentPane());
+        dialogOptionPane.getContentPane().setLayout(dialogOptionPaneLayout);
+        dialogOptionPaneLayout.setHorizontalGroup(
+            dialogOptionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogOptionPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panCadInsBack1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        dialogOptionPaneLayout.setVerticalGroup(
+            dialogOptionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogOptionPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panCadInsBack1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Atendimento");
@@ -423,7 +601,7 @@ public class JanAtendente extends javax.swing.JFrame {
                         .addComponent(jlStatusCon, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btRefresh1))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1194, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1196, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
         );
         panInformacoesLayout.setVerticalGroup(
@@ -467,13 +645,13 @@ public class JanAtendente extends javax.swing.JFrame {
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardConsultaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1238, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1240, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addGap(325, 325, 325)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(335, Short.MAX_VALUE))
+                        .addContainerGap(336, Short.MAX_VALUE))
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btEncaminhar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -486,7 +664,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 902, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1231,19 +1409,11 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_labConsultaMouseClicked
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
-        cadastrarPaciente();
+        optionCadastrarPac();
     }//GEN-LAST:event_btAlterarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        if(AtendenteController.cancelarConsulta(consultaID)){
-            jlStatusCon.setForeground(Color.green);
-            jlStatusCon.setText("CONSULTA CANCELADA COM SUCESSO! ("+getConsultaID()+")");
-        }else{
-            jlStatusCon.setForeground(Color.red);
-            jlStatusCon.setText("ERRO AO CANCELAR CONSULTA!");
-        }
-        carregaTabela();
-        setConsultaID(null);
+        optionCancelarCons();
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
@@ -1311,11 +1481,11 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btNomePesquisa1ActionPerformed
 
     private void btAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgendarActionPerformed
-        agendarConsulta();
+        optionAgendarCons();    
     }//GEN-LAST:event_btAgendarActionPerformed
 
     private void btEncaminharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEncaminharActionPerformed
-        encaminharTriagem();
+        optionEncaminharPac();
     }//GEN-LAST:event_btEncaminharActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -1354,10 +1524,62 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparAltActionPerformed
 
     private void btAltSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAltSalvarActionPerformed
-        editarPaciente();
+        optionAlterarPac();
     }//GEN-LAST:event_btAltSalvarActionPerformed
 
-    
+    private void btOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOKActionPerformed
+        dialogPopUpStatus.setVisible(false);
+    }//GEN-LAST:event_btOKActionPerformed
+
+    private void dialogPopUpStatusWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogPopUpStatusWindowLostFocus
+        dialogPopUpStatus.toFront();
+    }//GEN-LAST:event_dialogPopUpStatusWindowLostFocus
+
+    private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
+        if(labOptionPane.getText().equals("Deseja alterar paciente?")){
+            editarPaciente();
+        }else if(labOptionPane.getText().equals("Deseja agendar a consulta?")){
+            agendarConsulta();
+        }else if(labOptionPane.getText().equals("Deseja cadastrar o paciente?")){
+            cadastrarPaciente();
+        }else if(labOptionPane.getText().equals("Deseja cancelar a consulta?")){
+            cancelarConsulta();
+        }else if(labOptionPane.getText().equals("Deseja encaminhar o paciente?")){
+            encaminharTriagem();
+        }
+      
+        dialogOptionPane.setVisible(false);
+    }//GEN-LAST:event_btConfirmarActionPerformed
+
+    private void btCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelar1ActionPerformed
+        dialogOptionPane.setVisible(false);
+    }//GEN-LAST:event_btCancelar1ActionPerformed
+
+    private void dialogOptionPaneWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogOptionPaneWindowLostFocus
+        dialogOptionPane.toFront();
+    }//GEN-LAST:event_dialogOptionPaneWindowLostFocus
+
+    public void optionAlterarPac(){
+        dialogOptionPane.setVisible(true);
+        labOptionPane.setText("Deseja alterar paciente?");
+    }
+    public void optionAgendarCons(){
+        dialogOptionPane.setVisible(true);
+        labOptionPane.setText("Deseja agendar a consulta?");
+    }
+    public void optionCadastrarPac(){
+        dialogOptionPane.setVisible(true);
+        labOptionPane.setText("Deseja cadastrar o paciente?");
+    }
+    public void optionCancelarCons(){
+        dialogOptionPane.setVisible(true);
+        labOptionPane.setText("Deseja cancelar a consulta?");
+    }
+    public void optionEncaminharPac(){
+        dialogOptionPane.setVisible(true);
+        labOptionPane.setText("Deseja encaminhar o paciente?");
+    }
+  
     public void logoutButton(){
         if(Muser){
             Muser=false;
@@ -1400,14 +1622,30 @@ public class JanAtendente extends javax.swing.JFrame {
 
         feedback = AtendenteController.cadastrarPaciente(nome, data_nascimento, cpf, telefone, endereco);
         
-        if(feedback == null){
-            System.out.println("Deu certo cadastrar");
+        if (feedback == null) {
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ PACIENTE CADASTRADO COM SUCESSO!");
             limpar();
+        } else {
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ " + feedback);
         }
-        else
-            System.out.println(feedback);
     }
-    
+    public void cancelarConsulta(){
+        if(AtendenteController.cancelarConsulta(consultaID)){
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ CONSULTA CANCELADA COM SUCESSO!");
+        }else{
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ ERRO AO CANCELAR CONSULTA!");
+        }
+        carregaTabela();
+        setConsultaID(null);
+    }
     public void agendarConsulta(){
         String feedback = "";
 
@@ -1421,12 +1659,16 @@ public class JanAtendente extends javax.swing.JFrame {
 
         feedback = AtendenteController.agendarConsulta(status, pac_id, med_id, ate_id, data, hora, receita);
         
-        if(feedback == null){
-            System.out.println("CONSULTA AGENDADA COM SUCESSO!");
+        if (feedback == null) {
             limparAgenda();
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ CONSULTA AGENDADA COM SUCESSO!");
+        } else {
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ " + feedback);
         }
-        else
-            System.out.println(feedback);
     }
     
     public void limparAgenda(){
@@ -1570,13 +1812,14 @@ public class JanAtendente extends javax.swing.JFrame {
 
         if (feedback == null) {
             limparEdit();
-            
-            jlStatusCon.setVisible(true);
-            jlStatusCon.setForeground(Color.green);
-            jlStatusCon.setText("PACIENTE ALTERADO COM SUCESSO!");
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ PACIENTE ALTERADO COM SUCESSO!");
+            limpar();
         } else {
-            jlStatusCon.setForeground(Color.red);
-            jlStatusCon.setText(feedback);
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ " + feedback);
         }
 
     }
@@ -1589,13 +1832,14 @@ public class JanAtendente extends javax.swing.JFrame {
 
         if (feedback == null) {
             carregaTabela();
-            
-            jlStatusCon.setForeground(Color.green);
-            jlStatusCon.setText("CONSULTA ENCAMINHADA COM SUCESSO! ("+ getConsultaID() +")");
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ CONSULTA ENCAMINHADA COM SUCESSO! ("+ getConsultaID() +")");
             setConsultaID(null);
         } else {
-            jlStatusCon.setForeground(Color.red);
-            jlStatusCon.setText(feedback);
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ " + feedback);
         }
         
     }
@@ -1638,12 +1882,15 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JButton btAltSalvar;
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btCancelar1;
+    private javax.swing.JButton btConfirmar;
     private javax.swing.JButton btEncaminhar;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btLimparAlt;
     private javax.swing.JButton btNomePesquisa1;
     private javax.swing.JButton btNomePesquisaAltPac;
     private javax.swing.JButton btNomePesquisaPac;
+    private javax.swing.JButton btOK;
     private javax.swing.JButton btRefresh1;
     private javax.swing.JButton btRefreshMed;
     private javax.swing.JButton btlRefreshAltPac;
@@ -1652,6 +1899,8 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JPanel cardAlterarPacientes;
     private javax.swing.JPanel cardCadastro;
     private javax.swing.JPanel cardConsulta;
+    private javax.swing.JDialog dialogOptionPane;
+    private javax.swing.JDialog dialogPopUpStatus;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1682,6 +1931,8 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JLabel labNomePesquisaAltPac;
     private javax.swing.JLabel labNomePesquisaMed;
     private javax.swing.JLabel labNomePesquisaPac;
+    private javax.swing.JLabel labOptionPane;
+    private javax.swing.JLabel labPopUpStatus;
     private javax.swing.JLabel labSelAltPaciente;
     private javax.swing.JLabel labStatusEdit;
     private javax.swing.JLabel labUser;
@@ -1691,6 +1942,8 @@ public class JanAtendente extends javax.swing.JFrame {
     private javax.swing.JLabel lbAltTelefone;
     private javax.swing.JLabel lbTelefone;
     private javax.swing.JPanel panAgendar;
+    private javax.swing.JPanel panCadInsBack;
+    private javax.swing.JPanel panCadInsBack1;
     private javax.swing.JPanel panCardsAtendente;
     private javax.swing.JPanel panInformacoes;
     private javax.swing.JPanel panTabela;
