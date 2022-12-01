@@ -18,6 +18,31 @@ public class EnfermeiraDAO {
     public InsumoMedico cadastrarIns() {
         return null;
     }
+    
+    public static boolean cadastrarIns(InsumoMedico ins) {
+        Connection conn = ConexaoBD.getConnection();
+
+        String query = "INSERT INTO insumo VALUES (?, ?, ?, ?)";
+        PreparedStatement pstm;
+
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, ins.getId());
+            pstm.setString(2, ins.getNome());
+            pstm.setInt(3, ins.getQuantidade());
+            pstm.setString(4, ins.getEnf_id());
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+            }
+        
+        return false;
+    }
 
     public static boolean controlarEst(InsumoMedico ins) {
         Connection conn = ConexaoBD.getConnection();

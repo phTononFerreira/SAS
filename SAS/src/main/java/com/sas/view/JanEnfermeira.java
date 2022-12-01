@@ -629,7 +629,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 878, Short.MAX_VALUE))
+                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 885, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -795,6 +795,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 btCadInsumoMouseClicked(evt);
             }
         });
+        btCadInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadInsumoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cardEstoqueLayout = new javax.swing.GroupLayout(cardEstoque);
         cardEstoque.setLayout(cardEstoqueLayout);
@@ -929,7 +934,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_btAlterar2ActionPerformed
 
     private void btCadInsSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsSalvarActionPerformed
-        // TODO add your handling code here:
+        cadastrarInsumo();
+        carregaTabelaInsumo();
     }//GEN-LAST:event_btCadInsSalvarActionPerformed
 
     private void btCadInsumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadInsumoMouseClicked
@@ -952,6 +958,10 @@ public class JanEnfermeira extends javax.swing.JFrame {
         //dialogCadInsumo.dispose();
         dialogCadInsumo.toFront();
     }//GEN-LAST:event_dialogCadInsumoWindowLostFocus
+
+    private void btCadInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsumoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btCadInsumoActionPerformed
     
     public void sair(){
         this.dispose();
@@ -1055,17 +1065,46 @@ public class JanEnfermeira extends javax.swing.JFrame {
         String feedback = "";
 
         String quantidade = tfQuantidade.getText();
-        String ins_id = getIdInsumo();
         
-        feedback = EnfermeiraController.controlarEstoque(quantidade, ins_id);
-                
+        if(Integer.parseInt(quantidade) < 0 )
+            System.out.println("QUANTIDADE INVALIDA!"); 
+        else{
+            String ins_id = getIdInsumo();
+
+            feedback = EnfermeiraController.controlarEstoque(quantidade, ins_id);
+
+            if(feedback == null){
+                System.out.println("QUANTIDADE ALTERADA COM SUCESSO!");
+                tfQuantidade.setText("");
+                setIdInsumo(null);
+            }
+            else
+                System.out.println(feedback);
+        }
+    }
+    
+    public void cadastrarInsumo(){
+        String feedback = "";
+
+        String nome = tfCadInsNome.getText();
+        String quantidade = tfCadInsQuantidade.getText();
+        String enf_id = getId();
+
+        feedback = EnfermeiraController.cadastrarInsumo(nome, quantidade, enf_id);
+        
         if(feedback == null){
-            System.out.println("QUANTIDADE ALTERADA COM SUCESSO!");
-            tfQuantidade.setText("");
-            setIdInsumo(null);
+            System.out.println("Deu certo cadastrar insumo");
+            limparInsumo();
         }
         else
             System.out.println(feedback);
+    }
+    
+    public void limparInsumo(){
+        tfCadInsNome.setText("");
+        tfCadInsQuantidade.setText("");
+        //tabPaciente2.clearSelection();
+        tfCadInsNome.requestFocus();
     }
 
     public static void main(String args[]) {

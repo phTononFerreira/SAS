@@ -1,6 +1,8 @@
 package com.sas.controller;
 
+import com.sas.controller.InsumoMedicoController;
 import com.sas.dao.EnfermeiraDAO;
+import com.sas.dao.InsumoMedicoDAO;
 import com.sas.model.Enfermeira;
 import com.sas.model.InsumoMedico;
 import com.sas.model.Prontuario;
@@ -11,9 +13,34 @@ public class EnfermeiraController {
     public static Prontuario gerarProntuario() {
         return null;
     }
+    
+    public static String cadastrarInsumo(String nome, String quantidade, String enf_id) {
+        InsumoMedico insumo = new InsumoMedico();
 
-    public static InsumoMedico cadastrarInsumo() {
-        return null;
+        insumo.setId("ins" + String.valueOf(InsumoMedicoDAO.contarIns() + 1));    //ID AUTOINCREMENT
+        insumo.setEnf_id(enf_id);
+        
+        if (nome.equals(""))
+            return "NOME INVALIDO!";
+        else if(InsumoMedicoController.pesquisarInsumoNome(nome) != null){            
+            System.out.println("NOME JÁ CADASTRADO");
+            return "NOME JÁ CADASTRADO!";            
+        } 
+        insumo.setNome(nome);
+            
+        if(Integer.parseInt(quantidade) < 0 )
+            return "QUANTIDADE INVALIDA!";
+
+        insumo.setQuantidade(Integer.parseInt(quantidade));
+        
+        System.out.println(insumo.toString());
+
+        if (EnfermeiraDAO.cadastrarIns(insumo)){
+            return null;
+        }else{
+            return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+        }
+
     }
 
     public static int contarEstoque(InsumoMedico ins) {

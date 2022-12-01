@@ -9,4 +9,8 @@ public class InsumoMedicoController {
         return InsumoMedicoDAO.pesquisarInsID(ins_id);
     }
     
+    public static InsumoMedico pesquisarInsumoNome(String nome) {
+        return InsumoMedicoDAO.pesquisarInsNome(nome);
+    }
+    
 }
