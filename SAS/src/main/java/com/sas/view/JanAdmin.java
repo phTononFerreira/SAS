@@ -52,7 +52,7 @@ public class JanAdmin extends javax.swing.JFrame {
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setSize(dim.width / 2, dim.height / 2);
+        this.setSize(dim.width, dim.height);
         selectCardFuncionarios();
         rbAdministracao.setSelected(true);
         selectAdmCad();
