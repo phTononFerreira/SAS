@@ -23,8 +23,8 @@ public class AtendenteDAO {
             pstm.setString(1, pac.getId());
             pstm.setString(2, pac.getNome());
             pstm.setString(3, pac.getData_nascimento());
-            pstm.setString(4, pac.getCpf());
-            pstm.setString(5, pac.getTelefone());
+            pstm.setString(4, pac.getTelefone());
+            pstm.setString(5, pac.getCpf());
             pstm.setString(6, pac.getEndereco());
 
             pstm.execute();
