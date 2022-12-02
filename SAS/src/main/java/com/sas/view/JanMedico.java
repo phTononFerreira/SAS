@@ -560,6 +560,7 @@ public class JanMedico extends javax.swing.JFrame {
 
         taReceitar.setBackground(new java.awt.Color(242, 242, 242));
         taReceitar.setColumns(20);
+        taReceitar.setLineWrap(true);
         taReceitar.setRows(5);
         taReceitar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         jScrollPane3.setViewportView(taReceitar);
