@@ -7,6 +7,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -265,7 +266,6 @@ public class JanEnfermeira extends javax.swing.JFrame {
         dialogPopUpStatus.setTitle("SAS ALERT");
         dialogPopUpStatus.setLocation(new java.awt.Point(800, 500));
         dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(443, 175));
-        dialogPopUpStatus.setPreferredSize(new java.awt.Dimension(443, 170));
         dialogPopUpStatus.setResizable(false);
         dialogPopUpStatus.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -505,11 +505,21 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
         tfTemperatura.setBackground(new java.awt.Color(242, 242, 242));
         tfTemperatura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfTemperatura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfTemperaturaKeyPressed(evt);
+            }
+        });
 
         labTemperatura.setText("TEMPERATURA ");
 
         tfPressao.setBackground(new java.awt.Color(242, 242, 242));
         tfPressao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfPressao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfPressaoKeyPressed(evt);
+            }
+        });
 
         labPressao.setText("PRESSÃO ARTERIAL (SI/DI)");
 
@@ -519,6 +529,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         taDescricao.setColumns(20);
         taDescricao.setRows(5);
         taDescricao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        taDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                taDescricaoKeyPressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(taDescricao);
 
         btNomePesquisa1.setBackground(new java.awt.Color(249, 100, 100));
@@ -529,6 +544,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         btNomePesquisa1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNomePesquisa1ActionPerformed(evt);
+            }
+        });
+        btNomePesquisa1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btNomePesquisa1KeyPressed(evt);
             }
         });
 
@@ -603,6 +623,11 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tfNomePac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNomePacActionPerformed(evt);
+            }
+        });
+        tfNomePac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfNomePacKeyPressed(evt);
             }
         });
 
@@ -710,7 +735,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE))
+                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1050,6 +1075,34 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void dialogPopUpStatusWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogPopUpStatusWindowLostFocus
         dialogPopUpStatus.toFront();
     }//GEN-LAST:event_dialogPopUpStatusWindowLostFocus
+
+    private void tfNomePacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomePacKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btNomePesquisaPac.doClick();
+        }
+    }//GEN-LAST:event_tfNomePacKeyPressed
+
+    private void tfTemperaturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTemperaturaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btSalvar.doClick();
+        }
+    }//GEN-LAST:event_tfTemperaturaKeyPressed
+
+    private void tfPressaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPressaoKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btSalvar.doClick();
+        }
+    }//GEN-LAST:event_tfPressaoKeyPressed
+
+    private void btNomePesquisa1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btNomePesquisa1KeyPressed
+        //
+    }//GEN-LAST:event_btNomePesquisa1KeyPressed
+
+    private void taDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taDescricaoKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btSalvar.doClick();
+        }
+    }//GEN-LAST:event_taDescricaoKeyPressed
 
     public void sair() {
         this.dispose();
