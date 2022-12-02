@@ -60,7 +60,12 @@ public class AdministradorController {
             administrador.setEndereco(endereco);
 
             try {
-                administrador.setSalario(Double.parseDouble(salario));
+                if (Double.parseDouble(salario) > 0){
+                    administrador.setSalario(Double.parseDouble(salario));
+                }else{
+                    return "Salário inválido!";
+                }
+                
             } catch (Exception e) {
                 return "Salário inválido!";
             }
