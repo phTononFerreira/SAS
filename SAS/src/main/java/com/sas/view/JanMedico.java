@@ -1,5 +1,6 @@
 package com.sas.view;
 
+import com.itextpdf.text.BadElementException;
 import com.sas.controller.ConsultaController;
 import com.sas.controller.InsumoMedicoController;
 import com.sas.controller.MedicoController;
@@ -15,7 +16,19 @@ import java.util.logging.Logger;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import javax.swing.JOptionPane;
 public class JanMedico extends javax.swing.JFrame {
 
     private static JanMedico unicoJanMedico;
@@ -882,7 +895,7 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_btReceitarMouseClicked
 
     private void btReceitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReceitarActionPerformed
-        receitarConsulta();
+        imprimirPdf("RECEITUÁRIO","CONETEVYHAWSFCDYQFGVFYWQCVDTYQ","Jonas Tomaz","Doutor Francisco Sales");
     }//GEN-LAST:event_btReceitarActionPerformed
 
     private void tfMedPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMedPesquisaActionPerformed
@@ -960,7 +973,7 @@ public class JanMedico extends javax.swing.JFrame {
         tabPaciente2.clearSelection();
     }
     
-        public void carregaTabelaInsumo() {
+    public void carregaTabelaInsumo() {
         DefaultTableModel modelo = (DefaultTableModel) tabEstoque.getModel();
         modelo.setNumRows(0);
 
@@ -1019,6 +1032,40 @@ public class JanMedico extends javax.swing.JFrame {
 
     }
 
+    public void imprimirPdf(String tipo, String conteudo, String paciente, String medico){
+        Document documento = new Document();
+        try {
+            OutputStream outputStream = new FileOutputStream("documento.pdf");
+            PdfWriter.getInstance(documento,outputStream);
+            documento.open();//abre o arquivo
+            Image image = Image.getInstance("img\\logoSAS.png");
+            image.setAlignment(Element.ALIGN_CENTER);
+            documento.add(image);
+            Font font = new Font(Font.FontFamily.HELVETICA, 30, Font.BOLD);
+            Font font2 = new Font(Font.FontFamily.HELVETICA, 15, Font.NORMAL);
+            Paragraph cabecalho = new Paragraph(tipo+"\n\n", font);          
+            cabecalho.setAlignment(Element.ALIGN_CENTER);
+            documento.add(cabecalho);
+            Paragraph paragrafo = new Paragraph("Paciente: "+paciente+"\n\n", font2);
+            paragrafo.setAlignment(Element.ALIGN_CENTER);
+            documento.add(paragrafo);
+            Paragraph paragrafo2 = new Paragraph(conteudo+"\n\n", font2);
+            paragrafo2.setAlignment(Element.ALIGN_CENTER);
+            documento.add(paragrafo2);
+            Paragraph paragrafo3 = new Paragraph("Médico: Dr. "+medico, font2);
+            paragrafo3.setAlignment(Element.ALIGN_CENTER);
+            documento.add(paragrafo3);
+            documento.close();
+            JOptionPane.showMessageDialog(null, "deu bom");
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (DocumentException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
