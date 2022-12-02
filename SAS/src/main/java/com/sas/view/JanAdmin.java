@@ -2214,6 +2214,7 @@ public class JanAdmin extends javax.swing.JFrame {
     public void carregaTabela(boolean adm, boolean ate, boolean enf, boolean med) {
         DefaultTableModel modelo = (DefaultTableModel) tabFuncionario.getModel();
         modelo.setNumRows(0);
+        tabFuncionario.getColumn("Endereço").setMinWidth(180);
 
         AdministradorController.carregaTabela(modelo, adm, ate, enf, med);
         centralizarTabela();
