@@ -119,15 +119,15 @@ public class JanMedico extends javax.swing.JFrame {
         panCadInsBack1 = new javax.swing.JPanel();
         labPopUpStatus = new javax.swing.JLabel();
         btOK = new javax.swing.JButton();
-        dialogCadInsumo = new javax.swing.JDialog();
-        dialogCadInsumo.setLocationRelativeTo(null);
+        dialogEncaminhar = new javax.swing.JDialog();
+        dialogEncaminhar.setLocationRelativeTo(null);
         panCadInsBack = new javax.swing.JPanel();
-        btCadInsSalvar = new javax.swing.JButton();
-        labCadInsCadastro = new javax.swing.JLabel();
-        labCadInsNome = new javax.swing.JLabel();
-        btCadInsCancelar = new javax.swing.JButton();
+        btDialogEncaminhar = new javax.swing.JButton();
+        labDialogEncaminhar = new javax.swing.JLabel();
+        labDialogOnde = new javax.swing.JLabel();
+        btDialogCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taEncaminhar = new javax.swing.JTextArea();
         panTop = new javax.swing.JPanel();
         labLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -256,62 +256,68 @@ public class JanMedico extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        dialogCadInsumo.setTitle("Cadastro de Insumos");
-        dialogCadInsumo.setMinimumSize(new java.awt.Dimension(450, 360));
-        dialogCadInsumo.setResizable(false);
-        dialogCadInsumo.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+        dialogEncaminhar.setTitle("Encaminhamento");
+        dialogEncaminhar.setMinimumSize(new java.awt.Dimension(450, 360));
+        dialogEncaminhar.setResizable(false);
+        dialogEncaminhar.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
             }
             public void windowLostFocus(java.awt.event.WindowEvent evt) {
-                dialogCadInsumoWindowLostFocus(evt);
+                dialogEncaminharWindowLostFocus(evt);
             }
         });
 
         panCadInsBack.setBackground(new java.awt.Color(255, 255, 255));
         panCadInsBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
 
-        btCadInsSalvar.setBackground(new java.awt.Color(249, 100, 100));
-        btCadInsSalvar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btCadInsSalvar.setForeground(new java.awt.Color(255, 255, 255));
-        btCadInsSalvar.setText("ENCAMINHAR");
-        btCadInsSalvar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
-        btCadInsSalvar.setBorder(null);
-        btCadInsSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btCadInsSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadInsSalvarActionPerformed(evt);
-            }
-        });
-
-        labCadInsCadastro.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        labCadInsCadastro.setForeground(new java.awt.Color(51, 51, 51));
-        labCadInsCadastro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labCadInsCadastro.setText("ENCAMINHAR");
-
-        labCadInsNome.setForeground(new java.awt.Color(51, 51, 51));
-        labCadInsNome.setText("PARA ONDE");
-
-        btCadInsCancelar.setBackground(new java.awt.Color(249, 100, 100));
-        btCadInsCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btCadInsCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btCadInsCancelar.setText("CANCELAR");
-        btCadInsCancelar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
-        btCadInsCancelar.setBorder(null);
-        btCadInsCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btCadInsCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btDialogEncaminhar.setBackground(new java.awt.Color(249, 100, 100));
+        btDialogEncaminhar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btDialogEncaminhar.setForeground(new java.awt.Color(255, 255, 255));
+        btDialogEncaminhar.setText("ENCAMINHAR");
+        btDialogEncaminhar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btDialogEncaminhar.setBorder(null);
+        btDialogEncaminhar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btDialogEncaminhar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btCadInsCancelarMouseClicked(evt);
+                btDialogEncaminharMouseClicked(evt);
             }
         });
-        btCadInsCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btDialogEncaminhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadInsCancelarActionPerformed(evt);
+                btDialogEncaminharActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        labDialogEncaminhar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        labDialogEncaminhar.setForeground(new java.awt.Color(51, 51, 51));
+        labDialogEncaminhar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labDialogEncaminhar.setText("ENCAMINHAR");
+
+        labDialogOnde.setForeground(new java.awt.Color(51, 51, 51));
+        labDialogOnde.setText("PARA ONDE");
+
+        btDialogCancelar.setBackground(new java.awt.Color(249, 100, 100));
+        btDialogCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btDialogCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btDialogCancelar.setText("CANCELAR");
+        btDialogCancelar.setActionCommand("<html><center>ALTERAR QUANTIDADE</center></html>");
+        btDialogCancelar.setBorder(null);
+        btDialogCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btDialogCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btDialogCancelarMouseClicked(evt);
+            }
+        });
+        btDialogCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDialogCancelarActionPerformed(evt);
+            }
+        });
+
+        taEncaminhar.setColumns(20);
+        taEncaminhar.setRows(5);
+        taEncaminhar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        jScrollPane1.setViewportView(taEncaminhar);
 
         javax.swing.GroupLayout panCadInsBackLayout = new javax.swing.GroupLayout(panCadInsBack);
         panCadInsBack.setLayout(panCadInsBackLayout);
@@ -319,49 +325,49 @@ public class JanMedico extends javax.swing.JFrame {
             panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCadInsBackLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labCadInsCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labDialogEncaminhar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
             .addGroup(panCadInsBackLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addGroup(panCadInsBackLayout.createSequentialGroup()
-                        .addComponent(btCadInsCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btDialogCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btCadInsSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labCadInsNome))
+                        .addComponent(btDialogEncaminhar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labDialogOnde))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         panCadInsBackLayout.setVerticalGroup(
             panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCadInsBackLayout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(labCadInsCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addComponent(labDialogEncaminhar, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labCadInsNome)
+                .addComponent(labDialogOnde)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btCadInsCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btDialogCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panCadInsBackLayout.createSequentialGroup()
-                        .addComponent(btCadInsSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btDialogEncaminhar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(3, 3, 3)))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout dialogCadInsumoLayout = new javax.swing.GroupLayout(dialogCadInsumo.getContentPane());
-        dialogCadInsumo.getContentPane().setLayout(dialogCadInsumoLayout);
-        dialogCadInsumoLayout.setHorizontalGroup(
-            dialogCadInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogCadInsumoLayout.createSequentialGroup()
+        javax.swing.GroupLayout dialogEncaminharLayout = new javax.swing.GroupLayout(dialogEncaminhar.getContentPane());
+        dialogEncaminhar.getContentPane().setLayout(dialogEncaminharLayout);
+        dialogEncaminharLayout.setHorizontalGroup(
+            dialogEncaminharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogEncaminharLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panCadInsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        dialogCadInsumoLayout.setVerticalGroup(
-            dialogCadInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dialogCadInsumoLayout.createSequentialGroup()
+        dialogEncaminharLayout.setVerticalGroup(
+            dialogEncaminharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogEncaminharLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panCadInsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -989,6 +995,11 @@ public class JanMedico extends javax.swing.JFrame {
         btGerarEnc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btGerarEnc.setMinimumSize(new java.awt.Dimension(73, 18));
         btGerarEnc.setPreferredSize(new java.awt.Dimension(73, 18));
+        btGerarEnc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerarEncActionPerformed(evt);
+            }
+        });
 
         btVoltar.setBackground(new java.awt.Color(249, 100, 100));
         btVoltar.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
@@ -1077,6 +1088,7 @@ public class JanMedico extends javax.swing.JFrame {
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
         sair();
+        dialogEncaminhar.dispose();
     }//GEN-LAST:event_labLogoutMouseClicked
 
     private void btIniciarConsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btIniciarConsMouseClicked
@@ -1177,22 +1189,31 @@ public class JanMedico extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_taReceitarKeyPressed
 
-    private void btCadInsSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsSalvarActionPerformed
+    private void btDialogEncaminharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDialogEncaminharActionPerformed
         
-    }//GEN-LAST:event_btCadInsSalvarActionPerformed
+    }//GEN-LAST:event_btDialogEncaminharActionPerformed
 
-    private void btCadInsCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadInsCancelarMouseClicked
-        dialogCadInsumo.dispose();
-    }//GEN-LAST:event_btCadInsCancelarMouseClicked
+    private void btDialogCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDialogCancelarMouseClicked
+        dialogEncaminhar.dispose();
+    }//GEN-LAST:event_btDialogCancelarMouseClicked
 
-    private void btCadInsCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsCancelarActionPerformed
+    private void btDialogCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDialogCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btCadInsCancelarActionPerformed
+    }//GEN-LAST:event_btDialogCancelarActionPerformed
 
-    private void dialogCadInsumoWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogCadInsumoWindowLostFocus
-        //dialogCadInsumo.dispose();
-        dialogCadInsumo.toFront();
-    }//GEN-LAST:event_dialogCadInsumoWindowLostFocus
+    private void dialogEncaminharWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogEncaminharWindowLostFocus
+
+        dialogEncaminhar.toFront();
+    }//GEN-LAST:event_dialogEncaminharWindowLostFocus
+
+    private void btGerarEncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarEncActionPerformed
+        dialogEncaminhar.setVisible(true);
+    }//GEN-LAST:event_btGerarEncActionPerformed
+
+    private void btDialogEncaminharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDialogEncaminharMouseClicked
+        encaminharPac();
+        dialogEncaminhar.dispose();
+    }//GEN-LAST:event_btDialogEncaminharMouseClicked
 
     public void voltarConsulta() {
         cardLayout.show(panCards, "cardConsulta");
@@ -1261,7 +1282,7 @@ public class JanMedico extends javax.swing.JFrame {
         
         taReceitar.setText(ConsultaController.pesquisarConsultaID(con_id).getReceita());
     }
-
+    
     public void limparConsultaSelecionada() {
         setIdConsulta(null);
         tabPaciente2.clearSelection();
@@ -1305,7 +1326,36 @@ public class JanMedico extends javax.swing.JFrame {
         else
             taReceitar.setText(receita + "\n" + InsumoMedicoController.pesquisarInsumoID(getIdInsumo()).getNome() + ": ");
     }
+    
+    public void encaminharPac(){
+        String feedback = "";
 
+        String con_id = getIdConsulta();
+        String receita = taEncaminhar.getText();
+        String medico = MedicoController.pesquisarMedicoID(getId()).getNome();
+        String paciente = labPacNome.getText();
+
+        feedback = MedicoController.receitarConsulta(receita, con_id);
+
+        if (!taEncaminhar.getText().equals("")) {
+            if (feedback == null) {
+                imprimirPdf("ENCAMINHAMENTO", receita, paciente, medico);
+                dialogPopUpStatus.setVisible(true);
+                labPopUpStatus.setForeground(new Color(93, 201, 120));
+                labPopUpStatus.setText("✅ Paciente encaminhado com sucesso!");
+            } else {
+                dialogPopUpStatus.setVisible(true);
+                labPopUpStatus.setForeground(new Color(247, 99, 99));
+                labPopUpStatus.setText("⚠ " + feedback);
+            }
+        } else {
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ O encaminhamento está vazio!");
+        }
+    }
+
+    
     public void receitarConsulta() {
         String feedback = "";
 
@@ -1348,6 +1398,7 @@ public class JanMedico extends javax.swing.JFrame {
             Font font2 = new Font(Font.FontFamily.HELVETICA, 15, Font.NORMAL);
             Font font3 = new Font(Font.FontFamily.HELVETICA, 8, Font.ITALIC);
             Font font4 = new Font(Font.FontFamily.HELVETICA, 15, Font.NORMAL, BaseColor.DARK_GRAY);
+            Font font5 = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL);
             Paragraph cabecalho = new Paragraph(tipo, font);
             cabecalho.setAlignment(Element.ALIGN_CENTER);
             documento.add(cabecalho);
@@ -1357,9 +1408,12 @@ public class JanMedico extends javax.swing.JFrame {
             Paragraph paragrafo2 = new Paragraph("\n\n\n" + conteudo, font4);
             paragrafo2.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo2);
-            Paragraph paragrafo3 = new Paragraph("\n\n\nMédico: Dr(a). " + medico + "\n\n", font2);
+            Paragraph paragrafo3 = new Paragraph("\n\n\n_______________________,_____de______________de_____", font5);
             paragrafo3.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo3);
+            Paragraph paragrafo4 = new Paragraph("\n\n\nMédico: Dr(a). " + medico + "\n\n", font2);
+            paragrafo4.setAlignment(Element.ALIGN_CENTER);
+            documento.add(paragrafo4);
             Paragraph ass = new Paragraph("______________________________");
             ass.setAlignment(Element.ALIGN_CENTER);
             documento.add(ass);
@@ -1464,8 +1518,8 @@ public class JanMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCadInsCancelar;
-    private javax.swing.JButton btCadInsSalvar;
+    private javax.swing.JButton btDialogCancelar;
+    private javax.swing.JButton btDialogEncaminhar;
     private javax.swing.JButton btFinalizar;
     private javax.swing.JButton btGerarEnc;
     private javax.swing.JButton btIniciarCons;
@@ -1478,7 +1532,7 @@ public class JanMedico extends javax.swing.JFrame {
     private javax.swing.JButton btlRefreshPac;
     private javax.swing.JPanel cardConsulta;
     private javax.swing.JPanel cardPacInfo;
-    private javax.swing.JDialog dialogCadInsumo;
+    private javax.swing.JDialog dialogEncaminhar;
     private javax.swing.JDialog dialogPopUpStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1492,9 +1546,8 @@ public class JanMedico extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel labCadInsCadastro;
-    private javax.swing.JLabel labCadInsNome;
+    private javax.swing.JLabel labDialogEncaminhar;
+    private javax.swing.JLabel labDialogOnde;
     private javax.swing.JLabel labInfoData;
     private javax.swing.JLabel labInfoHora;
     private javax.swing.JLabel labInfoIdade;
@@ -1523,6 +1576,7 @@ public class JanMedico extends javax.swing.JFrame {
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panTop;
     private javax.swing.JPanel panUser;
+    private javax.swing.JTextArea taEncaminhar;
     private javax.swing.JTextArea taReceitar;
     private javax.swing.JTable tabEstoque;
     private javax.swing.JTable tabPaciente2;

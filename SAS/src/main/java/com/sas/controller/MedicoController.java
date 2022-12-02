@@ -13,8 +13,17 @@ public class MedicoController {
 
     }
 
-    public static String encaminharPaciente(Consulta con) {
-        return null;
+    public static String encaminharPaciente(String receita, String con_id) {
+        Consulta consulta = new Consulta();
+        consulta.setId(con_id);
+        consulta.setReceita(receita);
+        
+        System.out.println(consulta.toString());
+        if (MedicoDAO.receitarCon(consulta)){
+            return null;
+        }else{
+            return "ERRO NO RECEITAR CONSULTA";
+        }   
     }
 
     public static String receitarPaciente(InsumoMedico ins) {
