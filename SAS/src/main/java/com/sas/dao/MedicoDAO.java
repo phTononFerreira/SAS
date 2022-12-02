@@ -112,7 +112,7 @@ public class MedicoDAO {
         ResultSet rs = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM insumo ORDER BY ins_nome");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM insumo WHERE ins_qtd > 0 ORDER BY ins_nome");
 
             while(rs.next()){
                 modelo.addRow(new Object[]{
@@ -123,7 +123,7 @@ public class MedicoDAO {
             }
 
         }catch(Exception e){
-            System.out.println("Erro ao puxar tabela paciente");
+            System.out.println("Erro ao puxar tabela de insumos");
         }
         
     }
