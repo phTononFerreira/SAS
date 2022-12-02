@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -397,7 +398,6 @@ public class JanAdmin extends javax.swing.JFrame {
         dialogPopUpStatus.setTitle("SAS ALERT");
         dialogPopUpStatus.setLocation(new java.awt.Point(800, 500));
         dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(443, 175));
-        dialogPopUpStatus.setPreferredSize(new java.awt.Dimension(443, 170));
         dialogPopUpStatus.setResizable(false);
         dialogPopUpStatus.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -472,7 +472,6 @@ public class JanAdmin extends javax.swing.JFrame {
         dialogOptionPane.setTitle("SAS ALERT");
         dialogOptionPane.setLocation(new java.awt.Point(800, 500));
         dialogOptionPane.setMinimumSize(new java.awt.Dimension(443, 175));
-        dialogOptionPane.setPreferredSize(new java.awt.Dimension(444, 170));
         dialogOptionPane.setResizable(false);
         dialogOptionPane.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -681,7 +680,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -842,6 +841,11 @@ public class JanAdmin extends javax.swing.JFrame {
         tfIDEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIDEditActionPerformed(evt);
+            }
+        });
+        tfIDEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfIDEditKeyPressed(evt);
             }
         });
 
@@ -1043,6 +1047,11 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfNomeActionPerformed(evt);
             }
         });
+        tfNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfNomeKeyPressed(evt);
+            }
+        });
 
         labNome.setText("NOME*");
 
@@ -1051,6 +1060,11 @@ public class JanAdmin extends javax.swing.JFrame {
         tfNasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNascActionPerformed(evt);
+            }
+        });
+        tfNasc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfNascKeyPressed(evt);
             }
         });
 
@@ -1063,6 +1077,11 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfCpfActionPerformed(evt);
             }
         });
+        tfCpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfCpfKeyPressed(evt);
+            }
+        });
 
         labCpf.setText("CPF*");
 
@@ -1071,6 +1090,11 @@ public class JanAdmin extends javax.swing.JFrame {
         tfTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfTelefoneActionPerformed(evt);
+            }
+        });
+        tfTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfTelefoneKeyPressed(evt);
             }
         });
 
@@ -1083,6 +1107,11 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfEnderecoActionPerformed(evt);
             }
         });
+        tfEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfEnderecoKeyPressed(evt);
+            }
+        });
 
         labEndereco.setText("ENDEREÇO");
 
@@ -1091,6 +1120,11 @@ public class JanAdmin extends javax.swing.JFrame {
         tfCrM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCrMActionPerformed(evt);
+            }
+        });
+        tfCrM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfCrMKeyPressed(evt);
             }
         });
 
@@ -1133,6 +1167,11 @@ public class JanAdmin extends javax.swing.JFrame {
                 tfSalarioActionPerformed(evt);
             }
         });
+        tfSalario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfSalarioKeyPressed(evt);
+            }
+        });
 
         labSalario.setText("SALÁRIO*");
 
@@ -1141,6 +1180,11 @@ public class JanAdmin extends javax.swing.JFrame {
         tfEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEspecialidadeActionPerformed(evt);
+            }
+        });
+        tfEspecialidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfEspecialidadeKeyPressed(evt);
             }
         });
 
@@ -1172,6 +1216,11 @@ public class JanAdmin extends javax.swing.JFrame {
         tfSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSenhaActionPerformed(evt);
+            }
+        });
+        tfSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfSenhaKeyPressed(evt);
             }
         });
 
@@ -1448,6 +1497,11 @@ public class JanAdmin extends javax.swing.JFrame {
 
         tfNome1.setBackground(new java.awt.Color(242, 242, 242));
         tfNome1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNome1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfNome1KeyPressed(evt);
+            }
+        });
 
         btRefresh.setBackground(new java.awt.Color(249, 100, 100));
         btRefresh.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -1759,6 +1813,72 @@ public class JanAdmin extends javax.swing.JFrame {
     private void btCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadastrarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btCadastrarMouseClicked
+
+    private void tfNome1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNome1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btNomePesquisa.doClick();
+        }
+    }//GEN-LAST:event_tfNome1KeyPressed
+
+    private void tfNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfNomeKeyPressed
+
+    private void tfNascKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNascKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfNascKeyPressed
+
+    private void tfEspecialidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEspecialidadeKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfEspecialidadeKeyPressed
+
+    private void tfCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCpfKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfCpfKeyPressed
+
+    private void tfSalarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSalarioKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfSalarioKeyPressed
+
+    private void tfCrMKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCrMKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfCrMKeyPressed
+
+    private void tfEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfEnderecoKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfEnderecoKeyPressed
+
+    private void tfTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTelefoneKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfTelefoneKeyPressed
+
+    private void tfSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSenhaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btCadastrar.doClick();
+        }
+    }//GEN-LAST:event_tfSenhaKeyPressed
+
+    private void tfIDEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfIDEditKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btIDPesquisa.doClick();
+        }
+    }//GEN-LAST:event_tfIDEditKeyPressed
     
     public void optionAlterarFunc(){
         dialogOptionPane.setVisible(true);
