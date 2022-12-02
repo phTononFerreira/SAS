@@ -668,7 +668,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -405,7 +405,7 @@ public class JanMedico extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código Consulta", "Paciente", "CPF"
+                "Código Consulta", "Paciente", "Horário da Consulta"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -980,6 +980,7 @@ public class JanMedico extends javax.swing.JFrame {
     private void tabEstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabEstoqueMousePressed
         setIdInsumo(tabEstoque.getValueAt(tabEstoque.getSelectedRow(), 0).toString());
         preencherReceita();
+        taReceitar.requestFocus();
     }//GEN-LAST:event_tabEstoqueMousePressed
 
     private void btReceitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btReceitarMouseClicked
@@ -1078,6 +1079,8 @@ public class JanMedico extends javax.swing.JFrame {
         labPacTemperatura.setText(Float.toString(ProntuarioController.pesquisarProntuarioID(pro_id).getTemperatura()));
         labPacPressão.setText(ProntuarioController.pesquisarProntuarioID(pro_id).getPressao());
         labPacObs.setText(ProntuarioController.pesquisarProntuarioID(pro_id).getDescricao());
+        
+        taReceitar.setText(ConsultaController.pesquisarConsultaID(con_id).getReceita());
     }
 
     public void limparConsultaSelecionada() {
