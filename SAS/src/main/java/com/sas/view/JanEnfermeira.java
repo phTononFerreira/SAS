@@ -15,42 +15,42 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
     private static JanEnfermeira unicoJanEnfermeira;
     private static String ID;
-    private Boolean Muser=false;
+    private Boolean Muser = false;
     private static String idConsulta;
     private static String idProtuario;
     private static String idInsumo;
-    
+
     CardLayout cardLayout;
-    
-    public String getId(){
+
+    public String getId() {
         return ID;
     }
-    
-    public static void setId(String ID1){
+
+    public static void setId(String ID1) {
         ID = ID1;
     }
-    
-    public String getIdConsulta(){
+
+    public String getIdConsulta() {
         return idConsulta;
     }
-    
-    public static void setIdConsulta(String idConsulta1){
+
+    public static void setIdConsulta(String idConsulta1) {
         idConsulta = idConsulta1;
     }
-    
-    public String getIdProtuario(){
+
+    public String getIdProtuario() {
         return idProtuario;
     }
-    
-    public static void setIdProtuario(String idProtuario1){
+
+    public static void setIdProtuario(String idProtuario1) {
         idProtuario = idProtuario1;
     }
-    
-    public String getIdInsumo(){
+
+    public String getIdInsumo() {
         return idInsumo;
     }
-    
-    public static void setIdInsumo(String idInsumo1){
+
+    public static void setIdInsumo(String idInsumo1) {
         idInsumo = idInsumo1;
     }
 
@@ -948,23 +948,21 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
-        if(Muser){
-            Muser=false;
+        if (Muser) {
+            Muser = false;
             labLogout.setVisible(false);
-        }
-        else{
-            Muser=true;
+        } else {
+            Muser = true;
             labLogout.setVisible(true);
         }
     }//GEN-LAST:event_labUserImageMouseClicked
 
     private void labUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserMouseClicked
-        if(Muser){
-            Muser=false;
+        if (Muser) {
+            Muser = false;
             labLogout.setVisible(false);
-        }
-        else{
-            Muser=true;
+        } else {
+            Muser = true;
             labLogout.setVisible(true);
         }
     }//GEN-LAST:event_labUserMouseClicked
@@ -1051,138 +1049,139 @@ public class JanEnfermeira extends javax.swing.JFrame {
     private void dialogPopUpStatusWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogPopUpStatusWindowLostFocus
         dialogPopUpStatus.toFront();
     }//GEN-LAST:event_dialogPopUpStatusWindowLostFocus
-    
-    public void sair(){
+
+    public void sair() {
         this.dispose();
         labLogout.setVisible(false);
         JanLogin.getJanLogin().setVisible(true);
     }
-    
+
     public void setNomePerfil(String nome) {
         labUser.setText(nome);
     }
-    
+
     public void carregaTabelaTriagem() {
         DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
         modelo.setNumRows(0);
-        
+
         EnfermeiraController.carregaTabelaTriagem(modelo);
-        
+
         centralizarTabelaTriagem();
     }
-    
+
     public void centralizarTabelaTriagem() {
         DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
-	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+        cellRender.setHorizontalAlignment(SwingConstants.CENTER);
 
-	for (int numCol = 0; numCol < tabPaciente2.getColumnCount(); numCol++) {
+        for (int numCol = 0; numCol < tabPaciente2.getColumnCount(); numCol++) {
             tabPaciente2.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
-	}
+        }
     }
-    
+
     public void pesquisaTabelaTriagem() {
         DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
         modelo.setNumRows(0);
-        
+
         EnfermeiraController.pesquisaTabelaTriagem(modelo, tfNomePac.getText());
-        
+
         centralizarTabelaTriagem();
     }
-    
-    public void limparTriagem(){
+
+    public void limparTriagem() {
         tfTemperatura.setText("");
         tfPressao.setText("");
         taDescricao.setText("");
         tabPaciente2.clearSelection();
         tfTemperatura.requestFocus();
     }
-    
-    public void preencherTriagem(){
+
+    public void preencherTriagem() {
         String feedback = "";
         String feedbackAlt = "";
-        
+
         String temperatura = tfTemperatura.getText();
         String pressao = tfPressao.getText();
         String descricao = taDescricao.getText();
 
         String pro_id = getIdProtuario();
         String enf_id = getId();
-        
+
         System.out.println("CONSULTA: " + getIdConsulta());
-        
+
         feedback = EnfermeiraController.preencherTriagem(temperatura, pressao, descricao, pro_id, enf_id);
         feedbackAlt = AtendenteController.alterarStatusConsulta(getIdConsulta(), 3);
-        
-        if(feedback == null && feedbackAlt == null){
+
+        if (feedback == null && feedbackAlt == null) {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(93, 201, 120));
             labPopUpStatus.setText("✅ TRIAGEM PREENCHIDA COM SUCESSO!");
             limparTriagem();
             setIdConsulta(null);
-        }
-        else{
+        } else {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(247, 99, 99));
-            if (feedback != null)
+            if (feedback != null) {
                 labPopUpStatus.setText("⚠ " + feedback);
-            else
-                labPopUpStatus.setText("⚠ Paciente não selecionado!");  
-            
+            } else {
+                labPopUpStatus.setText("⚠ Paciente não selecionado!");
+            }
+
         }
     }
-    
+
     public String pesquisarConsultaPorProntuario(String pro_id) {
         return EnfermeiraController.pesquisarConsultaPorProntuario(pro_id);
     }
-    
+
     public void carregaTabelaInsumo() {
         DefaultTableModel modelo = (DefaultTableModel) tabEstoque.getModel();
         modelo.setNumRows(0);
-        
+
         EnfermeiraController.carregaTabelaInsumo(modelo);
-        
+
         centralizarTabelaInsumo();
     }
-    
+
     public void centralizarTabelaInsumo() {
         DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
-	cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+        cellRender.setHorizontalAlignment(SwingConstants.CENTER);
 
-	for (int numCol = 0; numCol < tabEstoque.getColumnCount(); numCol++) {
+        for (int numCol = 0; numCol < tabEstoque.getColumnCount(); numCol++) {
             tabEstoque.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
-	}
+        }
     }
-    
+
     public void alterarQuantidadeInsumo(int i) {
-        if(Integer.parseInt(tfQuantidade.getText()) > 0 || i > 0)
+        if (Integer.parseInt(tfQuantidade.getText()) > 0 || i > 0) {
             tfQuantidade.setText(Integer.toString(Integer.parseInt(tfQuantidade.getText()) + i));
-        else
+        } else {
             tfQuantidade.setText("0");
+        }
     }
-    
-    public void controlarEstoque(){
+
+    public void controlarEstoque() {
         String feedback = "";
 
         String quantidade = tfQuantidade.getText();
-        
-        if(Integer.parseInt(quantidade) < 0 )
-            System.out.println("QUANTIDADE INVALIDA!"); 
-        else{
+
+        if (Integer.parseInt(quantidade) < 0) {
+            System.out.println("QUANTIDADE INVALIDA!");
+        } else {
             String ins_id = getIdInsumo();
 
             feedback = EnfermeiraController.controlarEstoque(quantidade, ins_id);
 
-            if(feedback == null){
+            if (feedback == null) {
                 System.out.println("QUANTIDADE ALTERADA COM SUCESSO!");
                 tfQuantidade.setText("");
                 setIdInsumo(null);
-            }
-            else
+            } else {
                 System.out.println(feedback);
+            }
         }
     }
-    
-    public void cadastrarInsumo(){
+
+    public void cadastrarInsumo() {
         String feedback = "";
 
         String nome = tfCadInsNome.getText();
@@ -1190,20 +1189,22 @@ public class JanEnfermeira extends javax.swing.JFrame {
         String enf_id = getId();
 
         feedback = EnfermeiraController.cadastrarInsumo(nome, quantidade, enf_id);
-        
-        if(feedback == null){
-            labPopUpStatus.setText("✅ Insumo cadastrado com sucesso");
+
+        if (feedback == null) {
             labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ Insumo cadastrado com sucesso");
             dialogPopUpStatus.setVisible(true);
+            dialogCadInsumo.setVisible(false);
             limparInsumo();
-        }
-        else
+        } else {
             labPopUpStatus.setText("⚠ " + feedback);
             labPopUpStatus.setForeground(new Color(247, 99, 99));
             dialogPopUpStatus.setVisible(true);
+        }
+
     }
-    
-    public void limparInsumo(){
+
+    public void limparInsumo() {
         tfCadInsNome.setText("");
         tfCadInsQuantidade.setText("");
         //tabPaciente2.clearSelection();
