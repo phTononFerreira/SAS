@@ -96,15 +96,24 @@ public class JanMedico extends javax.swing.JFrame {
         labPacPressão = new javax.swing.JLabel();
         labInfoObs = new javax.swing.JLabel();
         labPacObs = new javax.swing.JLabel();
-        btSalvar = new javax.swing.JButton();
-        btSalvar1 = new javax.swing.JButton();
-        btSalvar2 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabEstoque = new javax.swing.JTable();
+        jSeparator3 = new javax.swing.JSeparator();
+        btReceitar = new javax.swing.JButton();
+        tfReceitar = new javax.swing.JTextField();
+        tfMedPesquisa = new javax.swing.JTextField();
+        btMedPesquisa = new javax.swing.JButton();
+        btMedRefresh = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        btFinalizar = new javax.swing.JButton();
+        btGerarEnc = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Médica");
         setBackground(new java.awt.Color(0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
         panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(249, 100, 100)));
@@ -380,7 +389,7 @@ public class JanMedico extends javax.swing.JFrame {
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardConsultaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btIniciarCons, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
                 .addContainerGap())
@@ -449,6 +458,112 @@ public class JanMedico extends javax.swing.JFrame {
         labPacObs.setText("Inserir observações aqui");
         labPacObs.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        jScrollPane4.setBorder(null);
+        jScrollPane4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        tabEstoque.setBackground(new java.awt.Color(242, 242, 242));
+        tabEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(0, 0, 0)));
+        tabEstoque.setForeground(new java.awt.Color(51, 51, 51));
+        tabEstoque.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, "", null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Código Insumo", "Nome", "Quantidade"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabEstoque.setGridColor(new java.awt.Color(204, 204, 204));
+        tabEstoque.setIntercellSpacing(new java.awt.Dimension(0, 10));
+        tabEstoque.setMinimumSize(new java.awt.Dimension(0, 0));
+        tabEstoque.setRowHeight(30);
+        tabEstoque.setSelectionBackground(new java.awt.Color(196, 67, 67));
+        tabEstoque.setShowGrid(true);
+        tabEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabEstoqueMousePressed(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tabEstoque);
+
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
+
+        btReceitar.setBackground(new java.awt.Color(249, 100, 100));
+        btReceitar.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btReceitar.setForeground(new java.awt.Color(255, 255, 255));
+        btReceitar.setText("RECEITAR");
+        btReceitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btReceitar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btReceitarMouseClicked(evt);
+            }
+        });
+        btReceitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btReceitarActionPerformed(evt);
+            }
+        });
+
+        tfReceitar.setBackground(new java.awt.Color(242, 242, 242));
+        tfReceitar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfReceitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfReceitarActionPerformed(evt);
+            }
+        });
+
+        tfMedPesquisa.setBackground(new java.awt.Color(242, 242, 242));
+        tfMedPesquisa.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfMedPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfMedPesquisaActionPerformed(evt);
+            }
+        });
+
+        btMedPesquisa.setBackground(new java.awt.Color(249, 100, 100));
+        btMedPesquisa.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btMedPesquisa.setForeground(new java.awt.Color(255, 255, 255));
+        btMedPesquisa.setText("PESQUISAR");
+        btMedPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btMedPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMedPesquisaActionPerformed(evt);
+            }
+        });
+
+        btMedRefresh.setBackground(new java.awt.Color(249, 100, 100));
+        btMedRefresh.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btMedRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btMedRefresh.setText("🔄");
+        btMedRefresh.setToolTipText("Atualizar Tabela");
+        btMedRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btMedRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMedRefreshActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("RECEITAR MEDICAMENTO");
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
         javax.swing.GroupLayout labPacIdadeLayout = new javax.swing.GroupLayout(labPacIdade);
         labPacIdade.setLayout(labPacIdadeLayout);
         labPacIdadeLayout.setHorizontalGroup(
@@ -475,7 +590,7 @@ public class JanMedico extends javax.swing.JFrame {
                                 .addComponent(labPInfoNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labPacNome, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 452, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(labPacIdadeLayout.createSequentialGroup()
                                 .addComponent(labInfoData)
@@ -486,19 +601,45 @@ public class JanMedico extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labPacHora, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(64, 64, 64))
-                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(labPacIdadeLayout.createSequentialGroup()
-                                .addComponent(labInfoObs)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lbProntuario))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2))
-                        .addGap(30, 30, 30))))
+                        .addGap(30, 30, 30))
+                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                        .addComponent(jSeparator3)
+                        .addGap(72, 72, 72))
+                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbProntuario)
+                            .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                .addComponent(labInfoObs)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 176, Short.MAX_VALUE))
+                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                .addComponent(tfMedPesquisa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btMedRefresh))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(tfReceitar))
+                        .addGap(40, 40, 40))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         labPacIdadeLayout.setVerticalGroup(
             labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,58 +659,76 @@ public class JanMedico extends javax.swing.JFrame {
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labInfoData)
                             .addComponent(labPacData))
-                        .addGap(112, 112, 112)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labInfoHora)
                             .addComponent(labPacHora)
                             .addComponent(labInfoIdade)
                             .addComponent(labPacNome1))))
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labInfoTemperatura)
                     .addComponent(labPacTemperatura)
                     .addComponent(labInfoPressao)
                     .addComponent(labPacPressão))
-                .addGap(91, 91, 91)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labInfoObs)
-                    .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(25, 25, 25)
+                .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btMedPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btMedRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                        .addComponent(tfReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator4))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        btSalvar.setBackground(new java.awt.Color(249, 100, 100));
-        btSalvar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btSalvar.setForeground(new java.awt.Color(255, 255, 255));
-        btSalvar.setText("RECEITAR MEDICAMENTO");
-        btSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btSalvar.setMinimumSize(new java.awt.Dimension(73, 18));
-        btSalvar.setPreferredSize(new java.awt.Dimension(73, 18));
+        btFinalizar.setBackground(new java.awt.Color(249, 100, 100));
+        btFinalizar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btFinalizar.setForeground(new java.awt.Color(255, 255, 255));
+        btFinalizar.setText("FINALIZAR CONSULTA");
+        btFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btFinalizar.setMinimumSize(new java.awt.Dimension(73, 18));
+        btFinalizar.setPreferredSize(new java.awt.Dimension(73, 18));
 
-        btSalvar1.setBackground(new java.awt.Color(249, 100, 100));
-        btSalvar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        btSalvar1.setForeground(new java.awt.Color(255, 255, 255));
-        btSalvar1.setText("GERAR ENCAMINHAMENTO");
-        btSalvar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btSalvar1.setMinimumSize(new java.awt.Dimension(73, 18));
-        btSalvar1.setPreferredSize(new java.awt.Dimension(73, 18));
+        btGerarEnc.setBackground(new java.awt.Color(249, 100, 100));
+        btGerarEnc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        btGerarEnc.setForeground(new java.awt.Color(255, 255, 255));
+        btGerarEnc.setText("GERAR ENCAMINHAMENTO");
+        btGerarEnc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGerarEnc.setMinimumSize(new java.awt.Dimension(73, 18));
+        btGerarEnc.setPreferredSize(new java.awt.Dimension(73, 18));
 
-        btSalvar2.setBackground(new java.awt.Color(249, 100, 100));
-        btSalvar2.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        btSalvar2.setForeground(new java.awt.Color(255, 255, 255));
-        btSalvar2.setText("VOLTAR");
-        btSalvar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btSalvar2.setMinimumSize(new java.awt.Dimension(73, 18));
-        btSalvar2.setPreferredSize(new java.awt.Dimension(73, 18));
-        btSalvar2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btVoltar.setBackground(new java.awt.Color(249, 100, 100));
+        btVoltar.setFont(new java.awt.Font("Verdana", 1, 16)); // NOI18N
+        btVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btVoltar.setText("VOLTAR");
+        btVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btVoltar.setMinimumSize(new java.awt.Dimension(73, 18));
+        btVoltar.setPreferredSize(new java.awt.Dimension(73, 18));
+        btVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btSalvar2MouseClicked(evt);
+                btVoltarMouseClicked(evt);
             }
         });
-        btSalvar2.addActionListener(new java.awt.event.ActionListener() {
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSalvar2ActionPerformed(evt);
+                btVoltarActionPerformed(evt);
             }
         });
 
@@ -582,9 +741,9 @@ public class JanMedico extends javax.swing.JFrame {
                 .addComponent(labPacIdade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cardPacInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btSalvar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-                    .addComponent(btSalvar2, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE))
+                    .addComponent(btFinalizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btGerarEnc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+                    .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE))
                 .addContainerGap())
         );
         cardPacInfoLayout.setVerticalGroup(
@@ -593,11 +752,11 @@ public class JanMedico extends javax.swing.JFrame {
                 .addGroup(cardPacInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(cardPacInfoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btSalvar1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btGerarEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btSalvar2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labPacIdade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -609,7 +768,7 @@ public class JanMedico extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
+            .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -618,8 +777,6 @@ public class JanMedico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
@@ -663,18 +820,18 @@ public class JanMedico extends javax.swing.JFrame {
         cardLayout.show(panCards, "cardConsulta");
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void btSalvar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvar2MouseClicked
+    private void btVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltarMouseClicked
         cardLayout.show(panCards, "cardConsulta");
         limparConsultaSelecionada();
-    }//GEN-LAST:event_btSalvar2MouseClicked
+    }//GEN-LAST:event_btVoltarMouseClicked
 
     private void btIniciarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarConsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btIniciarConsActionPerformed
 
-    private void btSalvar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvar2ActionPerformed
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btSalvar2ActionPerformed
+    }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btlRefreshPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshPacActionPerformed
         carregaTabelaConsulta();
@@ -687,6 +844,34 @@ public class JanMedico extends javax.swing.JFrame {
     private void tabPaciente2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPaciente2MousePressed
         setIdConsulta(tabPaciente2.getValueAt(tabPaciente2.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tabPaciente2MousePressed
+
+    private void tabEstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabEstoqueMousePressed
+
+    }//GEN-LAST:event_tabEstoqueMousePressed
+
+    private void btReceitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btReceitarMouseClicked
+
+    }//GEN-LAST:event_btReceitarMouseClicked
+
+    private void btReceitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReceitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btReceitarActionPerformed
+
+    private void tfReceitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfReceitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfReceitarActionPerformed
+
+    private void tfMedPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMedPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfMedPesquisaActionPerformed
+
+    private void btMedPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMedPesquisaActionPerformed
+
+    }//GEN-LAST:event_btMedPesquisaActionPerformed
+
+    private void btMedRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMedRefreshActionPerformed
+
+    }//GEN-LAST:event_btMedRefreshActionPerformed
     
     public void sair(){
         this.dispose();
@@ -787,19 +972,26 @@ public class JanMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btFinalizar;
+    private javax.swing.JButton btGerarEnc;
     private javax.swing.JButton btIniciarCons;
+    private javax.swing.JButton btMedPesquisa;
+    private javax.swing.JButton btMedRefresh;
     private javax.swing.JButton btNomePesquisaPac;
-    private javax.swing.JButton btSalvar;
-    private javax.swing.JButton btSalvar1;
-    private javax.swing.JButton btSalvar2;
+    private javax.swing.JButton btReceitar;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JButton btlRefreshPac;
     private javax.swing.JPanel cardConsulta;
     private javax.swing.JPanel cardPacInfo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel labInfoData;
     private javax.swing.JLabel labInfoHora;
     private javax.swing.JLabel labInfoIdade;
@@ -825,7 +1017,10 @@ public class JanMedico extends javax.swing.JFrame {
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panTop;
     private javax.swing.JPanel panUser;
+    private javax.swing.JTable tabEstoque;
     private javax.swing.JTable tabPaciente2;
+    private javax.swing.JTextField tfMedPesquisa;
     private javax.swing.JTextField tfNomePac;
+    private javax.swing.JTextField tfReceitar;
     // End of variables declaration//GEN-END:variables
 }
