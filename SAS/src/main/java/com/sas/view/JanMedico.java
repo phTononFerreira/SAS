@@ -1,6 +1,7 @@
 package com.sas.view;
 
 import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
 import com.sas.controller.ConsultaController;
 import com.sas.controller.InsumoMedicoController;
 import com.sas.controller.MedicoController;
@@ -895,7 +896,10 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_btReceitarMouseClicked
 
     private void btReceitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReceitarActionPerformed
-        imprimirPdf("RECEITUÁRIO","CONETEVYHAWSFCDYQFGVFYWQCVDTYQ","Jonas Tomaz","Doutor Francisco Sales");
+        String receita = taReceitar.getText();
+        String medico = MedicoController.pesquisarMedicoID(getId()).getNome();
+        String paciente = labPacNome.getText();
+        imprimirPdf("RECEITUÁRIO",receita, paciente, medico);
     }//GEN-LAST:event_btReceitarActionPerformed
 
     private void tfMedPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMedPesquisaActionPerformed
@@ -1043,18 +1047,26 @@ public class JanMedico extends javax.swing.JFrame {
             documento.add(image);
             Font font = new Font(Font.FontFamily.HELVETICA, 30, Font.BOLD);
             Font font2 = new Font(Font.FontFamily.HELVETICA, 15, Font.NORMAL);
-            Paragraph cabecalho = new Paragraph(tipo+"\n\n", font);          
+            Font font3 = new Font(Font.FontFamily.HELVETICA, 8, Font.ITALIC);
+            Font font4 = new Font(Font.FontFamily.HELVETICA, 15, Font.NORMAL, BaseColor.DARK_GRAY);
+            Paragraph cabecalho = new Paragraph(tipo, font);          
             cabecalho.setAlignment(Element.ALIGN_CENTER);
             documento.add(cabecalho);
-            Paragraph paragrafo = new Paragraph("Paciente: "+paciente+"\n\n", font2);
+            Paragraph paragrafo = new Paragraph("\nPaciente: "+paciente, font2);
             paragrafo.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo);
-            Paragraph paragrafo2 = new Paragraph(conteudo+"\n\n", font2);
+            Paragraph paragrafo2 = new Paragraph("\n\n\n"+conteudo, font4);
             paragrafo2.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo2);
-            Paragraph paragrafo3 = new Paragraph("Médico: Dr. "+medico, font2);
+            Paragraph paragrafo3 = new Paragraph("\n\n\nMédico: Dr(a). "+medico+"\n\n", font2);
             paragrafo3.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo3);
+            Paragraph ass = new Paragraph("______________________________");
+            ass.setAlignment(Element.ALIGN_CENTER);
+            documento.add(ass);
+            Paragraph ass2 = new Paragraph("assinatura", font3);
+            ass2.setAlignment(Element.ALIGN_CENTER);
+            documento.add(ass2);
             documento.close();
             JOptionPane.showMessageDialog(null, "deu bom");
         } catch (FileNotFoundException ex) {
