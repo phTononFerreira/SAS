@@ -1192,15 +1192,18 @@ public class JanEnfermeira extends javax.swing.JFrame {
         feedback = EnfermeiraController.cadastrarInsumo(nome, quantidade, enf_id);
         
         if(feedback == null){
-            labPopUpStatus.setText("✅ Insumo cadastrado com sucesso");
             labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ Insumo cadastrado com sucesso");       
             dialogPopUpStatus.setVisible(true);
+            dialogCadInsumo.setVisible(false);
             limparInsumo();
         }
-        else
+        else{
             labPopUpStatus.setText("⚠ " + feedback);
             labPopUpStatus.setForeground(new Color(247, 99, 99));
             dialogPopUpStatus.setVisible(true);
+        }
+            
     }
     
     public void limparInsumo(){
