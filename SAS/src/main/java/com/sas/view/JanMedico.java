@@ -24,12 +24,29 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.sas.controller.AtendenteController;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileInputStream;
+
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.ServiceUI;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashDocAttributeSet;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class JanMedico extends javax.swing.JFrame {
@@ -68,10 +85,15 @@ public class JanMedico extends javax.swing.JFrame {
 
     public JanMedico() {
         initComponents();
+                
+        ImageIcon img = new ImageIcon("img\\SAS_icon.png");
+        this.setIconImage(img.getImage());
+        
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
+        
         carregaTabelaConsulta();
         carregaTabelaInsumo();
     }
@@ -150,7 +172,6 @@ public class JanMedico extends javax.swing.JFrame {
         dialogPopUpStatus.setTitle("SAS ALERT");
         dialogPopUpStatus.setLocation(new java.awt.Point(800, 500));
         dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(443, 175));
-        dialogPopUpStatus.setPreferredSize(new java.awt.Dimension(443, 170));
         dialogPopUpStatus.setResizable(false);
         dialogPopUpStatus.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -385,7 +406,7 @@ public class JanMedico extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código Consulta", "Paciente", "CPF"
+                "Código Consulta", "Paciente", "Horário da Consulta"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -685,6 +706,40 @@ public class JanMedico extends javax.swing.JFrame {
             .addGroup(labPacIdadeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
+                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2))
+                        .addGap(30, 30, 30))
+                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btMedRefresh))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
+                        .addComponent(labInfoTemperatura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labPacTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(232, 232, 232)
+                        .addComponent(labInfoPressao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labPacPressão, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
+                        .addComponent(jSeparator3)
+                        .addGap(72, 72, 72))
                     .addGroup(labPacIdadeLayout.createSequentialGroup()
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(labPacIdadeLayout.createSequentialGroup()
@@ -695,7 +750,7 @@ public class JanMedico extends javax.swing.JFrame {
                                 .addComponent(labPInfoNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labPacNome, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(300, 300, 300)
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(labPacIdadeLayout.createSequentialGroup()
                                 .addComponent(labInfoData)
@@ -704,55 +759,12 @@ public class JanMedico extends javax.swing.JFrame {
                             .addGroup(labPacIdadeLayout.createSequentialGroup()
                                 .addComponent(labInfoHora)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labPacHora, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(64, 64, 64))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
-                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2))
-                        .addGap(30, 30, 30))
+                                .addComponent(labPacHora, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(lbProntuario)
                     .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addComponent(jSeparator3)
-                        .addGap(72, 72, 72))
-                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbProntuario)
-                            .addGroup(labPacIdadeLayout.createSequentialGroup()
-                                .addComponent(labInfoObs)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 176, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
-                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, labPacIdadeLayout.createSequentialGroup()
-                                .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(tfMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btMedRefresh))
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                                        .addGap(265, 265, 265)
-                                        .addComponent(btReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jScrollPane3))))
-                            .addGroup(labPacIdadeLayout.createSequentialGroup()
-                                .addComponent(labInfoTemperatura)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labPacTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labInfoPressao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labPacPressão, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(45, 45, 45))))
+                        .addComponent(labInfoObs)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
@@ -774,21 +786,21 @@ public class JanMedico extends javax.swing.JFrame {
                             .addComponent(labInfoData)
                             .addComponent(labPacData)))
                     .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addContainerGap(230, Short.MAX_VALUE)
+                        .addGap(100, 100, 100)
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labInfoHora)
                             .addComponent(labPacHora)
                             .addComponent(labInfoIdade)
                             .addComponent(labPacNome1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labInfoTemperatura)
                     .addComponent(labPacTemperatura)
                     .addComponent(labInfoPressao)
                     .addComponent(labPacPressão))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labInfoObs)
                     .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -815,7 +827,7 @@ public class JanMedico extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jSeparator4)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         btFinalizar.setBackground(new java.awt.Color(249, 100, 100));
@@ -825,6 +837,11 @@ public class JanMedico extends javax.swing.JFrame {
         btFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btFinalizar.setMinimumSize(new java.awt.Dimension(73, 18));
         btFinalizar.setPreferredSize(new java.awt.Dimension(73, 18));
+        btFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFinalizarActionPerformed(evt);
+            }
+        });
 
         btGerarEnc.setBackground(new java.awt.Color(249, 100, 100));
         btGerarEnc.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -858,12 +875,12 @@ public class JanMedico extends javax.swing.JFrame {
             cardPacInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardPacInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labPacIdade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labPacIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 1143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cardPacInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btFinalizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btGerarEnc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
-                    .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE))
+                    .addComponent(btGerarEnc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+                    .addComponent(btVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btFinalizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         cardPacInfoLayout.setVerticalGroup(
@@ -938,10 +955,7 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void btVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltarMouseClicked
-        cardLayout.show(panCards, "cardConsulta");
-        limparConsultaSelecionada();
-        taReceitar.setText("");
-        setIdInsumo(null);
+        voltarConsulta();
     }//GEN-LAST:event_btVoltarMouseClicked
 
     private void btIniciarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarConsActionPerformed
@@ -967,6 +981,7 @@ public class JanMedico extends javax.swing.JFrame {
     private void tabEstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabEstoqueMousePressed
         setIdInsumo(tabEstoque.getValueAt(tabEstoque.getSelectedRow(), 0).toString());
         preencherReceita();
+        taReceitar.requestFocus();
     }//GEN-LAST:event_tabEstoqueMousePressed
 
     private void btReceitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btReceitarMouseClicked
@@ -997,6 +1012,18 @@ public class JanMedico extends javax.swing.JFrame {
         dialogPopUpStatus.toFront();
     }//GEN-LAST:event_dialogPopUpStatusWindowLostFocus
 
+    private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
+        finalizaConsulta();
+        voltarConsulta();
+    }//GEN-LAST:event_btFinalizarActionPerformed
+
+    public void voltarConsulta() {
+        cardLayout.show(panCards, "cardConsulta");
+        limparConsultaSelecionada();
+        taReceitar.setText("");
+        setIdInsumo(null);
+    }
+    
     public void sair() {
         this.dispose();
         labLogout.setVisible(false);
@@ -1011,7 +1038,7 @@ public class JanMedico extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
         modelo.setNumRows(0);
 
-        MedicoController.carregaTabelaConsulta(modelo);
+        MedicoController.carregaTabelaConsulta(modelo, getId());
 
         centralizarTabelaConsulta();
     }
@@ -1029,7 +1056,7 @@ public class JanMedico extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
         modelo.setNumRows(0);
 
-        MedicoController.pesquisaTabelaConsulta(modelo, tfNomePac.getText());
+        MedicoController.pesquisaTabelaConsulta(modelo, tfNomePac.getText(), getId());
 
         tfNomePac.setText("");
         tfNomePac.requestFocus();
@@ -1053,6 +1080,8 @@ public class JanMedico extends javax.swing.JFrame {
         labPacTemperatura.setText(Float.toString(ProntuarioController.pesquisarProntuarioID(pro_id).getTemperatura()));
         labPacPressão.setText(ProntuarioController.pesquisarProntuarioID(pro_id).getPressao());
         labPacObs.setText(ProntuarioController.pesquisarProntuarioID(pro_id).getDescricao());
+        
+        taReceitar.setText(ConsultaController.pesquisarConsultaID(con_id).getReceita());
     }
 
     public void limparConsultaSelecionada() {
@@ -1115,7 +1144,6 @@ public class JanMedico extends javax.swing.JFrame {
                 dialogPopUpStatus.setVisible(true);
                 labPopUpStatus.setForeground(new Color(93, 201, 120));
                 labPopUpStatus.setText("✅ Paciente receitado com sucesso!");
-
             } else {
                 dialogPopUpStatus.setVisible(true);
                 labPopUpStatus.setForeground(new Color(247, 99, 99));
@@ -1161,6 +1189,7 @@ public class JanMedico extends javax.swing.JFrame {
             ass2.setAlignment(Element.ALIGN_CENTER);
             documento.add(ass2);
             documento.close();
+            printDoc();
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, ex);
         } catch (DocumentException ex) {
@@ -1168,6 +1197,57 @@ public class JanMedico extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+    }
+    
+    public void printDoc(){
+        PrintService [] printService = PrintServiceLookup.lookupPrintServices(DocFlavor.INPUT_STREAM.AUTOSENSE, null);
+        PrintService impressoraPadrao = PrintServiceLookup.lookupDefaultPrintService();
+        DocFlavor docFlavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
+        HashDocAttributeSet hashDocAttributeSet = new HashDocAttributeSet(); 
+        try {
+            FileInputStream fileInputStream = new FileInputStream("documento.pdf");
+            Doc doc = new SimpleDoc(fileInputStream, docFlavor, hashDocAttributeSet);
+            PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
+            PrintService printServico = ServiceUI.printDialog(null, 300, 200, printService, impressoraPadrao, docFlavor, printRequestAttributeSet);
+            if(printServico != null){
+                DocPrintJob docPrintJob = printServico.createPrintJob();
+                try {
+                    //mandar imprimir
+                    docPrintJob.print(doc, printRequestAttributeSet);
+                } catch (PrintException ex) {
+                    dialogPopUpStatus.setVisible(true);
+                    labPopUpStatus.setForeground(new Color(247, 99, 99));
+                    labPopUpStatus.setText("⚠ " + ex);
+                }           
+            }else{
+                dialogPopUpStatus.setVisible(true);
+                labPopUpStatus.setForeground(new Color(247, 99, 99));
+                labPopUpStatus.setText("⚠ ERRO DE IMPRESSÃO!");
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(JanMedico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+    }
+    
+    public void finalizaConsulta(){
+        String feedback = "";
+        String idConsulta = getIdConsulta();
+        
+        feedback = AtendenteController.alterarStatusConsulta(idConsulta, 4);
+
+        if (feedback == null) {
+            carregaTabelaConsulta();
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ CONSULTA FINALIZADA COM SUCESSO! ("+ idConsulta +")");
+            setIdConsulta(null);
+        } else {
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ " + feedback);
+        }
+        
     }
 
     public static void main(String args[]) {
