@@ -1066,7 +1066,7 @@ public class JanAtendente extends javax.swing.JFrame {
                                         .addComponent(btlRefreshPac))
                                     .addComponent(labNomePesquisaPac)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                                 .addGroup(panAgendarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lanSelMed)
                                     .addGroup(panAgendarLayout.createSequentialGroup()
@@ -1154,7 +1154,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(panAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)
+                .addComponent(btAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
         cardAgendarConsultaLayout.setVerticalGroup(
@@ -1164,9 +1164,9 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGroup(cardAgendarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
-                        .addGap(0, 484, Short.MAX_VALUE)
+                        .addGap(0, 486, Short.MAX_VALUE)
                         .addComponent(btAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 482, Short.MAX_VALUE)))
+                        .addGap(0, 484, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1231,6 +1231,11 @@ public class JanAtendente extends javax.swing.JFrame {
 
         tfNomeAltPac.setBackground(new java.awt.Color(242, 242, 242));
         tfNomeAltPac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNomeAltPac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfNomeAltPacKeyPressed(evt);
+            }
+        });
 
         labNomePesquisaAltPac.setText("NOME");
 
@@ -1248,23 +1253,48 @@ public class JanAtendente extends javax.swing.JFrame {
 
         tfAltDataNasc.setBackground(new java.awt.Color(242, 242, 242));
         tfAltDataNasc.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfAltDataNasc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfAltDataNascKeyPressed(evt);
+            }
+        });
 
         tfAltTelefone.setBackground(new java.awt.Color(242, 242, 242));
         tfAltTelefone.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfAltTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfAltTelefoneKeyPressed(evt);
+            }
+        });
 
         tfAltEndereco.setBackground(new java.awt.Color(242, 242, 242));
         tfAltEndereco.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfAltEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfAltEnderecoKeyPressed(evt);
+            }
+        });
 
         labAltEndereco.setText("ENDEREÇO");
 
         tfAltCPF.setBackground(new java.awt.Color(242, 242, 242));
         tfAltCPF.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfAltCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfAltCPFKeyPressed(evt);
+            }
+        });
 
         labAltCPF.setText("CPF*");
         labAltCPF.setToolTipText("");
 
         tfAltNome.setBackground(new java.awt.Color(242, 242, 242));
         tfAltNome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfAltNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfAltNomeKeyPressed(evt);
+            }
+        });
 
         labAltNome.setText("NOME*");
 
@@ -1656,6 +1686,42 @@ public class JanAtendente extends javax.swing.JFrame {
             btAlterar.doClick();
         }
     }//GEN-LAST:event_tfEnderecoKeyPressed
+
+    private void tfNomeAltPacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeAltPacKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btNomePesquisaAltPac.doClick();
+        }
+    }//GEN-LAST:event_tfNomeAltPacKeyPressed
+
+    private void tfAltNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltNomeKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btAltSalvar.doClick();
+        }
+    }//GEN-LAST:event_tfAltNomeKeyPressed
+
+    private void tfAltCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltCPFKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btAltSalvar.doClick();
+        }
+    }//GEN-LAST:event_tfAltCPFKeyPressed
+
+    private void tfAltDataNascKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltDataNascKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btAltSalvar.doClick();
+        }
+    }//GEN-LAST:event_tfAltDataNascKeyPressed
+
+    private void tfAltTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltTelefoneKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btAltSalvar.doClick();
+        }
+    }//GEN-LAST:event_tfAltTelefoneKeyPressed
+
+    private void tfAltEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltEnderecoKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btAltSalvar.doClick();
+        }
+    }//GEN-LAST:event_tfAltEnderecoKeyPressed
 
     public void optionAlterarPac(){
         dialogOptionPane.setVisible(true);

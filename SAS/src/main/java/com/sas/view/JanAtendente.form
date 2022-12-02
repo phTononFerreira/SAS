@@ -1167,7 +1167,7 @@
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="panAgendar" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btAgendar" pref="681" max="32767" attributes="0"/>
+                      <Component id="btAgendar" pref="682" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1179,9 +1179,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="panAgendar" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="484" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="486" max="32767" attributes="0"/>
                               <Component id="btAgendar" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="482" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="484" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1229,7 +1229,7 @@
                                               <Component id="labNomePesquisaPac" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jScrollPane2" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace pref="154" max="32767" attributes="0"/>
+                                          <EmptySpace pref="155" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lanSelMed" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
@@ -1946,6 +1946,9 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfNomeAltPacKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labNomePesquisaAltPac">
                   <Properties>
@@ -1986,6 +1989,9 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAltDataNascKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAltTelefone">
                   <Properties>
@@ -2000,6 +2006,9 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAltTelefoneKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="tfAltEndereco">
                   <Properties>
@@ -2014,6 +2023,9 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAltEnderecoKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labAltEndereco">
                   <Properties>
@@ -2033,6 +2045,9 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAltCPFKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labAltCPF">
                   <Properties>
@@ -2053,6 +2068,9 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfAltNomeKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labAltNome">
                   <Properties>
