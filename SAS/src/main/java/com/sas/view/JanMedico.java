@@ -1092,8 +1092,11 @@ public class JanMedico extends javax.swing.JFrame {
 
     public void preencherReceita() {
         String receita = taReceitar.getText();
-
-        taReceitar.setText(receita + InsumoMedicoController.pesquisarInsumoID(getIdInsumo()).getNome() + ":\n");
+        
+        if(receita.equals(""))
+            taReceitar.setText(receita + InsumoMedicoController.pesquisarInsumoID(getIdInsumo()).getNome() + ": ");
+        else
+            taReceitar.setText(receita + "\n" + InsumoMedicoController.pesquisarInsumoID(getIdInsumo()).getNome() + ": ");
     }
 
     public void receitarConsulta() {
