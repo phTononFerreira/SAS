@@ -13,8 +13,11 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -50,6 +53,10 @@ public class JanAdmin extends javax.swing.JFrame {
 
     public JanAdmin() {
         initComponents();
+        
+        ImageIcon img = new ImageIcon("img\\SAS_icon.png");
+        this.setIconImage(img.getImage());
+                
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

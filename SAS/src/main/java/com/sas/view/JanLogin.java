@@ -2,6 +2,7 @@ package com.sas.view;
 
 import com.sas.controller.Login;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 public class JanLogin extends javax.swing.JFrame {
     
@@ -9,6 +10,8 @@ public class JanLogin extends javax.swing.JFrame {
 
     public JanLogin() {
         initComponents();
+        ImageIcon img = new ImageIcon("img\\SAS_icon.png");
+        this.setIconImage(img.getImage());
     }
     
     public static JanLogin getJanLogin() {

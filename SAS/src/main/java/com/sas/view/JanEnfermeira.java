@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -57,6 +58,10 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
     public JanEnfermeira() {
         initComponents();
+        
+        ImageIcon img = new ImageIcon("img\\SAS_icon.png");
+        this.setIconImage(img.getImage());
+        
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
