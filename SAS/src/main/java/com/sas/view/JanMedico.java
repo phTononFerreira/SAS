@@ -100,12 +100,14 @@ public class JanMedico extends javax.swing.JFrame {
         tabEstoque = new javax.swing.JTable();
         jSeparator3 = new javax.swing.JSeparator();
         btReceitar = new javax.swing.JButton();
-        tfReceitar = new javax.swing.JTextField();
         tfMedPesquisa = new javax.swing.JTextField();
         btMedPesquisa = new javax.swing.JButton();
         btMedRefresh = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        taReceitar = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
         btFinalizar = new javax.swing.JButton();
         btGerarEnc = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
@@ -520,14 +522,6 @@ public class JanMedico extends javax.swing.JFrame {
             }
         });
 
-        tfReceitar.setBackground(new java.awt.Color(242, 242, 242));
-        tfReceitar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        tfReceitar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfReceitarActionPerformed(evt);
-            }
-        });
-
         tfMedPesquisa.setBackground(new java.awt.Color(242, 242, 242));
         tfMedPesquisa.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         tfMedPesquisa.addActionListener(new java.awt.event.ActionListener() {
@@ -559,10 +553,19 @@ public class JanMedico extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("RECEITAR MEDICAMENTO");
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        taReceitar.setBackground(new java.awt.Color(242, 242, 242));
+        taReceitar.setColumns(20);
+        taReceitar.setRows(5);
+        taReceitar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        jScrollPane3.setViewportView(taReceitar);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("NOME");
 
         javax.swing.GroupLayout labPacIdadeLayout = new javax.swing.GroupLayout(labPacIdade);
         labPacIdade.setLayout(labPacIdadeLayout);
@@ -571,15 +574,6 @@ public class JanMedico extends javax.swing.JFrame {
             .addGroup(labPacIdadeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addComponent(labInfoTemperatura)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labPacTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labInfoPressao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labPacPressão, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45))
                     .addGroup(labPacIdadeLayout.createSequentialGroup()
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(labPacIdadeLayout.createSequentialGroup()
@@ -617,25 +611,38 @@ public class JanMedico extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 176, Short.MAX_VALUE))
-                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
+                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, labPacIdadeLayout.createSequentialGroup()
+                                .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tfMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btMedRefresh))
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                        .addGap(265, 265, 265)
+                                        .addComponent(btReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jScrollPane3))))
                             .addGroup(labPacIdadeLayout.createSequentialGroup()
-                                .addComponent(tfMedPesquisa)
+                                .addComponent(labInfoTemperatura)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btMedRefresh))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                .addComponent(labPacTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(tfReceitar))
-                        .addGap(40, 40, 40))))
+                                .addComponent(labInfoPressao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labPacPressão, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(45, 45, 45))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, labPacIdadeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
@@ -650,30 +657,28 @@ public class JanMedico extends javax.swing.JFrame {
                         .addComponent(lbProntuario)
                         .addGap(35, 35, 35)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
+                        .addGap(40, 40, 40)
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labPInfoNome)
-                            .addComponent(labPacNome)))
-                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labPacNome)
                             .addComponent(labInfoData)
-                            .addComponent(labPacData))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                            .addComponent(labPacData)))
+                    .addGroup(labPacIdadeLayout.createSequentialGroup()
+                        .addContainerGap(230, Short.MAX_VALUE)
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labInfoHora)
                             .addComponent(labPacHora)
                             .addComponent(labInfoIdade)
                             .addComponent(labPacNome1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labInfoTemperatura)
                     .addComponent(labPacTemperatura)
                     .addComponent(labInfoPressao)
                     .addComponent(labPacPressão))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labInfoObs)
                     .addComponent(labPacObs, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -682,20 +687,25 @@ public class JanMedico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(25, 25, 25)
-                .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btMedPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tfMedPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btMedRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(labPacIdadeLayout.createSequentialGroup()
-                        .addComponent(tfReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btReceitar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator4))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(labPacIdadeLayout.createSequentialGroup()
+                            .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btMedPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(labPacIdadeLayout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(btMedRefresh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tfMedPesquisa, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jSeparator4)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         btFinalizar.setBackground(new java.awt.Color(249, 100, 100));
@@ -857,10 +867,6 @@ public class JanMedico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btReceitarActionPerformed
 
-    private void tfReceitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfReceitarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfReceitarActionPerformed
-
     private void tfMedPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMedPesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfMedPesquisaActionPerformed
@@ -984,8 +990,10 @@ public class JanMedico extends javax.swing.JFrame {
     private javax.swing.JPanel cardConsulta;
     private javax.swing.JPanel cardPacInfo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
@@ -1017,10 +1025,10 @@ public class JanMedico extends javax.swing.JFrame {
     private javax.swing.JPanel panCards;
     private javax.swing.JPanel panTop;
     private javax.swing.JPanel panUser;
+    private javax.swing.JTextArea taReceitar;
     private javax.swing.JTable tabEstoque;
     private javax.swing.JTable tabPaciente2;
     private javax.swing.JTextField tfMedPesquisa;
     private javax.swing.JTextField tfNomePac;
-    private javax.swing.JTextField tfReceitar;
     // End of variables declaration//GEN-END:variables
 }
