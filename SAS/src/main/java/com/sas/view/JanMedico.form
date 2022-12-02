@@ -546,6 +546,9 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfNomePacKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="labNomePesquisaPac">
                   <Properties>
@@ -1105,6 +1108,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfMedPesquisaActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfMedPesquisaKeyPressed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btMedPesquisa">
@@ -1184,6 +1188,9 @@
                           </Border>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="taReceitarKeyPressed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
