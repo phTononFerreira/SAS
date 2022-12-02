@@ -102,7 +102,7 @@ public class JanMedico extends javax.swing.JFrame {
     }
 
     public static JanMedico getJanMedico() {
-
+      
         if (unicoJanMedico == null) {
             unicoJanMedico = new JanMedico();
         }

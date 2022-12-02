@@ -721,6 +721,9 @@
                       <Events>
                         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabPaciente2MousePressed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="JanMedico_tabPaciente2"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

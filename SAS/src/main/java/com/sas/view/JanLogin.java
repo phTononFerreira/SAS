@@ -282,6 +282,7 @@ public class JanLogin extends javax.swing.JFrame {
         JanMedico.getJanMedico().setNomePerfil(Login.retornaNomeFuncionario(ID));
         JanMedico.setId(ID);
         this.setVisible(false);
+        JanMedico.getJanMedico().carregaTabelaConsulta();
     }
     
     public void limpar(){
