@@ -27,6 +27,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.sas.controller.AtendenteController;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -434,6 +435,11 @@ public class JanMedico extends javax.swing.JFrame {
 
         tfNomePac.setBackground(new java.awt.Color(242, 242, 242));
         tfNomePac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNomePac.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfNomePacKeyPressed(evt);
+            }
+        });
 
         labNomePesquisaPac.setText("NOME");
 
@@ -660,6 +666,11 @@ public class JanMedico extends javax.swing.JFrame {
                 tfMedPesquisaActionPerformed(evt);
             }
         });
+        tfMedPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfMedPesquisaKeyPressed(evt);
+            }
+        });
 
         btMedPesquisa.setBackground(new java.awt.Color(249, 100, 100));
         btMedPesquisa.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -694,6 +705,11 @@ public class JanMedico extends javax.swing.JFrame {
         taReceitar.setLineWrap(true);
         taReceitar.setRows(5);
         taReceitar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        taReceitar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                taReceitarKeyPressed(evt);
+            }
+        });
         jScrollPane3.setViewportView(taReceitar);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -1016,6 +1032,24 @@ public class JanMedico extends javax.swing.JFrame {
         finalizaConsulta();
         voltarConsulta();
     }//GEN-LAST:event_btFinalizarActionPerformed
+
+    private void tfNomePacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomePacKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btNomePesquisaPac.doClick();
+        }
+    }//GEN-LAST:event_tfNomePacKeyPressed
+
+    private void tfMedPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfMedPesquisaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btMedPesquisa.doClick();
+        }
+    }//GEN-LAST:event_tfMedPesquisaKeyPressed
+
+    private void taReceitarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taReceitarKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btReceitar.doClick();
+        }
+    }//GEN-LAST:event_taReceitarKeyPressed
 
     public void voltarConsulta() {
         cardLayout.show(panCards, "cardConsulta");
