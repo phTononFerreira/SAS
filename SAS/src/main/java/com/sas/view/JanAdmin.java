@@ -404,7 +404,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
         dialogPopUpStatus.setTitle("SAS ALERT");
         dialogPopUpStatus.setLocation(new java.awt.Point(800, 500));
-        dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(443, 175));
+        dialogPopUpStatus.setMinimumSize(new java.awt.Dimension(443, 190));
         dialogPopUpStatus.setResizable(false);
         dialogPopUpStatus.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -421,6 +421,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labPopUpStatus.setForeground(new java.awt.Color(51, 51, 51));
         labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labPopUpStatus.setText("SAS ALERT");
+        labPopUpStatus.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         btOK.setBackground(new java.awt.Color(249, 100, 100));
         btOK.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -440,20 +441,19 @@ public class JanAdmin extends javax.swing.JFrame {
         panCadInsBackLayout.setHorizontalGroup(
             panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCadInsBackLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labPopUpStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panCadInsBackLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panCadInsBackLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(labPopUpStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)))
+                        .addGap(0, 252, Short.MAX_VALUE)
+                        .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
         );
         panCadInsBackLayout.setVerticalGroup(
             panCadInsBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCadInsBackLayout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addComponent(labPopUpStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labPopUpStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btOK, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -687,7 +687,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -1987,10 +1987,10 @@ public class JanAdmin extends javax.swing.JFrame {
 
         feedback = AdministradorController.cadastrarFuncionario(tipo, id_adm, senha, nome, data_nascimento, cpf, telefone, endereco, salario, crM, especialidade);
 
-        if (feedback == null) {
+        if (feedback.contains("adm") || feedback.contains("ate") || feedback.contains("enf") || feedback.contains("med")) {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(93, 201, 120));
-            labPopUpStatus.setText("✅ FUNCIONARIO CADASTRADO COM SUCESSO!");
+            labPopUpStatus.setText("<html>✅ FUNCIONARIO CADASTRADO COM SUCESSO!<br>ID: "+ feedback +"<br>SENHA: "+senha+"</html>");
             limpar();
         } else {
             dialogPopUpStatus.setVisible(true);

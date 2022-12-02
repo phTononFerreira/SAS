@@ -68,7 +68,7 @@ public class AdministradorController {
             System.out.println(administrador.toString());
 
             if (AdministradorDAO.cadastrarFunc(administrador)) {
-                return null;
+                return administrador.getId();
             } else {
                 return "Erro no cadastro!";
             }
@@ -127,7 +127,7 @@ public class AdministradorController {
             System.out.println(atendente.toString());
 
             if (AdministradorDAO.cadastrarFunc(atendente)) {
-                return null;
+                return atendente.getId();
             } else {
                 return "Erro no cadastro!";
             }
@@ -191,7 +191,7 @@ public class AdministradorController {
             System.out.println(enfermeira.toString());
 
             if (AdministradorDAO.cadastrarFunc(enfermeira)) {
-                return null;
+                return enfermeira.getId();
             } else {
                 return "Erro no cadastro!";
             }
@@ -260,7 +260,7 @@ public class AdministradorController {
             System.out.println(medico.toString());
 
             if (AdministradorDAO.cadastrarFunc(medico)) {
-                return null;
+                return medico.getId();
             } else {
                 return "Erro no cadastro!";
             }
