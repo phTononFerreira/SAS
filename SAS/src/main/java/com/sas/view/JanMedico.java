@@ -25,11 +25,26 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileInputStream;
+
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import javax.print.Doc;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintException;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.ServiceUI;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashDocAttributeSet;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
 import javax.swing.JOptionPane;
 
 public class JanMedico extends javax.swing.JFrame {
@@ -1115,7 +1130,6 @@ public class JanMedico extends javax.swing.JFrame {
                 dialogPopUpStatus.setVisible(true);
                 labPopUpStatus.setForeground(new Color(93, 201, 120));
                 labPopUpStatus.setText("✅ Paciente receitado com sucesso!");
-
             } else {
                 dialogPopUpStatus.setVisible(true);
                 labPopUpStatus.setForeground(new Color(247, 99, 99));
@@ -1161,6 +1175,7 @@ public class JanMedico extends javax.swing.JFrame {
             ass2.setAlignment(Element.ALIGN_CENTER);
             documento.add(ass2);
             documento.close();
+            printDoc();
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, ex);
         } catch (DocumentException ex) {
@@ -1168,6 +1183,37 @@ public class JanMedico extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+    }
+    
+    public void printDoc(){
+        PrintService [] printService = PrintServiceLookup.lookupPrintServices(DocFlavor.INPUT_STREAM.AUTOSENSE, null);
+        PrintService impressoraPadrao = PrintServiceLookup.lookupDefaultPrintService();
+        DocFlavor docFlavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
+        HashDocAttributeSet hashDocAttributeSet = new HashDocAttributeSet(); 
+        try {
+            FileInputStream fileInputStream = new FileInputStream("documento.pdf");
+            Doc doc = new SimpleDoc(fileInputStream, docFlavor, hashDocAttributeSet);
+            PrintRequestAttributeSet printRequestAttributeSet = new HashPrintRequestAttributeSet();
+            PrintService printServico = ServiceUI.printDialog(null, 300, 200, printService, impressoraPadrao, docFlavor, printRequestAttributeSet);
+            if(printServico != null){
+                DocPrintJob docPrintJob = printServico.createPrintJob();
+                try {
+                    //mandar imprimir
+                    docPrintJob.print(doc, printRequestAttributeSet);
+                } catch (PrintException ex) {
+                    dialogPopUpStatus.setVisible(true);
+                    labPopUpStatus.setForeground(new Color(247, 99, 99));
+                    labPopUpStatus.setText("⚠ " + ex);
+                }           
+            }else{
+                dialogPopUpStatus.setVisible(true);
+                labPopUpStatus.setForeground(new Color(247, 99, 99));
+                labPopUpStatus.setText("⚠ ERRO DE IMPRESSÃO!");
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(JanMedico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
     }
 
     public static void main(String args[]) {
