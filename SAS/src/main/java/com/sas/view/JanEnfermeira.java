@@ -1002,6 +1002,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
         sair();
+        dialogCadInsumo.dispose();
     }//GEN-LAST:event_labLogoutMouseClicked
 
     private void btNomePesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisa1ActionPerformed
@@ -1068,7 +1069,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
     private void dialogCadInsumoWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogCadInsumoWindowLostFocus
         //dialogCadInsumo.dispose();
-        dialogCadInsumo.toFront();
+        //dialogCadInsumo.toFront();
     }//GEN-LAST:event_dialogCadInsumoWindowLostFocus
 
     private void btCadInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsumoActionPerformed
