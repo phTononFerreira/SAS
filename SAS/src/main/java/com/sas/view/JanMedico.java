@@ -24,6 +24,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.sas.controller.AtendenteController;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.File;
@@ -953,10 +954,7 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void btVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltarMouseClicked
-        cardLayout.show(panCards, "cardConsulta");
-        limparConsultaSelecionada();
-        taReceitar.setText("");
-        setIdInsumo(null);
+        voltarConsulta();
     }//GEN-LAST:event_btVoltarMouseClicked
 
     private void btIniciarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarConsActionPerformed
@@ -1013,9 +1011,17 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_dialogPopUpStatusWindowLostFocus
 
     private void btFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarActionPerformed
-        // TODO add your handling code here:
+        finalizaConsulta();
+        voltarConsulta();
     }//GEN-LAST:event_btFinalizarActionPerformed
 
+    public void voltarConsulta() {
+        cardLayout.show(panCards, "cardConsulta");
+        limparConsultaSelecionada();
+        taReceitar.setText("");
+        setIdInsumo(null);
+    }
+    
     public void sair() {
         this.dispose();
         labLogout.setVisible(false);
@@ -1218,6 +1224,26 @@ public class JanMedico extends javax.swing.JFrame {
             Logger.getLogger(JanMedico.class.getName()).log(Level.SEVERE, null, ex);
         }
             
+    }
+    
+    public void finalizaConsulta(){
+        String feedback = "";
+        String idConsulta = getIdConsulta();
+        
+        feedback = AtendenteController.alterarStatusConsulta(idConsulta, 4);
+
+        if (feedback == null) {
+            carregaTabelaConsulta();
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ CONSULTA FINALIZADA COM SUCESSO! ("+ idConsulta +")");
+            setIdConsulta(null);
+        } else {
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ " + feedback);
+        }
+        
     }
 
     public static void main(String args[]) {
