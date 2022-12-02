@@ -94,9 +94,8 @@ public class JanMedico extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
-        
+
         carregaTabelaConsulta();
-        carregaTabelaInsumo();
         
         setIdConsulta(null);
         setIdInsumo(null);
@@ -315,6 +314,7 @@ public class JanMedico extends javax.swing.JFrame {
         });
 
         taEncaminhar.setColumns(20);
+        taEncaminhar.setLineWrap(true);
         taEncaminhar.setRows(5);
         taEncaminhar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
         jScrollPane1.setViewportView(taEncaminhar);
@@ -513,6 +513,12 @@ public class JanMedico extends javax.swing.JFrame {
         panCards.setBackground(new java.awt.Color(231, 231, 231));
         panCards.setLayout(new java.awt.CardLayout());
 
+        cardConsulta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cardConsultaFocusGained(evt);
+            }
+        });
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
 
@@ -547,6 +553,7 @@ public class JanMedico extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabPaciente2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tabPaciente2.setGridColor(new java.awt.Color(204, 204, 204));
         tabPaciente2.setRowHeight(30);
         tabPaciente2.setRowMargin(7);
@@ -1100,6 +1107,7 @@ public class JanMedico extends javax.swing.JFrame {
             labPopUpStatus.setForeground(new Color(247, 99, 99));
             labPopUpStatus.setText("⚠ Selecione uma consulta!");
         }
+        carregaTabelaInsumo();
 
     }//GEN-LAST:event_btIniciarConsMouseClicked
 
@@ -1214,6 +1222,10 @@ public class JanMedico extends javax.swing.JFrame {
         encaminharPac();
         dialogEncaminhar.dispose();
     }//GEN-LAST:event_btDialogEncaminharMouseClicked
+
+    private void cardConsultaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardConsultaFocusGained
+
+    }//GEN-LAST:event_cardConsultaFocusGained
 
     public void voltarConsulta() {
         cardLayout.show(panCards, "cardConsulta");
@@ -1405,13 +1417,13 @@ public class JanMedico extends javax.swing.JFrame {
             Paragraph paragrafo = new Paragraph("\nPaciente: " + paciente, font2);
             paragrafo.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo);
-            Paragraph paragrafo2 = new Paragraph("\n\n\n" + conteudo, font4);
+            Paragraph paragrafo2 = new Paragraph("\n\n\n" + conteudo +"\n\n\n", font4);
             paragrafo2.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo2);
-            Paragraph paragrafo3 = new Paragraph("\n\n\n_______________________,_____de______________de_____", font5);
+            Paragraph paragrafo3 = new Paragraph("_______________________,_____de______________de_____", font5);
             paragrafo3.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo3);
-            Paragraph paragrafo4 = new Paragraph("\n\n\nMédico: Dr(a). " + medico + "\n\n", font2);
+            Paragraph paragrafo4 = new Paragraph("\n\nMédico: Dr(a). " + medico + "\n\n", font2);
             paragrafo4.setAlignment(Element.ALIGN_CENTER);
             documento.add(paragrafo4);
             Paragraph ass = new Paragraph("______________________________");
