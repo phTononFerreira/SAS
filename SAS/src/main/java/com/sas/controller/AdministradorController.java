@@ -10,6 +10,7 @@ import com.sas.dao.AdministradorDAO;
 import com.sas.dao.AtendenteDAO;
 import com.sas.dao.EnfermeiraDAO;
 import com.sas.dao.MedicoDAO;
+import java.time.Year;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -22,35 +23,37 @@ public class AdministradorController {
             administrador.setId("adm" + String.valueOf(AdministradorDAO.contarAdmin() + 1));    //ID AUTOINCREMENT
 
             if (nome.equals("")) {
-                return "NOME INVALIDO!";
+                return "Nome inválido!";
             }
             administrador.setNome(nome);
 
             if (senha.equals("")) {
-                return "SENHA INVALIDA!";
+                return "Senha inválido!";
             }
             administrador.setSenha(senha);
 
-            
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    administrador.setData_nascimento(dataNasc);
+                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                        administrador.setData_nascimento(dataNasc);
+                    } else {
+                        return "Ano de nascimento inválido!";
+                    }
                 } else {
-                    return "DATA DE NASCIMENTO INVALIDA!";
+                    return "Data de nascimento inválida!";
                 }
             } catch (Exception e) {
-                return "DATA DE NASCIMENTO INVALIDA!";
+                return "Data de nascimento inválida!";
             }
 
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
-                return "CPF INVALIDO!";
+                return "CPF inválido!";
             }
 
             if (!pesquisarFuncionarioCPF(cpf)) {
-                return "CPF JÁ EXISTENTE!";
+                return "CPF já existente!";
             }
-
             administrador.setCpf(cpf);
 
             administrador.setTelefone(telefone);
@@ -59,7 +62,7 @@ public class AdministradorController {
             try {
                 administrador.setSalario(Double.parseDouble(salario));
             } catch (Exception e) {
-                return "SALARIO INVALIDO!";
+                return "Salário inválido!";
             }
 
             System.out.println(administrador.toString());
@@ -67,7 +70,7 @@ public class AdministradorController {
             if (AdministradorDAO.cadastrarFunc(administrador)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO!";
+                return "Erro no cadastro!";
             }
 
         } else if (tipo.equalsIgnoreCase("atendente")) {
@@ -76,34 +79,36 @@ public class AdministradorController {
             atendente.setId("ate" + String.valueOf(AtendenteDAO.contarAtend() + 1));    //ID AUTOINCREMENT
 
             if (nome.equals("")) {
-                return "NOME INVALIDO!";
+                return "Nome inválido!";
             }
             atendente.setNome(nome);
 
             if (senha.equals("")) {
-                return "SENHA INVALIDA!";
+                return "Senha inválido!";
             }
             atendente.setSenha(senha);
 
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    atendente.setData_nascimento(dataNasc);
+                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                        atendente.setData_nascimento(dataNasc);
+                    } else {
+                        return "Ano de nascimento inválido!";
+                    }
                 } else {
-                    return "DATA DE NASCIMENTO INVALIDA!";
+                    return "Data de nascimento inválida!";
                 }
             } catch (Exception e) {
-                return "DATA DE NASCIMENTO INVALIDA!";
+                return "Data de nascimento inválida!";
             }
-            
+
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
-                System.out.println("CPF INVÁLIDO");
-                return "CPF INVALIDO!";
+                return "CPF inválido!";
             }
 
             if (!pesquisarFuncionarioCPF(cpf)) {
-                System.out.println("CPF JÁ EXISTENTE");
-                return "CPF JÁ EXISTENTE!";
+                return "CPF já existente!";
             }
 
             atendente.setCpf(cpf);
@@ -114,7 +119,7 @@ public class AdministradorController {
             try {
                 atendente.setSalario(Double.parseDouble(salario));
             } catch (Exception e) {
-                return "SALARIO INVALIDO!";
+                return "Salário inválido!";
             }
 
             atendente.setAdm_id(id_adm);
@@ -124,7 +129,7 @@ public class AdministradorController {
             if (AdministradorDAO.cadastrarFunc(atendente)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO!";
+                return "Erro no cadastro!";
             }
 
         } else if (tipo.equalsIgnoreCase("enfermeira")) {
@@ -133,34 +138,36 @@ public class AdministradorController {
             enfermeira.setId("enf" + String.valueOf(EnfermeiraDAO.contarEnf() + 1));    //ID AUTOINCREMENT   ESSA LINE
 
             if (nome.equals("")) {
-                return "NOME INVALIDO!";
+                return "Nome inválido!";
             }
             enfermeira.setNome(nome);
 
             if (senha.equals("")) {
-                return "SENHA INVALIDA!";
+                return "Senha inválida!";
             }
             enfermeira.setSenha(senha);
 
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    enfermeira.setData_nascimento(dataNasc);
+                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                        enfermeira.setData_nascimento(dataNasc);
+                    } else {
+                        return "Ano de nascimento inválido!";
+                    }
                 } else {
-                    return "DATA DE NASCIMENTO INVALIDA!";
+                    return "Data de nascimento inválida!";
                 }
             } catch (Exception e) {
-                return "DATA DE NASCIMENTO INVALIDA!";
+                return "Data de nascimento inválida!";
             }
-            
+
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
-                System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
             }
 
             if (!pesquisarFuncionarioCPF(cpf)) {
-                System.out.println("CPF JÁ EXISTENTE");
-                return "CPF JÁ EXISTENTE!";
+                return "CPF já existente!";
             }
 
             enfermeira.setCpf(cpf);
@@ -171,10 +178,14 @@ public class AdministradorController {
             try {
                 enfermeira.setSalario(Double.parseDouble(salario));
             } catch (Exception e) {
-                return "SALARIO INVALIDO!";
+                return "Salário inválido!";
             }
 
+            if (crM.equals("")) {
+                return "CR inválido!";
+            }
             enfermeira.setCr(crM);
+
             enfermeira.setAdm_id(id_adm);
 
             System.out.println(enfermeira.toString());
@@ -182,7 +193,7 @@ public class AdministradorController {
             if (AdministradorDAO.cadastrarFunc(enfermeira)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO!";
+                return "Erro no cadastro!";
             }
         } else if (tipo.equalsIgnoreCase("medico")) {
             Medico medico = new Medico();
@@ -190,34 +201,36 @@ public class AdministradorController {
             medico.setId("med" + String.valueOf(MedicoDAO.contarMedic() + 1));    //ID AUTOINCREMENT THIS LINE TOO
 
             if (nome.equals("")) {
-                return "NOME INVALIDO!";
+                return "Nome inválido!";
             }
             medico.setNome(nome);
 
             if (senha.equals("")) {
-                return "SENHA INVALIDA!";
+                return "Senha inválida!";
             }
             medico.setSenha(senha);
 
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    medico.setData_nascimento(dataNasc);
+                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                        medico.setData_nascimento(dataNasc);
+                    } else {
+                        return "Ano de nascimento inválido!";
+                    }
                 } else {
-                    return "DATA DE NASCIMENTO INVALIDA!";
+                    return "Data de nascimento inválida!";
                 }
             } catch (Exception e) {
-                return "DATA DE NASCIMENTO INVALIDA!";
+                return "Data de nascimento inválida!";
             }
-            
+
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
-                System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
             }
 
             if (!pesquisarFuncionarioCPF(cpf)) {
-                System.out.println("CPF JÁ EXISTENTE");
-                return "CPF JÁ EXISTENTE!";
+                return "CPF já existente!";
             }
 
             medico.setCpf(cpf);
@@ -228,11 +241,20 @@ public class AdministradorController {
             try {
                 medico.setSalario(Double.parseDouble(salario));
             } catch (Exception e) {
-                return "SALARIO INVALIDO!";
+                return "Salário inválido!";
             }
 
+            if (crM.equals("")) {
+                return "CRM inválido!";
+            }
             medico.setCrm(crM);
-            medico.setEspecialidade(especialidade);
+
+            if (especialidade.equals("")) {
+                medico.setEspecialidade("Clínico geral");
+            } else {
+                medico.setEspecialidade(especialidade);
+            }
+
             medico.setAdm_id(id_adm);
 
             System.out.println(medico.toString());
@@ -240,11 +262,11 @@ public class AdministradorController {
             if (AdministradorDAO.cadastrarFunc(medico)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+                return "Erro no cadastro!";
             }
         }
 
-        return "ERRO NO CADASTRO!";
+        return "Erro no cadastro!";
     }
 
     public static String editarFuncionario(Funcionario func) {
@@ -278,19 +300,30 @@ public class AdministradorController {
             administrador.setId(id);
 
             if (nome.equals("")) {
-                return "NOME INVALIDO!";
+                return "Nome inválido!";
             }
             administrador.setNome(nome);
 
             if (senha.equals("")) {
-                return "SENHA INVALIDA!";
+                return "Senha inválida!";
             }
             administrador.setSenha(senha);
+
             try {
-                administrador.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
-            } catch (ArrayIndexOutOfBoundsException aibe) {
-                return "DATA INVALIDA";
+                String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
+                if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
+                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                        administrador.setData_nascimento(dataNasc);
+                    } else {
+                        return "Ano de nascimento inválido!";
+                    }
+                } else {
+                    return "Data de nascimento inválida!";
+                }
+            } catch (Exception e) {
+                return "Data de nascimento inválida!";
             }
+
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
@@ -299,7 +332,7 @@ public class AdministradorController {
             if (!cpf.equals(pesquisarAdministradorID(id).getCpf())) {
                 if (!pesquisarFuncionarioCPF(cpf)) {
                     System.out.println("CPF JÁ EXISTENTE");
-                    return "CPF JÁ EXISTENTE!";
+                    return "CPF já existente!";
                 }
             }
 
@@ -311,7 +344,7 @@ public class AdministradorController {
             try {
                 administrador.setSalario(Double.parseDouble(salario));
             } catch (Exception e) {
-                return "SALARIO INVALIDO!";
+                return "Salário inválido!";
             }
 
             System.out.println(administrador.toString());
@@ -319,7 +352,7 @@ public class AdministradorController {
             if (AdministradorDAO.alterarFunc(administrador)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+                return "Erro no cadastro!";
             }
 
         } else if (tipo.equalsIgnoreCase("ate")) {
@@ -328,29 +361,37 @@ public class AdministradorController {
             atendente.setId(id);
 
             if (nome.equals("")) {
-                return "NOME INVALIDO!";
+                return "Nome inválido!";
             }
             atendente.setNome(nome);
 
             if (senha.equals("")) {
-                return "SENHA INVALIDA!";
+                return "Senha inválida!";
             }
             atendente.setSenha(senha);
 
             try {
-                atendente.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
-            } catch (ArrayIndexOutOfBoundsException aibe) {
-                return "DATA INVALIDA";
+                String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
+                if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
+                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                        atendente.setData_nascimento(dataNasc);
+                    } else {
+                        return "Ano de nascimento inválido!";
+                    }
+                } else {
+                    return "Data de nascimento inválida!";
+                }
+            } catch (Exception e) {
+                return "Data de nascimento inválida!";
             }
+
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
-                System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
             }
 
             if (!cpf.equals(AtendenteController.pesquisarAtendenteID(id).getCpf())) {
                 if (!pesquisarFuncionarioCPF(cpf)) {
-                    System.out.println("CPF JÁ EXISTENTE");
-                    return "CPF JÁ EXISTENTE!";
+                    return "CPF já existente!";
                 }
             }
 
@@ -362,7 +403,7 @@ public class AdministradorController {
             try {
                 atendente.setSalario(Double.parseDouble(salario));
             } catch (Exception e) {
-                return "SALARIO INVALIDO!";
+                return "Salário inválido!";
             }
 
             atendente.setAdm_id("");
@@ -372,7 +413,7 @@ public class AdministradorController {
             if (AdministradorDAO.alterarFunc(atendente)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+                return "Erro no cadastro!";
             }
 
         } else if (tipo.equalsIgnoreCase("enf")) {
@@ -381,20 +422,30 @@ public class AdministradorController {
             enfermeira.setId(id);
 
             if (nome.equals("")) {
-                return "NOME INVALIDO!";
+                return "Nome inválido!";
             }
             enfermeira.setNome(nome);
 
             if (senha.equals("")) {
-                return "SENHA INVALIDA!";
+                return "Senha inválida!";
             }
             enfermeira.setSenha(senha);
 
             try {
-                enfermeira.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
-            } catch (ArrayIndexOutOfBoundsException aibe) {
-                return "DATA INVALIDA";
+                String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
+                if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
+                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                        enfermeira.setData_nascimento(dataNasc);
+                    } else {
+                        return "Ano de nascimento inválido!";
+                    }
+                } else {
+                    return "Data de nascimento inválida!";
+                }
+            } catch (Exception e) {
+                return "Data de nascimento inválida!";
             }
+
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
@@ -403,7 +454,7 @@ public class AdministradorController {
             if (!cpf.equals(EnfermeiraController.pesquisarEnfermeiraID(id).getCpf())) {
                 if (!pesquisarFuncionarioCPF(cpf)) {
                     System.out.println("CPF JÁ EXISTENTE");
-                    return "CPF JÁ EXISTENTE!";
+                    return "CPF já existente!";
                 }
             }
 
@@ -415,7 +466,7 @@ public class AdministradorController {
             try {
                 enfermeira.setSalario(Double.parseDouble(salario));
             } catch (Exception e) {
-                return "SALARIO INVALIDO!";
+                return "Salário inválido!";
             }
 
             enfermeira.setCr(crM);
@@ -426,7 +477,7 @@ public class AdministradorController {
             if (AdministradorDAO.alterarFunc(enfermeira)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+                return "Erro no cadastro!";
             }
         } else if (tipo.equalsIgnoreCase("med")) {
             Medico medico = new Medico();
@@ -434,30 +485,37 @@ public class AdministradorController {
             medico.setId(id);
 
             if (nome.equals("")) {
-                return "NOME INVALIDO!";
+                return "Nome inválido!";
             }
             medico.setNome(nome);
 
             if (senha.equals("")) {
-                return "SENHA INVALIDA!";
+                return "Senha inválida!";
             }
             medico.setSenha(senha);
 
             try {
-                medico.setData_nascimento(data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0]);
-            } catch (ArrayIndexOutOfBoundsException aibe) {
-                return "DATA INVALIDA";
+                String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
+                if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
+                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                        medico.setData_nascimento(dataNasc);
+                    } else {
+                        return "Ano de nascimento inválido!";
+                    }
+                } else {
+                    return "Data de nascimento inválida!";
+                }
+            } catch (Exception e) {
+                return "Data de nascimento inválida!";
             }
 
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
-                System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
             }
 
             if (!cpf.equals(MedicoController.pesquisarMedicoID(id).getCpf())) {
                 if (!pesquisarFuncionarioCPF(cpf)) {
-                    System.out.println("CPF JÁ EXISTENTE");
-                    return "CPF JÁ EXISTENTE!";
+                    return "CPF já existente!";
                 }
             }
 
@@ -469,7 +527,7 @@ public class AdministradorController {
             try {
                 medico.setSalario(Double.parseDouble(salario));
             } catch (Exception e) {
-                return "SALARIO INVALIDO!";
+                return "Salário inválido!";
             }
 
             medico.setCrm(crM);
@@ -481,11 +539,11 @@ public class AdministradorController {
             if (AdministradorDAO.alterarFunc(medico)) {
                 return null;
             } else {
-                return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+                return "Erro no cadastro!";
             }
         }
 
-        return "ERRO NO CADASTRO! [NENHUM TIPO SELECIONADO]";
+        return "Erro no cadastro! [NENHUM TIPO SELECIONADO]";
 
     }
 
