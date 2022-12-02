@@ -945,6 +945,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         preencherTriagem();
+        carregaTabelaTriagem();
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void labUserImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labUserImageMouseClicked
