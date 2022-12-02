@@ -45,6 +45,7 @@ import javax.print.SimpleDoc;
 import javax.print.attribute.HashDocAttributeSet;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class JanMedico extends javax.swing.JFrame {
@@ -83,6 +84,10 @@ public class JanMedico extends javax.swing.JFrame {
 
     public JanMedico() {
         initComponents();
+                
+        ImageIcon img = new ImageIcon("img\\SAS_icon.png");
+        this.setIconImage(img.getImage());
+        
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
