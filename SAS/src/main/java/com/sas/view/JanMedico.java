@@ -1,6 +1,7 @@
 package com.sas.view;
 
 import com.sas.controller.ConsultaController;
+import com.sas.controller.InsumoMedicoController;
 import com.sas.controller.MedicoController;
 import com.sas.controller.PacienteController;
 import com.sas.controller.ProntuarioController;
@@ -8,6 +9,9 @@ import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Toolkit;
 import java.awt.CardLayout;
+import java.awt.print.PrinterException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -18,6 +22,7 @@ public class JanMedico extends javax.swing.JFrame {
     private static String ID;
     private Boolean Muser=false;
     private static String idConsulta;
+    private static String idInsumo;
     
     CardLayout cardLayout;
     
@@ -37,6 +42,14 @@ public class JanMedico extends javax.swing.JFrame {
         idConsulta = idConsulta1;
     }
     
+    public String getIdInsumo(){
+        return idInsumo;
+    }
+    
+    public static void setIdInsumo(String idInsumo1){
+        idInsumo = idInsumo1;
+    }
+    
     public JanMedico() {
         initComponents();
         cardLayout = (CardLayout) (panCards.getLayout());
@@ -44,6 +57,7 @@ public class JanMedico extends javax.swing.JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
         carregaTabelaConsulta();
+        carregaTabelaInsumo();
     }
 
     public static JanMedico getJanMedico() {
@@ -834,6 +848,8 @@ public class JanMedico extends javax.swing.JFrame {
     private void btVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btVoltarMouseClicked
         cardLayout.show(panCards, "cardConsulta");
         limparConsultaSelecionada();
+        taReceitar.setText("");
+        setIdInsumo(null);
     }//GEN-LAST:event_btVoltarMouseClicked
 
     private void btIniciarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarConsActionPerformed
@@ -857,7 +873,8 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_tabPaciente2MousePressed
 
     private void tabEstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabEstoqueMousePressed
-
+        setIdInsumo(tabEstoque.getValueAt(tabEstoque.getSelectedRow(), 0).toString());
+        preencherReceita();
     }//GEN-LAST:event_tabEstoqueMousePressed
 
     private void btReceitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btReceitarMouseClicked
@@ -865,7 +882,7 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_btReceitarMouseClicked
 
     private void btReceitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReceitarActionPerformed
-        // TODO add your handling code here:
+        receitarConsulta();
     }//GEN-LAST:event_btReceitarActionPerformed
 
     private void tfMedPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMedPesquisaActionPerformed
@@ -873,11 +890,11 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_tfMedPesquisaActionPerformed
 
     private void btMedPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMedPesquisaActionPerformed
-
+        pesquisaTabelaInsumo();
     }//GEN-LAST:event_btMedPesquisaActionPerformed
 
     private void btMedRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMedRefreshActionPerformed
-
+        carregaTabelaInsumo();
     }//GEN-LAST:event_btMedRefreshActionPerformed
     
     public void sair(){
@@ -941,6 +958,65 @@ public class JanMedico extends javax.swing.JFrame {
     public void limparConsultaSelecionada(){
         setIdConsulta(null);
         tabPaciente2.clearSelection();
+    }
+    
+        public void carregaTabelaInsumo() {
+        DefaultTableModel modelo = (DefaultTableModel) tabEstoque.getModel();
+        modelo.setNumRows(0);
+
+        MedicoController.carregaTabelaInsumo(modelo);
+
+        centralizarTabelaInsumo();
+    }
+
+    public void centralizarTabelaInsumo() {
+        DefaultTableCellRenderer cellRender = new DefaultTableCellRenderer();
+        cellRender.setHorizontalAlignment(SwingConstants.CENTER);
+
+        for (int numCol = 0; numCol < tabEstoque.getColumnCount(); numCol++) {
+            tabEstoque.getColumnModel().getColumn(numCol).setCellRenderer(cellRender);
+        }
+    }
+
+    public void pesquisaTabelaInsumo() {
+        DefaultTableModel modelo = (DefaultTableModel) tabEstoque.getModel();
+        modelo.setNumRows(0);
+
+        MedicoController.pesquisaTabelaInsumo(modelo, tfMedPesquisa.getText());
+        
+        tfMedPesquisa.setText("");
+        tfMedPesquisa.requestFocus();
+
+        centralizarTabelaInsumo();
+    }
+    
+    public void preencherReceita() {
+        String receita = taReceitar.getText();
+        
+        taReceitar.setText(receita + InsumoMedicoController.pesquisarInsumoID(getIdInsumo()).getNome() + ",\n");
+    }
+    
+    public void receitarConsulta() {
+        String feedback = "";
+
+        String con_id = getIdConsulta();
+        String receita = taReceitar.getText();
+
+        feedback = MedicoController.receitarConsulta(receita, con_id);
+
+        if (feedback == null) {
+            System.out.println("PACIENTE RECEITADO COM SUCESSO!");
+            
+            try {
+                taReceitar.print();
+            } catch (PrinterException ex) {
+                Logger.getLogger(JanMedico.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        } else {
+            System.out.println(feedback);
+        }
+
     }
 
     public static void main(String args[]) {

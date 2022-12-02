@@ -37,4 +37,27 @@ public class MedicoController {
         MedicoDAO.pesquisaTabConsulta(modelo, nome);
     }
     
+    public static void carregaTabelaInsumo(DefaultTableModel modelo) {
+        MedicoDAO.carregaTabInsumo(modelo);
+    }
+    
+    public static void pesquisaTabelaInsumo(DefaultTableModel modelo, String nome) {
+        MedicoDAO.pesquisaTabInsumo(modelo, nome);
+    }
+    
+    public static String receitarConsulta(String receita, String con_id) {
+        Consulta consulta = new Consulta();
+
+        consulta.setId(con_id);
+        consulta.setReceita(receita);
+        
+        System.out.println(consulta.toString());
+
+        if (MedicoDAO.receitarCon(consulta)){
+            return null;
+        }else{
+            return "ERRO NO RECEITAR CONSULTA";
+        }         
+    }
+    
 }

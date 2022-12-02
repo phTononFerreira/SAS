@@ -4,6 +4,8 @@ import com.sas.model.Consulta;
 import com.sas.model.InsumoMedico;
 import com.sas.model.Medico;
 import com.sas.model.Prontuario;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
@@ -105,5 +107,67 @@ public class MedicoDAO {
             System.out.println("Erro ao puxar tabela paciente");
         } 
     }
+    
+    public static void carregaTabInsumo(DefaultTableModel modelo) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM insumo ORDER BY ins_nome");
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("ins_id"),
+                    rs.getString("ins_nome"),
+                    rs.getString("ins_qtd")                        
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela paciente");
+        }
+        
+    }
+    
+    public static void pesquisaTabInsumo(DefaultTableModel modelo, String nome) {
+        ResultSet rs = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM insumo WHERE ins_nome LIKE '%" + nome + "%' ORDER BY ins_nome");
+
+            while(rs.next()){
+                modelo.addRow(new Object[]{
+                    rs.getString("ins_id"),
+                    rs.getString("ins_nome"),
+                    rs.getString("ins_qtd")   
+                });
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela paciente");
+        } 
+    }
+    
+    public static boolean receitarCon(Consulta con) {
+        Connection conn = ConexaoBD.getConnection();
+        
+        String query = "UPDATE consulta set con_receita = ? WHERE con_id = ?";
+        PreparedStatement pstm;
+
+        try {
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, con.getReceita());          
+            pstm.setString(2, con.getId());
+
+            pstm.execute();
+            pstm.close();
+
+            return true;
+
+        } catch (Exception erro) {
+            System.out.println("ERRO DAO " + erro);
+        }
+
+        return false;
+    } 
     
 }
