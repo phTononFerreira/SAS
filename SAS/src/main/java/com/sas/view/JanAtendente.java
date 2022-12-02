@@ -67,17 +67,25 @@ public class JanAtendente extends javax.swing.JFrame {
     public JanAtendente() {
         initComponents();
         
+        //ICON
         ImageIcon img = new ImageIcon("img\\SAS_icon.png");
         this.setIconImage(img.getImage());
         
+        //WINDOW SIZE
         cardLayout = (CardLayout) (panCardsAtendente.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
+        
+        //UPDATE TABLE
         carregaTabela();
         carregaTabelaPaciente();
         carregaTabelaMedico();
         carregaTabelaPacienteEdit();
+        
+        //SET ID NULL
+        setIdPaciente(null);
+        setIdMedico(null);
     }
 
     public static JanAtendente getJanAtendente() {
@@ -1833,6 +1841,8 @@ public class JanAtendente extends javax.swing.JFrame {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(93, 201, 120));
             labPopUpStatus.setText("✅ CONSULTA AGENDADA COM SUCESSO!");
+            setIdPaciente(null);
+            setIdMedico(null);
         } else {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(247, 99, 99));

@@ -84,7 +84,7 @@ public class AtendenteController {
             return "DIA INVALIDO!";
         } else if (!(Integer.parseInt(dataNascimentoFormata[1]) > 0 && Integer.parseInt(dataNascimentoFormata[1]) <= 12)) {
             return "MES INVALIDO!";
-        } else if (!(Integer.parseInt(dataNascimentoFormata[2]) >= 1900 && Integer.parseInt(dataNascimentoFormata[2]) <= 2100)) {
+        } else if (!(Integer.parseInt(dataNascimentoFormata[2]) >= Year.now().getValue())) {
             return "ANO INVALIDO!";
         }
         
@@ -168,8 +168,16 @@ public class AtendenteController {
         consulta.setData(dataFormata[2] + "-" + dataFormata[1] + "-" + dataFormata[0] + " " + hora);
         consulta.setReceita(receita);
         consulta.setAte_id(ate_id);
+        if (med_id== null){
+            return "Selecione um médico da tabela!";
+        }
         consulta.setMed_id(med_id);
+        
+        if (pac_id == null){
+            return "Selecione um paciente da tabela!";
+        }
         consulta.setPac_id(pac_id);
+        
         consulta.setStatus(status);
 
         consulta.setPro_id(cadastrarTriagem(pac_id));
@@ -179,7 +187,7 @@ public class AtendenteController {
         if (AtendenteDAO.agendarCon(consulta)) {
             return null;
         } else {
-            return "ERRO NO CADASTRO! [INSERCAO NO BANCO DE DADOS]";
+            return "ERRO NO AGENDAMENTO!";
         }
     }
 

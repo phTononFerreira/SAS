@@ -58,16 +58,18 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
     public JanEnfermeira() {
         initComponents();
-        
+
         ImageIcon img = new ImageIcon("img\\SAS_icon.png");
         this.setIconImage(img.getImage());
-        
+
         cardLayout = (CardLayout) (panCards.getLayout());
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
         carregaTabelaTriagem();
         carregaTabelaInsumo();
+        
+        setIdInsumo(null);
     }
 
     public static JanEnfermeira getJanEnfermeira() {
@@ -1082,19 +1084,19 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_dialogPopUpStatusWindowLostFocus
 
     private void tfNomePacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomePacKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             btNomePesquisaPac.doClick();
         }
     }//GEN-LAST:event_tfNomePacKeyPressed
 
     private void tfTemperaturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfTemperaturaKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             btSalvar.doClick();
         }
     }//GEN-LAST:event_tfTemperaturaKeyPressed
 
     private void tfPressaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPressaoKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             btSalvar.doClick();
         }
     }//GEN-LAST:event_tfPressaoKeyPressed
@@ -1104,7 +1106,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_btNomePesquisa1KeyPressed
 
     private void taDescricaoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taDescricaoKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             btSalvar.doClick();
         }
     }//GEN-LAST:event_taDescricaoKeyPressed
@@ -1223,20 +1225,21 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
         String quantidade = tfQuantidade.getText();
 
-        if (Integer.parseInt(quantidade) < 0) {
-            System.out.println("QUANTIDADE INVALIDA!");
+        String ins_id = getIdInsumo();
+
+        feedback = EnfermeiraController.controlarEstoque(quantidade, ins_id);
+
+        if (feedback == null) {
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(93, 201, 120));
+            labPopUpStatus.setText("✅ Quantidade alterada");
+
+            tfQuantidade.setText("");
+            setIdInsumo(null);
         } else {
-            String ins_id = getIdInsumo();
-
-            feedback = EnfermeiraController.controlarEstoque(quantidade, ins_id);
-
-            if (feedback == null) {
-                System.out.println("QUANTIDADE ALTERADA COM SUCESSO!");
-                tfQuantidade.setText("");
-                setIdInsumo(null);
-            } else {
-                System.out.println(feedback);
-            }
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ " + feedback);
         }
     }
 
@@ -1281,16 +1284,24 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JanEnfermeira.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanEnfermeira.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JanEnfermeira.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanEnfermeira.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JanEnfermeira.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanEnfermeira.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JanEnfermeira.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JanEnfermeira.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
