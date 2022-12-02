@@ -29,12 +29,12 @@ public class MedicoController {
         return MedicoDAO.pesquisarMedID(ID);
     }
     
-    public static void carregaTabelaConsulta(DefaultTableModel modelo) {
-        MedicoDAO.carregaTabConsulta(modelo);
+    public static void carregaTabelaConsulta(DefaultTableModel modelo, String med_id) {
+        MedicoDAO.carregaTabConsulta(modelo, med_id);
     }
     
-    public static void pesquisaTabelaConsulta(DefaultTableModel modelo, String nome) {
-        MedicoDAO.pesquisaTabConsulta(modelo, nome);
+    public static void pesquisaTabelaConsulta(DefaultTableModel modelo, String nome, String med_id) {
+        MedicoDAO.pesquisaTabConsulta(modelo, nome, med_id);
     }
     
     public static void carregaTabelaInsumo(DefaultTableModel modelo) {

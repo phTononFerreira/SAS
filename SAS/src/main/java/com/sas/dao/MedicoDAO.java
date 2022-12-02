@@ -69,13 +69,13 @@ public class MedicoDAO {
         
     }
     
-    public static void carregaTabConsulta(DefaultTableModel modelo) {
+    public static void carregaTabConsulta(DefaultTableModel modelo, String med_id) {
         ResultSet rs = null;
         String[] data = null;
         String[] hora = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 3 ORDER BY c.con_data");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 3 AND c.med_id = '" + med_id + "' ORDER BY c.con_data");
             
             while(rs.next()){
                 data = rs.getString("con_data").split("-");
@@ -93,13 +93,13 @@ public class MedicoDAO {
         
     }
     
-    public static void pesquisaTabConsulta(DefaultTableModel modelo, String nome) {
+    public static void pesquisaTabConsulta(DefaultTableModel modelo, String nome, String med_id) {
         ResultSet rs = null;
         String[] data = null;
         String[] hora = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 3 AND pac_nome LIKE '%" + nome + "%' ORDER BY c.con_data");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 3 AND pac_nome LIKE '%" + nome + "%' AND c.med_id = '" + med_id + "' ORDER BY c.con_data");
             
             while(rs.next()){
                 data = rs.getString("con_data").split("-");

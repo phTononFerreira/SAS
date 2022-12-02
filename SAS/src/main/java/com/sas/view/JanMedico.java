@@ -93,6 +93,7 @@ public class JanMedico extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
+        
         carregaTabelaConsulta();
         carregaTabelaInsumo();
     }
@@ -1037,7 +1038,7 @@ public class JanMedico extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
         modelo.setNumRows(0);
 
-        MedicoController.carregaTabelaConsulta(modelo);
+        MedicoController.carregaTabelaConsulta(modelo, getId());
 
         centralizarTabelaConsulta();
     }
@@ -1055,7 +1056,7 @@ public class JanMedico extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tabPaciente2.getModel();
         modelo.setNumRows(0);
 
-        MedicoController.pesquisaTabelaConsulta(modelo, tfNomePac.getText());
+        MedicoController.pesquisaTabelaConsulta(modelo, tfNomePac.getText(), getId());
 
         tfNomePac.setText("");
         tfNomePac.requestFocus();
