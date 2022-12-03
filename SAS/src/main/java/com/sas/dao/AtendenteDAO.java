@@ -1,13 +1,19 @@
 package com.sas.dao;
 
+import com.sas.controller.AtendenteController;
 import com.sas.model.Atendente;
 import com.sas.model.Consulta;
 import com.sas.model.Paciente;
 import com.sas.model.Prontuario;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.table.DefaultTableModel;
 
 public class AtendenteDAO {
@@ -163,22 +169,88 @@ public class AtendenteDAO {
         
     }
     
-    public static void carregaTab(DefaultTableModel modelo) {
+    public static void cancelarConAutomatico() {
         ResultSet rs = null;
-        String[] data = null;
-        String[] hora = null;
+        LocalDate localDate = LocalDate.now();
+        String[] consultaDoDia = null;
+        String[] consultaDoDiaPicada = null;
         
         try{
             rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1 ORDER BY c.con_data");
 
             while(rs.next()){
-                data = rs.getString("con_data").split("-");
-                hora = data[2].split(" ");
-                modelo.addRow(new Object[]{
-                    rs.getString("con_id"),
-                    rs.getString("pac_nome"),
-                    hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1]  
-                });
+                consultaDoDia = rs.getString("con_data").split(" ");
+                consultaDoDiaPicada = consultaDoDia[0].split("-");
+       
+                if(Integer. parseInt(consultaDoDiaPicada[0]) < Integer. parseInt(localDate.toString().split("-")[0]))
+                    AtendenteController.cancelarConsulta(rs.getString("con_id"));
+                else if(Integer. parseInt(consultaDoDiaPicada[0]) == Integer. parseInt(localDate.toString().split("-")[0]) && Integer. parseInt(consultaDoDiaPicada[1]) < Integer. parseInt(localDate.toString().split("-")[1]))
+                    AtendenteController.cancelarConsulta(rs.getString("con_id"));
+                else if(Integer. parseInt(consultaDoDiaPicada[0]) == Integer. parseInt(localDate.toString().split("-")[0]) && Integer. parseInt(consultaDoDiaPicada[1]) < Integer. parseInt(localDate.toString().split("-")[1]) && Integer. parseInt(consultaDoDiaPicada[2]) < Integer. parseInt(localDate.toString().split("-")[2]))    
+                    AtendenteController.cancelarConsulta(rs.getString("con_id"));      
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela consulta");
+        }
+        
+    }
+    
+    public static void encaminharConAutomatico() {
+        ResultSet rs = null;
+        LocalDate localDate = LocalDate.now();
+        String[] consultaDoDia = null;
+        String[] consultaDoDiaPicada = null;
+        
+        
+        LocalDateTime agora = LocalDateTime.now();
+        DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String horaFormatada = formatterHora.format(agora);
+        String[] horaPicada = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1 ORDER BY c.con_data");
+
+            while(rs.next()){
+                consultaDoDia = rs.getString("con_data").split(" ");
+                consultaDoDiaPicada = consultaDoDia[0].split("-");
+                horaPicada = consultaDoDia[1].split(":");
+       
+                if(Integer. parseInt(consultaDoDiaPicada[0]) == Integer. parseInt(localDate.toString().split("-")[0]) && Integer. parseInt(consultaDoDiaPicada[1]) == Integer. parseInt(localDate.toString().split("-")[1]) && Integer. parseInt(consultaDoDiaPicada[2]) == Integer. parseInt(localDate.toString().split("-")[2])){  
+                    if(Integer. parseInt(horaPicada[0]) == Integer. parseInt(horaFormatada.split(":")[0]) && Integer. parseInt(horaPicada[1]) < Integer. parseInt(horaFormatada.split(":")[1])){
+                        AtendenteController.alterarStatusConsulta(rs.getString("con_id"), 2);  
+                    }  
+                }             
+            }
+
+        }catch(Exception e){
+            System.out.println("Erro ao puxar tabela consulta");
+        }
+        
+    }
+    
+    public static void carregaTab(DefaultTableModel modelo) {
+        ResultSet rs = null;
+        String[] data = null;
+        String[] hora = null;
+        LocalDate localDate = LocalDate.now();
+        String[] consultaDoDia = null;
+        
+        try{
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1 ORDER BY c.con_data");
+
+            while(rs.next()){
+                consultaDoDia = rs.getString("con_data").split(" ");
+                
+                if(consultaDoDia[0].equals(localDate.toString())){
+                    data = rs.getString("con_data").split("-");
+                    hora = data[2].split(" ");
+                    modelo.addRow(new Object[]{
+                        rs.getString("con_id"),
+                        rs.getString("pac_nome"),
+                        hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1]  
+                    });
+                }
             }
 
         }catch(Exception e){

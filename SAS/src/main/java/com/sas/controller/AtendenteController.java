@@ -207,6 +207,14 @@ public class AtendenteController {
     public static Atendente pesquisarAtendenteID(String ID) {
         return AtendenteDAO.pesquisarAteID(ID);
     }
+    
+    public static void cancelarConsultaAutomatico() {
+        AtendenteDAO.cancelarConAutomatico();
+    }
+    
+    public static void encaminharConsultaAutomatico() {
+        AtendenteDAO.encaminharConAutomatico();
+    }
 
     public static void carregaTabela(DefaultTableModel modelo) {
         AtendenteDAO.carregaTab(modelo);
