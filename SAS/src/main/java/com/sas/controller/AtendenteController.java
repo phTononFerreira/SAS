@@ -30,7 +30,7 @@ public class AtendenteController {
         try {
             String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
             if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > Year.now().getValue()-100) {
                     paciente.setData_nascimento(dataNasc);
                 } else {
                     return "Ano de nascimento inválido!";
@@ -70,6 +70,9 @@ public class AtendenteController {
     public static String editarPaciente(String id, String nome, String data_nascimento, String cpf, String telefone, String endereco) {
         Paciente paciente = new Paciente();
 
+        if (id == null){
+            return "Selecione um paciente da tabela!";
+        }
         paciente.setId(id);
 
         if (nome.equals("")) {
@@ -78,23 +81,11 @@ public class AtendenteController {
         paciente.setNome(nome);
 
         String[] dataNascimentoFormata = data_nascimento.split("/");
-
-        if (data_nascimento.equals("")) {
-            return "DATA INVALIDO!";
-        } else if (!data_nascimento.matches("([0-9]+(/[0-9]+)+)")) {
-            return "DATA FORA DO PADRÃO!";
-        } else if (!(Integer.parseInt(dataNascimentoFormata[0]) > 0 && Integer.parseInt(dataNascimentoFormata[0]) <= 31)) {
-            return "DIA INVALIDO!";
-        } else if (!(Integer.parseInt(dataNascimentoFormata[1]) > 0 && Integer.parseInt(dataNascimentoFormata[1]) <= 12)) {
-            return "MES INVALIDO!";
-        } else if (!(Integer.parseInt(dataNascimentoFormata[2]) >= Year.now().getValue())) {
-            return "ANO INVALIDO!";
-        }
         
         try {
             String dataNasc = dataNascimentoFormata[2] + "-" + dataNascimentoFormata[1] + "-" + dataNascimentoFormata[0];
             if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                if (Integer.parseInt(dataNascimentoFormata[2]) <= Year.now().getValue() && Integer.parseInt(dataNascimentoFormata[2]) > 1920) {
+                if (Integer.parseInt(dataNascimentoFormata[2]) <= Year.now().getValue() && Integer.parseInt(dataNascimentoFormata[2]) > Year.now().getValue()-100) {
                     paciente.setData_nascimento(dataNasc);
                 } else {
                     return "Ano de nascimento inválido!";

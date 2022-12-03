@@ -86,6 +86,7 @@ public class JanAtendente extends javax.swing.JFrame {
         //SET ID NULL
         setIdPaciente(null);
         setIdMedico(null);
+        setIdPacienteEdit(null);
     }
 
     public static JanAtendente getJanAtendente() {
@@ -1997,7 +1998,11 @@ public class JanAtendente extends javax.swing.JFrame {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(93, 201, 120));
             labPopUpStatus.setText("✅ PACIENTE ALTERADO COM SUCESSO!");
-            limpar();
+            
+            carregaTabelaPacienteEdit();
+            tabSelPaciente2.clearSelection();
+            setIdPacienteEdit(null);
+            
         } else {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(247, 99, 99));
