@@ -182,11 +182,11 @@ public class AtendenteDAO {
                 consultaDoDia = rs.getString("con_data").split(" ");
                 consultaDoDiaPicada = consultaDoDia[0].split("-");
        
-                if(Integer. parseInt(consultaDoDiaPicada[0]) < Integer. parseInt(localDate.toString().split("-")[0]))
+                if(Integer. parseInt(consultaDoDiaPicada[0]) < Integer.parseInt(localDate.toString().split("-")[0]))
                     AtendenteController.cancelarConsulta(rs.getString("con_id"));
-                else if(Integer. parseInt(consultaDoDiaPicada[0]) == Integer. parseInt(localDate.toString().split("-")[0]) && Integer. parseInt(consultaDoDiaPicada[1]) < Integer. parseInt(localDate.toString().split("-")[1]))
+                else if(Integer. parseInt(consultaDoDiaPicada[0]) == Integer.parseInt(localDate.toString().split("-")[0]) && Integer.parseInt(consultaDoDiaPicada[1]) < Integer.parseInt(localDate.toString().split("-")[1]))
                     AtendenteController.cancelarConsulta(rs.getString("con_id"));
-                else if(Integer. parseInt(consultaDoDiaPicada[0]) == Integer. parseInt(localDate.toString().split("-")[0]) && Integer. parseInt(consultaDoDiaPicada[1]) < Integer. parseInt(localDate.toString().split("-")[1]) && Integer. parseInt(consultaDoDiaPicada[2]) < Integer. parseInt(localDate.toString().split("-")[2]))    
+                else if(Integer. parseInt(consultaDoDiaPicada[0]) == Integer.parseInt(localDate.toString().split("-")[0]) && Integer.parseInt(consultaDoDiaPicada[1]) < Integer.parseInt(localDate.toString().split("-")[1]) && Integer.parseInt(consultaDoDiaPicada[2]) < Integer.parseInt(localDate.toString().split("-")[2]))    
                     AtendenteController.cancelarConsulta(rs.getString("con_id"));      
             }
 
@@ -216,8 +216,8 @@ public class AtendenteDAO {
                 consultaDoDiaPicada = consultaDoDia[0].split("-");
                 horaPicada = consultaDoDia[1].split(":");
        
-                if(Integer. parseInt(consultaDoDiaPicada[0]) == Integer. parseInt(localDate.toString().split("-")[0]) && Integer. parseInt(consultaDoDiaPicada[1]) == Integer. parseInt(localDate.toString().split("-")[1]) && Integer. parseInt(consultaDoDiaPicada[2]) == Integer. parseInt(localDate.toString().split("-")[2])){  
-                    if(Integer. parseInt(horaPicada[0]) == Integer. parseInt(horaFormatada.split(":")[0]) && Integer. parseInt(horaPicada[1]) < Integer. parseInt(horaFormatada.split(":")[1])){
+                if(Integer.parseInt(consultaDoDiaPicada[0]) == Integer.parseInt(localDate.toString().split("-")[0]) && Integer.parseInt(consultaDoDiaPicada[1]) == Integer.parseInt(localDate.toString().split("-")[1]) && Integer.parseInt(consultaDoDiaPicada[2]) == Integer.parseInt(localDate.toString().split("-")[2])){  
+                    if(Integer.parseInt(horaPicada[0]) == Integer.parseInt(horaFormatada.split(":")[0]) && Integer.parseInt(horaPicada[1]) < Integer.parseInt(horaFormatada.split(":")[1])){
                         AtendenteController.alterarStatusConsulta(rs.getString("con_id"), 2);  
                     }  
                 }             
