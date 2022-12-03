@@ -1192,9 +1192,7 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_tfMedPesquisaKeyPressed
 
     private void taReceitarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_taReceitarKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            btReceitar.doClick();
-        }
+        //Code here
     }//GEN-LAST:event_taReceitarKeyPressed
 
     private void btDialogEncaminharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDialogEncaminharActionPerformed
