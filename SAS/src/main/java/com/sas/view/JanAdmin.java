@@ -4,19 +4,12 @@ import com.sas.controller.AdministradorController;
 import com.sas.controller.AtendenteController;
 import com.sas.controller.EnfermeiraController;
 import com.sas.controller.MedicoController;
-import com.sas.model.Administrador;
-import com.sas.model.Atendente;
-import com.sas.model.Enfermeira;
-import com.sas.model.Funcionario;
-import com.sas.model.Medico;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
-import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -27,10 +20,6 @@ public class JanAdmin extends javax.swing.JFrame {
     private static JanAdmin unicoJanAdmin;
     private static String ID;
     private Boolean Muser = false;
-    private Administrador admEdit = null;
-    private Medico medEdit = null;
-    private Enfermeira enfEdit = null;
-    private Atendente ateEdit = null;
     private static String idFuncionarioEditMoment;
 
     CardLayout cardLayout;
@@ -2158,13 +2147,15 @@ public class JanAdmin extends javax.swing.JFrame {
         if (feedback == null) {
             limparEdit();
             ocultarEditar();
+            labUser.setText(AdministradorController.pesquisarAdministradorID(getId()).getNome().split(" ")[0]);
             
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(93, 201, 120));
             labPopUpStatus.setText("✅ FUNCIONARIO ALTERADO COM SUCESSO!");
         } else {
-            labStatus.setForeground(Color.red);
-            labStatus.setText(feedback);
+            dialogPopUpStatus.setVisible(true);
+            labPopUpStatus.setForeground(new Color(247, 99, 99));
+            labPopUpStatus.setText("⚠ " + feedback);
         }
 
     }

@@ -10,13 +10,16 @@ import com.sas.dao.AdministradorDAO;
 import com.sas.dao.AtendenteDAO;
 import com.sas.dao.EnfermeiraDAO;
 import com.sas.dao.MedicoDAO;
-import java.time.Year;
 
+import java.time.LocalDate;
 import javax.swing.table.DefaultTableModel;
 
 public class AdministradorController {
 
     public static String cadastrarFuncionario(String tipo, String id_adm, String senha, String nome, String[] data_nascimento, String cpf, String telefone, String endereco, String salario, String crM, String especialidade) {
+        LocalDate localDate = LocalDate.now();
+        int yearNow = localDate.getYear();
+        
         if (tipo.equalsIgnoreCase("administrador")) {
             Administrador administrador = new Administrador();
 
@@ -35,13 +38,13 @@ public class AdministradorController {
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                    if (Integer.parseInt(data_nascimento[2]) <= yearNow && Integer.parseInt(data_nascimento[2]) > yearNow-100) {
                         administrador.setData_nascimento(dataNasc);
-                    } else {
+                    } else 
                         return "Ano de nascimento inválido!";
-                    }
+                    
                 } else {
-                    return "Data de nascimento inválida!";
+                    return "Data de nascimento formato inválida!";
                 }
             } catch (Exception e) {
                 return "Data de nascimento inválida!";
@@ -60,12 +63,11 @@ public class AdministradorController {
             administrador.setEndereco(endereco);
 
             try {
-                if (Double.parseDouble(salario) > 0){
+                if (Double.parseDouble(salario) > 0 && Double.parseDouble(salario) < 1000000){
                     administrador.setSalario(Double.parseDouble(salario));
                 }else{
                     return "Salário inválido!";
-                }
-                
+                }  
             } catch (Exception e) {
                 return "Salário inválido!";
             }
@@ -96,13 +98,13 @@ public class AdministradorController {
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                    if (Integer.parseInt(data_nascimento[2]) <= yearNow && Integer.parseInt(data_nascimento[2]) > yearNow-100) {
                         atendente.setData_nascimento(dataNasc);
-                    } else {
+                    } else 
                         return "Ano de nascimento inválido!";
-                    }
+                    
                 } else {
-                    return "Data de nascimento inválida!";
+                    return "Data de nascimento formato inválida!";
                 }
             } catch (Exception e) {
                 return "Data de nascimento inválida!";
@@ -120,9 +122,13 @@ public class AdministradorController {
 
             atendente.setTelefone(telefone);
             atendente.setEndereco(endereco);
-
+            
             try {
-                atendente.setSalario(Double.parseDouble(salario));
+                if (Double.parseDouble(salario) > 0 && Double.parseDouble(salario) < 1000000){
+                    atendente.setSalario(Double.parseDouble(salario));
+                }else{
+                    return "Salário inválido!";
+                }  
             } catch (Exception e) {
                 return "Salário inválido!";
             }
@@ -155,13 +161,13 @@ public class AdministradorController {
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                    if (Integer.parseInt(data_nascimento[2]) <= yearNow && Integer.parseInt(data_nascimento[2]) > yearNow-100) {                      
                         enfermeira.setData_nascimento(dataNasc);
-                    } else {
+                    } else 
                         return "Ano de nascimento inválido!";
-                    }
+                    
                 } else {
-                    return "Data de nascimento inválida!";
+                    return "Data de nascimento formato inválida!";
                 }
             } catch (Exception e) {
                 return "Data de nascimento inválida!";
@@ -181,7 +187,11 @@ public class AdministradorController {
             enfermeira.setEndereco(endereco);
 
             try {
-                enfermeira.setSalario(Double.parseDouble(salario));
+                if (Double.parseDouble(salario) > 0 && Double.parseDouble(salario) < 1000000){
+                    enfermeira.setSalario(Double.parseDouble(salario));
+                }else{
+                    return "Salário inválido!";
+                }  
             } catch (Exception e) {
                 return "Salário inválido!";
             }
@@ -218,13 +228,13 @@ public class AdministradorController {
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                    if (Integer.parseInt(data_nascimento[2]) <= yearNow && Integer.parseInt(data_nascimento[2]) > yearNow-100) {
                         medico.setData_nascimento(dataNasc);
-                    } else {
+                    } else 
                         return "Ano de nascimento inválido!";
-                    }
+                    
                 } else {
-                    return "Data de nascimento inválida!";
+                    return "Data de nascimento formato inválida!";
                 }
             } catch (Exception e) {
                 return "Data de nascimento inválida!";
@@ -244,7 +254,11 @@ public class AdministradorController {
             medico.setEndereco(endereco);
 
             try {
-                medico.setSalario(Double.parseDouble(salario));
+                if (Double.parseDouble(salario) > 0 && Double.parseDouble(salario) < 1000000){
+                    medico.setSalario(Double.parseDouble(salario));
+                }else{
+                    return "Salário inválido!";
+                }  
             } catch (Exception e) {
                 return "Salário inválido!";
             }
@@ -299,6 +313,11 @@ public class AdministradorController {
     }
 
     public static String alterarFuncionario(String tipo, String id, String senha, String nome, String[] data_nascimento, String cpf, String telefone, String endereco, String salario, String crM, String especialidade) {
+        LocalDate localDate = LocalDate.now();
+        int yearNow = localDate.getYear();
+        int monthNow = localDate.getMonthValue();
+        int dayNow = localDate.getDayOfMonth();
+        
         if (tipo.equalsIgnoreCase("adm")) {
             Administrador administrador = new Administrador();
 
@@ -317,13 +336,13 @@ public class AdministradorController {
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                    if (Integer.parseInt(data_nascimento[2]) <= yearNow && Integer.parseInt(data_nascimento[2]) > yearNow-100) {
                         administrador.setData_nascimento(dataNasc);
-                    } else {
+                    } else 
                         return "Ano de nascimento inválido!";
-                    }
+                    
                 } else {
-                    return "Data de nascimento inválida!";
+                    return "Data de nascimento formato inválida!";
                 }
             } catch (Exception e) {
                 return "Data de nascimento inválida!";
@@ -345,9 +364,13 @@ public class AdministradorController {
 
             administrador.setTelefone(telefone);
             administrador.setEndereco(endereco);
-
+            
             try {
-                administrador.setSalario(Double.parseDouble(salario));
+                if (Double.parseDouble(salario) > 0 && Double.parseDouble(salario) < 1000000){
+                    administrador.setSalario(Double.parseDouble(salario));
+                }else{
+                    return "Salário inválido!";
+                }  
             } catch (Exception e) {
                 return "Salário inválido!";
             }
@@ -378,18 +401,18 @@ public class AdministradorController {
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                    if (Integer.parseInt(data_nascimento[2]) <= yearNow && Integer.parseInt(data_nascimento[2]) > yearNow-100) {
                         atendente.setData_nascimento(dataNasc);
-                    } else {
+                    } else 
                         return "Ano de nascimento inválido!";
-                    }
+                    
                 } else {
-                    return "Data de nascimento inválida!";
+                    return "Data de nascimento formato inválida!";
                 }
             } catch (Exception e) {
                 return "Data de nascimento inválida!";
             }
-
+            
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 return "CPF INVALIDO!";
             }
@@ -406,7 +429,11 @@ public class AdministradorController {
             atendente.setEndereco(endereco);
 
             try {
-                atendente.setSalario(Double.parseDouble(salario));
+                if (Double.parseDouble(salario) > 0 && Double.parseDouble(salario) < 1000000){
+                    atendente.setSalario(Double.parseDouble(salario));
+                }else{
+                    return "Salário inválido!";
+                }  
             } catch (Exception e) {
                 return "Salário inválido!";
             }
@@ -439,18 +466,18 @@ public class AdministradorController {
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
+                    if (Integer.parseInt(data_nascimento[2]) <= yearNow && Integer.parseInt(data_nascimento[2]) > yearNow-100) {
                         enfermeira.setData_nascimento(dataNasc);
-                    } else {
+                    } else 
                         return "Ano de nascimento inválido!";
-                    }
+                    
                 } else {
-                    return "Data de nascimento inválida!";
+                    return "Data de nascimento formato inválida!";
                 }
             } catch (Exception e) {
                 return "Data de nascimento inválida!";
             }
-
+                        
             if (!cpf.matches("([0-9]+(\\.[0-9]+)+)-[0-9]+")) {
                 System.out.println("CPF INVÁLIDO");
                 return "CPF INVALIDO!";
@@ -469,11 +496,15 @@ public class AdministradorController {
             enfermeira.setEndereco(endereco);
 
             try {
-                enfermeira.setSalario(Double.parseDouble(salario));
+                if (Double.parseDouble(salario) > 0 && Double.parseDouble(salario) < 1000000){
+                    enfermeira.setSalario(Double.parseDouble(salario));
+                }else{
+                    return "Salário inválido!";
+                }  
             } catch (Exception e) {
                 return "Salário inválido!";
             }
-
+            
             enfermeira.setCr(crM);
             enfermeira.setAdm_id("");
 
@@ -502,13 +533,13 @@ public class AdministradorController {
             try {
                 String dataNasc = data_nascimento[2] + "-" + data_nascimento[1] + "-" + data_nascimento[0];
                 if (dataNasc.matches("[0-9]+-(0?[1-9]|[1][0-2])-(0?[1-9]|[12][0-9]|3[01])")) {
-                    if (Integer.parseInt(data_nascimento[2]) <= Year.now().getValue() && Integer.parseInt(data_nascimento[2]) > 1920) {
-                        medico.setData_nascimento(dataNasc);
-                    } else {
+                    if (Integer.parseInt(data_nascimento[2]) <= yearNow && Integer.parseInt(data_nascimento[2]) > yearNow-100) {
+                        medico.setData_nascimento(dataNasc);                             
+                    } else 
                         return "Ano de nascimento inválido!";
-                    }
+                    
                 } else {
-                    return "Data de nascimento inválida!";
+                    return "Data de nascimento formato inválida!";
                 }
             } catch (Exception e) {
                 return "Data de nascimento inválida!";
@@ -530,7 +561,11 @@ public class AdministradorController {
             medico.setEndereco(endereco);
 
             try {
-                medico.setSalario(Double.parseDouble(salario));
+                if (Double.parseDouble(salario) > 0 && Double.parseDouble(salario) < 1000000){
+                    medico.setSalario(Double.parseDouble(salario));
+                }else{
+                    return "Salário inválido!";
+                }  
             } catch (Exception e) {
                 return "Salário inválido!";
             }
