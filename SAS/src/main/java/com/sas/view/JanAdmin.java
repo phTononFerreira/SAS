@@ -50,7 +50,7 @@ public class JanAdmin extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
-        selectCardFuncionarios();
+        selectCardCadastrar();
         rbAdministracao.setSelected(true);
         selectAdmCad();
         rbAdministrador.setSelected(true);
@@ -1695,6 +1695,7 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btSalvarEditMouseClicked
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
+        selectCardCadastrar();
         sair();
     }//GEN-LAST:event_labLogoutMouseClicked
 

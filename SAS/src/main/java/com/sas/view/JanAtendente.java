@@ -1862,6 +1862,9 @@ public class JanAtendente extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) tabPaciente.getModel();
         modelo.setNumRows(0);
         
+        AtendenteController.cancelarConsultaAutomatico();
+        AtendenteController.encaminharConsultaAutomatico();
+        
         AtendenteController.carregaTabela(modelo);
         
         centralizarTabelaConsulta();

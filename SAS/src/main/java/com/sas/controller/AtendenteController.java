@@ -9,7 +9,10 @@ import com.sas.model.Atendente;
 import com.sas.model.Consulta;
 import com.sas.model.Prontuario;
 import com.sas.model.Paciente;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import javax.swing.table.DefaultTableModel;
 
 public class AtendenteController {
@@ -164,6 +167,26 @@ public class AtendenteController {
         } else if (!(Integer.parseInt(horaFormata[2]) >= 0 && Integer.parseInt(horaFormata[2]) <= 60)) {
             return "SEGUNDO INVALIDO!";
         }
+        
+        LocalDate localDate = LocalDate.now();
+                
+        if(Integer. parseInt(dataFormata[2]) < Integer.parseInt(localDate.toString().split("-")[0]))
+            return "ANO INVALIDO!";
+        else if(Integer. parseInt(dataFormata[2]) == Integer.parseInt(localDate.toString().split("-")[0]) && Integer.parseInt(dataFormata[1]) < Integer.parseInt(localDate.toString().split("-")[1]))
+            return "MES INVALIDO!";
+        else if(Integer. parseInt(dataFormata[2]) == Integer.parseInt(localDate.toString().split("-")[0]) && Integer.parseInt(dataFormata[1]) == Integer.parseInt(localDate.toString().split("-")[1]) && Integer.parseInt(dataFormata[0]) < Integer.parseInt(localDate.toString().split("-")[2]))    
+            return "DIA INVALIDO!";
+        
+        LocalDateTime agora = LocalDateTime.now();
+        DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String horaNowFormatada = formatterHora.format(agora);
+                
+        if(Integer. parseInt(horaFormata[0]) < Integer.parseInt(horaNowFormatada.split(":")[0]))
+            return "HORA INVALIDO!";
+        else if(Integer. parseInt(horaFormata[0]) == Integer.parseInt(horaNowFormatada.split(":")[0]) && Integer.parseInt(horaFormata[1]) < Integer.parseInt(horaNowFormatada.split(":")[1]))
+            return "MINUTO INVALIDO!";
+        else if(Integer. parseInt(horaFormata[0]) == Integer.parseInt(horaNowFormatada.split(":")[0]) && Integer.parseInt(horaFormata[1]) == Integer.parseInt(horaNowFormatada.split(":")[1]) && Integer.parseInt(horaFormata[2]) < Integer.parseInt(horaNowFormatada.split(":")[2]))    
+            return "SEGUNDO INVALIDO!";
 
         consulta.setData(dataFormata[2] + "-" + dataFormata[1] + "-" + dataFormata[0] + " " + hora);
         consulta.setReceita(receita);
@@ -206,6 +229,14 @@ public class AtendenteController {
 
     public static Atendente pesquisarAtendenteID(String ID) {
         return AtendenteDAO.pesquisarAteID(ID);
+    }
+    
+    public static void cancelarConsultaAutomatico() {
+        AtendenteDAO.cancelarConAutomatico();
+    }
+    
+    public static void encaminharConsultaAutomatico() {
+        AtendenteDAO.encaminharConAutomatico();
     }
 
     public static void carregaTabela(DefaultTableModel modelo) {
