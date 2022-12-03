@@ -862,9 +862,9 @@ public class JanAtendente extends javax.swing.JFrame {
         cardCadastroLayout.setVerticalGroup(
             cardCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardCadastroLayout.createSequentialGroup()
-                .addContainerGap(498, Short.MAX_VALUE)
+                .addContainerGap(420, Short.MAX_VALUE)
                 .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(499, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
             .addGroup(cardCadastroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panTabela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -969,23 +969,23 @@ public class JanAtendente extends javax.swing.JFrame {
         tabSelMedico.setForeground(new java.awt.Color(51, 51, 51));
         tabSelMedico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Código Médico", "Médico"
+                "Código Médico", "Médico", "Especialidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1179,9 +1179,9 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addGroup(cardAgendarConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(cardAgendarConsultaLayout.createSequentialGroup()
-                        .addGap(0, 485, Short.MAX_VALUE)
+                        .addGap(0, 410, Short.MAX_VALUE)
                         .addComponent(btAgendar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 483, Short.MAX_VALUE)))
+                        .addGap(0, 409, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1719,12 +1719,15 @@ public class JanAtendente extends javax.swing.JFrame {
         
         //Tela de agenda consulta
         limparAgenda();
+        carregaTabelaPaciente();
+        carregaTabelaMedico();
         
         //Tela de cadastrar paciente
         limpar();
         
         //Tela de alterar paciente
         limparEdit();
+        carregaTabelaPacienteEdit();
     }
     
     public void selectCardConsulta() {

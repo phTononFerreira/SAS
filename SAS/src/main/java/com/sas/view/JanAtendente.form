@@ -860,9 +860,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="498" max="32767" attributes="0"/>
+                      <EmptySpace pref="420" max="32767" attributes="0"/>
                       <Component id="btAlterar" min="-2" pref="90" max="-2" attributes="0"/>
-                      <EmptySpace pref="499" max="32767" attributes="0"/>
+                      <EmptySpace pref="421" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -1185,9 +1185,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="panAgendar" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="485" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="410" max="32767" attributes="0"/>
                               <Component id="btAgendar" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="483" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="409" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1507,13 +1507,19 @@
                           <Color blue="33" green="33" red="33" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="2" rowCount="10">
+                          <Table columnCount="3" rowCount="10">
                             <Column editable="false" title="C&#xf3;digo M&#xe9;dico" type="java.lang.Object"/>
                             <Column editable="false" title="M&#xe9;dico" type="java.lang.Object"/>
+                            <Column editable="false" title="Especialidade" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>

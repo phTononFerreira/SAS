@@ -306,7 +306,8 @@ public class AtendenteDAO {
             while(rs.next()){
                 modelo.addRow(new Object[]{
                     rs.getString("med_id"),
-                    rs.getString("med_nome")
+                    rs.getString("med_nome"),
+                    rs.getString("med_especialidade")
                 });
             }
 
@@ -325,7 +326,8 @@ public class AtendenteDAO {
             while(rs.next()){
                 modelo.addRow(new Object[]{
                     rs.getString("med_id"),
-                    rs.getString("med_nome")  
+                    rs.getString("med_nome"),
+                    rs.getString("med_especialidade")  
                 });
             }
 
