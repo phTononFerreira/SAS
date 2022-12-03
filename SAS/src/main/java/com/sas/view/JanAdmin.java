@@ -1696,6 +1696,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
         selectCardCadastrar();
+        limpaTelaAnterior();
         sair();
     }//GEN-LAST:event_labLogoutMouseClicked
 

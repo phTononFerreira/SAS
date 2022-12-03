@@ -76,6 +76,7 @@ public class JanAtendente extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
+        selectCardConsulta();
         
         //UPDATE TABLE
         carregaTabela();
@@ -599,7 +600,7 @@ public class JanAtendente extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("CONSULTAS");
+        jLabel2.setText("CONSULTAS DO DIA");
 
         javax.swing.GroupLayout panInformacoesLayout = new javax.swing.GroupLayout(panInformacoes);
         panInformacoes.setLayout(panInformacoesLayout);
@@ -677,7 +678,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1473,27 +1474,13 @@ public class JanAtendente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labCadPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadPacienteMouseClicked
-        cardLayout.show(panCardsAtendente, "cardCadastro");
-        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labAltPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 18));
-        labConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
-        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
-        labAltPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+        selectCardCadPaciente();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labCadPacienteMouseClicked
 
     private void labConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labConsultaMouseClicked
-        cardLayout.show(panCardsAtendente, "cardConsulta");
-        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labAltPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labConsulta.setFont(new java.awt.Font("Verdana", 0, 18));
-        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
-        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
-        labAltPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+        selectCardConsulta();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labConsultaMouseClicked
 
     private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
@@ -1513,6 +1500,8 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_labUserMouseClicked
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
+        selectCardConsulta();
+        limpaTelaAnterior();
         sair();
     }//GEN-LAST:event_labLogoutMouseClicked
 
@@ -1529,15 +1518,8 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_btRefresh1ActionPerformed
 
     private void labAgenConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labAgenConsultaMouseClicked
-        cardLayout.show(panCardsAtendente, "cardAgendarConsulta");
-        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        labAltPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
-        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
-        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 18));
-        labAltPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+        selectCardAgenConsulta();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labAgenConsultaMouseClicked
 
     private void tabSelPaciente1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelPaciente1MousePressed
@@ -1581,15 +1563,8 @@ public class JanAtendente extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void labAltPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labAltPacienteMouseClicked
-        cardLayout.show(panCardsAtendente, "cardAlterarPaciente");
-        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labAltPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
-        labConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
-        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
-        labAltPaciente.setFont(new java.awt.Font("Verdana", 0, 18));
+        selectCardAltPaciente();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labAltPacienteMouseClicked
 
     private void tabSelPaciente2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelPaciente2MousePressed
@@ -1737,6 +1712,69 @@ public class JanAtendente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfAltEnderecoKeyPressed
 
+    public void limpaTelaAnterior(){
+        //Tela de consulta
+        carregaTabela();
+        setConsultaID(null);
+        
+        //Tela de agenda consulta
+        limparAgenda();
+        
+        //Tela de cadastrar paciente
+        limpar();
+        
+        //Tela de alterar paciente
+        limparEdit();
+    }
+    
+    public void selectCardConsulta() {
+        cardLayout.show(panCardsAtendente, "cardConsulta");
+        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labAltPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labConsulta.setFont(new java.awt.Font("Verdana", 0, 18));
+        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAltPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+    }
+    
+    public void selectCardAgenConsulta() {
+        cardLayout.show(panCardsAtendente, "cardAgendarConsulta");
+        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labAltPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
+        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 18));
+        labAltPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+    }
+    
+    public void selectCardCadPaciente() {
+        cardLayout.show(panCardsAtendente, "cardCadastro");
+        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labAltPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 18));
+        labConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAltPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+    }
+    
+    public void selectCardAltPaciente() {
+        cardLayout.show(panCardsAtendente, "cardAlterarPaciente");
+        labConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labCadPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labAgenConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labAltPaciente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labCadPaciente.setFont(new java.awt.Font("Verdana", 0, 14));
+        labConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAgenConsulta.setFont(new java.awt.Font("Verdana", 0, 14));
+        labAltPaciente.setFont(new java.awt.Font("Verdana", 0, 18));
+    }
+    
     public void optionAlterarPac(){
         dialogOptionPane.setVisible(true);
         labOptionPane.setText("Deseja alterar paciente?");
@@ -1842,8 +1880,6 @@ public class JanAtendente extends javax.swing.JFrame {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(93, 201, 120));
             labPopUpStatus.setText("✅ CONSULTA AGENDADA COM SUCESSO!");
-            setIdPaciente(null);
-            setIdMedico(null);
         } else {
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(247, 99, 99));
@@ -1853,10 +1889,14 @@ public class JanAtendente extends javax.swing.JFrame {
     
     public void limparAgenda(){
         tfAgenData.setText("");
-        tfAgenHora.setText("");
+        tfAgenHora.setText("");        
+        tfNomePac.setText(""); 
+        tfNomeMed.setText("");  
         tabSelPaciente1.clearSelection();
         tabSelMedico.clearSelection();
         tfAgenData.requestFocus();
+        setIdPaciente(null);
+        setIdMedico(null);
     }
     
     public void carregaTabela() {
@@ -1977,7 +2017,10 @@ public class JanAtendente extends javax.swing.JFrame {
         tfAltDataNasc.setText("");
         tfAltTelefone.setText("");
         tfAltEndereco.setText("");
+        tfNomeAltPac.setText("");
+        tabSelPaciente2.clearSelection();
         tfAltNome.requestFocus();
+        setIdPacienteEdit(null);
     }
     
     public void editarPaciente() {
@@ -2000,8 +2043,6 @@ public class JanAtendente extends javax.swing.JFrame {
             labPopUpStatus.setText("✅ PACIENTE ALTERADO COM SUCESSO!");
             
             carregaTabelaPacienteEdit();
-            tabSelPaciente2.clearSelection();
-            setIdPacienteEdit(null);
             
         } else {
             dialogPopUpStatus.setVisible(true);

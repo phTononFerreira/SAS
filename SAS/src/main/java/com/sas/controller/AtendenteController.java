@@ -130,6 +130,16 @@ public class AtendenteController {
     public static String agendarConsulta(int status, String pac_id, String med_id, String ate_id, String data, String hora, String receita) {
         Consulta consulta = new Consulta();
 
+        if (pac_id == null){
+            return "Selecione um paciente da tabela!";
+        }
+        consulta.setPac_id(pac_id);
+        
+        if (med_id== null){
+            return "Selecione um médico da tabela!";
+        }
+        consulta.setMed_id(med_id);
+        
         consulta.setId("con" + String.valueOf(ConsultaDAO.contarCon() + 1));    //ID AUTOINCREMENT
 
         String[] dataFormata = data.split("/");
@@ -182,15 +192,6 @@ public class AtendenteController {
         consulta.setData(dataFormata[2] + "-" + dataFormata[1] + "-" + dataFormata[0] + " " + hora);
         consulta.setReceita(receita);
         consulta.setAte_id(ate_id);
-        if (med_id== null){
-            return "Selecione um médico da tabela!";
-        }
-        consulta.setMed_id(med_id);
-        
-        if (pac_id == null){
-            return "Selecione um paciente da tabela!";
-        }
-        consulta.setPac_id(pac_id);
         
         consulta.setStatus(status);
 
