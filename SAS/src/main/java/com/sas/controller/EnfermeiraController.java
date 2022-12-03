@@ -29,8 +29,12 @@ public class EnfermeiraController {
         }
         insumo.setNome(nome);
 
-        if (Integer.parseInt(quantidade) < 0) {
-            return "QUANTIDADE INVALIDA!";
+        try {
+            if (Integer.parseInt(quantidade) < 0 || Integer.parseInt(quantidade) > 999) {
+                return "Quantidade inválida!";
+            }
+        } catch (Exception e) {
+            return "Quantidade inválida!";
         }
 
         insumo.setQuantidade(Integer.parseInt(quantidade));
@@ -68,11 +72,22 @@ public class EnfermeiraController {
     public static String preencherTriagem(String temperatura, String pressao, String descricao, String pro_id, String enf_id) {
         Prontuario prontuario = new Prontuario();
 
+        if (pro_id == null) {
+            return "Selecione um prontuário na tabela!";
+        }
         prontuario.setId(pro_id);
-
-        if (temperatura.equals("")) {
+ 
+        try {
+            if (temperatura.equals("")) {
+                return "TEMPERATURA INVALIDO!";
+            }
+            else if (Float.parseFloat(temperatura) < 0 || Float.parseFloat(temperatura) > 100) {
+                return "TEMPERATURA INVALIDO!";
+            }
+        } catch (Exception e) {
             return "TEMPERATURA INVALIDO!";
         }
+        
         prontuario.setTemperatura(Float.parseFloat(temperatura));
 
         if (pressao.equals("") || !pressao.matches("[0-9]+/[0-9]+")) {
@@ -103,6 +118,11 @@ public class EnfermeiraController {
     public static String controlarEstoque(String quantidade, String ins_id) {
         InsumoMedico insumo = new InsumoMedico();
 
+        if (ins_id == null) {
+            return "Selecione um insumo na tabela!";
+        }
+        insumo.setId(ins_id);
+        
         try {
             if (Integer.parseInt(quantidade) < 0 || Integer.parseInt(quantidade) > 999) {
                 return "Quantidade inválida!";
@@ -110,11 +130,6 @@ public class EnfermeiraController {
         } catch (Exception e) {
             return "Quantidade inválida!";
         }
-
-        if (ins_id == null) {
-            return "Selecione um insumo na tabela!";
-        }
-        insumo.setId(ins_id);
 
         insumo.setQuantidade(Integer.parseInt(quantidade));
 

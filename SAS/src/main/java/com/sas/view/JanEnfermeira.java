@@ -70,6 +70,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         carregaTabelaInsumo();
         
         setIdInsumo(null);
+        setIdConsulta(null);
     }
 
     public static JanEnfermeira getJanEnfermeira() {
@@ -1180,15 +1181,20 @@ public class JanEnfermeira extends javax.swing.JFrame {
         System.out.println("CONSULTA: " + getIdConsulta());
 
         feedback = EnfermeiraController.preencherTriagem(temperatura, pressao, descricao, pro_id, enf_id);
-        feedbackAlt = AtendenteController.alterarStatusConsulta(getIdConsulta(), 3);
 
-        if (feedback == null && feedbackAlt == null) {
-            dialogPopUpStatus.setVisible(true);
-            labPopUpStatus.setForeground(new Color(93, 201, 120));
-            labPopUpStatus.setText("✅ TRIAGEM PREENCHIDA COM SUCESSO!");
-            limparTriagem();
-            setIdConsulta(null);
+        if (feedback == null) {
+            feedbackAlt = AtendenteController.alterarStatusConsulta(getIdConsulta(), 3);
+            if(feedbackAlt == null){
+                dialogPopUpStatus.setVisible(true);
+                labPopUpStatus.setForeground(new Color(93, 201, 120));
+                labPopUpStatus.setText("✅ TRIAGEM PREENCHIDA COM SUCESSO!");
+                limparTriagem();
+                setIdConsulta(null);
+                setIdProtuario(null);
+            }
         } else {
+            setIdConsulta(null);
+            setIdProtuario(null);
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(247, 99, 99));
             if (feedback != null) {

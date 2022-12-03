@@ -210,11 +210,14 @@ public class AtendenteController {
         return null;
     }
 
-    public static boolean cancelarConsulta(String consultaID) {
-        if (consultaID != null) {
-            return AtendenteDAO.cancelarCon(consultaID);
+    public static String cancelarConsulta(String consultaID) {
+        if(consultaID == null)
+            return "Selecione uma consulta da tabela!";
+        
+        if (consultaID != null && AtendenteDAO.cancelarCon(consultaID)) {
+            return null;
         } else {
-            return false;
+            return "ERRO AO CANCELAR CONSULTA!!";
         }
 
     }
@@ -276,7 +279,11 @@ public class AtendenteController {
     }
 
     public static String alterarStatusConsulta(String idConsulta, int status) {
-        if (AtendenteDAO.alterarStatusCon(idConsulta, status) && idConsulta != null) {
+        if(idConsulta == null)
+            return "Selecione uma consulta da tabela!";
+        
+        
+        if (AtendenteDAO.alterarStatusCon(idConsulta, status)) {
             return null;
         } else {
             return "ERRO AO ALTERAR STATUS";
