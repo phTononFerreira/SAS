@@ -1720,16 +1720,17 @@ public class JanAdmin extends javax.swing.JFrame {
 
     private void labCadFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labCadFuncionarioMouseClicked
         selectCardFuncionarios();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labCadFuncionarioMouseClicked
 
     private void labFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labFuncionarioMouseClicked
         selectCardCadastrar();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labFuncionarioMouseClicked
 
     private void labEditarFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labEditarFuncionarioMouseClicked
         selectCardEditar();
-        limparEdit();
-        ocultarEditar();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labEditarFuncionarioMouseClicked
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
@@ -1875,6 +1876,25 @@ public class JanAdmin extends javax.swing.JFrame {
             btIDPesquisa.doClick();
         }
     }//GEN-LAST:event_tfIDEditKeyPressed
+    
+    public void limpaTelaAnterior(){
+        //Tela de Editar funcionário
+        limparEdit();
+        ocultarEditar();
+        
+        //Tela de ver funcionário
+        rbAdministrador.setSelected(true);
+        rbAtendente.setSelected(false);
+        rbEnfermeira.setSelected(false);
+        rbMedico.setSelected(false);
+        selectFiltroFuc();
+        tfNome1.setText("");
+        
+        //Tela de cadastrar funcionário
+        selectAdmCad();
+        rbAdministracao.setSelected(true);
+        limpar();
+    }
     
     public void optionAlterarFunc(){
         dialogOptionPane.setVisible(true);
