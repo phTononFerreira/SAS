@@ -1739,12 +1739,12 @@ public class JanAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btIDPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIDPesquisaActionPerformed
-        // TODO add your handling code here:
+        String status = pesquisarFuncionarioEdit(tfIDEdit.getText());
+        labStatus.setText(status);
     }//GEN-LAST:event_btIDPesquisaActionPerformed
 
     private void btIDPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btIDPesquisaMouseClicked
-        String status = pesquisarFuncionarioEdit(tfIDEdit.getText());
-        labStatus.setText(status);
+        
     }//GEN-LAST:event_btIDPesquisaMouseClicked
 
     private void tfIDEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIDEditActionPerformed
