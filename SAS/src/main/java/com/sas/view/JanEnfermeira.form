@@ -1019,7 +1019,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="labNomePesquisaPac">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="NOME"/>
+                    <Property name="text" type="java.lang.String" value="NOME PACIENTE"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator1">

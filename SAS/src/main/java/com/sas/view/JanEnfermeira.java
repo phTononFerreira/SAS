@@ -66,9 +66,12 @@ public class JanEnfermeira extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim.width, dim.height);
+        selectCardTriagem();
+        
         carregaTabelaTriagem();
         carregaTabelaInsumo();
         
+        setIdProtuario(null);
         setIdInsumo(null);
         setIdConsulta(null);
     }
@@ -468,9 +471,9 @@ public class JanEnfermeira extends javax.swing.JFrame {
             .addGroup(panTopLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(labLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 449, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labTriagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 449, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labEstoque)
                 .addGap(454, 454, 454)
                 .addComponent(panUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -646,7 +649,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         labSelPaciente.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         labSelPaciente.setText("SELECIONAR PACIENTE");
 
-        labNomePesquisaPac.setText("NOME");
+        labNomePesquisaPac.setText("NOME PACIENTE");
 
         javax.swing.GroupLayout panInformacoesLayout = new javax.swing.GroupLayout(panInformacoes);
         panInformacoes.setLayout(panInformacoesLayout);
@@ -748,7 +751,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE))
+                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 885, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -955,7 +958,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, 1922, Short.MAX_VALUE)
+            .addComponent(panCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -969,20 +972,13 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labTriagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labTriagemMouseClicked
-        cardLayout.show(panCards, "cardTriagem");
-        labTriagem.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        labEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labTriagem.setFont(new java.awt.Font("Verdana", 0, 18));
-        labEstoque.setFont(new java.awt.Font("Verdana", 0, 14));
+        selectCardTriagem();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labTriagemMouseClicked
 
     private void labEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labEstoqueMouseClicked
-        cardLayout.show(panCards, "cardEstoque");
-        labTriagem.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
-        labEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
-        labEstoque.setFont(new java.awt.Font("Verdana", 0, 18));
-        labTriagem.setFont(new java.awt.Font("Verdana", 0, 14));
-        tfQuantidade.setText("0");
+        selectCardEstoque();
+        limpaTelaAnterior();
     }//GEN-LAST:event_labEstoqueMouseClicked
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
@@ -1011,6 +1007,8 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_labUserMouseClicked
 
     private void labLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labLogoutMouseClicked
+        selectCardTriagem();
+        limpaTelaAnterior();
         sair();
         dialogCadInsumo.dispose();
     }//GEN-LAST:event_labLogoutMouseClicked
@@ -1062,10 +1060,12 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadInsSalvarActionPerformed
 
     private void btCadInsumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadInsumoMouseClicked
+        limpaTelaAnterior();
         dialogCadInsumo.setVisible(true);
     }//GEN-LAST:event_btCadInsumoMouseClicked
 
     private void btCadInsCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCadInsCancelarMouseClicked
+        limpaTelaAnterior();
         dialogCadInsumo.dispose();
     }//GEN-LAST:event_btCadInsCancelarMouseClicked
 
@@ -1074,7 +1074,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
     }//GEN-LAST:event_tfQuantidadeActionPerformed
 
     private void btCadInsCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInsCancelarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btCadInsCancelarActionPerformed
 
     private void dialogCadInsumoWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogCadInsumoWindowLostFocus
@@ -1122,6 +1122,43 @@ public class JanEnfermeira extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_taDescricaoKeyPressed
 
+    public void limpaTelaAnterior(){
+        //Tela de triagem
+        carregaTabelaTriagem();
+        setIdProtuario(null);
+        setIdConsulta(null);
+        tfNomePac.setText("");
+        limparTriagem();
+        
+        //Tela de estoque
+        carregaTabelaInsumo();
+        setIdInsumo(null);
+        tabEstoque.clearSelection();
+        tfQuantidade.setText("0");
+        
+        //Pop Up cadastra insumo
+        tfCadInsNome.setText("");
+        tfCadInsQuantidade.setText("");
+        tfCadInsNome.requestFocus();
+    }
+    
+    public void selectCardTriagem() {
+        cardLayout.show(panCards, "cardTriagem");
+        labTriagem.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labTriagem.setFont(new java.awt.Font("Verdana", 0, 18));
+        labEstoque.setFont(new java.awt.Font("Verdana", 0, 14));
+    }
+    
+    public void selectCardEstoque() {
+        cardLayout.show(panCards, "cardEstoque");
+        labTriagem.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(249, 100, 100)));
+        labEstoque.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labEstoque.setFont(new java.awt.Font("Verdana", 0, 18));
+        labTriagem.setFont(new java.awt.Font("Verdana", 0, 14));
+        tfQuantidade.setText("0");
+    }
+    
     public void sair() {
         this.dispose();
         labLogout.setVisible(false);
@@ -1253,6 +1290,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
             tfQuantidade.setText("");
             setIdInsumo(null);
         } else {
+            setIdInsumo(null);
             dialogPopUpStatus.setVisible(true);
             labPopUpStatus.setForeground(new Color(247, 99, 99));
             labPopUpStatus.setText("⚠ " + feedback);
