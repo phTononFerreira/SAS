@@ -175,6 +175,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="panCadInsBackFocusLost"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">

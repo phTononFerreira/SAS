@@ -268,6 +268,11 @@ public class JanMedico extends javax.swing.JFrame {
 
         panCadInsBack.setBackground(new java.awt.Color(255, 255, 255));
         panCadInsBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
+        panCadInsBack.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                panCadInsBackFocusLost(evt);
+            }
+        });
 
         btDialogEncaminhar.setBackground(new java.awt.Color(249, 100, 100));
         btDialogEncaminhar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -1218,7 +1223,7 @@ public class JanMedico extends javax.swing.JFrame {
 
     private void dialogEncaminharWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_dialogEncaminharWindowLostFocus
 
-        dialogEncaminhar.toFront();
+        
     }//GEN-LAST:event_dialogEncaminharWindowLostFocus
 
     private void btGerarEncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGerarEncActionPerformed
@@ -1233,6 +1238,10 @@ public class JanMedico extends javax.swing.JFrame {
     private void cardConsultaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardConsultaFocusGained
 
     }//GEN-LAST:event_cardConsultaFocusGained
+
+    private void panCadInsBackFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_panCadInsBackFocusLost
+        
+    }//GEN-LAST:event_panCadInsBackFocusLost
 
     public void voltarConsulta() {
         cardLayout.show(panCards, "cardConsulta");
