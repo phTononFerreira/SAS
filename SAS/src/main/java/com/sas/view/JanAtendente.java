@@ -88,6 +88,7 @@ public class JanAtendente extends javax.swing.JFrame {
         setIdPaciente(null);
         setIdMedico(null);
         setIdPacienteEdit(null);
+        setConsultaID(null);
     }
 
     public static JanAtendente getJanAtendente() {
@@ -1515,6 +1516,7 @@ public class JanAtendente extends javax.swing.JFrame {
 
     private void btRefresh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefresh1ActionPerformed
         carregaTabela();
+        setConsultaID(null);
     }//GEN-LAST:event_btRefresh1ActionPerformed
 
     private void labAgenConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labAgenConsultaMouseClicked
@@ -1528,6 +1530,7 @@ public class JanAtendente extends javax.swing.JFrame {
 
     private void btlRefreshPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshPacActionPerformed
         carregaTabelaPaciente();
+        setIdPaciente(null);
     }//GEN-LAST:event_btlRefreshPacActionPerformed
 
     private void btNomePesquisaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaPacActionPerformed
@@ -1542,6 +1545,7 @@ public class JanAtendente extends javax.swing.JFrame {
 
     private void btRefreshMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefreshMedActionPerformed
         carregaTabelaMedico();
+        setIdMedico(null);
     }//GEN-LAST:event_btRefreshMedActionPerformed
 
     private void btNomePesquisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisa1ActionPerformed
@@ -1580,6 +1584,7 @@ public class JanAtendente extends javax.swing.JFrame {
 
     private void btlRefreshAltPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshAltPacActionPerformed
         carregaTabelaPacienteEdit();
+        setIdPacienteEdit(null);
     }//GEN-LAST:event_btlRefreshAltPacActionPerformed
 
     private void btLimparAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparAltActionPerformed

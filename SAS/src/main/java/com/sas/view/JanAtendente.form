@@ -1185,9 +1185,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="panAgendar" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="410" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="484" max="32767" attributes="0"/>
                               <Component id="btAgendar" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="409" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="484" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

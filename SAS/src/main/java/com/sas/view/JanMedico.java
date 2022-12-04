@@ -572,7 +572,7 @@ public class JanMedico extends javax.swing.JFrame {
         jScrollPane5.setViewportView(tabPaciente2);
 
         labSelPaciente.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        labSelPaciente.setText("SELECIONAR PACIENTE");
+        labSelPaciente.setText("SELECIONAR SEUS PACIENTE DO DIA");
 
         tfNomePac.setBackground(new java.awt.Color(242, 242, 242));
         tfNomePac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
@@ -617,7 +617,7 @@ public class JanMedico extends javax.swing.JFrame {
                     .addComponent(jScrollPane5)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labSelPaciente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 536, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 468, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labNomePesquisaPac)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -671,7 +671,7 @@ public class JanMedico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btIniciarCons, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+                .addComponent(btIniciarCons, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
                 .addContainerGap())
         );
         cardConsultaLayout.setVerticalGroup(
@@ -957,9 +957,9 @@ public class JanMedico extends javax.swing.JFrame {
                         .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labInfoHora)
                             .addComponent(labPacHora))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(labPacIdadeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labInfoTemperatura)
                     .addComponent(labPacTemperatura)
@@ -992,7 +992,7 @@ public class JanMedico extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jSeparator4)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         btFinalizar.setBackground(new java.awt.Color(249, 100, 100));
@@ -1143,6 +1143,7 @@ public class JanMedico extends javax.swing.JFrame {
 
     private void btlRefreshPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshPacActionPerformed
         carregaTabelaConsulta();
+        setIdConsulta(null);
     }//GEN-LAST:event_btlRefreshPacActionPerformed
 
     private void btNomePesquisaPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaPacActionPerformed
@@ -1177,6 +1178,7 @@ public class JanMedico extends javax.swing.JFrame {
 
     private void btMedRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMedRefreshActionPerformed
         carregaTabelaInsumo();
+        setIdInsumo(null);
     }//GEN-LAST:event_btMedRefreshActionPerformed
 
     private void btOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOKActionPerformed

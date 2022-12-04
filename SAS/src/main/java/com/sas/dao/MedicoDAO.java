@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import javax.swing.table.DefaultTableModel;
 
 public class MedicoDAO {
@@ -73,18 +74,24 @@ public class MedicoDAO {
         ResultSet rs = null;
         String[] data = null;
         String[] hora = null;
+        LocalDate localDate = LocalDate.now();
+        String[] consultaDoDia = null;
         
         try{
             rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 3 AND c.med_id = '" + med_id + "' ORDER BY c.con_data");
             
             while(rs.next()){
-                data = rs.getString("con_data").split("-");
-                hora = data[2].split(" ");
-                modelo.addRow(new Object[]{
-                    rs.getString("con_id"),
-                    rs.getString("pac_nome"),
-                    hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1]                        
-                });
+                consultaDoDia = rs.getString("con_data").split(" ");
+                
+                if(consultaDoDia[0].equals(localDate.toString())){
+                    data = rs.getString("con_data").split("-");
+                    hora = data[2].split(" ");
+                    modelo.addRow(new Object[]{
+                        rs.getString("con_id"),
+                        rs.getString("pac_nome"),
+                        hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1]                        
+                    });
+                }
             }
 
         }catch(Exception e){
@@ -97,18 +104,24 @@ public class MedicoDAO {
         ResultSet rs = null;
         String[] data = null;
         String[] hora = null;
+        LocalDate localDate = LocalDate.now();
+        String[] consultaDoDia = null;
         
         try{
             rs = ConexaoBD.getConexao().executarQueryBD("SELECT c.con_id, p.pac_nome, c.con_data FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 3 AND pac_nome LIKE '%" + nome + "%' AND c.med_id = '" + med_id + "' ORDER BY c.con_data");
             
             while(rs.next()){
-                data = rs.getString("con_data").split("-");
-                hora = data[2].split(" ");
-                modelo.addRow(new Object[]{
-                    rs.getString("con_id"),
-                    rs.getString("pac_nome"),
-                    hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1]                        
-                });
+                consultaDoDia = rs.getString("con_data").split(" ");
+                
+                if(consultaDoDia[0].equals(localDate.toString())){
+                    data = rs.getString("con_data").split("-");
+                    hora = data[2].split(" ");
+                    modelo.addRow(new Object[]{
+                        rs.getString("con_id"),
+                        rs.getString("pac_nome"),
+                        hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1]                        
+                    });
+                }
             }
 
         }catch(Exception e){

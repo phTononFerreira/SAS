@@ -237,7 +237,7 @@ public class AtendenteDAO {
         String[] consultaDoDia = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT cp.con_id, cp.pac_nome, cp.con_data, m.med_nome FROM medico as m INNER JOIN (SELECT c.con_id, p.pac_nome, c.con_data, c.med_id FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1 ORDER BY c.con_data) as cp on cp.med_id = m.med_id");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT cp.con_id, cp.pac_nome, cp.con_data, m.med_nome FROM medico as m INNER JOIN (SELECT c.con_id, p.pac_nome, c.con_data, c.med_id FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1) as cp on cp.med_id = m.med_id ORDER BY cp.con_data");
 
             while(rs.next()){
                 consultaDoDia = rs.getString("con_data").split(" ");
