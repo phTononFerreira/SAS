@@ -180,15 +180,17 @@ public class AtendenteController {
         
         LocalDateTime agora = LocalDateTime.now();
         DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String horaNowFormatada = formatterHora.format(agora);
-                
-        if(Integer. parseInt(horaFormata[0]) < Integer.parseInt(horaNowFormatada.split(":")[0]))
-            return "HORA INVALIDO!";
-        else if(Integer. parseInt(horaFormata[0]) == Integer.parseInt(horaNowFormatada.split(":")[0]) && Integer.parseInt(horaFormata[1]) < Integer.parseInt(horaNowFormatada.split(":")[1]))
-            return "MINUTO INVALIDO!";
-        else if(Integer. parseInt(horaFormata[0]) == Integer.parseInt(horaNowFormatada.split(":")[0]) && Integer.parseInt(horaFormata[1]) == Integer.parseInt(horaNowFormatada.split(":")[1]) && Integer.parseInt(horaFormata[2]) < Integer.parseInt(horaNowFormatada.split(":")[2]))    
-            return "SEGUNDO INVALIDO!";
-
+        String horaNowFormatada = formatterHora.format(agora);      
+        
+        if(Integer.parseInt(dataFormata[2]) == Integer.parseInt(localDate.toString().split("-")[0]) && Integer.parseInt(dataFormata[1]) == Integer.parseInt(localDate.toString().split("-")[1]) && Integer.parseInt(dataFormata[0]) == Integer.parseInt(localDate.toString().split("-")[2])){
+            if(Integer. parseInt(horaFormata[0]) < Integer.parseInt(horaNowFormatada.split(":")[0]))
+                return "HORA INVALIDO!";
+            else if(Integer. parseInt(horaFormata[0]) == Integer.parseInt(horaNowFormatada.split(":")[0]) && Integer.parseInt(horaFormata[1]) < Integer.parseInt(horaNowFormatada.split(":")[1]))
+                return "MINUTO INVALIDO!";
+            else if(Integer. parseInt(horaFormata[0]) == Integer.parseInt(horaNowFormatada.split(":")[0]) && Integer.parseInt(horaFormata[1]) == Integer.parseInt(horaNowFormatada.split(":")[1]) && Integer.parseInt(horaFormata[2]) < Integer.parseInt(horaNowFormatada.split(":")[2]))    
+                return "SEGUNDO INVALIDO!";
+        }
+        
         consulta.setData(dataFormata[2] + "-" + dataFormata[1] + "-" + dataFormata[0] + " " + hora);
         consulta.setReceita(receita);
         consulta.setAte_id(ate_id);

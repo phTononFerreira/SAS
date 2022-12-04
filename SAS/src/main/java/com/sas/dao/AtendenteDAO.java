@@ -233,25 +233,19 @@ public class AtendenteDAO {
         ResultSet rs = null;
         String[] data = null;
         String[] hora = null;
-        LocalDate localDate = LocalDate.now();
-        String[] consultaDoDia = null;
         
         try{
             rs = ConexaoBD.getConexao().executarQueryBD("SELECT cp.con_id, cp.pac_nome, cp.con_data, m.med_nome FROM medico as m INNER JOIN (SELECT c.con_id, p.pac_nome, c.con_data, c.med_id FROM consulta as c INNER JOIN paciente as p on c.pac_id = p.pac_id WHERE c.con_status = 1) as cp on cp.med_id = m.med_id ORDER BY cp.con_data");
 
             while(rs.next()){
-                consultaDoDia = rs.getString("con_data").split(" ");
-                
-                if(consultaDoDia[0].equals(localDate.toString())){
-                    data = rs.getString("con_data").split("-");
-                    hora = data[2].split(" ");
-                    modelo.addRow(new Object[]{
-                        rs.getString("con_id"),
-                        rs.getString("pac_nome"),
-                        hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1],  
-                        rs.getString("med_nome")
-                    });
-                }
+                data = rs.getString("con_data").split("-");
+                hora = data[2].split(" ");
+                modelo.addRow(new Object[]{
+                    rs.getString("con_id"),
+                    rs.getString("pac_nome"),
+                    hora[0]+"/"+data[1]+"/"+data[0]+" "+hora[1],  
+                    rs.getString("med_nome")
+                }); 
             }
 
         }catch(Exception e){

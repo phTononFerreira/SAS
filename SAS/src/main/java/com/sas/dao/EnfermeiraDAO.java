@@ -145,7 +145,7 @@ public class EnfermeiraDAO {
         String[] consultaDoDia = null;
         
         try{
-            rs = ConexaoBD.getConexao().executarQueryBD("SELECT ppc.pro_id, ppc.pac_nome, ppc.pac_cpf, m.med_nome, ppc.con_data FROM medico as m INNER JOIN (SELECT pp.pro_id, pp.pac_nome, pp.pac_cpf, c.med_id, c.con_data FROM consulta as c INNER JOIN (SELECT pro.pro_id, pac.pac_nome, pac.pac_cpf, pac.pac_id FROM prontuario as pro INNER JOIN paciente as pac on pro.pac_id = pac.pac_id) as pp on c.pro_id = pp.pro_id WHERE c.con_status = 2 AND pac_nome LIKE '%\" + nome + \"%') as ppc on ppc.med_id = m.med_id ORDER BY ppc.con_data");
+            rs = ConexaoBD.getConexao().executarQueryBD("SELECT ppc.pro_id, ppc.pac_nome, ppc.pac_cpf, m.med_nome, ppc.con_data FROM medico as m INNER JOIN (SELECT pp.pro_id, pp.pac_nome, pp.pac_cpf, c.med_id, c.con_data FROM consulta as c INNER JOIN (SELECT pro.pro_id, pac.pac_nome, pac.pac_cpf, pac.pac_id FROM prontuario as pro INNER JOIN paciente as pac on pro.pac_id = pac.pac_id) as pp on c.pro_id = pp.pro_id WHERE c.con_status = 2 AND pac_nome LIKE '%" + nome + "%') as ppc on ppc.med_id = m.med_id ORDER BY ppc.con_data");
             
             while(rs.next()){
                 consultaDoDia = rs.getString("con_data").split(" ");

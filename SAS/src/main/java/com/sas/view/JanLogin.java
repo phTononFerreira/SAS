@@ -195,7 +195,7 @@ public class JanLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordFieldSenhaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String login = Login.verificarLogin(jTextFieldUsuario.getText(), jPasswordFieldSenha.getText());
+        String login = Login.verificarLogin(jTextFieldUsuario.getText().toLowerCase(), jPasswordFieldSenha.getText());
         limpar();
         if (login != null) {
             System.out.println("LOGADO COM SUCESSO!");
