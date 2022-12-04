@@ -1522,12 +1522,13 @@ public class JanMedico extends javax.swing.JFrame {
         String paciente = PacienteController.pesquisarPacienteID(pac_id).getNome();
 
 
-        if (!taReceitar.getText().equals("")) {
+        if (!taEncaminhar.getText().equals("")) {
             try {
                 imprimirPdf("ENCAMINHAMENTO", encaminhamento, paciente, medico);
                 dialogPopUpStatus.setVisible(true);
                 labPopUpStatus.setForeground(new Color(93, 201, 120));
                 labPopUpStatus.setText("✅ Paciente encaminhado com sucesso!");
+                dialogEncaminhar.dispose();
             } catch (Exception e) {
                 dialogPopUpStatus.setVisible(true);
                 labPopUpStatus.setForeground(new Color(247, 99, 99));
