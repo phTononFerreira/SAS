@@ -1211,7 +1211,7 @@ public class JanMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_taReceitarKeyPressed
 
     private void btDialogEncaminharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDialogEncaminharActionPerformed
-        imprimirEncaminhamento();
+       
     }//GEN-LAST:event_btDialogEncaminharActionPerformed
 
     private void btDialogCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDialogCancelarMouseClicked
@@ -1515,32 +1515,6 @@ public class JanMedico extends javax.swing.JFrame {
         
     }
     
-    public void imprimirEncaminhamento() {
-        String pac_id = ConsultaController.pesquisarConsultaID(getIdConsulta()).getPac_id();
-        String encaminhamento = taEncaminhar.getText();
-        String medico = MedicoController.pesquisarMedicoID(getId()).getNome();
-        String paciente = PacienteController.pesquisarPacienteID(pac_id).getNome();
-
-
-        if (!taEncaminhar.getText().equals("")) {
-            try {
-                imprimirPdf("ENCAMINHAMENTO", encaminhamento, paciente, medico);
-                dialogPopUpStatus.setVisible(true);
-                labPopUpStatus.setForeground(new Color(93, 201, 120));
-                labPopUpStatus.setText("✅ Paciente encaminhado com sucesso!");
-                dialogEncaminhar.dispose();
-            } catch (Exception e) {
-                dialogPopUpStatus.setVisible(true);
-                labPopUpStatus.setForeground(new Color(247, 99, 99));
-                labPopUpStatus.setText("⚠ Erro no encaminhamento!");
-            }
-        } else {
-            dialogPopUpStatus.setVisible(true);
-            labPopUpStatus.setForeground(new Color(247, 99, 99));
-            labPopUpStatus.setText("⚠ O encaminhamento está vazia!");
-        }
-
-    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
