@@ -682,7 +682,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1340,7 +1340,7 @@ public class JanAtendente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labSelAltPaciente)
@@ -1377,8 +1377,7 @@ public class JanAtendente extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btLimparAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(32, 32, 32)
-                .addComponent(labStatusEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addComponent(labStatusEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1421,7 +1420,7 @@ public class JanAtendente extends javax.swing.JFrame {
                         .addComponent(tfAltCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btLimparAlt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(533, Short.MAX_VALUE))
+                .addContainerGap(378, Short.MAX_VALUE))
         );
 
         btAltSalvar.setBackground(new java.awt.Color(249, 100, 100));
@@ -1441,9 +1440,9 @@ public class JanAtendente extends javax.swing.JFrame {
             cardAlterarPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardAlterarPacientesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 957, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btAltSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                .addComponent(btAltSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
                 .addContainerGap())
         );
         cardAlterarPacientesLayout.setVerticalGroup(
@@ -1451,8 +1450,8 @@ public class JanAtendente extends javax.swing.JFrame {
             .addGroup(cardAlterarPacientesLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(cardAlterarPacientesLayout.createSequentialGroup()
-                .addGap(365, 365, 365)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardAlterarPacientesLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btAltSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1574,26 +1573,6 @@ public class JanAtendente extends javax.swing.JFrame {
         limpaTelaAnterior();
     }//GEN-LAST:event_labAltPacienteMouseClicked
 
-    private void tabSelPaciente2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelPaciente2MousePressed
-        setIdPacienteEdit(tabSelPaciente2.getValueAt(tabSelPaciente2.getSelectedRow(), 0).toString());
-        puxarDadosPacienteEdit(getIdPacienteEdit());
-    }//GEN-LAST:event_tabSelPaciente2MousePressed
-
-    private void btNomePesquisaAltPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltPacActionPerformed
-        pesquisaTabelaPacienteEdit();
-        tfNomeAltPac.setText("");
-        tfNomeAltPac.requestFocus();
-    }//GEN-LAST:event_btNomePesquisaAltPacActionPerformed
-
-    private void btlRefreshAltPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshAltPacActionPerformed
-        carregaTabelaPacienteEdit();
-        setIdPacienteEdit(null);
-    }//GEN-LAST:event_btlRefreshAltPacActionPerformed
-
-    private void btLimparAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparAltActionPerformed
-        limparEdit();
-    }//GEN-LAST:event_btLimparAltActionPerformed
-
     private void btAltSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAltSalvarActionPerformed
         optionAlterarPac();
     }//GEN-LAST:event_btAltSalvarActionPerformed
@@ -1684,11 +1663,9 @@ public class JanAtendente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfEnderecoKeyPressed
 
-    private void tfNomeAltPacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeAltPacKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            btNomePesquisaAltPac.doClick();
-        }
-    }//GEN-LAST:event_tfNomeAltPacKeyPressed
+    private void btLimparAltActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparAltActionPerformed
+        limparEdit();
+    }//GEN-LAST:event_btLimparAltActionPerformed
 
     private void tfAltNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltNomeKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -1702,11 +1679,11 @@ public class JanAtendente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfAltCPFKeyPressed
 
-    private void tfAltDataNascKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltDataNascKeyPressed
+    private void tfAltEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltEnderecoKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             btAltSalvar.doClick();
         }
-    }//GEN-LAST:event_tfAltDataNascKeyPressed
+    }//GEN-LAST:event_tfAltEnderecoKeyPressed
 
     private void tfAltTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltTelefoneKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -1714,11 +1691,33 @@ public class JanAtendente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tfAltTelefoneKeyPressed
 
-    private void tfAltEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltEnderecoKeyPressed
+    private void tfAltDataNascKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfAltDataNascKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             btAltSalvar.doClick();
         }
-    }//GEN-LAST:event_tfAltEnderecoKeyPressed
+    }//GEN-LAST:event_tfAltDataNascKeyPressed
+
+    private void btlRefreshAltPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btlRefreshAltPacActionPerformed
+        carregaTabelaPacienteEdit();
+        setIdPacienteEdit(null);
+    }//GEN-LAST:event_btlRefreshAltPacActionPerformed
+
+    private void tfNomeAltPacKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNomeAltPacKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            btNomePesquisaAltPac.doClick();
+        }
+    }//GEN-LAST:event_tfNomeAltPacKeyPressed
+
+    private void btNomePesquisaAltPacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNomePesquisaAltPacActionPerformed
+        pesquisaTabelaPacienteEdit();
+        tfNomeAltPac.setText("");
+        tfNomeAltPac.requestFocus();
+    }//GEN-LAST:event_btNomePesquisaAltPacActionPerformed
+
+    private void tabSelPaciente2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabSelPaciente2MousePressed
+        setIdPacienteEdit(tabSelPaciente2.getValueAt(tabSelPaciente2.getSelectedRow(), 0).toString());
+        puxarDadosPacienteEdit(getIdPacienteEdit());
+    }//GEN-LAST:event_tabSelPaciente2MousePressed
 
     public void limpaTelaAnterior(){
         //Tela de consulta
