@@ -274,6 +274,7 @@ public class JanLogin extends javax.swing.JFrame {
         JanEnfermeira.getJanEnfermeira().setNomePerfil(Login.retornaNomeFuncionario(ID));
         JanEnfermeira.setId(ID);
         this.setVisible(false);
+        JanEnfermeira.getJanEnfermeira().carregaTabelaInsumo();
     }
 
     public void abreJanMedico(String ID) {
