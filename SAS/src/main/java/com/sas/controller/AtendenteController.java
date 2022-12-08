@@ -123,9 +123,6 @@ public class AtendenteController {
         }
     }
 
-    public static void encaminharTriagem(Consulta con) {
-
-    }
 
     public static String agendarConsulta(int status, String pac_id, String med_id, String ate_id, String data, String hora, String receita) {
         Consulta consulta = new Consulta();
@@ -208,9 +205,7 @@ public class AtendenteController {
         }
     }
 
-    public static Consulta pesquisarConsultaID() {
-        return null;
-    }
+ 
 
     public static String cancelarConsulta(String consultaID) {
         if(consultaID == null)

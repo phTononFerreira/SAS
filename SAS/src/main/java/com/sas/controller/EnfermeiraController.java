@@ -6,14 +6,10 @@ import com.sas.dao.InsumoMedicoDAO;
 import com.sas.model.Enfermeira;
 import com.sas.model.InsumoMedico;
 import com.sas.model.Prontuario;
-import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 
 public class EnfermeiraController {
 
-    public static Prontuario gerarProntuario() {
-        return null;
-    }
 
     public static String cadastrarInsumo(String nome, String quantidade, String enf_id) {
         InsumoMedico insumo = new InsumoMedico();
@@ -49,9 +45,6 @@ public class EnfermeiraController {
 
     }
 
-    public static int contarEstoque(InsumoMedico ins) {
-        return 0;
-    }
 
     public static Enfermeira pesquisarEnfermeiraID(String ID) {
         return EnfermeiraDAO.pesquisarEnfID(ID);

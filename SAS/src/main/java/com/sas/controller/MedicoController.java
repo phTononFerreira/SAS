@@ -2,17 +2,11 @@ package com.sas.controller;
 
 import com.sas.dao.MedicoDAO;
 import com.sas.model.Consulta;
-import com.sas.model.InsumoMedico;
 import com.sas.model.Medico;
-import com.sas.model.Prontuario;
 import javax.swing.table.DefaultTableModel;
 
 public class MedicoController {
-    
-    public static void finalizarConsulta(Consulta con) {
-
-    }
-
+   
     public static String encaminharPaciente(String receita, String con_id) {
         Consulta consulta = new Consulta();
         consulta.setId(con_id);
@@ -24,14 +18,6 @@ public class MedicoController {
         }else{
             return "ERRO NO RECEITAR CONSULTA";
         }   
-    }
-
-    public static String receitarPaciente(InsumoMedico ins) {
-        return null;
-    }
-
-    public static void visualizarProntuario(Prontuario pro) {
-
     }
 
     public static Medico pesquisarMedicoID(String ID) {

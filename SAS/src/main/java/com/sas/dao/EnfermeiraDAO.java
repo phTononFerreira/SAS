@@ -12,14 +12,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class EnfermeiraDAO {
     
-    public Prontuario gerarPro() {
-        return null;
-    }
-
-    public InsumoMedico cadastrarIns() {
-        return null;
-    }
-    
     public static boolean cadastrarIns(InsumoMedico ins) {
         Connection conn = ConexaoBD.getConnection();
 
@@ -67,10 +59,6 @@ public class EnfermeiraDAO {
 
         return false;
     }  
-
-    public int contarEst(InsumoMedico ins) {
-        return 0;
-    }
 
     public static Enfermeira pesquisarEnfID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM enfermeira WHERE enf_id = '" + ID + "'");

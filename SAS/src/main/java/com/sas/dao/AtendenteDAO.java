@@ -6,11 +6,9 @@ import com.sas.model.Consulta;
 import com.sas.model.Paciente;
 import com.sas.model.Prontuario;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -72,10 +70,6 @@ public class AtendenteDAO {
         return false;
     }
 
-    public static void encaminharTri(Consulta con) {
-
-    }
-
     public static boolean agendarCon(Consulta con) {
         Connection conn = ConexaoBD.getConnection();
 
@@ -103,10 +97,6 @@ public class AtendenteDAO {
         }
         
         return false;
-    }
-    
-    public static Consulta pesquisarConID() {
-        return null;
     }
 
     public static boolean cancelarCon(String consultaID) {

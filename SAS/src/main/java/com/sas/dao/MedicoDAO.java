@@ -12,22 +12,6 @@ import java.time.LocalDate;
 import javax.swing.table.DefaultTableModel;
 
 public class MedicoDAO {
-    
-    public static void finalizarCon(Consulta con) {
-
-    }
-
-    public static String encaminharPac(Consulta con) {
-        return null;
-    }
-
-    public static String receitarPac(InsumoMedico ins) {
-        return null;
-    }
-
-    public static void visualizarPro(Prontuario pro) {
-
-    }
 
     public static Medico pesquisarMedID(String ID) {
         ResultSet pesquisa = ConexaoBD.getConexao().executarQueryBD("SELECT * FROM medico WHERE med_id = '" + ID + "'");
