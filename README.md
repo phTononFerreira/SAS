@@ -9,10 +9,14 @@
    
 </div>
 
+## 📫 Documentação
+
+[Documento de Projeto](https://cdn.discordapp.com/attachments/445732137623224331/1088095896979378266/Documento_de_Projeto_-_SAS.pdf)
+
 ## 👥 Equipe
-- [Jonas Tomaz de Aquinos]()
-- [Luiz Henrique da Silva Araújo]()
-- [Pedro Henrique Tonon Ferreira]()
-- [Ricardo Takeshi Outi Miyamoto]()
-- [Roberto Luiz Pereira Raposo]()
-- [Vinícius Gomes Ribeiro]()
+- [Jonas Tomaz de Aquinos](https://github.com/mrjonas151)
+- [Luiz Henrique da Silva Araújo](https://github.com/Tchuc01)
+- [Pedro Henrique Tonon Ferreira](https://github.com/phTononFerreira)
+- [Ricardo Takeshi Outi Miyamoto](https://github.com/takeshitos)
+- [Roberto Luiz Pereira Raposo](https://github.com/RobertoLuiz99)
+- [Vinícius Gomes Ribeiro](https://github.com/ViniciusGR797)
