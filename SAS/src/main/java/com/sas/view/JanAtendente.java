@@ -216,7 +216,7 @@ public class JanAtendente extends javax.swing.JFrame {
         labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labPopUpStatus.setText("SAS ALERT");
 
-        btOK.setBackground(new java.awt.Color(249, 100, 100));
+        btOK.setBackground(new java.awt.Color(204, 0, 204));
         btOK.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btOK.setForeground(new java.awt.Color(255, 255, 255));
         btOK.setText("OK");
@@ -285,7 +285,7 @@ public class JanAtendente extends javax.swing.JFrame {
         panCadInsBack1.setBackground(new java.awt.Color(255, 255, 255));
         panCadInsBack1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
 
-        btConfirmar.setBackground(new java.awt.Color(249, 100, 100));
+        btConfirmar.setBackground(new java.awt.Color(204, 0, 204));
         btConfirmar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         btConfirmar.setText("CONFIRMAR");
@@ -303,7 +303,7 @@ public class JanAtendente extends javax.swing.JFrame {
         labOptionPane.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labOptionPane.setText("SAS OPTION PANE");
 
-        btCancelar1.setBackground(new java.awt.Color(249, 100, 100));
+        btCancelar1.setBackground(new java.awt.Color(204, 0, 204));
         btCancelar1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btCancelar1.setForeground(new java.awt.Color(255, 255, 255));
         btCancelar1.setText("CANCELAR");
@@ -385,7 +385,7 @@ public class JanAtendente extends javax.swing.JFrame {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
-                        new java.net.URL("https://www.dropbox.com/s/lz6r501j7qgsv2u/logoSAS_2_15.png?dl=1")
+                        new java.net.URL("https://www.dropbox.com/scl/fi/0rvmj04t0ikzfhva32lrz/loSas2.png?rlkey=vfls2u8fdlxatr1fnna59d95h&dl=1")
                     );
                 } catch (java.net.MalformedURLException e) {
                 }
@@ -663,7 +663,7 @@ public class JanAtendente extends javax.swing.JFrame {
             cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardConsultaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1237, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1238, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
@@ -682,7 +682,7 @@ public class JanAtendente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardConsultaLayout.createSequentialGroup()
-                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE)
+                        .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 907, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(cardConsultaLayout.createSequentialGroup()
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

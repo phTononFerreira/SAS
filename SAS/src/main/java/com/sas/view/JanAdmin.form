@@ -184,7 +184,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -198,7 +198,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -222,7 +222,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -241,7 +241,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -255,7 +255,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -287,7 +287,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -306,7 +306,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -320,7 +320,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -334,7 +334,7 @@
             <Component class="javax.swing.JButton" name="btNomePesquisaAlt">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="12" style="1"/>
@@ -494,7 +494,7 @@
             <Component class="javax.swing.JButton" name="btOK">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
@@ -610,7 +610,7 @@
             <Component class="javax.swing.JButton" name="btConfirmar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
@@ -646,7 +646,7 @@
             <Component class="javax.swing.JButton" name="btCancelar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
@@ -789,7 +789,7 @@
         <Component class="javax.swing.JLabel" name="labLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="1" name="https://www.dropbox.com/s/lz6r501j7qgsv2u/logoSAS_2_15.png?dl=1"/>
+              <Image iconType="1" name="https://www.dropbox.com/scl/fi/0rvmj04t0ikzfhva32lrz/loSas2.png?rlkey=vfls2u8fdlxatr1fnna59d95h&amp;dl=1"/>
             </Property>
           </Properties>
         </Component>
@@ -903,7 +903,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labUserImage" pref="54" max="32767" attributes="0"/>
+                          <Component id="labUserImage" pref="48" max="32767" attributes="0"/>
                           <Component id="labUser" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1070,7 +1070,7 @@
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labSenhaEdit" pref="317" max="32767" attributes="0"/>
+                                  <Component id="labSenhaEdit" pref="327" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="630" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">

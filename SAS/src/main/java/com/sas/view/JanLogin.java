@@ -52,7 +52,7 @@ public class JanLogin extends javax.swing.JFrame {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
-                        new java.net.URL("https://www.dropbox.com/s/99fb05etogggcsm/logoSAS_25.png?dl=1")
+                        new java.net.URL("https://www.dropbox.com/scl/fi/l4bsstobl50csy4984p9s/logoSAS.png?rlkey=7tm37skxouq9qmtb416v8tszk&dl=1")
                     );
                 } catch (java.net.MalformedURLException e) {
                 }

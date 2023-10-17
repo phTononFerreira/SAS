@@ -189,25 +189,25 @@ public class JanAdmin extends javax.swing.JFrame {
         jPanelEditar.setBackground(new java.awt.Color(255, 255, 255));
 
         tfEnderecoAlt.setBackground(new java.awt.Color(242, 242, 242));
-        tfEnderecoAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfEnderecoAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
         tfCpfAlt.setBackground(new java.awt.Color(242, 242, 242));
-        tfCpfAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCpfAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
         labEnderecoAlt.setText("ENDEREÇO");
 
         labCpfAlt.setText("CPF");
 
         tfNomeAlt.setBackground(new java.awt.Color(242, 242, 242));
-        tfNomeAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNomeAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
         labNomeAlt.setText("NOME");
 
         tfSalarioAlt.setBackground(new java.awt.Color(242, 242, 242));
-        tfSalarioAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfSalarioAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
         tfNascAlt.setBackground(new java.awt.Color(242, 242, 242));
-        tfNascAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNascAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfNascAlt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNascAltActionPerformed(evt);
@@ -221,19 +221,19 @@ public class JanAdmin extends javax.swing.JFrame {
         labEspecialidadeAlt.setText("ESPECIALIDADE");
 
         tfEspecialidadeAlt.setBackground(new java.awt.Color(242, 242, 242));
-        tfEspecialidadeAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfEspecialidadeAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
         labCrMAlt.setText("CRM");
 
         tfCrMAlt.setBackground(new java.awt.Color(242, 242, 242));
-        tfCrMAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCrMAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
         tfTelefoneAlt.setBackground(new java.awt.Color(242, 242, 242));
-        tfTelefoneAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfTelefoneAlt.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
         labTelefoneAlt.setText("TELEFONE");
 
-        btNomePesquisaAlt.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisaAlt.setBackground(new java.awt.Color(204, 0, 204));
         btNomePesquisaAlt.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btNomePesquisaAlt.setForeground(new java.awt.Color(255, 255, 255));
         btNomePesquisaAlt.setText("LIMPAR");
@@ -412,7 +412,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labPopUpStatus.setText("SAS ALERT");
         labPopUpStatus.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        btOK.setBackground(new java.awt.Color(249, 100, 100));
+        btOK.setBackground(new java.awt.Color(204, 0, 204));
         btOK.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btOK.setForeground(new java.awt.Color(255, 255, 255));
         btOK.setText("OK");
@@ -480,7 +480,7 @@ public class JanAdmin extends javax.swing.JFrame {
         panCadInsBack1.setBackground(new java.awt.Color(255, 255, 255));
         panCadInsBack1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 100, 100)));
 
-        btConfirmar.setBackground(new java.awt.Color(249, 100, 100));
+        btConfirmar.setBackground(new java.awt.Color(204, 0, 204));
         btConfirmar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         btConfirmar.setText("CONFIRMAR");
@@ -498,7 +498,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labOptionPane.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labOptionPane.setText("SAS OPTION PANE");
 
-        btCancelar.setBackground(new java.awt.Color(249, 100, 100));
+        btCancelar.setBackground(new java.awt.Color(204, 0, 204));
         btCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btCancelar.setText("CANCELAR");
@@ -567,7 +567,7 @@ public class JanAdmin extends javax.swing.JFrame {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
-                        new java.net.URL("https://www.dropbox.com/s/lz6r501j7qgsv2u/logoSAS_2_15.png?dl=1")
+                        new java.net.URL("https://www.dropbox.com/scl/fi/0rvmj04t0ikzfhva32lrz/loSas2.png?rlkey=vfls2u8fdlxatr1fnna59d95h&dl=1")
                     );
                 } catch (java.net.MalformedURLException e) {
                 }
@@ -676,7 +676,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -890,7 +890,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addComponent(labSenhaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                        .addComponent(labSenhaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                         .addGap(630, 630, 630))
                     .addGroup(panInfoEditLayout.createSequentialGroup()
                         .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

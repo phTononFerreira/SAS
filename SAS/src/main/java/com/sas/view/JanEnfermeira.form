@@ -126,7 +126,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -135,7 +135,7 @@
             <Component class="javax.swing.JButton" name="btCadInsSalvar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
@@ -169,7 +169,7 @@
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                     <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                      <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                      <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                     </MatteColorBorder>
                   </Border>
                 </Property>
@@ -197,7 +197,7 @@
             <Component class="javax.swing.JButton" name="btCadInsCancelar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
@@ -322,7 +322,7 @@
             <Component class="javax.swing.JButton" name="btOK">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
@@ -445,7 +445,7 @@
         <Component class="javax.swing.JLabel" name="labLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="1" name="https://www.dropbox.com/s/lz6r501j7qgsv2u/logoSAS_2_15.png?dl=1"/>
+              <Image iconType="1" name="https://www.dropbox.com/scl/fi/0rvmj04t0ikzfhva32lrz/loSas2.png?rlkey=vfls2u8fdlxatr1fnna59d95h&amp;dl=1"/>
             </Property>
           </Properties>
         </Component>
@@ -600,7 +600,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="panInformacoes" pref="1296" max="32767" attributes="0"/>
+                      <Component id="panInformacoes" pref="1297" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="btSalvar" pref="584" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
@@ -617,7 +617,7 @@
                               <Component id="btSalvar" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="416" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="panInformacoes" alignment="0" pref="924" max="32767" attributes="0"/>
+                          <Component id="panInformacoes" alignment="0" pref="883" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -748,7 +748,7 @@
                                   <Component id="labTemperatura" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="tfTemperatura" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <EmptySpace pref="8" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="labDescricao" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">

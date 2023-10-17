@@ -201,7 +201,7 @@ public class JanMedico extends javax.swing.JFrame {
         labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labPopUpStatus.setText("SAS ALERT");
 
-        btOK.setBackground(new java.awt.Color(249, 100, 100));
+        btOK.setBackground(new java.awt.Color(204, 0, 204));
         btOK.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btOK.setForeground(new java.awt.Color(255, 255, 255));
         btOK.setText("OK");
@@ -274,7 +274,7 @@ public class JanMedico extends javax.swing.JFrame {
             }
         });
 
-        btDialogEncaminhar.setBackground(new java.awt.Color(249, 100, 100));
+        btDialogEncaminhar.setBackground(new java.awt.Color(204, 0, 204));
         btDialogEncaminhar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btDialogEncaminhar.setForeground(new java.awt.Color(255, 255, 255));
         btDialogEncaminhar.setText("ENCAMINHAR");
@@ -300,7 +300,7 @@ public class JanMedico extends javax.swing.JFrame {
         labDialogOnde.setForeground(new java.awt.Color(51, 51, 51));
         labDialogOnde.setText("PARA ONDE");
 
-        btDialogCancelar.setBackground(new java.awt.Color(249, 100, 100));
+        btDialogCancelar.setBackground(new java.awt.Color(204, 0, 204));
         btDialogCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btDialogCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btDialogCancelar.setText("CANCELAR");
@@ -321,7 +321,7 @@ public class JanMedico extends javax.swing.JFrame {
         taEncaminhar.setColumns(20);
         taEncaminhar.setLineWrap(true);
         taEncaminhar.setRows(5);
-        taEncaminhar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        taEncaminhar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         jScrollPane1.setViewportView(taEncaminhar);
 
         javax.swing.GroupLayout panCadInsBackLayout = new javax.swing.GroupLayout(panCadInsBack);
@@ -390,7 +390,7 @@ public class JanMedico extends javax.swing.JFrame {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
-                        new java.net.URL("https://www.dropbox.com/s/lz6r501j7qgsv2u/logoSAS_2_15.png?dl=1")
+                        new java.net.URL("https://www.dropbox.com/scl/fi/0rvmj04t0ikzfhva32lrz/loSas2.png?rlkey=vfls2u8fdlxatr1fnna59d95h&dl=1")
                     );
                 } catch (java.net.MalformedURLException e) {
                 }

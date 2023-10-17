@@ -140,7 +140,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="1" name="https://www.dropbox.com/s/99fb05etogggcsm/logoSAS_25.png?dl=1"/>
+                  <Image iconType="1" name="https://www.dropbox.com/scl/fi/l4bsstobl50csy4984p9s/logoSAS.png?rlkey=7tm37skxouq9qmtb416v8tszk&amp;dl=1"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>

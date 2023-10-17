@@ -162,9 +162,9 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tfCadInsNome.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         tfCadInsNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfCadInsNome.setToolTipText("");
-        tfCadInsNome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCadInsNome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
-        btCadInsSalvar.setBackground(new java.awt.Color(249, 100, 100));
+        btCadInsSalvar.setBackground(new java.awt.Color(204, 0, 204));
         btCadInsSalvar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btCadInsSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btCadInsSalvar.setText("SALVAR");
@@ -181,7 +181,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         tfCadInsQuantidade.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         tfCadInsQuantidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         tfCadInsQuantidade.setToolTipText("");
-        tfCadInsQuantidade.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCadInsQuantidade.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
 
         labCadInsCadastro.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         labCadInsCadastro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -191,7 +191,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
         labCadInsQuantidade.setText("QUANTIDADE");
 
-        btCadInsCancelar.setBackground(new java.awt.Color(249, 100, 100));
+        btCadInsCancelar.setBackground(new java.awt.Color(204, 0, 204));
         btCadInsCancelar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btCadInsCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btCadInsCancelar.setText("CANCELAR");
@@ -294,7 +294,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         labPopUpStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labPopUpStatus.setText("SAS ALERT");
 
-        btOK.setBackground(new java.awt.Color(249, 100, 100));
+        btOK.setBackground(new java.awt.Color(204, 0, 204));
         btOK.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btOK.setForeground(new java.awt.Color(255, 255, 255));
         btOK.setText("OK");
@@ -359,7 +359,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
             public javax.swing.Icon getIcon() {
                 try {
                     return new javax.swing.ImageIcon(
-                        new java.net.URL("https://www.dropbox.com/s/lz6r501j7qgsv2u/logoSAS_2_15.png?dl=1")
+                        new java.net.URL("https://www.dropbox.com/scl/fi/0rvmj04t0ikzfhva32lrz/loSas2.png?rlkey=vfls2u8fdlxatr1fnna59d95h&dl=1")
                     );
                 } catch (java.net.MalformedURLException e) {
                 }
@@ -715,7 +715,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addComponent(labTemperatura)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(labDescricao))
                     .addGroup(panInformacoesLayout.createSequentialGroup()
                         .addComponent(labPressao)
@@ -734,7 +734,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
             cardTriagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardTriagemLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1296, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1297, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
                 .addComponent(btSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
                 .addGap(13, 13, 13))
@@ -748,7 +748,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                         .addGap(0, 418, Short.MAX_VALUE)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 416, Short.MAX_VALUE))
-                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE))
+                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
