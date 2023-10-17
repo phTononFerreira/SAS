@@ -718,7 +718,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
             <MatteColorBorder bottom="5" left="0" right="0" top="0">
-              <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+              <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
             </MatteColorBorder>
           </Border>
         </Property>
@@ -823,7 +823,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                  <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -903,7 +903,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labUserImage" pref="48" max="32767" attributes="0"/>
+                          <Component id="labUserImage" pref="54" max="32767" attributes="0"/>
                           <Component id="labUser" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1073,12 +1073,9 @@
                                   <Component id="labSenhaEdit" pref="317" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="630" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="tfSenhaEdit" min="-2" pref="569" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tfSenhaEdit" alignment="0" min="-2" pref="569" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="tfCpfEdit" alignment="0" pref="569" max="32767" attributes="0"/>
@@ -1120,7 +1117,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1207,7 +1204,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1229,7 +1226,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1251,7 +1248,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1273,7 +1270,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1295,7 +1292,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1317,7 +1314,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1349,7 +1346,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1371,7 +1368,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1395,7 +1392,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1417,7 +1414,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -1441,7 +1438,7 @@
                 <Component class="javax.swing.JButton" name="btIDPesquisa">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="64" green="64" red="f9" type="rgb"/>
+                      <Color blue="cc" green="0" red="cc" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Verdana" size="12" style="1"/>
@@ -1464,7 +1461,7 @@
             <Component class="javax.swing.JButton" name="btSalvarEdit">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="18" style="1"/>

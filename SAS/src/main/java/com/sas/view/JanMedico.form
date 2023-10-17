@@ -374,7 +374,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
             <MatteColorBorder bottom="5" left="0" right="0" top="0">
-              <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+              <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
             </MatteColorBorder>
           </Border>
         </Property>
@@ -433,7 +433,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                  <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -746,7 +746,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                          <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                          <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
                     </Property>
@@ -763,7 +763,7 @@
                 <Component class="javax.swing.JButton" name="btNomePesquisaPac">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="64" green="64" red="f9" type="rgb"/>
+                      <Color blue="cc" green="0" red="cc" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Verdana" size="12" style="1"/>
@@ -783,7 +783,7 @@
                 <Component class="javax.swing.JButton" name="btlRefreshPac">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="64" green="64" red="f9" type="rgb"/>
+                      <Color blue="cc" green="0" red="cc" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="18" style="0"/>
@@ -806,7 +806,7 @@
             <Component class="javax.swing.JButton" name="btIniciarCons">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>

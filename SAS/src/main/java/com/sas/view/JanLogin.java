@@ -64,7 +64,7 @@ public class JanLogin extends javax.swing.JFrame {
         jTextFieldUsuario.setBackground(new java.awt.Color(238, 238, 238));
         jTextFieldUsuario.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jTextFieldUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(249, 100, 100)));
+        jTextFieldUsuario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(204, 0, 204)));
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsuarioActionPerformed(evt);
@@ -85,7 +85,7 @@ public class JanLogin extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Senha");
 
-        jButton1.setBackground(new java.awt.Color(249, 100, 100));
+        jButton1.setBackground(new java.awt.Color(204, 0, 204));
         jButton1.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("ENTRAR");
@@ -102,7 +102,7 @@ public class JanLogin extends javax.swing.JFrame {
 
         jPasswordFieldSenha.setBackground(new java.awt.Color(238, 238, 238));
         jPasswordFieldSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordFieldSenha.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(249, 100, 100)));
+        jPasswordFieldSenha.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 3, 0, new java.awt.Color(204, 0, 204)));
         jPasswordFieldSenha.setMinimumSize(new java.awt.Dimension(1, 23));
         jPasswordFieldSenha.setPreferredSize(new java.awt.Dimension(1, 23));
         jPasswordFieldSenha.addActionListener(new java.awt.event.ActionListener() {

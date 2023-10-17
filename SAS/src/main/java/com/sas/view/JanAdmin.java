@@ -560,7 +560,7 @@ public class JanAdmin extends javax.swing.JFrame {
         setTitle("Administração");
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
-        panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(249, 100, 100)));
+        panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(204, 0, 204)));
         panTop.setPreferredSize(new java.awt.Dimension(504, 145));
 
         labLogo.setIcon(new javax.swing.JLabel() {
@@ -587,7 +587,7 @@ public class JanAdmin extends javax.swing.JFrame {
 
         labCadFuncionario.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         labCadFuncionario.setText("CADASTRAR FUNCIONÁRIO");
-        labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labCadFuncionario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         labCadFuncionario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labCadFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -676,7 +676,7 @@ public class JanAdmin extends javax.swing.JFrame {
             .addGroup(panUserLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(panUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(labUserImage, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
                     .addComponent(labUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labLogout)
@@ -740,7 +740,7 @@ public class JanAdmin extends javax.swing.JFrame {
         panInfoEdit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(249, 100, 100), 1, true));
 
         tfNomeEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfNomeEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNomeEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfNomeEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNomeEditActionPerformed(evt);
@@ -750,7 +750,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labNomeEdit.setText("NOME*");
 
         tfNascEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfNascEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNascEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfNascEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNascEditActionPerformed(evt);
@@ -760,7 +760,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labNascEdit.setText("<html>DATA DE NASCIMENTO*<br />DD/MM/AAAA</html>");
 
         tfCpfEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfCpfEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCpfEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfCpfEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCpfEditActionPerformed(evt);
@@ -770,7 +770,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labCpfEdit.setText("CPF*");
 
         tfTelefoneEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfTelefoneEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfTelefoneEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfTelefoneEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfTelefoneEditActionPerformed(evt);
@@ -780,7 +780,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labTelefoneEdit.setText("TELEFONE");
 
         tfEnderecoEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfEnderecoEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfEnderecoEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfEnderecoEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEnderecoEditActionPerformed(evt);
@@ -790,7 +790,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labEnderecoEdit.setText("ENDEREÇO");
 
         tfCrMEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfCrMEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfCrMEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfCrMEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfCrMEditActionPerformed(evt);
@@ -803,7 +803,7 @@ public class JanAdmin extends javax.swing.JFrame {
         jLabelEdit.setText("Selecionar funcionário (ID):");
 
         tfSalarioEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfSalarioEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfSalarioEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfSalarioEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSalarioEditActionPerformed(evt);
@@ -813,7 +813,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labSalarioEdit.setText("SALÁRIO*");
 
         tfEspecialidadeEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfEspecialidadeEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfEspecialidadeEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfEspecialidadeEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEspecialidadeEditActionPerformed(evt);
@@ -823,7 +823,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labEspecialidadeEdit.setText("ESPECIALIDADE");
 
         tfSenhaEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfSenhaEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfSenhaEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfSenhaEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSenhaEditActionPerformed(evt);
@@ -833,7 +833,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labSenhaEdit.setText("SENHA*");
 
         tfIDEdit.setBackground(new java.awt.Color(242, 242, 242));
-        tfIDEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfIDEdit.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfIDEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfIDEditActionPerformed(evt);
@@ -849,7 +849,7 @@ public class JanAdmin extends javax.swing.JFrame {
         labStatus.setForeground(new java.awt.Color(0, 153, 0));
         labStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
-        btIDPesquisa.setBackground(new java.awt.Color(249, 100, 100));
+        btIDPesquisa.setBackground(new java.awt.Color(204, 0, 204));
         btIDPesquisa.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btIDPesquisa.setForeground(new java.awt.Color(255, 255, 255));
         btIDPesquisa.setText("PESQUISAR");
@@ -893,10 +893,8 @@ public class JanAdmin extends javax.swing.JFrame {
                         .addComponent(labSenhaEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                         .addGap(630, 630, 630))
                     .addGroup(panInfoEditLayout.createSequentialGroup()
-                        .addComponent(tfSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panInfoEditLayout.createSequentialGroup()
                         .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfSenhaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panInfoEditLayout.createSequentialGroup()
                                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfCpfEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
@@ -927,7 +925,7 @@ public class JanAdmin extends javax.swing.JFrame {
                                 .addGroup(panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(labEspecialidadeEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                                     .addComponent(tfEspecialidadeEdit))))
-                        .addGap(14, 14, 14))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panInfoEditLayout.setVerticalGroup(
             panInfoEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -987,7 +985,7 @@ public class JanAdmin extends javax.swing.JFrame {
                 .addGap(120, 120, 120))
         );
 
-        btSalvarEdit.setBackground(new java.awt.Color(249, 100, 100));
+        btSalvarEdit.setBackground(new java.awt.Color(204, 0, 204));
         btSalvarEdit.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         btSalvarEdit.setForeground(new java.awt.Color(255, 255, 255));
         btSalvarEdit.setText("SALVAR");

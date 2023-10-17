@@ -332,7 +332,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
             <MatteColorBorder bottom="5" left="0" right="0" top="0">
-              <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+              <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
             </MatteColorBorder>
           </Border>
         </Property>
@@ -423,7 +423,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                 <MatteColorBorder bottom="2" left="0" right="0" top="0">
-                  <Color PropertyName="color" blue="64" green="64" red="f9" type="rgb"/>
+                  <Color PropertyName="color" blue="cc" green="0" red="cc" type="rgb"/>
                 </MatteColorBorder>
               </Border>
             </Property>
@@ -571,7 +571,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="panInformacoes" max="32767" attributes="0"/>
+                      <Component id="panInformacoes" pref="1237" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -596,7 +596,7 @@
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="panInformacoes" pref="907" max="32767" attributes="0"/>
+                              <Component id="panInformacoes" pref="948" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -644,10 +644,10 @@
                                       </Group>
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="380" max="32767" attributes="0"/>
+                                  <EmptySpace pref="402" max="32767" attributes="0"/>
                                   <Component id="btRefresh1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane1" pref="1196" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="1199" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
@@ -757,7 +757,7 @@
                 <Component class="javax.swing.JButton" name="btRefresh1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="64" green="64" red="f9" type="rgb"/>
+                      <Color blue="66" green="0" red="66" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="18" style="0"/>
@@ -790,7 +790,7 @@
             <Component class="javax.swing.JButton" name="btCancelar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>
@@ -820,7 +820,7 @@
             <Component class="javax.swing.JButton" name="btEncaminhar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="64" green="64" red="f9" type="rgb"/>
+                  <Color blue="cc" green="0" red="cc" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="14" style="1"/>

@@ -353,7 +353,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(0, 0));
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
-        panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(249, 100, 100)));
+        panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(204, 0, 204)));
 
         labLogo.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -378,7 +378,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
         labTriagem.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         labTriagem.setText("TRIAGEM");
-        labTriagem.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        labTriagem.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         labTriagem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labTriagem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -497,7 +497,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
 
         cardTriagem.setBackground(new java.awt.Color(231, 231, 231));
 
-        btSalvar.setBackground(new java.awt.Color(249, 100, 100));
+        btSalvar.setBackground(new java.awt.Color(204, 0, 204));
         btSalvar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btSalvar.setText("SALVAR");
@@ -515,7 +515,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         panInformacoes.setPreferredSize(new java.awt.Dimension(2, 2));
 
         tfTemperatura.setBackground(new java.awt.Color(242, 242, 242));
-        tfTemperatura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfTemperatura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfTemperatura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfTemperaturaKeyPressed(evt);
@@ -525,7 +525,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         labTemperatura.setText("TEMPERATURA ");
 
         tfPressao.setBackground(new java.awt.Color(242, 242, 242));
-        tfPressao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfPressao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfPressao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfPressaoKeyPressed(evt);
@@ -539,7 +539,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         taDescricao.setBackground(new java.awt.Color(242, 242, 242));
         taDescricao.setColumns(20);
         taDescricao.setRows(5);
-        taDescricao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        taDescricao.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         taDescricao.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 taDescricaoKeyPressed(evt);
@@ -547,7 +547,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(taDescricao);
 
-        btNomePesquisa1.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisa1.setBackground(new java.awt.Color(204, 0, 204));
         btNomePesquisa1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btNomePesquisa1.setForeground(new java.awt.Color(255, 255, 255));
         btNomePesquisa1.setText("LIMPAR");
@@ -610,7 +610,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
             tabPaciente2.getColumnModel().getColumn(0).setMaxWidth(200);
         }
 
-        btlRefreshPac.setBackground(new java.awt.Color(249, 100, 100));
+        btlRefreshPac.setBackground(new java.awt.Color(204, 0, 204));
         btlRefreshPac.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btlRefreshPac.setForeground(new java.awt.Color(255, 255, 255));
         btlRefreshPac.setText("🔄");
@@ -622,7 +622,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
             }
         });
 
-        btNomePesquisaPac.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisaPac.setBackground(new java.awt.Color(204, 0, 204));
         btNomePesquisaPac.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btNomePesquisaPac.setForeground(new java.awt.Color(255, 255, 255));
         btNomePesquisaPac.setText("PESQUISAR");
@@ -634,7 +634,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         });
 
         tfNomePac.setBackground(new java.awt.Color(242, 242, 242));
-        tfNomePac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNomePac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfNomePac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNomePacActionPerformed(evt);
@@ -656,7 +656,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
         panInformacoesLayout.setHorizontalGroup(
             panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panInformacoesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(9, 9, 9)
                 .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panInformacoesLayout.createSequentialGroup()
                         .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -672,7 +672,7 @@ public class JanEnfermeira extends javax.swing.JFrame {
                                         .addGap(27, 27, 27)
                                         .addComponent(btNomePesquisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(labPressao))))
-                        .addContainerGap(455, Short.MAX_VALUE))
+                        .addContainerGap(475, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInformacoesLayout.createSequentialGroup()
                         .addGroup(panInformacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panInformacoesLayout.createSequentialGroup()
@@ -734,9 +734,9 @@ public class JanEnfermeira extends javax.swing.JFrame {
             cardTriagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardTriagemLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1297, Short.MAX_VALUE)
+                .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 1296, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
-                .addComponent(btSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+                .addComponent(btSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
                 .addGap(13, 13, 13))
         );
         cardTriagemLayout.setVerticalGroup(
@@ -745,10 +745,10 @@ public class JanEnfermeira extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(cardTriagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardTriagemLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 418, Short.MAX_VALUE)
                         .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 885, Short.MAX_VALUE))
+                        .addGap(0, 416, Short.MAX_VALUE))
+                    .addComponent(panInformacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 924, Short.MAX_VALUE))
                 .addContainerGap())
         );
 

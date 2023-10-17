@@ -384,7 +384,7 @@ public class JanMedico extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         panTop.setBackground(new java.awt.Color(255, 255, 255));
-        panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(249, 100, 100)));
+        panTop.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 5, 0, new java.awt.Color(204, 0, 204)));
 
         labLogo.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -400,7 +400,7 @@ public class JanMedico extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
         jLabel1.setText("Consultas");
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -575,7 +575,7 @@ public class JanMedico extends javax.swing.JFrame {
         labSelPaciente.setText("SELECIONAR SEUS PACIENTE DO DIA");
 
         tfNomePac.setBackground(new java.awt.Color(242, 242, 242));
-        tfNomePac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(249, 100, 100)));
+        tfNomePac.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(204, 0, 204)));
         tfNomePac.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfNomePacKeyPressed(evt);
@@ -584,7 +584,7 @@ public class JanMedico extends javax.swing.JFrame {
 
         labNomePesquisaPac.setText("NOME");
 
-        btNomePesquisaPac.setBackground(new java.awt.Color(249, 100, 100));
+        btNomePesquisaPac.setBackground(new java.awt.Color(204, 0, 204));
         btNomePesquisaPac.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btNomePesquisaPac.setForeground(new java.awt.Color(255, 255, 255));
         btNomePesquisaPac.setText("PESQUISAR");
@@ -595,7 +595,7 @@ public class JanMedico extends javax.swing.JFrame {
             }
         });
 
-        btlRefreshPac.setBackground(new java.awt.Color(249, 100, 100));
+        btlRefreshPac.setBackground(new java.awt.Color(204, 0, 204));
         btlRefreshPac.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btlRefreshPac.setForeground(new java.awt.Color(255, 255, 255));
         btlRefreshPac.setText("🔄");
@@ -645,7 +645,7 @@ public class JanMedico extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btIniciarCons.setBackground(new java.awt.Color(249, 100, 100));
+        btIniciarCons.setBackground(new java.awt.Color(204, 0, 204));
         btIniciarCons.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         btIniciarCons.setForeground(new java.awt.Color(255, 255, 255));
         btIniciarCons.setText("INICIAR CONSULTA");
