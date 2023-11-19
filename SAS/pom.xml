@@ -25,4 +25,20 @@
         </dependency>
     </dependencies>
     <name>SAS</name>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.sas.view.MainSAS</mainClass> <!-- Substitua com o caminho correto da sua classe com o método main() -->
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
