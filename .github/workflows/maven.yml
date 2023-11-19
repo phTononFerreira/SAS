@@ -32,4 +32,4 @@ jobs:
     - name: Dockerize
       run: |
         docker build -t nome_da_imagem .
-        docker run nome_da_imagem
+        docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix nome_da_imagem
