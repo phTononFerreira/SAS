@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk18:latest
+FROM openjdk:18-jdk-slim
 
 WORKDIR /app
 
