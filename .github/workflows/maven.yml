@@ -28,3 +28,8 @@ jobs:
 
     - name: Run tests
       run: mvn test --file SAS/pom.xml
+
+    - name: Dockerize
+      run: |
+        docker build -t nome_da_imagem .
+        docker run nome_da_imagem
