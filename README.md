@@ -1,4 +1,6 @@
 <div align="center">
+   
+   <img width="150" src="https://img.shields.io/github/actions/workflow/status/phTononFerreira/SAS/maven.yml">
 
    <h1>
       <a href="">
