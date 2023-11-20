@@ -40,7 +40,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.sas.view.MainSAS</mainClass> <!-- Substitua com o caminho correto da sua classe com o método main() -->
+                            <mainClass>com.sas.view.MainSAS</mainClass> 
                         </manifest>
                     </archive>
                 </configuration>
