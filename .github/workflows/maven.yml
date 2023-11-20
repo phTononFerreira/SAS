@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  sas-job:
 
     runs-on: ubuntu-latest
 
