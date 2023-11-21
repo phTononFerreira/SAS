@@ -1,0 +1,31 @@
+name: Java Maven CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sas-job:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '18'
+
+    - name: Build with Maven
+      run: mvn -B package --file SAS/pom.xml
+
+    - name: Run tests
+      run: mvn test --file SAS/pom.xml
+
