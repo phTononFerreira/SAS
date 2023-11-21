@@ -1,7 +1,7 @@
 package com.sas.model;
-//teste mudabça
-public class Administrador extends Funcionario {
 
+public class Administrador extends Funcionario {
+//teste
     public Administrador() {
     }
 
